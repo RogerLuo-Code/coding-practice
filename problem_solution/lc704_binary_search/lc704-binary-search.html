@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../../asset/css/bootstrap-4.4.1.min.css">
+
+    <!-- Highlight CSS -->
+    <link rel="stylesheet" href="../../asset/css/highlight.github.min.css">
+
+    <!-- KaTex CSS, requires fonts folder under the same folder of CSS -->
+    <link href="../../asset/css/katex-0.11.1.min.css" rel="stylesheet">
+
+    <!-- KaTex Javascript -->
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="../../asset/js/katex-0.11.1.min.js"></script>
+
+    <!-- Katex auto-render Javascript, to automatically render math in text elements -->
+    <script defer src="../../asset/js/auto-render-0.11.1.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "\\[", right: "\\]", display: true },
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },  // add latex style $equation $
+                    { left: "\\(", right: "\\)", display: false }
+                ]
+            });
+        });
+    </script>
+
+    <title>Leetcode Problem 704 - Binary Search</title>
+</head>
+
+<body>
+
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10"> 
+                
+                    <h1>Leetcode Problem 704 - Binary Search</h1>
+
+                    <h2>Problem</h2>
+                    <p>Given a <strong>sorted</strong> (in <strong>ascending</strong> order) integer
+                        array nums of $n$ elements and a <mark>target</mark> value, write a function to search target
+                        in nums. If target exists, then return its index, otherwise return -1.</p>
+
+        
+
+                    <p>Cost function of Logistic regression: $$ J(\theta) = \frac{1}{m} \sum_{i=1}^m f^{(i)} +
+                        \frac{\lambda}{2m}
+                        \sum_{j=1}^n
+                        \theta_j^2 $$ where \( f^{(i)} = -y^{(i)} \log (h_\theta(x^{(i)})) - (1-y^{(i)}) \log(1 -
+                        h_\theta(x^{(i)}))
+                        \) and
+                        hypothese function $h_\theta(x^{(i)}) = g(z_\theta(x^{(i)})) = \frac{1}{1 +
+                        e^{-z_\theta(x^{(i)})}}$. </p>
+
+                    <div>
+                        <pre><code class="lang-java">
+    class Solution {
+        public int search(int[] nums, int target) {
+            int left = 0;
+            int right = nums.length - 1; // -1 for zero-based indexing
+            
+            while (left <= right){
+                int middle = left + (right -left)/2;
+                
+                if (nums[middle] < target){
+                    left = middle + 1;
+                }
+                else if (nums[middle] > target){
+                    right = middle - 1;
+                }
+                else{
+                    return middle;
+                }                
+            }
+            return -1;
+        }
+    }
+                        </code></pre>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            Built by <a href="https://github.com/oinkina">Oinkina</a> with
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a> 
+            using <a href="http://getbootstrap.com/">Bootstrap</a>, 
+            <a href="http://www.mathjax.org/">MathJax</a>,
+            <a href="http://disqus.com/">Disqus</a>,
+            <a href="https://github.com/unconed/MathBox.js">MathBox.js</a>,
+            <a href="http://highlightjs.org/">Highlight.js</a>, 
+            and <a href="http://ignorethecode.net/blog/2010/04/20/footnotes/">Footnotes.js</a>.
+        </div>
+    </div>
+</div>
+        
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    <script src="../../asset/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="../../asset/js/popper-1.16.0.min.js"></script>
+    <script src="../../asset/js/bootstrap-4.4.1.min.js"></script>
+
+    <!-- Highligh Javascript -->
+    <script src="../../asset/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>
