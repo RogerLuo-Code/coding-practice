@@ -1,15 +1,15 @@
 public class KthSmallest {
-    private KthSmallest(){}
+    private KthSmallest() { }
 
-    public static int kth(int[] a, int aLeft, int[] b, int bLeft, int k){
+    public static int kth(int[] a, int aLeft, int[] b, int bLeft, int k) {
         // aLeft and bLeft are pointers, pointing to the index whose left elments are excluded 
         // k, number of elements left to search for k-th smallest, reduced by half each iteration
         
         // Base case
-        if (aLeft >= a.length){
+        if (aLeft >= a.length) {
             return b[bLeft + k - 1];
         }
-        if (bLeft >= b.length){
+        if (bLeft >= b.length) {
             return a[aLeft + k - 1];
         } 
         if (k == 1){
@@ -33,7 +33,7 @@ public class KthSmallest {
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int[] a = {1, 3, 15};
         int[] b = {2, 4, 6, 8, 10, 12, 14, 16};
         int k = 10;
