@@ -1,5 +1,5 @@
 public class FirstOrLastOccurrence {
-    private FirstOrLastOccurence(){}
+    private FirstOrLastOccurence() { }
 
     public static int binarySearchFirst(int[] a, int target) {
         // find the first occurrence of an element
