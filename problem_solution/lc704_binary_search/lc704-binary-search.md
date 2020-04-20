@@ -47,8 +47,9 @@ class Solution {
 ```
 
 ## Complexity Analysis
-* Time complexity: $\mathcal{O}(\log N)$
-
-* Space complexity: $\mathcal{O}(1)$ since it only uses 3 indexing variables.
+* **Time complexity**: $\mathcal{O}(\log n)$ -- Logorithmic Time  
+Binary search is performed by dividing the existing array in half for each iteration. First $N$ becomes $N/2$, then it becomes $N/4$ and go on till the size become 1. The maximum number of iterations is $\log N$ (base 2).
+* **Space complexity**: $\mathcal{O}(1)$ -- Constant Space  
+Binary search just requires tracking of 3 indices for each iteration. Therefore it is $\mathcal{O}(1)$ or constant space.
 
 
