@@ -16,7 +16,7 @@
 ## Approaches
 Taking advantages of two properties of the matrix, we can use binary search here. Two approaches:
 1. Use binary search twice: search along the row and then along the column for the target row (if exists)
-2. The matrix $m \times n$ with [two above mentioned properties](#problem) can be considered as a sorted array of length $m \times n$. Binary search is good candidate for the sorted array.
+2. The matrix $m \times n$ with [two above mentioned properties](#problem) can be considered as a sorted array of length $m \times n$. Binary search is a good candidate for the sorted array.
 ![Matrix to Array](https://leetcode.com/problems/search-a-2d-matrix/Figures/74/matrix2.png)
 
 ### **Approach 1**: Binary search twice on the matrix  
@@ -89,10 +89,14 @@ class Solution {
 
 
 ### **Approach 2**: Binary search on a sorted array (transformed from the matrix)
-Based on [two above mentioned properties](#problem), the matrix $m \times n$ with can be considered as a sorted array of length $m \times n$. A classic binary search can be applied on this sorted array.
+Based on [two above mentioned properties](#problem), the matrix $m \times n$ can be considered as a sorted array of length $m \times n$. A classic binary search can be applied on this sorted array.
 
 Matrix to array: `matrix[r][c] -> a[r*m+c]`  
 Array to matrix: `a[x] -> matrix[x/m][x%m]`
+
+**Drawbacks**  
+* `m*n` may overflow for large m and n
+* `/` and `%` are expensive operations
 
 ```java
 class Solution {
