@@ -2,9 +2,9 @@ This repository holds my summary and solutions for Leetcode and related problems
 
 ## Binary Search
 * [LC704 - Binary Search](problem_solution/lc704_binary_search/lc704-binary-search.html)
-* LC74 - Search a 2D Matrix
-* ET01 - Closest Element to Target
-* LC34 - Find First and Last Position of Element in Sorted Array
+* [LC74 - Search a 2D Matrix](problem_solution/lc74_search_2d_matrix/lc74_search_2d_matrix.md)
+* [ET01 - Closest Element to Target](problem_solution/et01_closest_element_to_target/ClosestElement.java)
+* [LC34 - Find First and Last Position of Element in Sorted Array](problem_solution/lc34_find_first_last_position/lc34_find_first_last_position.md)
 * LC744 - Find Smallest Letter Greater Than Target
 * ET02 - K-th Smallest in Two Sorted Arrays
 * LC658 - Find K Closest Elements
