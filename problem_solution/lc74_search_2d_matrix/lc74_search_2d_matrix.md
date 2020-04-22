@@ -138,10 +138,10 @@ class Solution {
 ```
 
 ## Complexity Analysis
-* Time complexity: $\mathcal{O}(\log(mn))$ for both approaches.  
+* **Time complexity**: $\mathcal{O}(\log(mn))$ for both approaches.  
   - Approacheh 1: For the worse case, search along the row needs $\log m$ number of iterations  and search long the column needs $\log n$ number of iterations. So the total number is $\log mn  = \log m + \log n$ for the worse case. Therefore the time complexity is $\mathcal{O}(\log(mn))$.
   - Approach 2: It uses the classic binary searc on $m \times n$ elements. Therefore the time complexity is $\mathcal{O}(\log(mn))$. 
-* Space complexity: $\mathcal{O}(1)$.  
+* **Space complexity**: $\mathcal{O}(1)$.  
 Both approaches use several more variables than classic binary search but they still use $\mathcal{O}(1)$ space 
 
 |     | Time Complexity | Space Complexity  
