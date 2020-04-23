@@ -11,3 +11,7 @@ This repository holds my summary and solutions for Leetcode and related problems
 * LC4 - Median of Two Sorted Arays
 * LC702 - Search in a Sorted Array of Unknown Size
 * LC33 - Search in Rotated Sorted Array  
+
+
+## Common Mistakes
+* [Common mistakes](problem_solution/common_mistakes.md)
