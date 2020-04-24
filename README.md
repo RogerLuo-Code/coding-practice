@@ -5,7 +5,7 @@ This repository holds my summary and solutions for Leetcode and related problems
 * [LC74 - Search a 2D Matrix](problem_solution/lc74_search_2d_matrix/lc74_search_2d_matrix.md)
 * [ET01 - Closest Element to Target](problem_solution/et01_closest_element_to_target/ClosestElement.java)
 * [LC34 - Find First and Last Position of Element in Sorted Array](problem_solution/lc34_find_first_last_position/lc34_find_first_last_position.md)
-* LC744 - Find Smallest Letter Greater Than Target
+* [LC744 - Find Smallest Letter Greater Than Target](problem_solution/lc744_find_smallest_letter_greater_than_target/lc744_find_smallest_letter_greater_than_target.md)
 * ET02 - K-th Smallest in Two Sorted Arrays
 * LC658 - Find K Closest Elements
 * LC4 - Median of Two Sorted Arays
