@@ -51,8 +51,8 @@ class Solution {
 #### Complexity Analysis
 * **Time complexity**: $\mathcal{O}(n \log n)$  
 Collections.sort() uses merge sort and has $n \log n$ comparison for general case. The total number of executions (inclusing array copy and sort): $n + n \log n + k \log k$. Therefore, $\mathcal{O}(n + n \log n + k \log k) \rightarrow \mathcal{O} (n \log n)$ 
-* **Space complexity**: $\mathcal{O}(k)$
-The in-place sorting does not consume any extra space. However, generating a k length sublist will take some space.
+* **Space complexity**: $\mathcal{O}(n)$  
+The in-place sorting does not consume any extra space. However, converting array to list takes additional space. If the input is the list, it will be $\mathcal{O}(1)$ since `subList` returns a view, not a separate copy.
 
 ### Approach 2a: binary Search with two pointers
 #### Algorithm
@@ -143,7 +143,7 @@ class Solution {
 #### Complexity analysis of approach 2a
 * **Time complexity**: $\mathcal{O}(\log n + k)$.
 $\mathcal{O}(\log n)$ is for the time of binary search, while $\mathcal{O}(k)$ is for moving two pointers to find the range.
-* **Space complexity**: $\mathcal{O}(k)$, generating the required sublist.
+* **Space complexity**: $\mathcal{O}(k)$ for generating a list with k elements from an array.
 
 ### Approach 2b: binary search of a window
 A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (ninclusive) constains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
@@ -165,7 +165,7 @@ A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-el
 * When to end the while loop for binary search? `left == right`
 * For comparison, using absolute value `abs(x - A[mid]` or relative value with sign `x - A[mid]`?  
 If `A[mid] == A[mid + k]`, we don't know ehther to move left or right using absolute value (need to additional check). For example, tt fails at cases like `A = [1,1,2,2,2,2,2,3,3]`, `x = 3`, `k = 3`. 
-* For comparison, `A[mid]` vs. `A[mid + k]`, or `A[mid]` vs. `A[mid + k - 1]`?
+* For comparison, `A[mid]` vs. `A[mid + k]`, or `A[mid]` vs. `A[mid + k - 1]`?  
 Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[mid] ~ A[mid + k - 1] vs. A[mid + 1] ~ A[mid + k]`) to see which one is better.  
 
 ```java
@@ -209,14 +209,14 @@ class Solution {
 
 #### Complexity analysis of approach 2b
 * **Time complexity**: $\mathcal{O}(\log (n - k))$ for finding indices and $\mathcal{O}(\log (n - k) + k)$ for returning elements.
-Since the sarch space of bineary search of window is $n-k$ elements, therefore the complexity for finding indices is $\mathcal{O}(\log (n - k))$. However to return the elements, it involves k-times copy with additional $\mathcal{O}(\log k)$.
-* **Space complexity**: $\mathcal{O}(k)$
+Since the sarch space of bineary search of window is $n-k$ elements, therefore the complexity for finding indices is $\mathcal{O}(\log (n - k))$. However to return the elements, it involves k-times copy and therefore time complexity is changed to $\mathcal{O}(\log (n - k) + k)$.
+* **Space complexity**: $\mathcal{O}(k)$ for generating a list with k elements from an array.
 
 ## Complexity Analysis Summary
 
 |     | Time Complexity | Space Complexity  
 | ----- | ----- | ----- |  
-| Approach 1 | $\mathcal{O}(n\log n)$ | $\mathcal{O}(k)$ |  
+| Approach 1 | $\mathcal{O}(n\log n)$ | $\mathcal{O}(n)$ |  
 | Approach 2a | $\mathcal{O}(\log n + k)$ | $\mathcal{O}(k)$ | 
-| Approach 2b | $\mathcal{O}(\log n + k)$ for return elements | $\mathcal{O}(k)$ | 
-|             | $\mathcal{O}(\log n + \log k)$ for return indeices |         |
+| Approach 2b | $\mathcal{O}(\log (n-k) + k)$ for returning elements | $\mathcal{O}(k)$ | 
+|             | $\mathcal{O}(\log (n-k))$ for returning indeices |         |
