@@ -15,7 +15,7 @@
 Use binary search to find a target in a **sorted** array. The implementation is not difficult but easy to make small mistakes. Pay attention to details:  
 * How to choose while loop condition? `left <= right`, `left < right`, or `left < right -1`?  
 * How to update left and right indices? `left = middle` or `left = middle + 1`?  
-The while loop and index update are working together. The general rule is to not accidently remove the target in the search space. For this problem, if use `left = middle` together with `while(left <= rigtht)`, it will get stuck when target not exists or down to last 2 elments with target on the right. Easy to debug considering there is only 2 elements left.
+The while loop and index update are working together. The general rule is to not accidently remove the target in the search space. For this problem, if use `left = middle` together with `while(left <= rigtht)`, it will get stuck when target not exists or down to last 2 elments with target on the right. **Tip:** Easy to debug considering there is only 2 elements left.
 * index: for zero-based indexing, remember `array size - 1`.
 * For index calculation, use `left + (right - left)/2` instead of `(left + right)/2`, sinc the latter one may cause overflow for very arge array. 
 * Floatting point `==` comparison?
