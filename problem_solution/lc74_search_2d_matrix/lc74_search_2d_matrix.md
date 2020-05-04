@@ -5,18 +5,30 @@
 * Integers in each row are sorted from left to right.
 * The first integer of each row is greater than the last integer of the previous row.
 
-## Clarifications   
-* how is it sorted? row, column, any other properties
-* how big is the size?
-* data type
-* return value? boolean, linear index, or indices (row and column)
-* corner case: zero matrix or zero columns or rows
-* go through examples
+## Analysis
+* Clarifications
+    - sorted or unsorted?
+    - how is it sorted? row, column, any other properties
+    - how big is the size?
+    - data type
+    - return value? boolean, linear index, or indices (row and column)
+* Go through some examples
+* Solution
+    - Assumptions: regular 2d matrix with the same number of columns
+    - Input/output (signature): input 2D int array and int scalar; output boolean
+    - Corner cases: empty matrix or with zero columns or rows
+    - Algorithm: bineary search
+    - Time/space complexity
+* Coding
+* Test
+    - Test corner cases: zero matrix 
+    - Test general cases   
+
 
 ## Approaches
-Taking advantages of two properties of the matrix, we can use binary search here. Two approaches:
+Taking advantages of [two above mentioned properties] (#problem) of the matrix, we can use binary search here. Two approaches:
 1. Use binary search twice: search along the row and then along the column for the target row (if exists)
-2. The matrix $m \times n$ with [two above mentioned properties](#problem) can be considered as a sorted array of length $m \times n$. Binary search is a good candidate for the sorted array.
+2. The matrix $m \times n$ can be considered as a sorted array of length $m \times n$. Then apply binary search on a sorted array instead of a matrix.
 ![Matrix to Array](https://leetcode.com/problems/search-a-2d-matrix/Figures/74/matrix2.png)
 
 ### **Approach 1**: Binary search twice on the matrix  
@@ -119,6 +131,8 @@ class Solution {
         middle = left + (right - left)/2;
         
         // Convert linear index to matrix indices
+        // Use nCol below for matrix sorted by rows
+        // Otherwise use nRow for matrix sorted by columns
         iRow = middle/nCol;
         iCol = middle%nCol;
         
@@ -139,7 +153,7 @@ class Solution {
 
 ## Complexity Analysis
 * **Time complexity**: $\mathcal{O}(\log(mn))$ for both approaches.  
-  - Approacheh 1: For the worse case, search along the row needs $\log m$ number of iterations  and search long the column needs $\log n$ number of iterations. So the total number is $\log mn  = \log m + \log n$ for the worse case. Therefore the time complexity is $\mathcal{O}(\log(mn))$.
+  - Approacheh 1: For the worse case, search along the row needs $\log m$ number of iterations  and search along the column needs $\log n$ number of iterations. So the total number is $\log mn  = \log m + \log n$ for the worst case. Therefore the time complexity is $\mathcal{O}(\log(mn))$.
   - Approach 2: It uses the classic binary searc on $m \times n$ elements. Therefore the time complexity is $\mathcal{O}(\log(mn))$. 
 * **Space complexity**: $\mathcal{O}(1)$.  
 Both approaches use several more variables than classic binary search but they still use $\mathcal{O}(1)$ space 
