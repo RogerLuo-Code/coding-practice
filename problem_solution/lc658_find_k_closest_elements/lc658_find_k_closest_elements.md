@@ -73,10 +73,13 @@ class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<Integer>();
         
+        if (arr == null || arr.length == 0)
+          return result;
+
+        if (k == 0)
+          return result;
+
         int len = arr.length;
-        if (len == 0)
-            return result;
-        
         int idx; 
         if (x <= arr[0]){
             for (idx = 0; idx < k; idx ++)
