@@ -3,18 +3,34 @@
 ## Problem Description  
 [LeetCode Problem 658:](https://leetcode.com/problems/find-k-closest-elements/) Given a sorted array, two integers k and x, find the k closest elements to x in the array. The result should also be sorted in ascending order. If there is a tie, the smaller elements are always preferred.
 
-## Clarification and potential variations
-* Find k elements vs. kth element?
-* Sorted vs unsorted?
-* Duplecate elements (target, or any element in the result) handling? 
-* return data - sorted or uns0rted? ascending or descending? what about empty?
-* K <=0 and K > array length?
+## Analysis
+* Clarifications
+    - Find k elements vs. k-th element?
+    - Sorted vs unsorted?
+    - Duplecate elements (target, or any element in the result) handling? 
+    - return data - sorted or unsorted? ascending or descending? what about empty?
+* Go through some examples
+* Solution
+    - Assumptions: `k <= arr.length`
+    - Input/output (signature): 
+        - input: array and 2 int scalar 
+        - output: Array List (**why not array?**)
+    - Corner cases: 
+        - empty array
+        - K <=0 or K > array length?
+    - Algorithm
+    - Time/space complexity
+* Coding
+* Test
+    - Test corner cases: zero array, invdalid k, array with 0, 1, and 2 elements 
+    - Test general cases  
+
 
 ## Approaches  
 1. For **unsorted** array, sort the element first by absolute difference values to the target (e.g., [using Collection.sort](https://leetcode.com/problems/find-k-closest-elements/solution/)). The result is in the first k elements.   
 2. For **sorted** array, we can use binary search to speed up the search. There are two different ways to achive that:
    * Binary search with two pointers: Use binary search to find two closest elements around the target and move to left or right using two pointers to find k closet elements.   
-   * [Binary search of a window @lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (ninclusive) constains the k closest elements    
+   * [Binary search of a window @lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) constains the k closest elements    
 
 ### Approcach 1: using `Collection.sort()`
 #### Algorithm
@@ -74,50 +90,31 @@ class Solution {
         List<Integer> result = new ArrayList<Integer>();
         
         if (arr == null || arr.length == 0)
-          return result;
+            return result; // return array
+        
+        // Corner cases for k
+        // could return all elements if k > arr.length
+        if (k <= 0 || k > arr.length)
+            return result; // return new int[0]
 
-        if (k == 0)
-          return result;
+        // binary search first
+        // then find closest elements from target to left and to right
 
-        int len = arr.length;
-        int idx; 
-        if (x <= arr[0]){
-            for (idx = 0; idx < k; idx ++)
-                result.add(arr[idx]);
-            return result;
+        int idxLeft = binarySearch(arr, x); // index for the left half, left closet element or equal element
+        int idxRight = idxLeft + 1; // index for the right half
+
+        for (int count = 0; count < k; count++){
+            if (idxRight >= arr.length  || (idxLeft >= 0 && Math.abs(arr[idxLeft] - x) <= Math.abs(arr[idxRight] - x)))
+                idxLeft--;
+            else
+                idxRight++;
         }
-        else if (x >= arr[len - 1]){
-            for (idx = len-k; idx < len; idx++)
-                result.add(arr[idx]);
-            return result;
-        }
-        else{
-            // binary search first
-            // then find closest elements from target to left and to right
-            
-            int idxLeft = binarySearch(arr, x); // index for the left half
-            int idxRight = idxLeft + 1; // index for the right half
-            
-            for (int count = 0; count < k; count++){
-                if ((idxLeft >= 0) && (idxRight < len)){
-                    if (Math.abs(arr[idxLeft] - x) <= Math.abs(arr[idxRight] - x))
-                        idxLeft--;
-                    else
-                        idxRight++;
-                }
-                else if ((idxLeft < 0) && (idxRight < len))
-                    idxRight++;
-                else if ((idxLeft >= 0) && (idxRight >= len))
-                    idxLeft--;
-                else
-                    System.out.println("Unhandled case: k > array size?");
-            }
-            
-            for (idx = idxLeft+1; idx < idxRight; idx++)
-                result.add(arr[idx]);
-            
-            return result;
-        }
+
+        for (int idx = idxLeft+1; idx < idxRight; idx++)
+            result.add(arr[idx]);
+
+        return result;
+
         
     }
     
@@ -149,7 +146,7 @@ $\mathcal{O}(\log n)$ is for the time of binary search, while $\mathcal{O}(k)$ i
 * **Space complexity**: $\mathcal{O}(k)$ for generating a list with k elements from an array.
 
 ### Approach 2b: binary search of a window
-A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (ninclusive) constains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
+A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) constains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
 * case 1: x is outside of window and on the left (`x - A[mid] < A[mid + k] - x`), move window to left  
 -----x----A[mid]------------A[mid+k]--------
 * case 2: x is in the window and close to the left (`x - A[mid] < A[mid + k] - x`), move window to left again   
