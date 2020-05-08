@@ -2,7 +2,7 @@
 
 ## General
 * Forget to add `;` in the end
-* Forget to `return` results
+* Forget to `return` results or return wrong types
 
 ## Binary search
 * Forget `-1` in initialize the right index. It should be `right = array.length - 1` for zero-based indexing 
