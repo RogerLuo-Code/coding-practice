@@ -6,9 +6,11 @@
 ## Analysis
 * Clarifications
     - Find k elements vs. k-th element?
+    - Range of k? K <= 0 or k > arr.length?
     - Sorted vs unsorted?
     - Duplecate elements (target, or any element in the result) handling? 
-    - return data - sorted or unsorted? ascending or descending? what about empty?
+    - Deal with tie case?
+    - return data - sorted or unsorted? sorted in ascending order or based on distance from x? what about empty?
 * Go through some examples
 * Solution
     - Assumptions: `k <= arr.length`
@@ -34,7 +36,7 @@
 
 ### Approcach 1: using `Collection.sort()`
 #### Algorithm
-Sort the element first by absolute difference values to the target. The result is in the first k elements. Before return, sort the k elements so the result in ascending order as required. This approach can be used for both sorted and unsorted array. 
+Sort the element first by absolute difference values to the target. The result is in the first k elements. Before return, sort the k elements so the result is in ascending order as required. This approach can be used for both sorted and unsorted array. 
 
 * To use `Collections.sort`, the input array is copied to an array list. 
 * `Collection.sort` is used twice -- 1) sort the whole array based on distance from target and 2) sort the k elements in the result based on the value 
@@ -72,7 +74,7 @@ The in-place sorting does not consume any extra space. However, converting array
 
 ### Approach 2a: binary Search with two pointers
 #### Algorithm
-Since the original array is sorted, we can use we can use binary search to speed up the search with the following two steps:   
+Since the original array is sorted, we can use binary search to speed up the search with the following two steps:   
 1. Use binary search to find the index of the target or the index of a smaller element that is closest to target (if target not exists) 
 2. Move to left or right (inside-out) using two pointers to find k closet elements. *Alternative way*: shrink the range [index-k-1, index+k+1] where the desired k elements must in.   
 
@@ -157,29 +159,32 @@ A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-el
 ----A[mid]------------------A[mid+k]---x----
 
 **Important** points for implementation:
-* Intialize `right = arr.legnth - k`, so `mid + k` will not execeed `arr.length`
+* Intialize `right = arr.legnth - k`, so `right + k - 1` will not execeed `arr.length`
 * When updating left and right indices, using `mid + 1`, `mid`, or `mid - 1`?
-  - if `x - A[mid] > A[mid + k] - x`, it means `A[mid + k]` is closed to x and window `A[mid + 1] - A[mid + k]` is better than `A[mid] - A[mid + k - 1]`. Therefore update `left = mid + 1`
+  - if `x - A[mid] > A[mid + k] - x`, it means `A[mid + k]` is closed to x and the window `A[mid + 1] - A[mid + k]` is better than the window `A[mid] - A[mid + k - 1]`. Therefore update `left = mid + 1`
   - if `x - A[mid] < A[mid + k] - x`, it means `A[mid]` is closed to x and the current window `A[mid] - A[mid + k - 1]` or potentially some window on the left is better. Therefore update `right = mid`. Note taht it is NOT `mid - 1`, since from the comparison we only know the current window is better and don't know whether the window on the left is better.
   - if `x - A[mid] == A[mid + k] - x`, don't stop here and continue to check the left see whether there is a better window. In the problem description, it requires "If there is a tie, the smaller elements are always preferred." Therefore, update `right = mid`.
 * When to end the while loop for binary search? `left == right`
 * For comparison, using absolute value `abs(x - A[mid]` or relative value with sign `x - A[mid]`?  
-If `A[mid] == A[mid + k]`, we don't know ehther to move left or right using absolute value (need to additional check). For example, tt fails at cases like `A = [1,1,2,2,2,2,2,3,3]`, `x = 3`, `k = 3`. 
+If `A[mid] == A[mid + k]`, we don't know ehther to move left or right using absolute value (need additional check). Relative values can tell the direction based on the sign of the value. The absolute value comparison method fails at cases like `A = [1,1,2,2,2,2,2,3,3]`, `x = 3`, `k = 2`. 
 * For comparison, `A[mid]` vs. `A[mid + k]`, or `A[mid]` vs. `A[mid + k - 1]`?  
-Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[mid] ~ A[mid + k - 1] vs. A[mid + 1] ~ A[mid + k]`) to see which one is better.  
+Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[mid] ~ A[mid + k - 1] vs. A[mid + 1] ~ A[mid + k]) to see which one is better.  
 
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List<Integer> result = new ArrayList<Integer>();
+
+        // Input validation
+        if (arr == null || arr.length == 0)
+            return result;
+        
+        if (k <= 0 || k > arr.length)
+            return result;
         
         int left = 0; 
         int right = arr.length - k; // -k here with window consideration
         int mid; 
-        
-        if (right < 0) {
-            return result; // return empty list when array is empty
-        }
         
         while (left < right) {
             mid = left + (right - left)/2;
