@@ -116,8 +116,6 @@ class Solution {
             result.add(arr[idx]);
 
         return result;
-
-        
     }
     
     private int binarySearch(int[] arr, int target){
