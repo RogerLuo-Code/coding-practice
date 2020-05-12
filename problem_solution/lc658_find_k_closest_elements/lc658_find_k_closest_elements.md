@@ -44,6 +44,7 @@ Sort the element first by absolute difference values to the target. The result i
 * The [`subList` function of ArrayList](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/ArrayList.html#subList) return a view of the portion of original list. Any operations on the sub list is actully happening on the original list. 
 * The total number of executions (inclusing array copy and sort): $n + n \log n + k \log k$
 
+#### Implementation
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
@@ -86,6 +87,7 @@ Using recursion will be
 `k/2, (p1 - k/2, p2 + 1, k - k/2)`,   
 This method can achive $\mathcal{O}(\log n + \log k)$ time complexity on find indices but still need $\mathcal{O}(\log n + k)$ to return elements since generating k length list needs some time. 
 
+#### Implementation
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
@@ -146,6 +148,7 @@ $\mathcal{O}(\log n)$ is for the time of binary search, while $\mathcal{O}(k)$ i
 * **Space complexity**: $\mathcal{O}(k)$ for generating a list with k elements from an array.
 
 ### Approach 2b: binary search of a window
+#### Algorithm
 A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) constains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
 * case 1: x is outside of window and on the left (`x - A[mid] < A[mid + k] - x`), move window to left  
 -----x----A[mid]------------A[mid+k]--------
@@ -168,6 +171,7 @@ If `A[mid] == A[mid + k]`, we don't know ehther to move left or right using abso
 * For comparison, `A[mid]` vs. `A[mid + k]`, or `A[mid]` vs. `A[mid + k - 1]`?  
 Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[mid] ~ A[mid + k - 1] vs. A[mid + 1] ~ A[mid + k]) to see which one is better.  
 
+#### Implementation
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
