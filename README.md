@@ -23,7 +23,7 @@ This repository holds my summary and solutions for Leetcode and related problems
 * ET02 - K-th Smallest in Two Sorted Arrays
 * [LC658 - Find K Closest Elements](problem_solution/lc658_find_k_closest_elements/lc658_find_k_closest_elements.md)
 * LC4 - Median of Two Sorted Arays
-* LC702 - Search in a Sorted Array of Unknown Size
+* [LC702 - Search in a Sorted Array of Unknown Size](problem_solution/lc702_search_sorted_array_unknown_size/lc702_search_sorted_array_unknown_size.md)
 * LC33 - Search in Rotated Sorted Array  
 
 
