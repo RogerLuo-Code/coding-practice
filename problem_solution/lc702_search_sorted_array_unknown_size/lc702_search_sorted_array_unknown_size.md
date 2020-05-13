@@ -86,6 +86,26 @@ class Solution {
 There are two operations:
   - Find search boundaries: the boundary is $2^k < T \leq 2^{k+1}$ and needs $k = \log T$ steps to find the boundaries 
   - Binaries search within the boundaries: There are $2^{k+1} - 2^k = 2^k = 2^{\log T} = T$ elements. It takes $\log T$ steps for bineary search.  
-The total steps are $\log T + \log T$. Therefore, the time complexity is $\mathcal{O}(\log T)$
+The total steps are $\log T + \log T$. Therefore, the time complexity is $\mathcal{O}(\log T)$  
 
 * **Space complexity**: $\mathcal{O}(1)$, since it only update serveral variables in finding boundaries and performing bineary search. 
+
+**Alternative**: use `right *= 10` instead of `right *= 2`  
+- Find search boundaries: the boundary is $10^k < T \leq 10^{k+1}$ and needs $k = \log_{10} T$ steps to find the boundaries    
+- Binaries search within the boundaries: There are $10^{k+1} - 10^k = 9*10^k = 9*10^{\log_{10} T} = 9T$ elements. It takes $\log_2 9T$ steps for bineary search.  
+
+Comparison between `right *= 2` and `right *= 10`:  
+|   | Find Boundaries  |  Binary Search  
+|------|------|-----  
+| right *= 2 | $\log_2 T$ | $\log_2 T$  
+| right *= 10 | $\log_{10} T$ | $\log_2 9T$ 
+
+Which one is better? When $T > 23$, 10 times update is faster. However, even T is really big (e.g. $10^{30}$), the  difference between 10 times and 2 times is still small (69 steps less). So using either one in implementation is fine.
+
+10 times - 2 times   
+= $\log_{10} T + log_2 9T - \log_2T - \log_2 T$  
+= $\log_{10} T - \log_2T + log_2 9T - \log_2 T$  
+= $\log_{10} T - \log_2T + log_2 9$
+
+$\log_{10} 24 - \log_2 24 + log_2 9 = - 0.035$
+$\log_{10} 10^{30} - \log_2 10^{30} + log_2 9 = - 68.81$
