@@ -55,8 +55,10 @@ class Solution {
             left = right;
             if (right < Integer.MAX_VALUE/2)   
                 right *= 2;  // or right <<= 1, double right until finding the right boundary (i.e., right > target)
-            else
+            else{
                 right = Integer.MAX_VALUE;
+                break;
+            }
         }
         // left = right/2;
         
