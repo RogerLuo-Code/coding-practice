@@ -219,7 +219,7 @@ class Solution {
 Since the sarch space of bineary search of window is $n-k$ elements, therefore the complexity for finding indices is $\mathcal{O}(\log (n - k))$. However to return the elements, it involves k-times copy and therefore time complexity is changed to $\mathcal{O}(\log (n - k) + k)$.
 * **Space complexity**: $\mathcal{O}(k)$ for generating a list with k elements from an array.
 
-## Complexity Analysis Summary
+### Complexity Analysis Summary
 
 |     | Time Complexity | Space Complexity  
 | ----- | ----- | ----- |  
