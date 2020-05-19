@@ -27,7 +27,7 @@ You may assume no duplicate exists in the array. Your algorithm's runtime comple
   - Test general cases
 
 ## Approach
-Since the problem requires $\mathcal{O}(\log n)$ time complexity and the array is rotated sorted, we may use binary search somehow. 
+Since the problem requires $\mathcal{O}(\log n)$ time complexity and the array is rotated sorted, we can find ways to use binary search somehow. 
 1. Use bineary search twice: find the rotation index first and search in the left or right part splitted by rotation index. 
 2. Use binary search once with modified compare conditions
 
@@ -36,18 +36,18 @@ Since the problem requires $\mathcal{O}(\log n)$ time complexity and the array i
 #### Algorithm
 Use bineary search twice:   
 * Find a rotation index use binary search 
-    -  condition for rotation index is `nums[mid] > nums[mid + 1`.
-    -  move to the right if `nums[mid] >= nums[left]`. `nums[mid] >= nums[left]` means from left to mid is increase and no rotation index. 
-    - move to the left if `nums[mid] < nums[left]`. `nums[mid] >= nums[left]`means the rotation index is between left and mid.
+    -  condition for rotation index is `nums[mid] > nums[mid + 1]`.
+    -  move to the right if `nums[mid] >= nums[left]`. since the subarray from left to mid is sorted and no drop (no rotation index). 
+    - move to the left if `nums[mid] < nums[left]`, since there is a drop and the rotation index should be between left and mid.
 * Split array into two parts based on rotation index and identify which part includes the target  
-* Perform classic bineary search on the left or right part
+* Perform classic bineary search on the chose part
 
 ![rotated array](https://leetcode.com/problems/search-in-rotated-sorted-array/Figures/33/33_small_mid.png)
 
 #### Implementation
 Special considerations:
-* WHen doing compare `nums[mid] > nums[mid + 1]`, need to consider the corner case where `mid + 1` is out of bounds
-* In finding rotation index, `>=` is used (NOT `>`) in the comparison `nums[mid] >= nums[left]`. Using `>` will fail for the 2-element case where `mid == left`, `nums[mid] == nums[left]`, and  
+* When doing compare `nums[mid] > nums[mid + 1]`, need to consider the corner case where `mid + 1` is out of bounds
+* In finding rotation index, `>=` is used (NOT `>`) in the comparison `nums[mid] >= nums[left]`. Using `>` will fail for the case where `mid == left` and rotation index is on the right side of mid (e.g., array: [8, 9, 2, 3, 4], target: 9).  
 
 ```java
 // Algorithm: 
@@ -111,15 +111,19 @@ class Solution {
 #### Complexity Analysis 
 * **Time complexity**: $\mathcal{O}(\log n)$  
 The first binary search takes $\log n$ steps and the second binary search also takes $\log n$ steps. The total are $\log n + \log n$ and therefore the time complexity is $\mathcal{O}(\log n)$ .
-* **Space complexity**: $\mathcal{O}(1)$
+* **Space complexity**: $\mathcal{O}(1)$  
 It only use limit varaitions to save indices and therefore the space complexity is $\mathcal{O}(1)$.
 
 ### Approach 2
 
 #### Algorithm
-Use binary search idea to reduce search space by half based on the properterty of rotated sorted array (some subarray is sorted). For each search, the array could be seprated by rotated subarray and non-rotated subarrray. Move to left or right based on whether the target is in the non-rotated subarray.
+Use binary search idea to reduce search space by half based on the properterty of rotated sorted array (some subarray is sorted). For each search, the array could be seprated by rotated subarray and non-rotated subarrray. Move to left or right based on whether the target is in the non-rotated subarray. There are two situations to consider:
+* The subarray from left to mid is non-rotated (i.e., sorted). It is easy to check whether the target is in the non-rotated subarray.
+* The subarray from left to mid is rotated. We can easily check whether the target is on the other subarray from mid to right since it is non-rotated. 
 
 #### Implementation
+Note that when doing `nums[mid] >= nums[left]`, it needs to use `>=` instead of `>`. Otherwise, it will fail on the simple 2-element case (array: [5, 4], target: 4).
+
 ```java
 class Solution {
     public int search(int[] nums, int target) {
