@@ -19,8 +19,8 @@
   - Time/space complexity
 * Coding
 * Test case
-  - test corner cases: zero array, target not exist, array with 0, 1, and 2 elements
-  - test general cases
+  - Test corner cases: zero array, target not exist, array with 0, 1, and 2 elements
+  - Test general cases
 
 ## Approaches
 For unsorted array, we can do a linear scan to find the positions. 
@@ -111,9 +111,8 @@ class Solution {
             return positions;
 
         positions[0] = findFirst(nums, target);
-        if (positions[0] == -1)
-            return positions;
-        positions[1] = findLast(nums, target, positions[0]);
+        if (positions[0] >= 0)
+            positions[1] = findLast(nums, target, positions[0]);
         
         return positions;
     }
@@ -185,5 +184,5 @@ class Solution {
 ## Complexity Analysis
 * **Time complexity**: $\mathcal{O}(\log n)$  
 The solution use binary search twice and at most have $2 \lceil \log n \rceil$ iterations. Therefore the the time complexity is $\mathcal{O}(\log n)$. 
-* **Space complexity**: $\mathcal{O}(1)$
-Similar to classical binary search, it uses several variables for indices. Therefore it uses $\mathcal{O}(1)$ space. 
+* **Space complexity**: $\mathcal{O}(1)$  
+Similar to the classical binary search, it uses several variables for indices. Therefore it uses $\mathcal{O}(1)$ space. 
