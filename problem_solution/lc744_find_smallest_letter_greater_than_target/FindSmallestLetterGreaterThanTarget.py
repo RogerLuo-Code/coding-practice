@@ -1,7 +1,7 @@
 class FindSmallestLetterGreaterThanTarget:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
         if not letters:
-            return ' '
+            return ''
         
         # Wrap around case
         if target >= letters[-1]:

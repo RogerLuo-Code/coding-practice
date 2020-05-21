@@ -18,7 +18,7 @@
 public class FindSmallestLetterGreaterThanTarget {
     public char nextGreatestLetter(char[] letters, char target) {
         if (letters == null || letters.length == 0)
-            return ' ';
+            return '\0';
         
         int left = 0;
         int right = letters.length - 1;

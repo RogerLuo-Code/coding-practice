@@ -37,7 +37,7 @@ Letters also wrap around. For example, if the target is target = 'z' and letters
 class Solution {
     public char nextGreatestLetter(char[] letters, char target) {
         if (letters == null || letters.length == 0)
-            return ' ';
+            return '\0';
 
         int left = 0;
         int right = letters.length - 1; // -1 for zero-based indexing 
