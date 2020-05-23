@@ -25,7 +25,7 @@ This repository holds my summary and solutions for Leetcode and related problems
 * LC4 - Median of Two Sorted Arays
 * [LC702 - Search in a Sorted Array of Unknown Size](problem_solution/lc702_search_sorted_array_unknown_size/lc702_search_sorted_array_unknown_size.md)
 * [LC33 - Search in Rotated Sorted Array](problem_solution/lc33_search_rotated_sorted_array/lc33_search_rotated_sorted_array.md)  
-* LC81 - Search in Rotated Sorted Array II
+* [LC81 - Search in Rotated Sorted Array II](problem_solution/lc81_search_rotated_sorted_array_II/lc81_search_rotated_sorted_array_II.md)
 
 
 ## Common Mistakes
