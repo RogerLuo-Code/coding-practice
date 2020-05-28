@@ -114,7 +114,7 @@ The first binary search takes $\log n$ steps and the second binary search also t
 * **Space complexity**: $\mathcal{O}(1)$  
 It only use limit varaitions to save indices and therefore the space complexity is $\mathcal{O}(1)$.
 
-### Approach 2
+### Approach 2 - Use binary search once
 
 #### Algorithm
 Use binary search idea to reduce search space by half based on the properterty of rotated sorted array (some subarray is sorted). For each search, the array could be seprated by rotated subarray and non-rotated subarrray. Move to left or right based on whether the target is in the non-rotated subarray. There are two situations to consider:
