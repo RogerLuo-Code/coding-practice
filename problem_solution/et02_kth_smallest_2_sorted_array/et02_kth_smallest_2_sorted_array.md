@@ -83,9 +83,7 @@ The **base cases** for recursion (when to just out of recursions):
 ### Approach 2: binary search with iteration
 #### Implementation
 ```java
- public int findKSmallest(int[] nums1, int[] nums2, int k) {
-        int result = new int[2];
-        
+ public int findKSmallest(int[] nums1, int[] nums2, int k) {        
         int n1 = nums1.length;
         int n2 = nums2.length;
         int i = 0; // starting index of nums1 array
