@@ -3,8 +3,8 @@ class FindKClosest:
         # Input check
         if not arr:
             return [] 
-        if k <=0 or k > len(arr):
-            return [];
+        if k <= 0 or k > len(arr):
+            return []
         
         left, right = 0, len(arr) - k
         while left < right:
@@ -13,4 +13,4 @@ class FindKClosest:
                 left = mid + 1
             else:
                 right = mid
-        return arr[left:left+k]
+        return arr[left:left + k]
