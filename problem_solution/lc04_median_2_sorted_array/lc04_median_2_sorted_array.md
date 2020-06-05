@@ -28,10 +28,11 @@ Based on definiton and properties of median, we can come up with two different a
 
 ### Approach 1
 **Median definition**: the median is the "middle" of a sorted list of numbers. $\text{median}(x) = (x \lfloor (n+1)/2 \rfloor + x \lceil (n+1)/2 \rceil)/2$, where $x$ is an ordered list of $n$ numbers, and $\lfloor \cdot \rfloor$ and $\lceil \cdot \rceil$ denotes the [floor and ceiling functions](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions), respectively.
-* When total number of elments, n, is odd, the median is (n + 1)/2 th element. 
-* When n is even, the median is the average of (n + 1)/2, (n + 1)/2 + 1 elements 
+* If n is odd, the median is (n + 1)/2 th element. 
+* If n is even, the median is the average of (n + 1)/2 th and (n + 1)/2 + 1 th elements 
 
-#### Algorithm
+Based on the median definition, we can convert the problem to find (m + n + 1)/2 th smallest elements, where m and n are total number of array 1 and array 2, respectively. The algorithm of finding k-th smallest element is explained [here](../et02_kth_smallest_2_sorted_array/et02_kth_smallest_2_sorted_array.md).
+
 
 #### Implementation
 ```java
@@ -82,8 +83,9 @@ class Solution {
 ```
 
 #### Complexity Analysis 
-* **Time complexity**: $\mathcal{O}()$
-* **Space complexity**: $\mathcal{O}()$
+* **Time complexity**: $\mathcal{O}(\log (m+n))$  
+Since binary search is used to find (m + n + 1)/2 th smallest element, the time complexity is $\mathcal{O}(\log ((m + n + 1)/2)) \rightarrow \mathcal{O}(\log (m+n))$
+* **Space complexity**: $\mathcal{O}(1)$ as using several internal variables.
 
 ### Approach 2
 **Median definition**: the median is the value separating the higher half from the lower half. 
@@ -91,12 +93,58 @@ class Solution {
 **references**:  
 * [Good explanation video](https://www.youtube.com/watch?v=LPFhl65R7ww&t=1013s)
 * [Example solution](https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java)
+* [LeetCode solution](https://leetcode.com/articles/median-of-two-sorted-arrays/)
+
+Based on the the use of median for dividing, we can find partition position at two arrays and obtain the median value:
+1. Cut A into two parts at a random position i:
+```
+          left_A             |        right_A
+    A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]
+```
+Since A has m elements, so there are m + 1 cuttings (i = 0 ~ m). left_A length is i and right_A length is m - i. Note when `i = 0`, left_A is empty, and when `i = m`, right_A is empty.  
+
+2. Similarly cut B into two parts at a random position j:
+```
+          left_B             |        right_B
+    B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
+```
+Since B has n elements, left_B length is j and right_B length is m - j. Note when `j = 0`, left_B is empty, and when `j = n`, right_B is empty.
+
+3. Put left_A and left_B into one set, left_part, and put right_A and right_B into another set, right_part:
+```
+          left_part          |        right_part
+    A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]
+    B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
+```
+If we can ensure:
+* `len(left_part) == len(right_part)` for even number of (m+n), or `len(left_part) == len(right_part) + 1` for odd number of (m+n)   
+`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes.ß   
+* `max(left_part) <= min(right_part)`
+Just check `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`. Since A and B are sorted, `A[i - 1] <= A[i]` and `B[j - 1] <= B[j]` and therefore no need to compare.   
+
+Then the median can compute from the middle 4 elements (A[i-1], B[j-1], A[i], and B[j]). 
+* `max(A[i - 1], B[j - 1])`, when m + n is odd
+* `(max(A[i -1], B[j - 1]) + min(A[i], B[j]))/2`, when m + n is even
 
 
-#### Algorithm
- * Take minimum size of two array. Possible number of partitions are from 0 to m in m size array.
- * Try every cut in binary search way. When you cut first array at i then you cut second array at (m + n + 1)/2 - i
- * Now try to find the i where a[i-1] <= b[j] and b[j-1] <= a[i]. So this i is partition around which lies the median.
+The **algorithm** is simpled as:
+```
+Searching i in [0, m] to find an object i such that:
+    B[j - 1] <= A[i] and A[i - 1] <= B[j], where j = (m + n + 1)/2 - i
+```
+We can use binary search method to search i (j is changed acoordingly). There are 3 situtions to consider:
+* `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`  
+The object is found and stop searching.
+*  `B[j - 1] > A[i]`  
+Means A[i] is too small. We need to adjust i to get `B[j - 1] <= A[i]`.
+    - Can we increase i?  
+    Yes, Because when i is increased (A[i] is increased), j will be decreased (B[j - 1] is decreased). So the search range is changed to [i + 1, right].
+    - Can we decrease i?  
+    No! Because wehn i is decreased (A[i] is decreased further), j will be increased (B[j - 1] is increased further). Therefore, `B[j - 1] <= A[i]` will be never satisfied.  
+* `A[i - 1] > B[j]`  
+Means A[i - 1] is too big. And we must decrease i to get `A[i - 1] <= B[j]`. SO the search range is changed to [left, i - 1].
+
+**Edge Case**: `A[i - 1]` doesn't exist when `i == 0`; `A[i]` doesn't exist when `i == m`; `A[j - 1]` doesn't exist when `j == 0`, `A[j]` doesn't exist when `j == n`. We can ignore non-exist elements in the calculation and comparison.
 
 #### Implementation
 ```java
@@ -147,11 +195,12 @@ class Solution {
 ```
 
 #### Complexity Analysis 
-* **Time complexity**: $\mathcal{O}(\log \min(m, n))$
-* **Space complexity**: $\mathcal{O}(1)$
+* **Time complexity**: $\mathcal{O}(\log (\min(m, n)))$  
+Since we only binary search the array with smaller the size, the time complexity is $\mathcal{O}(\log (\min(m, n)))$ 
+* **Space complexity**: $\mathcal{O}(1)$ as using several internal variables. 
 
 ### Complexity Summary
 |     | Time Complexity | Space Complexity  
 | ----- | ----- | ----- |  
-| Approach 1 | $\mathcal{O}(n\log n)$ | $\mathcal{O}(n)$ |  
-| Approach 2 | $\mathcal{O}(\log \min(m, n))$ | $\mathcal{O}(1)$ | 
+| Approach 1 | $\mathcal{O}(\log (m + n))$ | $\mathcal{O}(1)$ |  
+| Approach 2 | $\mathcal{O}(\log (\min(m, n)))$ | $\mathcal{O}(1)$ | 
