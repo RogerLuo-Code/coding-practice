@@ -42,12 +42,15 @@ public class KthSmallest {
         int aVal;
         int bVal;
 
-        while (k > 1) {
+        while (k >= 1) {
             if (aLeft >= a.length)
                 return b[bLeft + k - 1];
             if (bLeft >= b.length)
                 return a[aLeft + k - 1];
-            
+            if (k == 1)
+                return Math.min(a[aLeft], b[bLeft]);
+
+
             aMid = aLeft + k / 2 - 1;
             bMid = bLeft + k / 2 - 1;
         
@@ -61,10 +64,6 @@ public class KthSmallest {
 
             k = k - k / 2; // reduce searching space
         }
-
-        // k == 1 
-        return Math.min(a[aLeft], b[bLeft]);
-
  }
 
     public static void main(String[] args) {

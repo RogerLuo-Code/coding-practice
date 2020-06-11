@@ -91,8 +91,8 @@ Since binary search is used to find (m + n + 1)/2 th smallest element, the time 
 **Median definition**: the median is the value separating the higher half from the lower half. 
 
 **references**:  
-* [Good explanation video](https://www.youtube.com/watch?v=LPFhl65R7ww&t=1013s)
-* [Example solution](https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java)
+* [Good explanation video from Tushar Roy](https://www.youtube.com/watch?v=LPFhl65R7ww&t=1013s)
+* [Example solution from Tushar Roy](https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java)
 * [LeetCode solution](https://leetcode.com/articles/median-of-two-sorted-arrays/)
 
 Based on the the use of median for dividing, we can find partition position at two arrays and obtain the median value:
