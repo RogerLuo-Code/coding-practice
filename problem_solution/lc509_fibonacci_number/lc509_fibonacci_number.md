@@ -98,9 +98,10 @@ Fib(0), Fib(1), ..., Fib(N) all computed once and therefore the complexity is $\
 * **Space complexity**: $\mathcal{O}(n)$  
 Need space to account for the **max** size of the stack in memory. The stack keeps track of the recursive function calls.
 
-### Approach 2 - Iterative method
+### Approach 2a - Iterative method
 
 #### Algorithm
+Store two previous Fibonacci numbers and update them as iterating to N. Using equation: fib(N) = fib(N - 1) + fib(N - 2)
 
 #### Implementation
 ```java
@@ -128,23 +129,28 @@ Each number will be visited at least once. The time it takes to do this is direc
 * **Space complexity**: $\mathcal{O}(1)$  
 This requires 1 unit of Space for the integer $n$ and 3 units of Space to store the computed values for every loop iteration. The amount of space doesn't change so this is constant Space complexity.
 
-### Approach 3 - Closed-form solution
+### Approach 2b - Iterative method with improvement
 
 #### Algorithm
+Based on [Dijkstar's notes](http://www.cs.utexas.edu/users/EWD/ewd06xx/EWD654.PDF), there is [a quicker method](http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html) to compute Fibonacci number $F(2n-1) = F(n-1)^2 + F(n)^2$ and $F(2n) = (2 F(n-1) + F(n) ) F(n)$
 
 #### Implementation
 ```java
 ```
 
 #### Complexity Analysis 
-* **Time complexity**: $\mathcal{O}(1)$  
-Constant time complexity since no loops or recursion and the time is simply based on the calcuation using Binet's formula.
-* **Space complexity**: $\mathcal{O}(1)$ 
-The space used is the sapce needed for store the ratio value.  
+* **Time complexity**: $\mathcal{O}(\log n)$  
+For Fib(N), it needs to compute $2 \log n$ values. For example, F(1000) needs F(500) and F(499); F(500) and F(499) needs F(250) and F(249); F(250) and F(249) needs F(124) and F(125); ...
 
-### Approach 4 - Matrix exponential
+* **Space complexity**: $\mathcal{O}(1)$  
+
+
+### Approach 3a - Matrix exponentiation recursive
 
 #### Algorithm
+The nth Fibonacci number can be obtained from the following matrix equation:
+$\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}^n = \begin{bmatrix} f_{n+1} & f_n \\ f_n & f_{n-1} \end{bmatrix}$. 
+
 
 #### Implementation
 ```java
@@ -155,10 +161,59 @@ The space used is the sapce needed for store the ratio value.
 For matrix power calculation, it can achieve time complexity, $\mathcal{O}(\log{n})$, by using [Square and Multiply algorithm](https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Computational_complexity). Since the matrix power $n$ can be represented by a binary number with at most $\log{n}$ bits (i.e., $\log{n}$ steps in Square and Multiply algorithm). 
 
 * **Space complexity**: $\mathcal{O}(\log n)$  
-The size of the stack in memory is proportionate to the function calls to matrix power.
+The size of the stack in memory is proportionate to the function calls to matrix power plus the memory used to compute the matrices which takes up constant space.
+
+### Approach 3b - Matrix exponentiation iterative
+
+#### Algorithm
+The nth Fibonacci number can be obtained from the following matrix equation:
+$\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}^n = \begin{bmatrix} f_{n+1} & f_n \\ f_n & f_{n-1} \end{bmatrix}$. 
+
+
+#### Implementation
+```java
+```
+
+#### Complexity Analysis 
+* **Time complexity**: $\mathcal{O}(\log n)$  
+For matrix power calculation, it can achieve time complexity, $\mathcal{O}(\log{n})$, by using [Square and Multiply algorithm](https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Computational_complexity). Since the matrix power $n$ can be represented by a binary number with at most $\log{n}$ bits (i.e., $\log{n}$ steps in Square and Multiply algorithm). 
+
+* **Space complexity**: $\mathcal{O}(1)$  
+
+
+### Approach 4 - Closed-form solution
+
+#### Algorithm
+Use the golden ratio formula to calculate the Nth Fibonacci number: $Fib(N) = \frac{\varphi^n - \psi^n}{\varphi - \psi} = \frac{\varphi^n - \psi^n}{\sqrt{5}}$
+where $\varphi = \frac{1+\sqrt{5}}{2} \approx 1.6180339887$ is the golden ratio and $\psi = \frac{1 - \sqrt{5}}{2} = 1 - \varphi = -\frac{1}{\varphi} \approx -0.6180339887$. 
+The limit of ratio of consecutive Fibonacci numbers converges to the golden ration $\varphi$:
+$\lim_{n \rightarrow \infty} \frac{F_{n+1}}{F_n} = \varphi$.
+
+For implementation, we use $Fib(N) = \frac{\varphi^n}{\sqrt{5}}$, since $\psi^n = (-0.62)^n$ becomes very small when n is very large. We just need to make sure when N = 0, 1, and 2, the equation returns the right value.
+#### Implementation
+```java
+public int fib(int N) {
+    double goldenRatio = (1 + Math.sqrt(5)) / 2;
+    
+    // return (int) Math.round((Math.pow(goldenRatio, N) + Math.pow(-1*goldenRatio, -1*N))/Math.sqrt(5));
+    return (int)Math.round(Math.pow(goldenRatio, N)/ Math.sqrt(5));
+}
+```
+
+#### Complexity Analysis 
+* **Time complexity**: $\mathcal{O}(\log n)$  
+The time complexity of floating-point exponentiation (Math.pow) function is $\mathcal{O}(\log n)$ 
+* **Space complexity**: $\mathcal{O}(1)$ 
+The space used is the sapce needed for store the ratio value.  
+
+
 
 ### Complexity Summary
 |     | Time Complexity | Space Complexity  
 | ----- | ----- | ----- |  
-| Approach 1 | $\mathcal{O}(n\log n)$ | $\mathcal{O}(n)$ |  
-| Approach 2 | $\mathcal{O}(\log n + k)$ | $\mathcal{O}(k)$ | 
+| Approach 1a | $\mathcal{O}(2^n)$  | $\mathcal{O}(n)$ |  
+| Approach 1b | $\mathcal{O}(n)$    | $\mathcal{O}(n)$ | 
+| Approach 2a | $\mathcal{O}(n)$    | $\mathcal{O}(1)$ |  
+| Approach 2b | $\mathcal{O}(\log n)$ | $\mathcal{O}(1)$ | 
+| Approach 3a | $\mathcal{O}(\log n)$ | $\mathcal{O}(\log n)$ |  
+| Approach 4 | $\mathcal{O}(\log n)$ | $\mathcal{O}(1)$ | 
