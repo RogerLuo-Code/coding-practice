@@ -195,7 +195,6 @@ For implementation, we use $Fib(N) = \frac{\varphi^n}{\sqrt{5}}$, since $\psi^n 
 public int fib(int N) {
     double goldenRatio = (1 + Math.sqrt(5)) / 2;
     
-    // return (int) Math.round((Math.pow(goldenRatio, N) + Math.pow(-1*goldenRatio, -1*N))/Math.sqrt(5));
     return (int)Math.round(Math.pow(goldenRatio, N)/ Math.sqrt(5));
 }
 ```
