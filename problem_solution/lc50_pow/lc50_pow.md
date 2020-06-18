@@ -54,7 +54,7 @@ Refer to [this solution](https://leetcode.com/problems/powx-n/discuss/19546/Shor
 
 #### Implementation
 Note the difference between `myPow(x, n/2)*myPow(x, n/2)` and `halfResult = myPow(x, n/2) halfResult*halfResult` on time complexity. 
-* `myPow(x, n/2)*myPow(x, n/2)` will call myPow twice for each recursion. The total functions calls grow exponentially: $1 + 2 + 2^2 + \cdots + 2^{\log n} = (1+n)(n/2)$. The time complexity is $\mathcal{O}(n^2)$ and the space complexity is $\mathcal{O}(\log n)$ for recursive function calls.
+* `myPow(x, n/2)*myPow(x, n/2)` will call myPow twice for each recursion. The total functions calls grow exponentially: $1 + 2 + 2^2 + \cdots + 2^{\log n} = 2^{\log n + 1} - 1$ (For k-bit binary, 0~k bits are 1, $2^0 + 2^1 + \cdots + 2^k = 2^{k+1} - 1$). The time complexity is $\mathcal{O}(n)$ and the space complexity is $\mathcal{O}(\log n)$ for recursive function calls.
 ```
             2^n                     1
         /         \
