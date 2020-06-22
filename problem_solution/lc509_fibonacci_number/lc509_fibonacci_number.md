@@ -85,8 +85,7 @@ class Solution {
         else {
             cache[N] = memoize(N - 1) + memoize(N - 2);
             return cache[N];
-        }
-            
+        }      
     }
 }
 ```

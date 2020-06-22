@@ -1,4 +1,72 @@
 public class Fibonacci {
+    private Integer[] cache;
+    
+    public int fibRecursive(int N) {
+        if (N <= 1)
+            return N;
+        else {
+            cache = new Integer[N + 1];
+            cache[0] = 0;
+            cache[1] = 1;
+            return memoize(N);
+        }    
+    }
+    
+    private int memoize(int N) {
+        if (cache[N] != null)
+            return cache[N];
+        else {
+            cache[N] = memoize(N - 1) + memoize(N - 2);
+            return cache[N];
+        }      
+    }
+
+    public int fibRecursiveFast(int N) {
+        if (N <= 1)
+            return N;
+        else {
+            // int nCache = (int)(Math.log(N) / Math.log(2));
+            cache = new Integer[N + 1];
+            cache[0] = 0;
+            cache[1] = 1;
+            return memoizeFast(N);
+        }   
+    }
+    
+    private int memoizeFast(int N) {
+        if (cache[N] != null)
+            return cache[N];
+        else {
+            if (N % 2 == 0) {
+                int m = N/2;
+                cache[N] = (2*memoizeFast(m - 1) + memoizeFast(m))*memoizeFast(m);
+                return cache[N];
+            }
+            else {
+                int m = (N + 1)/2;
+                cache[N] = memoizeFast(m - 1)*memoizeFast(m - 1) + memoizeFast(m)*memoizeFast(m);
+                return cache[N];
+            }
+        }
+    }
+    
+    public int fibIterative(int N) {
+        if (N <= 1)
+            return N;
+        
+        int fibPrev1 = 1;
+        int fibPrev2 = 0;
+        int fibCurr = 0; 
+        
+        for (int k = 2; k <= N; k++) {
+            fibCurr = fibPrev1 + fibPrev2;
+            fibPrev2 = fibPrev1;
+            fibPrev1 = fibCurr;
+        }
+        
+        return fibCurr;
+    }
+
     public int fibMatrix(int N) {
         // Using matrix exponentiation
         // [[1, 1], [1, 0]]^n = [[fib(n+1), fib(n)], [fib(n), fib(n-1)]]
