@@ -14,14 +14,14 @@
     - return value? boolean, linear index, or indices (row and column)
 * Go through some examples
 * Solution
-    - Assumptions: regular 2d matrix with the same number of columns
+    - Assumptions: regular 2d matrix with the same number of columns; when doing m*n, no overflow.
     - Input/output (signature): input 2D int array and int scalar; output boolean
     - Corner cases: empty matrix or with zero columns or rows
     - Algorithm: bineary search
     - Time/space complexity
 * Coding
 * Test
-    - Test corner cases: zero matrix 
+    - Test corner cases: empty matrix 
     - Test general cases   
 
 
@@ -39,37 +39,32 @@ Binary search along the row and then along the column for the target row.
 ```java
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix.length == 0 || matrix[0].length == 0)
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0)
             return false;
         
         int nRow = matrix.length;
         int nCol = matrix[0].length; 
-        
-        // Initialization of row and column target
-        int targetRow = -1;
-        int targetCol = -1;
-        
-        
+         
         int tr = 0;   // top row 
         int br = nRow - 1; // bottom row
-        int mr; // middle row between top and bottom rows
+        int mr = -1; // middle row between top and bottom rows
+        
         // Binary search along the row
         while (tr <= br){
             mr = tr + (br - tr)/2;
-            if (target < matrix[mr][0]) {
+            if (target < matrix[mr][0]){
                 br = mr - 1; 
             }
-            else if (target > matrix[mr][nCol-1]) {
+            else if (target > matrix[mr][nCol-1]){
                 tr = mr + 1;
             }
             else
             {
-                targetRow = mr;
                 break;
             }
         }
         
-        if (targetRow < 0)
+        if (tr > br || mr < 0)
             return false;
         
         int lc = 0; // left column
@@ -78,22 +73,18 @@ class Solution {
         // Binary search along the column
         while (lc <= rc){
             mc = lc + (rc - lc)/2;
-            if (target < matrix[targetRow][mc]) {
+            if (target < matrix[mr][mc]){
                 rc = mc - 1;
             }
-            else if(target > matrix[targetRow][mc]) {
+            else if(target > matrix[mr][mc]){
                 lc = mc + 1;     
             }
             else{
-                targetCol = mc;
-                break;
+                return true;
             }       
         }
         
-        if (targetRow >= 0 && targetCol >= 0)
-            return true;
-        else
-            return false;
+        return false;
         
     }
 }
