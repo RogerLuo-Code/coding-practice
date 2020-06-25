@@ -9,13 +9,13 @@ You may assume no duplicate exists in the array. Your algorithm's runtime comple
 * Clarification:
   - sorted vs. unsorted?
   - ascending order vs. descending order?
-  - rotated mean?
+  - what does rotated or pivot point mean?
   - duplicates?
   - data type?
   - time complexity requirement
 * Go through examples
 * Solution:
-  - Assumption:
+  - Assumption: no duplicates
   - Input/Output:
     Input: int array, int scalar
     Output: int scalar
@@ -27,7 +27,7 @@ You may assume no duplicate exists in the array. Your algorithm's runtime comple
   - Test general cases
 
 ## Approach
-Since the problem requires $\mathcal{O}(\log n)$ time complexity and the array is rotated sorted, we can find ways to use binary search somehow. 
+Since the problem requires $\mathcal{O}(\log n)$ time complexity and the array is rotated sorted (separate into two sorted array), we can find ways to use binary search somehow. 
 1. Use bineary search twice: find the rotation index first and search in the left or right part splitted by rotation index. 
 2. Use binary search once with modified compare conditions
 
@@ -119,10 +119,10 @@ It only use limit varaitions to save indices and therefore the space complexity 
 #### Algorithm
 Use binary search idea to reduce search space by half based on the properterty of rotated sorted array (some subarray is sorted). For each search, the array could be seprated by rotated subarray and non-rotated subarrray. Move to left or right based on whether the target is in the non-rotated subarray. There are two situations to consider:
 * The subarray from left to mid is non-rotated (i.e., sorted). It is easy to check whether the target is in the non-rotated subarray.
-* The subarray from left to mid is rotated. We can easily check whether the target is on the other subarray from mid to right since it is non-rotated. 
+* The subarray from left to mid is rotated (i.e., unsorted). We can easily check whether the target is on the other subarray from mid to right since it is non-rotated. 
 
 #### Implementation
-Note that when doing `nums[mid] >= nums[left]`, it needs to use `>=` instead of `>`. Otherwise, it will fail on the simple 2-element case (array: [5, 4], target: 4).
+Note that when doing `nums[mid] >= nums[left]`, it needs to use `>=` instead of `>` to handle cases where `mid == left`. Otherwise, it will fail on the simple 2-element case (array: [5, 4], target: 4).
 
 ```java
 class Solution {
@@ -139,13 +139,13 @@ class Solution {
             
             if (target == nums[mid])
                 return mid;
-            else if (nums[mid] >= nums[left]) { // must be >=; non-rotated subarray from left to mid; pivot point on the right of mid
+            else if (nums[mid] >= nums[left]) { // must be >=; left to mid is sorted
                 if (target >= nums[left] && target < nums[mid])
                     right = mid - 1;
                 else
                     left = mid + 1;
             } 
-            else { // non-rotated subarray from mid to right; pivot point on the right
+            else { // mid to right is sorted
                 if (target > nums[mid] && target <= nums[right])
                     left = mid + 1;
                 else
