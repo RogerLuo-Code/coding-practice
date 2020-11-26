@@ -9,13 +9,14 @@
     - Ascending or descending order?
     - Data type? integer, floating point, or Generic?
     - How large is the array size? Can load it into the memory?
+    - Range of each element?
     - Any duplicates? Which index to return for duplicate values?
 * Go through some examples
 * Solution
-    - Assumptions
+    - Assumptions: array size can be loaded into the memory; element range is within integer range.
     - Input/output (signature)
     - Corner cases: empty array
-    - Algorithm
+    - Algorithm: Binary search
     - Time/space complexity
 * Coding
 * Test
@@ -55,7 +56,7 @@ class Solution {
                 return middle;
         }
         
-        // Postprocessing no return after while loop (searcing all elements)
+        // Postprocessing no return after while loop (searching all elements)
         return - 1;
         
     }
@@ -63,7 +64,7 @@ class Solution {
 ```
 
 ## Complexity Analysis
-* **Time complexity**: $\mathcal{O}(\log n)$ -- Logorithmic Time  
+* **Time complexity**: $\mathcal{O}(\log n)$ -- Logarithmic Time  
 Binary search is performed by dividing the existing array in half for each iteration. First $N$ becomes $N/2$, then it becomes $N/4$ and go on till the size become 1. The maximum number of iterations is $\log N$ (base 2).
 * **Space complexity**: $\mathcal{O}(1)$ -- Constant Space  
 Binary search just requires tracking of 3 indices for each iteration. Therefore it is $\mathcal{O}(1)$ or constant space.

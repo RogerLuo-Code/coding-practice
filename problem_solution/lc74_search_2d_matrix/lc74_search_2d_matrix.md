@@ -117,7 +117,7 @@ class Solution {
     int middle;
     int iRow;
     int iCol;
-        
+    int element;    
     while (left <= right){
         middle = left + (right - left)/2;
         
@@ -126,10 +126,10 @@ class Solution {
         // Otherwise use nRow for matrix sorted by columns
         iRow = middle/nCol;
         iCol = middle%nCol;
-        
-        if (target < matrix[iRow][iCol])
+        element = matrix[iRow][iCol];
+        if (target < element)
             right  = middle - 1;
-        else if (target > matrix[iRow][iCol])
+        else if (target > element)
             left = middle + 1;
         else
             return true;
