@@ -17,7 +17,7 @@ You may assume all integers in the array are less than 10000, and if you access 
   - Any duplicates? what to return if target has duplicates
 * Go through exampels
 * Solution: 
-  - Assumption: the array size < Integer.MAX_VALUE
+  - Assumption: the array size < Integer.MAX_VALUE; zero-based indexing
   - Input/output: 
       - Input: ArrayReader, int
       - output: int
