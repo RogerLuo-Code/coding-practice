@@ -118,7 +118,7 @@ Since B has n elements, left_B length is j and right_B length is m - j. Note whe
 ```
 If we can ensure:
 * `len(left_part) == len(right_part)` for even number of (m+n), or `len(left_part) == len(right_part) + 1` for odd number of (m+n)   
-`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes.ß   
+`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes since integer divide will ignore 0.5.     
 * `max(left_part) <= min(right_part)`
 Just check `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`. Since A and B are sorted, `A[i - 1] <= A[i]` and `B[j - 1] <= B[j]` and therefore no need to compare.   
 
@@ -142,7 +142,7 @@ Means A[i] is too small. We need to adjust i to get `B[j - 1] <= A[i]`.
     - Can we decrease i?  
     No! Because wehn i is decreased (A[i] is decreased further), j will be increased (B[j - 1] is increased further). Therefore, `B[j - 1] <= A[i]` will be never satisfied.  
 * `A[i - 1] > B[j]`  
-Means A[i - 1] is too big. And we must decrease i to get `A[i - 1] <= B[j]`. SO the search range is changed to [left, i - 1].
+Means A[i - 1] is too big. And we must decrease i to get `A[i - 1] <= B[j]`. So the search range is changed to [left, i - 1].
 
 **Edge Case**: `A[i - 1]` doesn't exist when `i == 0`; `A[i]` doesn't exist when `i == m`; `A[j - 1]` doesn't exist when `j == 0`, `A[j]` doesn't exist when `j == n`. We can ignore non-exist elements in the calculation and comparison.
 
