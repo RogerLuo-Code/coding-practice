@@ -173,17 +173,17 @@ class Solution {
             int maxLeft1 = i == 0 ? Integer.MIN_VALUE : nums1[i - 1];
             int maxLeft2 = j == 0 ? Integer.MIN_VALUE : nums2[j - 1];
             
-            int minLeft1 = i == m ? Integer.MAX_VALUE : nums1[i];
-            int minLeft2 = j == n ? Integer.MAX_VALUE : nums2[j];
+            int minRight1 = i == m ? Integer.MAX_VALUE : nums1[i];
+            int minRight2 = j == n ? Integer.MAX_VALUE : nums2[j];
             
             // Corner case: i == 0 or m, j == 0 or n
-            if (maxLeft1 > minLeft2)
+            if (maxLeft1 > minRight2)
                 right = i - 1;
-            else if (maxLeft2 > minLeft1)
+            else if (maxLeft2 > minRight1)
                 left = i + 1;
             else  { // found: nums1[i - 1] <= nums2[j], nums2[i - 1] <= nums1[i]
                 if ((m + n)%2 == 0) // even number
-                    return (double) (Math.max(maxLeft1, maxLeft2) + Math.min(minLeft1, minLeft2))/2;
+                    return (double) (Math.max(maxLeft1, maxLeft2) + Math.min(minRight1, minRight2))/2;
                 else
                     return (double) Math.max(maxLeft1, maxLeft2);
             }
