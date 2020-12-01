@@ -1,6 +1,7 @@
 # LeetCode Problem 4 - Median of Two Sorted Arrays
 
 ## Problem Description
+  
 [LeetCode Problem 4](https://leetcode.com/problems/median-of-two-sorted-arrays/): There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.Description
 
 ## Analysis
@@ -95,7 +96,7 @@ Since binary search is used to find (m + n + 1)/2 th smallest element, the time 
 * [Example solution from Tushar Roy](https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java)
 * [LeetCode solution](https://leetcode.com/articles/median-of-two-sorted-arrays/)
 
-Based on the the use of median for dividing, we can find partition position at two arrays and obtain the median value:
+Based on the the use of median for dividing, we can find **partition position** at two arrays and obtain the median value:
 1. Cut A into two parts at a random position i:
 ```
           left_A             |        right_A
@@ -118,7 +119,7 @@ Since B has n elements, left_B length is j and right_B length is m - j. Note whe
 ```
 If we can ensure:
 * `len(left_part) == len(right_part)` for even number of (m+n), or `len(left_part) == len(right_part) + 1` for odd number of (m+n)   
-`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes since integer divide will ignore 0.5.     
+`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes since integer divide results are the same between $\frac{m+n}{2}$ and $\frac{m+n+1}{2}$.     
 * `max(left_part) <= min(right_part)`
 Just check `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`. Since A and B are sorted, `A[i - 1] <= A[i]` and `B[j - 1] <= B[j]` and therefore no need to compare.   
 
