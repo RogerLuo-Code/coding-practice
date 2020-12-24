@@ -1,6 +1,7 @@
 # LeetCode Problem 4 - Median of Two Sorted Arrays
 
 ## Problem Description
+  
 [LeetCode Problem 4](https://leetcode.com/problems/median-of-two-sorted-arrays/): There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.Description
 
 ## Analysis
@@ -95,7 +96,7 @@ Since binary search is used to find (m + n + 1)/2 th smallest element, the time 
 * [Example solution from Tushar Roy](https://github.com/mission-peace/interview/blob/master/src/com/interview/binarysearch/MedianOfTwoSortedArrayOfDifferentLength.java)
 * [LeetCode solution](https://leetcode.com/articles/median-of-two-sorted-arrays/)
 
-Based on the the use of median for dividing, we can find partition position at two arrays and obtain the median value:
+Based on the the use of median for dividing, we can find **partition position** at two arrays and obtain the median value:
 1. Cut A into two parts at a random position i:
 ```
           left_A             |        right_A
@@ -118,7 +119,7 @@ Since B has n elements, left_B length is j and right_B length is m - j. Note whe
 ```
 If we can ensure:
 * `len(left_part) == len(right_part)` for even number of (m+n), or `len(left_part) == len(right_part) + 1` for odd number of (m+n)   
-`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes.ß   
+`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes since integer divide results are the same between $\frac{m+n}{2}$ and $\frac{m+n+1}{2}$.     
 * `max(left_part) <= min(right_part)`
 Just check `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`. Since A and B are sorted, `A[i - 1] <= A[i]` and `B[j - 1] <= B[j]` and therefore no need to compare.   
 
@@ -142,7 +143,7 @@ Means A[i] is too small. We need to adjust i to get `B[j - 1] <= A[i]`.
     - Can we decrease i?  
     No! Because wehn i is decreased (A[i] is decreased further), j will be increased (B[j - 1] is increased further). Therefore, `B[j - 1] <= A[i]` will be never satisfied.  
 * `A[i - 1] > B[j]`  
-Means A[i - 1] is too big. And we must decrease i to get `A[i - 1] <= B[j]`. SO the search range is changed to [left, i - 1].
+Means A[i - 1] is too big. And we must decrease i to get `A[i - 1] <= B[j]`. So the search range is changed to [left, i - 1].
 
 **Edge Case**: `A[i - 1]` doesn't exist when `i == 0`; `A[i]` doesn't exist when `i == m`; `A[j - 1]` doesn't exist when `j == 0`, `A[j]` doesn't exist when `j == n`. We can ignore non-exist elements in the calculation and comparison.
 
@@ -173,17 +174,17 @@ class Solution {
             int maxLeft1 = i == 0 ? Integer.MIN_VALUE : nums1[i - 1];
             int maxLeft2 = j == 0 ? Integer.MIN_VALUE : nums2[j - 1];
             
-            int minLeft1 = i == m ? Integer.MAX_VALUE : nums1[i];
-            int minLeft2 = j == n ? Integer.MAX_VALUE : nums2[j];
+            int minRight1 = i == m ? Integer.MAX_VALUE : nums1[i];
+            int minRight2 = j == n ? Integer.MAX_VALUE : nums2[j];
             
             // Corner case: i == 0 or m, j == 0 or n
-            if (maxLeft1 > minLeft2)
+            if (maxLeft1 > minRight2)
                 right = i - 1;
-            else if (maxLeft2 > minLeft1)
+            else if (maxLeft2 > minRight1)
                 left = i + 1;
             else  { // found: nums1[i - 1] <= nums2[j], nums2[i - 1] <= nums1[i]
                 if ((m + n)%2 == 0) // even number
-                    return (double) (Math.max(maxLeft1, maxLeft2) + Math.min(minLeft1, minLeft2))/2;
+                    return (double) (Math.max(maxLeft1, maxLeft2) + Math.min(minRight1, minRight2))/2;
                 else
                     return (double) Math.max(maxLeft1, maxLeft2);
             }
