@@ -52,6 +52,6 @@ class Solution {
 
 ### Complexity Analysis 
 * **Time complexity**: Average: $\mathcal{O}(\log n)$; Worse: $\mathcal{O} (n)$
-* In the worse case, just move left and right pointers by one position, which needs $n/2$ steps. So the time complexity is $\mathcal{O} (n)$. 
-* In the average case, binary search needs $\log n$ steps. So the time complexity is $\mathcal{O} (\log n)$. 
+    - In the worse case, just move left and right pointers by one position, which needs $n/2$ steps. So the time complexity is $\mathcal{O} (n)$. 
+    - In the average case, binary search needs $\log n$ steps. So the time complexity is $\mathcal{O} (\log n)$. 
 * **Space complexity**: $\mathcal{O}(1)$ as only using some index variables
