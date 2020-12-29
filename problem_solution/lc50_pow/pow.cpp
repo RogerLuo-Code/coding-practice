@@ -23,8 +23,7 @@ public:
             }
             else {
                 return numeric_limits<double>::quiet_NaN();
-            }
-            
+            }  
         }
         
         // n is minimum integer, -n will cause overflow
