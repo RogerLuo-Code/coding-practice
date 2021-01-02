@@ -12,7 +12,8 @@ class Solution {
 public:
     int findDuplicate1(vector<int>& nums) {
         // Method: use binary search for space [1, n]
-        //           count the number of elements <= mid, if number > mid, indicates duplicates [1, mid]. Otherwise, duplicates in [mid+1, n]
+        //         count the number of elements <= mid, if number > mid, indicates duplicates [1, mid]. 
+        //         Otherwise, duplicates in [mid+1, n]
         // Time complexity: O(nlogn); Space complexity: O(1)
         int left = 1;
         int right = nums.size() - 1;
