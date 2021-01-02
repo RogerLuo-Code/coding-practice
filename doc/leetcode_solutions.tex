@@ -1,0 +1,553 @@
+\documentclass[justified]{tufte-book}
+
+% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
+\hypersetup{colorlinks}
+
+% For nicely typeset tabular material
+\usepackage{booktabs}
+
+% For graphics/images
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth, totalheight=\textheight, keepaspectratio}
+\graphicspath{{graphics/}}
+
+\usepackage{amsmath}
+\usepackage{units}
+
+% Prints a trailing space in a smart way.
+\usepackage{xspace}
+
+% Generates the index
+\usepackage{makeidx}
+\makeindex
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.9647,0.9647,0.9647} % {239, 240, 241}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{highlight}{RGB}{229, 239, 245}
+
+\usepackage{soul} % for light gray highlight
+\sethlcolor{highlight}
+
+\lstset{ %
+  backgroundcolor=\color{mygray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  % frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=C++,                    % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% \usepackage{hyperref} 
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,      
+%     urlcolor=cyan,
+% }
+% \urlstyle{same}
+
+% Inserts a blank page
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
+
+% Book metadata
+\title{LeetCode Solutions}
+%\author{}
+%\publisher{}
+
+% add numbered headings to level 3 title
+% chapter       -- 0
+% section       -- 1
+% subsection    -- 2
+% subsubsection -- 3
+% paragraph     -- 4
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1} % table of contents depth
+
+\begin{document}
+% Front matter
+\frontmatter
+
+\blankpage
+
+\maketitle
+
+% \setcounter{secnumdepth}{1}
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Start the main matter (normal chapters)
+\mainmatter
+This document summarizes solutions for LeetCode problems I have solved. Many of solution ideas come from LeetCode discussion forum. By coding and writing down the solution, it really help me understand the solution instead of memorizing it.  
+
+\chapter{Problems by Category}
+\section{Binary Search}
+\section{Linked List}
+
+\chapter{Solutions}
+% \section{LC287 - Find the Duplicate Number}
+% \subsection{Problem Description}
+% \href{https://leetcode.com/problems/find-the-duplicate-number/}{LeetCode Problem 287}: Given an array of integers nums containing $n + 1$ integers where each integer is in the range $[1,\, n]$ inclusive. There is only \textbf{one duplicate number} in nums, return this duplicate number. \\
+
+% \subsection{Analysis}
+
+% \subsection{Approach 1 - }
+% \textbf{Complexity Analysis}
+
+% \subsection{Comparison of Different Approaches}
+% \begin{table}[ht]
+%   \centering
+%   \begin{tabular}{p{5cm}ll}
+%     \toprule
+%     Approach & Time Complexity & Space Complexity \\
+%     \midrule
+%     Approach 1 - Binary Search &  $\mathcal{O}(n\log n)$ & $\mathcal{O}(1)$\\
+%     Approach 2 - Sort \& Search &  $\mathcal{O}(n \log{n})$ & $\mathcal{O}(1)$\\
+%     \bottomrule
+%   \end{tabular}
+%   % \caption{Notation.}
+%   % \label{tab:application_guide}
+% \end{table}
+
+\section{LC69 - Sqrt(x)}
+
+\section{LC34 - Find First and Last Position of Element in Sorted Array} \label{sec:lc34_find_first_last_position_sorted_array}
+
+\section{LC35 - Search Insert Position}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/search-insert-position/}{LeetCode Problem 35}: Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. The array contains \textbf{distinct} values sorted in ascending order. 
+
+\subsection{Approach - Binary Search}
+Since the array is sorted, the problem can be solved by using Binary Search. The key part is to understand what is searching for. Here is the insert position (not the target). \sidenote{\href{https://leetcode.com/problems/search-insert-position/discuss/249092/Come-on-forget-the-binary-search-patterntemplate!-Try-understand-it!}{@Zhengguan Li} gives some good explanations.} The Search range is the range of array, $[0, n-1]$. 
+\begin{itemize}
+    \item If \hl{nums[mid] == target}, return mid
+    \item If \hl{target > nums[mid]}, mid is not the potential insert position while mid + 1 is.  so \hl{left = mid + 1}.
+    \item If \hl{target < nums[mid]}, mid is the potential insert position and \hl{right = mid};
+\end{itemize}
+To determine the while loop condition, we can use two-element case to test our left/right operations: 1) \hl{left = mid + 1} and 2) \hl{right = mid}. We can see that it can be safely reduced to one element but not zero. So we need end the while loop when there is only one element left, i.e., \hl{while(left < right)}. 
+\begin{lstlisting}
+index:      [0,    1]
+2 elements: [5,    7]
+            l/m    r
+1 element:  l/m/r        
+or:               l/m/r            
+\end{lstlisting}
+After while loop, we need to check the remaining one element: \hl{nums[left]} with \hl{left == right}, which has not been checked in binary search loop. 
+\begin{lstlisting}
+int searchInsert(vector<int>& nums, int target) {
+    if (nums.empty()) {
+        return -1;
+    }
+    
+    int left = 0;
+    int right = nums.size() - 1;
+    int mid;
+    
+    while (left < right) {
+        mid = left + (right - left)/2;
+        
+        if (target == nums[mid]) {
+            return mid;
+        }
+        else if (target > nums[mid]) {
+            left = mid + 1;  // mid is not the insert position but mid + 1 can be the potential insert position.
+        }
+        else {
+            right = mid; // mid can be the insert position
+        }
+    }
+    
+    // 1 element left at the end
+    // post-processing
+    return nums[left] < target ? left + 1 : left;
+}
+\end{lstlisting}
+
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ \\
+    Since using binary search, the time complexity is $\mathcal{O}(\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables for binary search.
+\end{itemize}
+
+
+\section{LC70 - Climbing Stairs}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/climbing-stairs/}{LeetCode Problem 70}: You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? 
+
+\subsection{Approach - Dynamic Programming}
+Use dynamic programming to solve this problem. One can reach $i$-th step in one of two ways:
+\begin{enumerate}
+    \item Taking a step of $1$ from $(i-1)$th step.
+    \item Taking a step of $2$ from $(i-2)$th step.
+\end{enumerate}
+The total number of distinct ways to reach $i$th step is the sum of ways of reaching $(i-1)$th step and ways of reaching $(i-2)$th step. Let $f(i)$ denotes the number of distinct ways to reach $i$th step, then we have $f(i) = f(i-1) + f(i-2)$. This becomes a problem of finding $i$th number of the Fibonacci series with base cases $f(1) = 1$ and $f(2) = 2$. Check \hyperref[sec:lc509_fibonacci]{LC509 Fibonacci Number} for detailed solutions.
+
+
+\section{LC240 - Search a 2D Matrix II}
+
+\section{LC278 - First Bad Version}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/first-bad-version/}{LeetCode Problem 278}: You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
+
+Suppose you have $n$ versions $[1, 2, ..., n]$ and you want to find out the first bad one, which causes all the following ones to be bad.
+
+You are given an API \hl{bool isBadVersion(version)} which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
+
+\subsection{Approach}
+Each version has its corresponding status:
+\begin{eqnarray*}
+    \text{versions} ~ &:& \begin{bmatrix} 1 & 2 & \cdots & i & i+1 & \cdots & n \end{bmatrix} \\
+    \text{status} ~ &:& \begin{bmatrix} G & G & \cdots & G & B & \cdots & B \end{bmatrix}
+\end{eqnarray*}
+The problem can be solved using binary search to find the first bad status. Similar to problem \hyperref[sec:lc34_find_first_last_position_sorted_array]{LC34 Find First and Last Position of Element in Sorted Array}.
+
+\section{LC287 - Find the Duplicate Number}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/find-the-duplicate-number/}{LeetCode Problem 287}: Given an array of integers nums containing $n + 1$ integers where each integer is in the range $[1, n]$ inclusive. There is only \textbf{one duplicate number} in nums, return this duplicate number. 
+
+\noindent \textbf{Constraints:}
+\begin{itemize}
+    \item $2 \leq n \leq 3*10^4$
+    \item $\text{nums.length} == n + 1$
+    \item $1 \leq nums[i] \leq n$
+    \item All the integers in nums appear only \textbf{once} except for \textbf{precisely one integer} which appears two or more times.
+\end{itemize} 
+
+\noindent \textbf{Follow-ups:}
+\begin{itemize}
+    \item How can we prove that at least one duplicate number must exist in nums?\\
+    Based on pigeonhole principle \sidenote{\href{https://en.wikipedia.org/wiki/Pigeonhole_principle}{Pigeonhole principle}: if $n$ items are put into $m$ containers, with $n > m$, then at least one container must contain more than one item. Note that it \textbf{doesn't} tell you there \textbf{isn't} a duplicate if there aren't too many items, $n <= m$.}, at least one duplicate number must exist in nums. We can also use contradiction method. 
+    \item Can you solve the problem \textbf{without} modifying the array nums? \\
+    In approach 2, the sort method requires modifying the array nums. Simply fix is to copy array nums, which will require $\mathcal{O}(n)$ space. 
+    \item Can you solve the problem using only constant, $\mathcal{O}(1)$ extra space?
+    \item Can you solve the problem with runtime complexity less than $\mathcal{O}(n^2)$?
+    \item \textbf{My follow-up:} Can you solve the problem with more than one duplicate number? \\
+    Only approach 3 using set can work. 
+    \item \textbf{My follow-up:} what if there is a missing number? \\
+    Approach 2 using sort and binary search won't work.
+\end{itemize}
+
+\subsection{Approach 1 - Binary Search}
+We know that the search space of the duplicate number is between 1 to n (inclusive, $[1, n]$). For a given number $x$ in the search space $[1, n]$, go through array nums and count all the numbers in the range $[1, x]$ which is denoted as count. If $count > x$, then there are more than $x$ elements in the range $[1, x]$ and thus that range contains a duplicate based on pigeonhole principle. If $count <= x$, then there are $n + 1 - count$ elements (array size is $n+1$) in the range $[x+1, n]$. That is, \textbf{at least} $n + 1 - x$ elements in a range of size $n - x$, where $n + 1 - count \geq n + 1 - x > n - x$ . Thus this range must contains a duplicate. \sidenote{Simple explanation: the whole range is ``too crowded'' and so either the first or the second half of the range is too crowded. If the first half is too crowded, then it contains a duplicate. Otherwise, the second half contains a duplicate.} With this property, we can use binary search idea to reduce search space by half after each iteration until search space is only one number.  
+
+\begin{lstlisting}
+int findDuplicate(vector<int>& nums) {
+    int left = 1;
+    int right = nums.size() - 1;
+    int mid;
+    int count = 0;
+    
+    while (left < right) {
+        mid = left + (right - left)/2;
+        count = 0;
+        for(int num:nums) {
+            count += num <= mid;
+        }
+        
+        count > mid ? right = mid : left = mid + 1;
+    }
+    
+    return left;
+}
+\end{lstlisting}
+
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(n\log n)$ \\
+    Since using binary search, it takes $\mathcal{O}(\log n)$ steps. For each iteration, it will go through the whole array to count the number, which takes $\mathcal{O}(n)$ time. So the time complexity is $\mathcal{O}(n\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables for binary search and count.
+\end{itemize}
+
+\subsection{Approach 2 - Sort \& Search}
+If the array is sorted, we can do the search on the sorted array. The sorted array has the following properties:
+\begin{itemize}
+    \item Any duplicate numbers will be adjacent in the sorted array \\
+    Simply compare each element to its previous element. If they are equal, return the element. 
+    \item \textbf{If no missing number} in the range $[1, n]$, the difference between the element value and its corresponding index will be reduced by 1 when encountering the duplicate. \\
+    The difference is $[x, x, \cdots, x, x-1, \cdots, x-1]$. We can use the binary search to find the last element of $x$. \textbf{Note} the substraction is only conducted on the mid indices not all elements in the array. 
+\end{itemize}
+
+\begin{lstlisting}
+int findDuplicate(vector<int>& nums) {
+    // sort array
+    sort(nums.begin(), nums.end()); 
+    
+    // option 1: compare previous element
+    // for (vector<int>::size_type i = 1; i != nums.size(); i++) {
+    //    if (nums[i] == nums[i-1]) {
+    //        return nums[i];
+    //    }
+    // }
+    
+    // option 2: binary search
+    int left = 0;
+    int right = nums.size() - 1;
+    int mid;
+    int diff;
+    int target = 0 - nums[0]; // target is the difference bewteen first value and its index
+    
+    // Use binary search to find the last target in a ascending order 
+    // [e, e, ..., e, s, s, ...]
+    while (left < right - 1) {
+        mid = left + (right - left)/2;
+        diff = mid - nums[mid];
+        
+        if (target == diff) {
+            left = mid;
+        }
+        else if (target > diff) {
+            left = mid + 1; 
+        }
+        else {
+            right = mid - 1; // not mid - 1, since it may accidently exclude the final solution
+        }
+    }
+    
+    // two elements left after while loop left == right - 1
+    return nums[right];  
+}  
+\end{lstlisting}
+
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(n\log n)$ \\
+    There are two steps:the first step using sort algorithm takes $\mathcal{O}(n\log n)$; The second step takes $\mathcal{O}(n)$ if comparing with previous element or $\mathcal{O}(\log n)$ if using binary search.  So the total time complexity is $\mathcal{O}(n\log n)$, $\mathcal{O}(n\log n)= \mathcal{O}(n\log n) + \mathcal{O}(n)$ or $\mathcal{O}(n\log n) = \mathcal{O}(n\log n) + \mathcal{O}(\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ (or $\mathcal{O}(n)$) \\
+    The sort is in-place and only use limited variables for search after sorting. So the space complexity is $\mathcal{O}(1)$. If we cannot modify the input array, then we must allocate linear space $\mathcal{O}(n)$ for a copy of array and sort that instead.
+\end{itemize}
+
+\subsection{Approach 3 - Set}
+Store unique element when iterating over the array and check whether element is already stored. We can use \href{http://www.cplusplus.com/reference/unordered_set/unordered_set/}{unordered\_set} container in C++ standard library, which on average has constant time complexity on inserting and looking up an element. 
+\begin{lstlisting}
+int findDuplicate(vector<int>& nums) {
+    unordered_set<int> seen;
+    
+    for (int num:nums) {
+        if (seen.count(num)) {
+            return num;
+        }
+        else
+        {
+            seen.insert(num);
+        }
+    }
+    
+    return -1; 
+}  
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(n)$ for average case, $\mathcal{O}(n^2)$ for worst case\\
+    It takes $\mathcal{O}(n)$ to go through each element in the array. For inserting or looking up a element in a unordered set, it takes $\mathcal{O}(1)$ for average case or takes $\mathcal{O}(n)$ for the worst case. So the total time complexity is $\mathcal{O}(n)$ for average case and $\mathcal{O}(n^2)$ for worst case, 
+    \item \textbf{Space complexity}: $\mathcal{O}(n)$ \\
+    In the worst case, it needs $\mathcal{O}(n)$ space to store n unique elements. 
+\end{itemize}
+
+\subsection{Comparison of Different Approaches}
+The table below summarizes the time complexity and space complexity of different approaches:
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{p{5cm}ll}
+    \toprule
+    Approach & Time Complexity & Space Complexity \\
+    \midrule
+    Approach 1 - Binary Search &  $\mathcal{O}(n\log n)$ & $\mathcal{O}(1)$\\
+    Approach 2 - Sort \& Search &  $\mathcal{O}(n \log{n})$ & $\mathcal{O}(1)$ or $\mathcal{O}(n)$\\
+    Approach 2 - Set &  $\mathcal{O}(n)$ or $\mathcal{O}(n^2)$ & $\mathcal{O}(n)$\\
+    \bottomrule
+  \end{tabular}
+  % \caption{Notation.}
+  % \label{tab:application_guide}
+\end{table}
+
+\section{LC875 - Koko Eating Bananas}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/koko-eating-bananas/}{LeetCode Problem 875}: Koko loves to eat bananas.  There are $N$ piles of bananas, the $i$-th pile has piles[i] bananas.  The guards have gone and will come back in H hours.
+
+Koko can decide her bananas-per-hour eating speed of $K$.  Each hour, she chooses some pile of bananas, and eats $K$ bananas from that pile.  If the pile has less than $K$ bananas, she eats all of them instead, and won't eat any more bananas during this hour.
+
+Koko likes to eat slowly, but still wants to finish eating all the bananas before the guards come back.
+
+Return the minimum integer $K$ such that she can eat all the bananas within $H$ hours. \\
+
+\noindent \textbf{Constraints:}
+\begin{itemize}
+    \item $1 \leq \text{piles.length} \leq 10^4$
+    \item $\text{piles.lenght} \leq H \leq 10^9$
+    \item $1 \leq \text{piles}[i] \leq 10^9$
+\end{itemize} 
+
+\subsection{Approach - Binary Search}
+The difficult part of this problem is how to convert it into classic binary search problem. Based on the problem description, we can define the search space of $K$ is between $1$ and the max number of bananas $M$ on a pile, $[1, M]$. \sidenote{Since Koko likes to eat slowly, we need to start from $1$ (not zero, since Koko still wants to eat; not minimum number of bananas, since Koko could eat as slow as $1$ banana if $H > \text{total number of bananas}$). If $K >= M$, Koko can finish eating all the bananas in $N$ hours (each hour eat one pile with total $N$ piles).} Each value in the search space has a status associated with it (let N denotes not finish eating and Y denotes finish eating). Then we have $[N, N, \cdots, N, Y, \cdots, Y]$. For given $K$, 
+\begin{itemize}
+    \item If Koko can finish eating, no need to check $k+1, k+2, ...$ since Koko can finish eating with \textbf{bigger} numbers.
+    \item If Koko can't finish eating, no need to check $k-1, k-2, ...$ since koko can \textbf{NOT} finish eating with \textbf{smaller} numbers. 
+\end{itemize}
+Based on this property, we can use binary search to reduce search space after each iteration until only one element left. Assume there always existing $K$ such that Koko can finish eating within $H$ hours. We also need to create help functions on checking whether Koko can finish eating. \sidenote{A nice way to round up integer values: $x/y + (x\%y == 0\, ?\, 0 : 1)$.}.
+
+\begin{lstlisting}
+class Solution {
+public:
+    int minEatingSpeed(vector<int>& piles, int H) {
+        if (piles.empty() || (H < piles.size())) {
+            return -1;
+        }
+        
+        int lo = 1; // minmum is 1 not zero since eat at least 1 banana
+        // int hi = *max_element(piles.begin(), piles.end()); //max element of the piles. Require * since max_element returns an iterator; time complexity O(N)
+        // int hi = BIG_FIXED_VALUE
+        int hi = getMaxPile(piles);
+        
+        int mid;
+       
+        // time complexity: O(logM)
+        while (lo < hi) {
+            mid = lo + (hi - lo)/2;
+            
+            if (canEatAll(piles, H, mid)) {
+                hi = mid;
+            }
+            else {
+                lo = mid + 1;
+            }
+        }
+        
+        // lo == hi after while loop
+        return lo;
+    }
+private:
+    // time complexity: O(N)
+    bool canEatAll(vector<int>& piles, int H, int k) {
+        int actualHour = 0;
+        
+        // for (vector<int>::iterator it = piles.begin(); it != piles.end(); ++it) {*it}
+        // for(vector<int>::size_type i = 0; i != piles.size(); ++i) {piles[i]}
+        for(int pile:piles) {
+            actualHour += pile/k + (pile%k == 0 ? 0 : 1); // round to the larger integer value 
+        }
+        
+        return actualHour <= H;
+    }
+    
+    int getMaxPile(vector<int>& piles) {
+        int maxPile = piles[0];
+        for (int pile : piles) {
+            maxPile = max(pile, maxPile);
+        }
+        return maxPile;
+    }
+    
+    int max(int a, int b) {
+        return (a < b) ? b : a;
+    }
+};
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(N \log M)$\\
+    It takes $\mathcal{O}(\log M)$ ($M$ is the maximum number of bananas in a pile) steps to find $K$ in the search space $[1, M]$. For each iteration, it takes $\mathcal{O}(N)$ to check all piles to see whether Koko can finishe eating. Additionally, it takes $\mathcal{O}(N)$ to find the maximum number of bananas in a pile. So the total time complexity is $\mathcal{O}(N \log M) = \mathcal{O}(N \log M) + \mathcal{O}(N)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use several variables for binary search and computation.
+\end{itemize}
+
+
+\section{LC509 - Fibonacci Number} \label{sec:lc509_fibonacci}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/fibonacci-number/}{LeetCode Problem 509}: The Fibonacci numbers, commonly denoted $F(n)$ form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from $0$ and $1$. That is,
+\begin{eqnarray*}
+    F(0) &=& 0,~ F(1) = 1 \\
+    F(n) &=& F(n-1) + F(n-2), ~ \text{for}~ n > 1
+\end{eqnarray*}
+Given $n$, calculate $F(n)$.
+
+% \section{String}
+% In C++, a backslash ($\backslash$) at the end of line is considered a line-continuation character that merges both that line and the next into a single line. Therefore the following code:
+% \begin{lstlisting}
+% x = "string expressed in \
+% two lines";
+% \end{lstlisting}
+% is equivalent to 
+% \begin{lstlisting}
+% x = "string expressed in two lines";
+% \end{lstlisting}
+
+% \section{Function}
+% \subsection{Pointer and Reference}
+% \begin{table}[ht]
+%   \centering
+%   \begin{tabular}{p{5cm} p{5cm}}
+%     \toprule
+%     Pointer (*) & Reference (\&) \\
+%     \midrule
+%     Holds a memory address & an alias to an existing variable \\
+%     Can be initialized at any time & Have to be initialized at the point of definition \\
+%     Can point to many different objects during its lifetime & Refers to only one object during its lifetime \\
+%     Use an explicit operator (* operator) to de-reference & No operator is needed to de-reference \\
+%     Call have a NULL value (include const pointer) & Can not be NULL \\
+%     \bottomrule
+%   \end{tabular}
+%   % \caption{Notation.}
+%   % \label{tab:application_guide}
+% \end{table}
+
+% \begin{lstlisting}
+% #include <iostream>
+% double f(double* x, double* y)
+% {
+%     std::cout << "val x: " << *x << "\n";
+%     std::cout << "val y: " << *y << "\n";
+%     return *x * *y;
+% }
+% double f2(double &x, double &y)
+% {
+%     std::cout << "val x: " << x << "\n";
+%     std::cout << "val y: " << y << "\n";
+%     return x * y;
+% }
+% int main()
+% {
+%     double a, b;
+%     a = 2;
+%     b = 3; 
+%     std::cout << f(&a, &b) << "\n";
+%     std::cout << f2(a, b) << "\n";
+%     return 0;
+% } 
+% \end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+\end{document}
