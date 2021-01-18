@@ -105,6 +105,36 @@ This document summarizes solutions for LeetCode problems I have solved. Many of 
 
 \chapter{Problems by Category}
 \section{Binary Search}
+\subsection{Basics}
+\begin{itemize}
+    \item sqrt vs. square
+    \begin{itemize}
+        \item \hyperref[sec:lc69_sqrt]{LC69 - sqrt(x)}
+        \item \hyperref[sec:lc367_valid_perfect_square]{LC367 - Valid Perfect Square}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Advanced}
+\begin{itemize}
+    \item Rotated sorted array
+    \begin{itemize}
+        \item \hyperref[sec:lc33_search_rotated_sorted_array]{LC33 - Search in Rotated Sorted Array}
+        \item \hyperref[sec:lc81_search_rotated_sorted_array_ii]{LC81 - Search in Rotated Sorted Array II}
+        \item \hyperref[sec:lc153_find_min_rotated_sorted_array]{LC153 - Find Minimum in Rotated Sorted Array}
+        \item \hyperref[sec:lc154_find_min_rotated_sorted_array_ii]{LC154 - Find Minimum in Rotated Sorted Array II}
+    \end{itemize}
+    
+    \item Transform the problem
+    \begin{itemize}
+        \item \hyperref[sec:lc540_single_element_sorted_array]{LC540 - Single Element in a Sorted Array}
+        \item \hyperref[sec:lc875_koko_eat_banana]{LC875 - Koko Eat Bananas}
+    \end{itemize}
+    
+\end{itemize}
+
+\section{Array}
+\subsection{Two Pointers}
+
 \section{Linked List}
 
 \chapter{Solutions}
@@ -132,11 +162,73 @@ This document summarizes solutions for LeetCode problems I have solved. Many of 
 %   % \label{tab:application_guide}
 % \end{table}
 
-\section{LC69 - Sqrt(x)}
+\section{LC33 - Search in Rotated Sorted Array} \label{sec:lc33_search_rotated_sorted_array}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/search-in-rotated-sorted-array/}{LeetCode Problem 33}: You are given an integer array nums sorted in ascending order (with \textbf{distinct} values), and an integer target.
+
+Suppose that nums is rotated at some pivot unknown to you beforehand (i.e., $[0,1,2,4,5,6,7]$ might become $[4,5,6,7,0,1,2]$).
+
+If target is found in the array return its index, otherwise, return -1.
+
+\subsection{Approach - Binary Search}
+The original array is sorted in ascending order and then rotated at some pivot. So the array can be always divided into two parts: one part is sorted and the other part is unsorted, containing the pivot. It is easy to check whether the target is in the sorted part and search inside that part. If the target is in the unsorted part, we can further divide the unsorted part into two parts (again one part will be sorted and the other will be unsorted) and continue to check the sorted part. This allow us using binary search to find the target. 
+
+The search space starts from the whole array and shrinks over each iteration, using [left, right] to indicate the search space. The mid is the separation point to divide the search space into two parts, one is sorted and the other is unsorted.   
+\begin{itemize}
+    \item If $\text{nums[left]} \leq \text{nums[mid]}$, the sub-array [left, mid] is sorted \sidenote{This is true when an array contains distinct values, i.e., no duplicates.}. \\
+    It is easy to check whether the target is inside this part. If not, continue to divide and search the right half.
+    \item If $\text{nums[left]} > \text{nums[mid]}$, the right sub-array [mid, right] is sorted. \\
+    We can check whether the target is in the right part. If not, continue to divide and search the left half.
+\end{itemize}
+
+\begin{lstlisting}
+int search(vector<int>& nums, int target) {
+    if (nums.empty()) return -1;
+    
+    int left = 0;
+    int right = nums.size() - 1;
+    int mid; 
+    
+    while (left <= right) {
+        mid = left + (right - left)/2;
+        
+        if (target == nums[mid]) {
+                return mid;
+            }
+        else if (nums[left] <= nums[mid]) {
+            // [left, mid] is sorted
+            if (nums[left] <= target && target < nums[mid]) {
+                right = mid - 1;
+            }
+            else {
+                left = mid + 1;
+            }
+        }
+        else {
+            // [mid, right] is sorted
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
+        }
+    }
+    
+    return -1;
+}           
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ \\
+    Since using binary search, the time complexity is $\mathcal{O}(\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables for binary search.
+\end{itemize}
 
 \section{LC34 - Find First and Last Position of Element in Sorted Array} \label{sec:lc34_find_first_last_position_sorted_array}
 
-\section{LC35 - Search Insert Position}
+\section{LC35 - Search Insert Position} \label{sec:lc35_search_insert_position}
 \subsection{Problem Description}
 \href{https://leetcode.com/problems/search-insert-position/}{LeetCode Problem 35}: Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. The array contains \textbf{distinct} values sorted in ascending order. 
 
@@ -194,8 +286,55 @@ int searchInsert(vector<int>& nums, int target) {
     Only use limited variables for binary search.
 \end{itemize}
 
+\section{LC69 - Sqrt(x)} \label{sec:lc69_sqrt}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/sqrtx/}{LeetCode Problem 69}: Given a non-negative integer $x$, compute and return the square root of $x$.
+Since the return type is an integer, the decimal digits are \textbf{truncated}, and only \textbf{the integer part} of the result is returned.
 
-\section{LC70 - Climbing Stairs}
+\subsection{Approach - Binary Search}
+Mathematically, $i = sqrt(x)$ can be viewed as $x = i*i$. The problem is to find an integer $i$ in the search space $[1, x]$ \sidenote{The search space could be $[1, x/2]$ for $x>=4$. Yet, it just saves one iteration if using binary search.} such that $i*i <= x$ and $(i+1)*(i+1) > x$. If $i*i > x$, we can exclude values larger than $i$. If $i*i < x$, we can exclude the value smaller than $i$. With this property, we can solve this problem using binary search. There are three potential issues:
+\begin{itemize}
+    \item corner case: $x <= 1$;
+    \item overflow caused by $i*i$ in the evaluation $i*i > x$;
+    \item can not simply check $i == x/i$ to determine whether the answer is found since there may be multiple values satisfied this equations due to integer division.
+\end{itemize}
+
+\begin{lstlisting}
+int mySqrt(int x) {
+    if (x <= 1) {
+        return x;
+    }
+
+    int left = 1;
+    int right = x;
+    int mid;
+
+    while (left <= right) {
+        mid = left + (right - left)/2;
+
+        if ((mid <= x/mid) && ((mid + 1) > x/(mid + 1))) {
+            return mid;
+        }
+        else if (mid > x/mid) {
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1; 
+        }
+    }
+    return -1;
+}
+\end{lstlisting}
+
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ \\
+    Since using binary search, the time complexity is $\mathcal{O}(\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited constant variables for binary search.
+\end{itemize}
+
+\section{LC70 - Climbing Stairs} \label{sec:lc70_climb_stair}
 \subsection{Problem Description}
 \href{https://leetcode.com/problems/climbing-stairs/}{LeetCode Problem 70}: You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? 
 
@@ -207,10 +346,287 @@ Use dynamic programming to solve this problem. One can reach $i$-th step in one 
 \end{enumerate}
 The total number of distinct ways to reach $i$th step is the sum of ways of reaching $(i-1)$th step and ways of reaching $(i-2)$th step. Let $f(i)$ denotes the number of distinct ways to reach $i$th step, then we have $f(i) = f(i-1) + f(i-2)$. This becomes a problem of finding $i$th number of the Fibonacci series with base cases $f(1) = 1$ and $f(2) = 2$. Check \hyperref[sec:lc509_fibonacci]{LC509 Fibonacci Number} for detailed solutions.
 
+\section{LC81 - Search in Rotated Sorted Array II} \label{sec:lc81_search_rotated_sorted_array_ii}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/search-in-rotated-sorted-array-ii/}{LeetCode Problem 81}: You are given an integer array nums sorted in ascending order (not necessarily distinct values), and an integer target.
 
-\section{LC240 - Search a 2D Matrix II}
+Suppose that nums is rotated at some pivot unknown to you beforehand (i.e., $[0,1,2,4,4,4,5,6,6,7]$ might become $[4,5,6,6,7,0,1,2,4,4]$).
 
-\section{LC278 - First Bad Version}
+If target is found in the array return true, otherwise, return false.
+
+\subsection{Approach - Binary Search}
+This is a follow-up problem to \hyperref[sec:lc33_search_rotated_sorted_array]{LC33 - Search in Rotated Sorted Array}. The difference is that it contains duplicates. Due to duplicates, when $\text{nums[left]} == \text{nums[mid]}$, we don't know whether which part (left or right) is sorted. For example, $[3, 1, 3, 3, 3, 3, 3]$ with left part unsorted and $[3, 3, 3, 3, 3, 1, 3]$ with right part unsorted. For this case, if target != nums[mid], we can increase left by one, i.e., \hl{left++}.   
+
+\begin{lstlisting}
+bool search(vector<int>& nums, int target) {
+    if (nums.empty()) return false;
+    
+    int left = 0;
+    int right = nums.size() - 1;
+    int mid;
+    
+    while (left <= right) {
+        mid = left + (right - left)/2;
+        
+        if (target == nums[mid]) {
+            return true;
+        }
+        else if (nums[left] < nums[mid]) {
+            // [left, mid] is sorted
+            if (nums[left] <= target && target < nums[mid]) {
+                right = mid - 1;
+            }
+            else {
+                left = mid + 1;
+            }
+        }
+        else if (nums[left] == nums[mid]) { // handle corner case with duplicates
+            left++;
+        }
+        else {
+            // [mid, right] is sorted
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
+        }
+    }
+    
+    return false;
+}
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ for the average case and  $\mathcal{O}(n)$ for the worse case\\
+    In the worst case, just move left pointer by one, which needs $n$ steps. So the time complexity is $\mathcal{O}(n)$. For the average case, since using binary search, the time complexity is $\mathcal{O}(\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables for indices.
+\end{itemize}
+
+\section{LC88 - Merge Sorted Array} \label{sec:lc88_merge_sorted_array}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/merge-sorted-array/}{LeetCode Problem 88}: Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+
+The number of elements initialized in nums1 and nums2 are $m$ and $n$ respectively. You may assume that nums1 has enough space (size that is equal to $m + n$) to hold additional elements from nums2.
+
+\subsection{Approach - Two Pointers}
+The problem is similar to the merge function of merge sort. The differences are: 1) no need to create a new auxiliary array to store the combined sorted array; 2) move pointers from right to left. For this type of problem, we can use two pointers for each array and move the pointers based on the comparison result between two arrays. Moreover, we need to consider the pointer out of bound cases since the array size may be different. 
+
+\begin{lstlisting}
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    int i = m - 1; // pointer for nums 1, scan from right to left
+    int j = n - 1; // pointer for nums 2, scan from right to left
+    int k = m + n - 1; // poionter for temp array
+    
+    //    0  1  2  3  4  5
+    //   [1, 2, 2, 3, 5, 6]
+    //    i/k 
+    //   [2, 5, 6]
+    //  j
+    
+    while (k >= 0) {
+        if (i < 0) {
+            nums1[k--] = nums2[j--];
+        }
+        else if (j < 0) {
+            nums1[k--] = nums1[i--];
+        }
+        else if (nums1[i] >= nums2[j]) {
+            nums1[k--] = nums1[i--];
+        }
+        else {
+            nums1[k--] = nums2[j--];
+        }
+    }
+}
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(m + n)$ \\
+    Since it will scan all elements in nums1 and nums2, the time complexity is the total size of two arrays, i.e., $\mathcal{O}(m + n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables for indices.
+\end{itemize}
+
+\section{LC153 - Find Minimum in Rotated Sorted Array} \label{sec:lc153_find_min_rotated_sorted_array}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/}{LeetCode Problem 153}: Suppose an array of length $n$ sorted in ascending order is rotated between $1$ and $n$ times. For example, the array $\text{nums} = [0,1,2,4,5,6,7]$ might become: $[4,5,6,7,0,1,2]$ if it was rotated 4 times, or $[0,1,2,4,5,6,7]$ if it was rotated 7 times. Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] $1$ time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]]. Given the sorted rotated array nums, return the minimum element of this array. All the integers of nums are \textbf{unique}.
+
+\subsection{Approach - Binary Search}
+Since the array is originally sorted and rotated between $1$ and $n$ times, there will be two potential forms after rotations:
+\begin{itemize}
+    \item The whole array is sorted in the ascending order (i.e., the array rotates back to the original one );
+    \item There is a pivot point in the array, which separate the array into two halves: one half is sorted and the other is not sorted.
+\end{itemize}
+So if we can detect which half is not sorted, we know that the minimum value should be in that unsorted half and ignore the sorted half. If both halves are sorted, the first left element is the minimum. If we split the array into two halves, $[\text{left}, \text{mid}]$ and $[\text{mid} + 1, \text{right}]$, there are $4$ kings of relationship among nums[left], nums[mid], and nums[right]:
+\begin{enumerate}
+    \item $\text{nums[left]} \leq \text{nums[mid]} \leq \text{nums[right]}$ \\
+    min is nums[left]
+    \item $\text{nums[left]} > \text{nums[mid]} \leq \text{nums[right]}$ \\
+    \text{[left, mid]} is not sorted and min is inside the left half
+    \item $\text{nums[left]} <= \text{nums[mid]} > \text{nums[right]}$ \\
+    \text{[mid+1, right]} is not sorted and min is inside the right half
+    \item $\text{nums[left]} > \text{nums[mid]} > \text{nums[right]}$ \\
+    Impossible, since the original array is sorted in ascending order
+\end{enumerate}
+So we can check nums[mid] and nums[right] \sidenote{If we just check nums[left] and nums[mid], the condition $\text{nums[left]} <= \text{nums[mid]}$ can't distinguish relationship $1$ and $3$ which requires searching two different directions. This requires special consideration on 1) the whole array is sorted or 2) not falling into the subset subset of an array that is sorted when update left and right indices (e.g., $[0, 1, 2]$ of $[4, 5, 6, 7, 0, 1, 2]$).}: 
+\begin{itemize}
+    \item If $\text{nums[mid]} > \text{nums[right]}$, search the right half \\
+    This covers relationship $3$.
+    \item If $\text{nums[mid]} \leq \text{nums[right]}$, search the left half \\
+    This covers relationship $1$ and $2$, since in both cases the minimum is on the left.
+\end{itemize}
+
+\begin{lstlisting}
+int findMin(vector<int>& nums) {
+    int left = 0; 
+    int right = nums.size() - 1;
+    int mid;
+    
+    while (left < right) {
+        mid = left + (right - left)/2;
+        
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        }
+        else {
+            right = mid;
+        }
+    }
+    
+    // Post-processing
+    return nums[left];
+}
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ \\
+    Since using binary search, the time complexity is $\mathcal{O}(\log n)$.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited constant variables for binary search.
+\end{itemize}
+
+\section{LC154 - Find Minimum in Rotated Sorted Array II} \label{sec:lc154_find_min_rotated_sorted_array_ii}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/}{LeetCode Problem 154}: Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand (e.g.,  $[0,1,2,4,5,6,7]$ might become $[4,5,6,7,0,1,2]$). Find the minimum element. The array may \textbf{contain duplicates}. 
+
+This is a follow up problem to \hyperref[sec:lc153_find_min_rotated_sorted_array]{LC153 - Find Minimum in Rotated Sorted Array}.
+
+\subsection{Approach - Binary Search}
+The big difference between this problem and LC153 is that \textbf{the array may contain duplicates}. So when $\text{nums[mid]} == \text{nums[right]}$, the position of minimum could be in either left or right of mid (e.g., $[3, 3, 3, 3, 1, 3]$, or $[3, 1, 3, 3, 3, 3]$). So
+\begin{itemize}
+    \item For relationship $1$, $\text{nums[left]} \leq \text{nums[mid]} \leq \text{nums[right]}$, the min is not necessariely on the left and could be anywhere when $\text{nums[left]} == \text{nums[mid]} == \text{nums[right]}$.
+    \item For relationship $2$, $\text{nums[left]} > \text{nums[mid]} \leq \text{nums[right]}$, when $\text{nums[mid]} == \text{nums[right]}$, min could be in either left or right of mid.
+\end{itemize}
+
+\begin{lstlisting}
+int findMin(vector<int>& nums) {
+    int left = 0;
+    int right = nums.size() - 1;
+    int mid; 
+    //  0  1  2  3  4
+    // [2, 0, 1, 1, 1]
+    //  l     m     r
+    
+    while (left < right) {
+        mid = left + (right - left)/2;
+        
+        if (nums[mid] > nums[right]) {
+            left = mid + 1;
+        }
+        else if (nums[mid] < nums[right]) {
+            right = mid;
+        }
+        else { // nums[mid] == nums[right], main difference
+            right--;
+        }
+    }
+    
+    return nums[left];
+}
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(n)$ (worst case) and $\mathcal{O}(\log n)$ (average case) \\
+    In the worst case, it searches one element at a time and takes $\mathcal{O}(n)$ time. For the average case, the time complexity is $\mathcal{O}(\log n)$ with the binary search.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables.
+\end{itemize}
+
+
+\section{LC240 - Search a 2D Matrix II} \label{sec:lc240_search_2d_matrix_ii}
+
+\section{LC275  - H-Index II} \label{sec:lc275_h_index_ii}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/h-index-ii/}{LeetCode Problem 275}: Given an array of citations \textbf{sorted in ascending order} (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
+
+According to the \href{https://en.wikipedia.org/wiki/H-index}{definition of h-index on Wikipedia}: ``A scientist has index $h$ if $h$ of his/her $N$ papers have at least $h$ citations each, and the other $N - h$ papers have no more than $h$ citations each.'' 
+
+If there are several possible values for $h$, the maximum one is taken as the $h$-index.
+
+\subsection{Approach - Binary Search}
+Based on the definition on Wikipedia, for the citation sorted in \textbf{descending} order, H-Index is to find the \textbf{last} position where citation is greater than or equal to the position. In this problem, the citation array is sorted in \textbf{ascending} order. H-Index is to find the first position/index where 
+\begin{equation} 
+    \text{citations[index]} >= n - \text{index} \label{eq:h_index}
+\end{equation}
+Where $n$ is the total number of papers (i.e., length of citation array). Note that we may not find the exact solution. So the above equation changes from $\geq$ to $>$. There are two important properties associated with H-Index definitions:
+\begin{itemize}
+    \item If index $i$ satisfies Eq. \ref{eq:h_index}, then any index $j$ that is larger than index $i$ will also satisfy the equation. \\
+    We know $n - i > n - j$ due to $j > i$. Since the citation is in ascending order, we have $\text{citations}[j] >= \text{citations}[i]$. Together with Eq. \ref{eq:h_index}, we can obtain
+    \begin{eqnarray*}
+        \text{citations}[j] >= \text{citations}[i] >= n - i > n - j
+    \end{eqnarray*}
+    which satisfies Eq. \ref{eq:h_index}.
+    \item If we find the exact solution (i.e., $        \text{citations}[i] == n - i$), that's the only solution.
+    \begin{itemize}
+        \item For $j > i$, based on the previous property, we know $\text{citations}[j] > n - j$, which is $>$ not $==$
+        \item For $j < i$, we can obtain $        \text{citations}[j] <= \text{citations}[i] == n - i < n - j$, which is $<$ not $==$
+    \end{itemize}
+\end{itemize}
+With above mentioned properties, we can use binary search to reach search space each iteration. 
+\begin{lstlisting}
+int hIndex(vector<int>& citations) {
+    if (citations.empty()) return 0;
+    
+    int n = citations.size();
+    int left = 0;
+    int right = n - 1;  
+    int mid;
+    int value;
+    
+    // [x, y]
+    // l/m r
+    while (left < right) {
+        mid = left + (right - left)/2;
+        value = citations[mid];
+        
+        if (value == n - mid) {
+            // find the solution
+            return n - mid;
+        }
+        else if (value > n - mid) {
+            right = mid; // mid qualified as h-index and continue to search left for a higher one; no mid -1 since exact solution may not exist
+        }
+        else {
+            left = mid + 1;
+        }
+    }
+    
+    // post-processing: left == right
+    return (citations[right] >= n - right) ? (n - right) : 0;   
+}
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$\\
+    The time complexity is $\mathcal{O}(\log n)$ with the binary search.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables.
+\end{itemize}
+
+\section{LC278 - First Bad Version} \label{sec:lc278_first_bad_version}
 \subsection{Problem Description}
 \href{https://leetcode.com/problems/first-bad-version/}{LeetCode Problem 278}: You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
 
@@ -218,7 +634,7 @@ Suppose you have $n$ versions $[1, 2, ..., n]$ and you want to find out the firs
 
 You are given an API \hl{bool isBadVersion(version)} which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
 
-\subsection{Approach}
+\subsection{Approach - Binary Search}
 Each version has its corresponding status:
 \begin{eqnarray*}
     \text{versions} ~ &:& \begin{bmatrix} 1 & 2 & \cdots & i & i+1 & \cdots & n \end{bmatrix} \\
@@ -226,7 +642,7 @@ Each version has its corresponding status:
 \end{eqnarray*}
 The problem can be solved using binary search to find the first bad status. Similar to problem \hyperref[sec:lc34_find_first_last_position_sorted_array]{LC34 Find First and Last Position of Element in Sorted Array}.
 
-\section{LC287 - Find the Duplicate Number}
+\section{LC287 - Find the Duplicate Number} \label{sec:lc287_find_duplicate_number}
 \subsection{Problem Description}
 \href{https://leetcode.com/problems/find-the-duplicate-number/}{LeetCode Problem 287}: Given an array of integers nums containing $n + 1$ integers where each integer is in the range $[1, n]$ inclusive. There is only \textbf{one duplicate number} in nums, return this duplicate number. 
 
@@ -386,7 +802,116 @@ The table below summarizes the time complexity and space complexity of different
   % \label{tab:application_guide}
 \end{table}
 
-\section{LC875 - Koko Eating Bananas}
+\section{LC367 - Valid Perfect Square} \label{sec:lc367_valid_perfect_square}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/valid-perfect-square/}{LeetCode Problem 367}: Given a positive integer num, write a function which returns True if num is a perfect square else False.
+
+\textbf{Follow up}: Do not use any built-in library function such as sqrt.
+
+\subsection{Approach - Binary}
+The problem can be transformed to find an integer $i$ in the search space $[1, num]$ such that $i*i$ == num \sidenote{Corner case: integer overflow when doing $i*i$. Two fixes: 1) use long int; 2) or change multiplication to division.}. 
+\begin{itemize}
+    \item If $i*i > \text{num}$, no need to search right (i.e., $i+1$, $i+2$, $\cdots$), since square of these values will also be larger than num.
+    \item If $i*i < \text{num}$, no need to search left, since square of these values will also be smaller than num.
+    \item If $i*i == \text{num}$, find the answer
+\end{itemize}
+With these properties, we can use binary search. Due to potential overflow of using $i*i == num$, we convert it into integer division $i == num/i$. In order to check the equality of integer division, we need to check both division ($i == num/i$) and reminder ($num\%i == 0$) since multiple integers may satisfy the equality condition $i == num/i$ (e.g., $3 == 9/3, 3 == 10/3$).
+
+\begin{lstlisting}
+bool isPerfectSquare(int num) {
+    if (num <= 0) return false;
+    
+    int left = 1;
+    int right = num;
+    int mid;
+    int res;
+    int remain;
+    
+    while (left <= right) {
+        mid = left + (right - left)/2;
+        res = num / mid; // avoid overflow mid*mid
+        remain = num % mid;
+        
+        if (res == mid && remain == 0) {
+            return true;
+        }
+        else if (res < mid) {
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1;
+        }
+    }
+    
+    return false;
+}
+\end{lstlisting}
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ \\
+    The time complexity is $\mathcal{O}(\log n)$ with the binary search.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables.
+\end{itemize}
+
+
+\section{LC374 - Guess Number Higher or Lower} 
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/guess-number-higher-or-lower/}{LeetCode Problem 374}: We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+
+\subsection{Approach - Binary}
+The problem is to find the picked number in the search space $[1, n]$, which can be solved efficient by classic binary search.
+
+\section{LC509 - Fibonacci Number} \label{sec:lc509_fibonacci}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/fibonacci-number/}{LeetCode Problem 509}: The Fibonacci numbers, commonly denoted $F(n)$ form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from $0$ and $1$. That is,
+\begin{eqnarray*}
+    F(0) &=& 0,~ F(1) = 1 \\
+    F(n) &=& F(n-1) + F(n-2), ~ \text{for}~ n > 1
+\end{eqnarray*}
+Given $n$, calculate $F(n)$.
+
+\section{LC540 - Single Element in a Sorted Array} \label{sec:lc540_single_element_sorted_array}
+\subsection{Problem Description}
+\href{https://leetcode.com/problems/single-element-in-a-sorted-array/}{LeetCode Problem 540}:You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once. Find this single element that appears only once.
+
+\textbf{Follow up}: Your solution should run in O(log n) time and O(1) space.
+
+\subsection{Approach - Binary Search}
+The array is sorted with most elements appear \textbf{exactly twice} except for one element \sidenote{The total number is odd and the last index is even with zero-based indexing. The target element can only appear in even index of nums, i.e., nums[0], nums[2], ...}. So we can search array in pairs (two elements), i.e., $[2i, 2i-1]$. For any given pair, if elements in a pair are the same, it means the single element is on the right. Otherwise, the single element is either in this pair or on the left. With this property, we can use binary search to speed up the search. The search space is the pair index, i.e., $[0, n/2]$. We want to find the first even-index number not followed by the same number \sidenote{Note that the last pair only has one element. In the code, the while condition is \hl{left < right}, which prevents out-of-bound accesse using nums[2*mid + 1]. When it reaches the last pair, $left == right$ and it will jump out of the while loop.}.
+
+\begin{lstlisting}
+int singleNonDuplicate(vector<int>& nums) {
+    if (nums.empty()) return -1;
+    
+    int left = 0;
+    int right = nums.size()/2;  // pair index
+    int mid;
+    
+    while (left < right) {
+        mid = left + (right - left)/2;
+        
+        if (nums[2*mid] == nums[2*mid + 1]) {
+            left = mid + 1;
+        }
+        else {
+            right = mid;
+        }
+    }
+    
+    return nums[2*left];
+}
+\end{lstlisting}
+
+\noindent \textbf{Complexity Analysis:}
+\begin{itemize}
+    \item \textbf{Time complexity}: $\mathcal{O}(\log n)$ \\
+    The time complexity is $\mathcal{O}(\log n)$ with the binary search.
+    \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
+    Only use limited variables.
+\end{itemize}
+
+\section{LC875 - Koko Eating Bananas} \label{sec:lc875_koko_eat_banana}
 \subsection{Problem Description}
 \href{https://leetcode.com/problems/koko-eating-bananas/}{LeetCode Problem 875}: Koko loves to eat bananas.  There are $N$ piles of bananas, the $i$-th pile has piles[i] bananas.  The guards have gone and will come back in H hours.
 
@@ -475,77 +1000,6 @@ private:
     \item \textbf{Space complexity}: $\mathcal{O}(1)$ \\
     Only use several variables for binary search and computation.
 \end{itemize}
-
-
-\section{LC509 - Fibonacci Number} \label{sec:lc509_fibonacci}
-\subsection{Problem Description}
-\href{https://leetcode.com/problems/fibonacci-number/}{LeetCode Problem 509}: The Fibonacci numbers, commonly denoted $F(n)$ form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from $0$ and $1$. That is,
-\begin{eqnarray*}
-    F(0) &=& 0,~ F(1) = 1 \\
-    F(n) &=& F(n-1) + F(n-2), ~ \text{for}~ n > 1
-\end{eqnarray*}
-Given $n$, calculate $F(n)$.
-
-% \section{String}
-% In C++, a backslash ($\backslash$) at the end of line is considered a line-continuation character that merges both that line and the next into a single line. Therefore the following code:
-% \begin{lstlisting}
-% x = "string expressed in \
-% two lines";
-% \end{lstlisting}
-% is equivalent to 
-% \begin{lstlisting}
-% x = "string expressed in two lines";
-% \end{lstlisting}
-
-% \section{Function}
-% \subsection{Pointer and Reference}
-% \begin{table}[ht]
-%   \centering
-%   \begin{tabular}{p{5cm} p{5cm}}
-%     \toprule
-%     Pointer (*) & Reference (\&) \\
-%     \midrule
-%     Holds a memory address & an alias to an existing variable \\
-%     Can be initialized at any time & Have to be initialized at the point of definition \\
-%     Can point to many different objects during its lifetime & Refers to only one object during its lifetime \\
-%     Use an explicit operator (* operator) to de-reference & No operator is needed to de-reference \\
-%     Call have a NULL value (include const pointer) & Can not be NULL \\
-%     \bottomrule
-%   \end{tabular}
-%   % \caption{Notation.}
-%   % \label{tab:application_guide}
-% \end{table}
-
-% \begin{lstlisting}
-% #include <iostream>
-% double f(double* x, double* y)
-% {
-%     std::cout << "val x: " << *x << "\n";
-%     std::cout << "val y: " << *y << "\n";
-%     return *x * *y;
-% }
-% double f2(double &x, double &y)
-% {
-%     std::cout << "val x: " << x << "\n";
-%     std::cout << "val y: " << y << "\n";
-%     return x * y;
-% }
-% int main()
-% {
-%     double a, b;
-%     a = 2;
-%     b = 3; 
-%     std::cout << f(&a, &b) << "\n";
-%     std::cout << f2(a, b) << "\n";
-%     return 0;
-% } 
-% \end{lstlisting}
-
-
-
-
-
-
 
 
 
