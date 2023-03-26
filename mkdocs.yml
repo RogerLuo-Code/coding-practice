@@ -1,14 +1,35 @@
-site_name: Leetcode Solutions - My Journey
+# Project information
+site_name: Coding Practice
+
+# Configuration
 theme:
   name: material
   features:
+    - navigation.footer
+    - navigation.instant
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
     - content.tabs.link
+
+# Plugins
+plugins:
+  - search
+  - tags:
+      tags_file: tags.md
+
+# Extensions
 markdown_extensions:
   - toc:
       permalink: true
   - tables
   - footnotes
   - admonition
+  - attr_list
+  - md_in_html
   - pymdownx.details
   - pymdownx.betterem
   - pymdownx.caret
@@ -36,3 +57,14 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Page tree
+nav:
+  - Home: index.md
+  - LC Solutions:
+    - LC Solutions 1 to 99:
+      - LC27 Remove Element: lc-solutions/lc0001-0099/lc0027-remove-element.md
+  # - LC Solutions 500 to 999:
+  # - LC Solutions 1000 to 1499:
+  # - LC Solutions 1500 to 1999:
+  - Tag: tags.md
