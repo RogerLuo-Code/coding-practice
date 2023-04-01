@@ -27,12 +27,12 @@ Input array has at least 2 elements.
 
 ## Solution
 ### Approach - Two Pointers
-Since the array is **sorted**, duplicates will show up together in neighbor. We will use two pointers:
-- One pointer `i` to track the **index** of unique element
-- The other pointer `j` to track the index of current element
-Essentially, once an element is encountered, simply bypass its duplicates and move on to the next unique element. So
-- When `nums[i] == nums[j]`, increase `j` to skip the duplicate
-- When `nums[i] != nums[j]`,  the duplicate ends and copy the value to `nums[i+1]` and increase `i`
+Since the array is **sorted**, duplicates will show up together in neighbor. We will use two pointers:  
+- One pointer `i` to track the **index** of unique element  
+- The other pointer `j` to track the index of current element  
+Essentially, once an element is encountered, simply bypass its duplicates and move on to the next unique element. So  
+- When `nums[i] == nums[j]`, increase `j` to skip the duplicate  
+- When `nums[i] != nums[j]`,  the duplicate ends and copy the value to `nums[i+1]` and increase `i`  
 
 === "C++"
     ```cpp
@@ -42,30 +42,35 @@ Essentially, once an element is encountered, simply bypass its duplicates and mo
             if (nums.size() == 0) return 0; // later j starts with 1.
 
             int i = 0;
-            for (int j = 1; j < nums.size(); j++) {
-            // note j starts with 1 to compare with i for duplicate
+            for (int j = 1; j < nums.size(); j++) { // (1)
                 if (nums[i] != nums[j]) {
                     i++;
                     nums[i] = nums[j];
                 }
             }
 
-            return i+1; // index --> number of elements
+            return i + 1; // (2)
         }
     };
     ```
+
+    1. `j` starts from 1
+    2. Return number of elements instead of index
 
 === "Python"
 
     ``` python
     def removeDuplicates(self, nums: List[int]) -> int:
         j = 0
-        for i in range(1, len(nums)):
+        for i in range(1, len(nums)): # (1)
             if nums[j] != nums[i]:
                 j += 1
                 nums[j] = nums[i]
-        return j + 1
+        return j + 1 # (2)
     ```
+
+    1. `i` starts from 1
+    2. Return number of elements instead of index
 
 #### Complexity Analysis
 * Time complexity: $O(n)$  
