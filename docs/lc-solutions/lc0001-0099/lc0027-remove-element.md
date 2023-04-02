@@ -28,28 +28,41 @@ Do **not** allocate extra space for another array. You must do this by **modifyi
 
 ## Solution
 ### Approach - Two Pointers With Move
-Use two pointers:
-- One pointer `i` to track the **next** location to store the element that is not `val`
-- The other pointer `j` to track the index of the current element
-**Note**: clearly understand the physical meanings of two pointers. 
-Initialize both pointer with zeros, and
-- When `nums[j] == val`, skip this element by increasing `j`.
+Use two pointers:  
+- One pointer `i` to track the **next** location to store the element that is not `val`  
+- The other pointer `j` moves along the array, tracking the index of the current element  
+???+ note
+    Clearly understand the physical meanings of two pointers
+Initialize both pointer with zeros, and  
+- When `nums[j] == val`, skip this element by increasing `j`.  
 - When `nums[j] != val`, copy value to `nums[i]`, i.e., `nums[i] = nums[j]`, 
 
-```cpp
-class Solution {
-public:
-    int removeElement(vector<int>& nums, int val) {
-        int i = 0;
-        for (int j = 0; j < nums.size(); j++) {
-            if (nums[j] != val) {
-                nums[i++] = nums[j];
+=== "C++"
+    ```cpp
+    class Solution {
+    public:
+        int removeElement(vector<int>& nums, int val) {
+            int i = 0;
+            for (int j = 0; j < nums.size(); j++) {
+                if (nums[j] != val) {
+                    nums[i++] = nums[j];
+                }
             }
+            return i; // i already plus 1 so no need index to number of elements conversion
         }
-        return i; // i already plus 1 so no need index to number of elements conversion
-    }
-}; 
-```
+    }; 
+    ```
+
+=== "Python"
+    ```python
+    def removeElement(self, nums: List[int], val: int) -> int:
+        j = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[j] = nums[i]
+                j += 1
+        return j
+    ```
 
 #### Complexity Analysis
 * Time complexity: $O(n)$  

@@ -27,7 +27,7 @@ Input array has at least 2 elements.
 
 ## Solution
 ### Approach - Two Pointers
-Since the array is **sorted**, duplicates will show up together in neighbor. We will use two pointers:  
+Since the array is **sorted**, duplicates will show up together in neighbor. Take advantage of this pattern, we will use two pointers:  
 - One pointer `i` to track the **index** of unique element  
 - The other pointer `j` to track the index of current element  
 Essentially, once an element is encountered, simply bypass its duplicates and move on to the next unique element. So  
