@@ -65,8 +65,9 @@ nav:
   - Home: index.md
   - LC Solutions:
     - LC Solutions 1 to 99:
-      - LC26 Remove duplicate element: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
+      - LC26 Remove duplicates from sorted array: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
       - LC27 Remove element: lc-solutions/lc0001-0099/lc0027-remove-element.md
+      - LC80 Remove duplicates from sorted array II: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
   # - LC Solutions 500 to 999:
   # - LC Solutions 1000 to 1499:
   # - LC Solutions 1500 to 1999:

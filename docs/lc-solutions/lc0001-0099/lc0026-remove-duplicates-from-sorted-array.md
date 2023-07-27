@@ -59,7 +59,7 @@ Essentially, once an element is encountered, simply bypass its duplicates and mo
 
 === "Python"
 
-    ``` python
+    ```python
     def removeDuplicates(self, nums: List[int]) -> int:
         j = 0
         for i in range(1, len(nums)): # (1)
