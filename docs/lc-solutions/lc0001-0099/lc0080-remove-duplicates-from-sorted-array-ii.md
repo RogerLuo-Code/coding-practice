@@ -89,7 +89,7 @@ Additional variable `nAppears` is used to track the count of  a particular eleme
 * Space complexity: $O(1)$  
 	Use two pointers and `nAppears`. 
 
-### Approach - Two Pointer + Sliding Window
+### Approach - Sliding Window
 For better understanding, assume there is a sliding window of size `2` with `i` at the right boundary of the window, indicating  the next position that can be overwritten, `|nums[i-2], nums[i-1]| nums[i]`. So the sliding windows contains elements `nums[i-2]` and `nums[i-1]`. Then we can compare the new element `nums[i]` with `nums[i-2]`, if they are equal, we have 3 duplicates (using the property: array is sorted and nondecreasing) and therefore should skip this element. Otherwise, we can copy the new element to the location of index `i`.  
 
 === "C++"
