@@ -2,7 +2,7 @@
 tags:
     - Array
     - Two Pointers
-    - Sliding  Window
+    - Sliding Window
 ---
 
 # LC80. Remove Duplicates from Sorted Array II
