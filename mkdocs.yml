@@ -70,6 +70,8 @@ nav:
       - LC75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
       - LC80 Remove duplicates from sorted array II: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
       - LC88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
+    - LC Solutions 100 to 199:
+      - LC189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC Solutions 400 to 499:
       - LC448 Find all numbers disappeared in an array: lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array.md
       - LC485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
