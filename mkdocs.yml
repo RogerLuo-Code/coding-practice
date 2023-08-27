@@ -82,6 +82,8 @@ nav:
       - LC560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC Solutions 700 to 799:
       - LC713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
+    - LC Solutions 800 to 899:
+      - LC862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
     - LC Solutions 900 to 999:
       - LC974 Subarray sums divisible by K: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
     - LC Solutions 1000 to 1499:
