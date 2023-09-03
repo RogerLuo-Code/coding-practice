@@ -3,6 +3,7 @@ tags:
     - Array
     - Two Pointers
     - Prefix Sum
+    - Hash Table
 ---
 
 # LC325. Maximum Size Subarray Sum Equals k
