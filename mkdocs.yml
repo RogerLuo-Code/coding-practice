@@ -73,10 +73,13 @@ nav:
       - 75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
       - 80 Remove duplicates from sorted array II: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
+      - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
     - LC Solutions 100 to 199:
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC Solutions 200 to 299:
+      - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
+      - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
     - LC Solutions 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
