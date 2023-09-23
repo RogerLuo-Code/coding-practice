@@ -81,6 +81,8 @@ nav:
       - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
+      - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
+      - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
     - LC Solutions 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
     - LC Solutions 400 to 499:
@@ -93,10 +95,13 @@ nav:
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
     - LC Solutions 800 to 899:
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
+      - 876 Middle of the linked list: lc-solutions/lc0800-0899/lc0876-middle-of-the-linked-list.md
     - LC Solutions 900 to 999:
       - 904 Fruit into baskets: lc-solutions/lc0900-0999/lc0904-fruit-into-baskets.md
       - 974 Subarray sums divisible by K: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
     - LC Solutions 1000 to 1499:
       - 1004 Max consecutive ones III: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
+    - LC Solutions 2000 to 2099:
+      - 2095 Delete the middle node of a linked list: lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list.md
   # - LC Solutions 1500 to 1999:
   - Tag: tags.md
