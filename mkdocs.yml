@@ -66,8 +66,10 @@ nav:
   - LC Solutions:
     - LC Solutions 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
+      - 2 Add two numbers: lc-solutions/lc0001-0099/lc0002-add-two-numbers.md
       - 15 3sum: lc-solutions/lc0001-0099/lc0015-3sum.md
       - 18 4sum: lc-solutions/lc0001-0099/lc0018-4sum.md
+      - 21 Merge two sorted list: lc-solutions/lc0001-0099/lc0021-merge-two-sorted-lists.md
       - 26 Remove duplicates from sorted array: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
       - 27 Remove element: lc-solutions/lc0001-0099/lc0027-remove-element.md
       - 75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
@@ -75,6 +77,8 @@ nav:
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
       - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
     - LC Solutions 100 to 199:
+      - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
+      - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC Solutions 200 to 299:
@@ -86,6 +90,7 @@ nav:
     - LC Solutions 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
     - LC Solutions 400 to 499:
+      - 445 Add two numbers ii: lc-solutions/lc0400-0499/lc0445-add-two-numbers-ii.md
       - 448 Find all numbers disappeared in an array: lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array.md
       - 485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
       - 487 Max consecutive ones II: lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii.md
@@ -101,6 +106,8 @@ nav:
       - 974 Subarray sums divisible by K: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
     - LC Solutions 1000 to 1499:
       - 1004 Max consecutive ones III: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
+    - LC Solutions 1700 to 1799:
+      - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC Solutions 2000 to 2099:
       - 2095 Delete the middle node of a linked list: lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list.md
   # - LC Solutions 1500 to 1999:
