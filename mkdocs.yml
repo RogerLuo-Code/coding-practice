@@ -70,6 +70,7 @@ nav:
       - 15 3sum: lc-solutions/lc0001-0099/lc0015-3sum.md
       - 18 4sum: lc-solutions/lc0001-0099/lc0018-4sum.md
       - 21 Merge two sorted list: lc-solutions/lc0001-0099/lc0021-merge-two-sorted-lists.md
+      - 23 Merge k sorted list: lc-solutions/lc0001-0099/lc0023-merge-k-sorted-lists.md
       - 26 Remove duplicates from sorted array: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
       - 27 Remove element: lc-solutions/lc0001-0099/lc0027-remove-element.md
       - 75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
@@ -79,6 +80,7 @@ nav:
     - LC Solutions 100 to 199:
       - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
       - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
+      - 143 Reorder list: lc-solutions/lc0100-0199/lc0143-reorder-list.md
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC Solutions 200 to 299:
