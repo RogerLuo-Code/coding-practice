@@ -51,7 +51,7 @@ Initialize a hashset with all elements from `nums` and then iterate over the ran
 
 #### Complexity Analysis
 * Time complexity: $O(n)$  
-	It requires $O(n)$ time to insert all elements into hashset and another $O(n)$ time to iterate over range and insert elements not present in hashset into `ans`. So the total time complexity of $O(n) = O(n) + O(n)$.  
+	It requires $O(n)$ time to insert all elements into hashset and another $O(n)$ time to iterate over range, check whether element in the hashset and insert elements not present into `ans`. Note that the average time complexity of checking existence in a hashset is O(1). So the total time complexity of $O(n) = O(n) + O(n)$.  
 * Space complexity: $O(n)$
 	Store at most $n$ elements in the hashset. 
 

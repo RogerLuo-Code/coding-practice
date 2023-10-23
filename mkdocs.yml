@@ -78,6 +78,7 @@ nav:
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
       - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
     - LC Solutions 100 to 199:
+      - 119 Pascal's triangle ii: lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii.md
       - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
       - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
       - 143 Reorder list: lc-solutions/lc0100-0199/lc0143-reorder-list.md
@@ -106,8 +107,10 @@ nav:
     - LC Solutions 900 to 999:
       - 904 Fruit into baskets: lc-solutions/lc0900-0999/lc0904-fruit-into-baskets.md
       - 974 Subarray sums divisible by K: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
-    - LC Solutions 1000 to 1499:
+    - LC Solutions 1000 to 1099:
       - 1004 Max consecutive ones III: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
+    - LC Solutions 1200 to 1299:
+      - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
     - LC Solutions 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC Solutions 2000 to 2099:
