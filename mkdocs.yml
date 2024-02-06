@@ -53,8 +53,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -102,6 +102,7 @@ nav:
     - LC Solutions 500 to 599:
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC Solutions 700 to 799:
+      - 704 Binary search: lc-solutions/lc0700-0799/lc704-binary-search.md
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
     - LC Solutions 800 to 899:
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
