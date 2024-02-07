@@ -66,7 +66,7 @@ nav:
   - Data Structure:
     - Linked List: data-structure/linked-list/linked-list.md
   - LC Solutions:
-    - LC Solutions 1 to 99:
+    - LC 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
       - 2 Add two numbers: lc-solutions/lc0001-0099/lc0002-add-two-numbers.md
       - 15 3sum: lc-solutions/lc0001-0099/lc0015-3sum.md
@@ -75,49 +75,51 @@ nav:
       - 23 Merge k sorted list: lc-solutions/lc0001-0099/lc0023-merge-k-sorted-lists.md
       - 26 Remove duplicates from sorted array: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
       - 27 Remove element: lc-solutions/lc0001-0099/lc0027-remove-element.md
+      - 35 Search insert position: lc-solutions/lc0001-0099/lc0035-search-insert-position.md
       - 75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
       - 80 Remove duplicates from sorted array II: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
       - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
-    - LC Solutions 100 to 199:
+    - LC 100 to 199:
       - 119 Pascal's triangle ii: lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii.md
       - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
       - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
       - 143 Reorder list: lc-solutions/lc0100-0199/lc0143-reorder-list.md
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
-    - LC Solutions 200 to 299:
+    - LC 200 to 299:
       - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
-    - LC Solutions 300 to 399:
+    - LC 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
-    - LC Solutions 400 to 499:
+    - LC 400 to 499:
       - 445 Add two numbers ii: lc-solutions/lc0400-0499/lc0445-add-two-numbers-ii.md
       - 448 Find all numbers disappeared in an array: lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array.md
       - 485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
       - 487 Max consecutive ones II: lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii.md
-    - LC Solutions 500 to 599:
+    - LC 500 to 599:
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
-    - LC Solutions 700 to 799:
-      - 704 Binary search: lc-solutions/lc0700-0799/lc704-binary-search.md
+    - LC 700 to 799:
+      - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
+      - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
-    - LC Solutions 800 to 899:
+    - LC 800 to 899:
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
       - 876 Middle of the linked list: lc-solutions/lc0800-0899/lc0876-middle-of-the-linked-list.md
       - 896 Monotonic array: lc-solutions/lc0800-0899/lc0896-monotonic-array.md
-    - LC Solutions 900 to 999:
+    - LC 900 to 999:
       - 904 Fruit into baskets: lc-solutions/lc0900-0999/lc0904-fruit-into-baskets.md
       - 974 Subarray sums divisible by K: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
-    - LC Solutions 1000 to 1099:
+    - LC 1000 to 1099:
       - 1004 Max consecutive ones III: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
-    - LC Solutions 1200 to 1299:
+    - LC 1200 to 1299:
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
-    - LC Solutions 1700 to 1799:
+    - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
-    - LC Solutions 2000 to 2099:
+    - LC 2000 to 2099:
       - 2095 Delete the middle node of a linked list: lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list.md
-  # - LC Solutions 1500 to 1999:
+  # - LC 1500 to 1999:
   - Tag: tags.md
