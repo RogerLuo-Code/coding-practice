@@ -13,7 +13,7 @@ Return _the smallest character in_ `letters` _that is lexicographically great
 - array of letters
 - non-decreasing order
 - capital or small letters and how to determin orders between capital and small ones
-- definition of lexicographically?
+- definition of [lexicographic order](https://en.wikipedia.org/wiki/Lexicographic_order)? dictionary order?
 - return letter or index
 
 ## Assumption

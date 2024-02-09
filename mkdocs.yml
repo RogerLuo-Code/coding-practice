@@ -117,6 +117,8 @@ nav:
       - 1004 Max consecutive ones III: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
     - LC 1200 to 1299:
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
+    - LC 1300 to 1399:
+      - 1351 Count negative numbers in a sorted matrix: lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC 2000 to 2099:
