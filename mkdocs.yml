@@ -93,6 +93,7 @@ nav:
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
+      - 240 Search a 2D matrix ii: lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md
     - LC 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
     - LC 400 to 499:
