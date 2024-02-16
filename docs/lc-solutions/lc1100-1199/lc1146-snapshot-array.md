@@ -27,6 +27,8 @@ First, we need to define a data structure to store the snapshots. We use a list 
 
 Then, when `get` value for a given `index` and `snap_id`. We will get the list of `[snap_id, val]` for the given `index`. Since the `snap_id` is sorted with increasing and unique values, we can use binary search to find the target snap_id and retrieve the `val`.
 
+![](assets/lc1146-index-snapid-val-example.png)
+
 === "Python"
     ```python
     class SnapshotArray:
