@@ -26,10 +26,18 @@ You must write an algorithm with `O(log n)` runtime complexity.
 ### Approach - Binary Search
 The original array is sorted in ascending order and then rotated at some pivot. So the array can be always divided into two parts: one part is sorted and the other part is unsorted, containing the pivot. It is easy to check whether the target is in the sorted part and search inside that part. If the target is in the unsorted part, we can further divide the unsorted part into two parts (again one part will be sorted and the other will be unsorted) and continue to check the sorted part. This allow us using binary search to find the target.
 
-The search space starts from the whole array and shrinks over each iteration, using [left, right] to indicate the search space. The mid is the separation point to divide the search space into two parts, one is sorted and the other is unsorted.
+The search space starts from the whole array and shrinks over each iteration, using `[left, right]`` to indicate the search space. The mid is the separation point to divide the search space into two parts, one is sorted and the other is unsorted.
 
-- If `nums[left] <= nums[mid]`, the sub-array `[left, mid]`` is sorted. This is true when an array has **no duplicates**. It is easy to check whether the target is inside this part. If not, continue to divide and search the right half.
-- If `nums[left] > nums[mid]``,the right sub-array `[mid,right] is sorted. We can check whether the target is in the right part. If not, continue to divide and search the left half.
+We need to handle the the first 3 situations below:
+
+1. `nums[left] <= nums[mid] <= nums[right]`, the whole array is sorted
+2. `nums[left] > nums[mid] <= nums[right]`,  right half is sorted
+3. `nums[left] <= nums[mid] > nums[right]`,  left half is sorted
+4. `nums[left] > nums[mid] > nums[right]`, impossible since array is sorted in non-decreasing
+
+So we can compare `nums[left]` and `nums[mid]` to decide which half is sorted
+- If `nums[left] <= nums[mid]`, the sub-array `[left, mid]` is sorted. This is true when an array has **no duplicates**. It is easy to check whether the target is inside this part. If not, continue to divide and search the right half.
+- If `nums[left] > nums[mid]`,the right sub-array `[mid,right]` is sorted. We can check whether the target is in the right part. If not, continue to divide and search the left half.
 
 === "Python"
 ```python
