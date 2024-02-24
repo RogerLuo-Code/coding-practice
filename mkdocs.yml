@@ -78,6 +78,8 @@ nav:
       - 33 Search in rotated sorted array: lc-solutions/lc0001-0099/lc0033-search-in-rotated-sorted-array.md
       - 34 Find first and last position of element in sorted array: lc-solutions/lc0001-0099/lc0034-find-first-and-last-position-of-element-in-sorted-array.md
       - 35 Search insert position: lc-solutions/lc0001-0099/lc0035-search-insert-position.md
+      - 69 Sqrt(x): lc-solutions/lc0001-0099/lc0069-sqrt-x.md
+      - 74 Search a 2D matrix: lc-solutions/lc0001-0099/lc0074-search-a-2d-matrix.md
       - 75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
       - 80 Remove duplicates from sorted array ii: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
       - 81 Search in rotated sorted array ii: lc-solutions/lc0001-0099/lc0081-search-in-rotated-sorted-array-ii.md
@@ -102,9 +104,11 @@ nav:
       - 278 First bad version: lc-solutions/lc0200-0299/lc0278-first-bad-version.md
     - LC 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
+      - 367 Valid perfect square: lc-solutions/lc0300-0399/lc0367-valid-perfect-square.md
       - 374 Guess number higher or lower: lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower.md
     - LC 400 to 499:
-      - 436 Find right interval: lc-solutions/lc0400-0499/lc436-find-right-interval.md
+      - 436 Find right interval: lc-solutions/lc0400-0499/lc0436-find-right-interval.md
+      - 441 Arranging coins: lc-solutions/lc0400-0499/lc0441-arranging-coins.md
       - 445 Add two numbers ii: lc-solutions/lc0400-0499/lc0445-add-two-numbers-ii.md
       - 448 Find all numbers disappeared in an array: lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array.md
       - 485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
@@ -122,6 +126,7 @@ nav:
     - LC 900 to 999:
       - 904 Fruit into baskets: lc-solutions/lc0900-0999/lc0904-fruit-into-baskets.md
       - 974 Subarray sums divisible by k: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
+      - 981 Time Based Key-Value Store: lc-solutions/lc0900-0999/lc0981-time-based-key-value-store.md
     - LC 1000 to 1099:
       - 1004 Max consecutive ones iii: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
     - LC 1100 to 1199:
