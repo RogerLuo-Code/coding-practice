@@ -101,6 +101,8 @@ nav:
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
       - 240 Search a 2D matrix ii: lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md
+      - 274 H-index: lc-solutions/lc0200-0299/lc0274-h-index.md
+      - 275 H-index ii: lc-solutions/lc0200-0299/lc0275-h-index-ii.md
       - 278 First bad version: lc-solutions/lc0200-0299/lc0278-first-bad-version.md
     - LC 300 to 399:
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
@@ -135,6 +137,8 @@ nav:
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
     - LC 1300 to 1399:
       - 1351 Count negative numbers in a sorted matrix: lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix.md
+    - LC 1500 to 1599:
+      - 1539 Kth missing positive number: lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC 2000 to 2099:
