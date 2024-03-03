@@ -116,12 +116,16 @@ nav:
       - 485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
       - 487 Max consecutive ones ii: lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii.md
     - LC 500 to 599:
+      - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
+    - LC600 to 699:
+      - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658_find_k_closest_elements.md
     - LC 700 to 799:
       - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
     - LC 800 to 899:
+      - 852 Peak index in a mountain array: lc-solutions/lc0800-0899/lc0852-peak-index-in-a-mountain-array.md
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
       - 876 Middle of the linked list: lc-solutions/lc0800-0899/lc0876-middle-of-the-linked-list.md
       - 896 Monotonic array: lc-solutions/lc0800-0899/lc0896-monotonic-array.md

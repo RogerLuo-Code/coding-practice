@@ -8,7 +8,7 @@
     - Find k elements vs. k-th element?
     - Range of k? K <= 0 or k > arr.length?
     - Sorted vs unsorted?
-    - Duplecate elements (target, or any element in the result) handling? 
+    - Duplicate elements (target, or any element in the result) handling? 
     - Deal with tie case?
     - return data - sorted or unsorted? sorted in ascending order or based on distance from x? what about empty?
 * Go through some examples
@@ -30,11 +30,11 @@
 
 ## Approaches  
 1. For **unsorted** array, sort the element first by absolute difference values to the target (e.g., [using Collection.sort](https://leetcode.com/problems/find-k-closest-elements/solution/)). The result is in the first k elements.   
-2. For **sorted** array, we can use binary search to speed up the search. There are two different ways to achive that:
+2. For **sorted** array, we can use binary search to speed up the search. There are two different ways to achieve that:
    * Binary search with two pointers: Use binary search to find two closest elements around the target and move to left or right using two pointers to find k closet elements.   
-   * [Binary search of a window @lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) constains the k closest elements    
+   * [Binary search of a window @lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) contains the k closest elements    
 
-### Approcach 1: using `Collection.sort()`
+### Approach 1: using `Collection.sort()`
 #### Algorithm
 Sort the element first by absolute difference values to the target. The result is in the first k elements. Before return, sort the k elements so the result is in ascending order as required. This approach can be used for both sorted and unsorted array. 
 
@@ -149,7 +149,7 @@ $\mathcal{O}(\log n)$ is for the time of binary search, while $\mathcal{O}(k)$ i
 
 ### Approach 2b: binary search of a window
 #### Algorithm
-A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) constains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
+A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) contains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
 * case 1: x is outside of window and on the left (`x - A[mid] < A[mid + k] - x`), move window to left  
 -----x----A[mid]------------A[mid+k]--------
 * case 2: x is in the window and close to the left (`x - A[mid] < A[mid + k] - x`), move window to left again   
@@ -160,14 +160,14 @@ A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-el
 ----A[mid]------------------A[mid+k]---x----
 
 **Important** points for implementation:
-* Intialize `right = arr.legnth - k`, so `right + k - 1` will not execeed `arr.length`
+* Initialize `right = arr.length - k`, so `right + k - 1` will not exceed `arr.length`
 * When updating left and right indices, using `mid + 1`, `mid`, or `mid - 1`?
-  - if `x - A[mid] > A[mid + k] - x`, it means `A[mid + k]` is closed to x and the window `A[mid + 1] - A[mid + k]` is better than the window `A[mid] - A[mid + k - 1]`. Therefore update `left = mid + 1`
-  - if `x - A[mid] < A[mid + k] - x`, it means `A[mid]` is closed to x and the current window `A[mid] - A[mid + k - 1]` or potentially some window on the left is better. Therefore update `right = mid`. Note taht it is NOT `mid - 1`, since from the comparison we only know the current window is better and don't know whether the window on the left is better.
+  - if `x - A[mid] > A[mid + k] - x`, it means `A[mid + k]` is closer to x and the window `A[mid + 1] - A[mid + k]` is better than the window `A[mid] - A[mid + k - 1]`. Therefore update `left = mid + 1`
+  - if `x - A[mid] < A[mid + k] - x`, it means `A[mid]` is closer to x and the current window `A[mid] - A[mid + k - 1]` or potentially some window on the left is better. Therefore update `right = mid`. Note that it is NOT `mid - 1`, since from the comparison we only know the current window is better and don't know whether the window on the left is better.
   - if `x - A[mid] == A[mid + k] - x`, don't stop here and continue to check the left see whether there is a better window. In the problem description, it requires "If there is a tie, the smaller elements are always preferred." Therefore, update `right = mid` to search smaller elements.
 * When to end the while loop for binary search? `left == right`
 * For comparison, using absolute value `abs(x - A[mid]` or relative value with sign `x - A[mid]`?  
-If `A[mid] == A[mid + k]`, we don't know ehther to move left or right using absolute value (need additional check). Relative values can tell the direction based on the sign of the value. The absolute value comparison method fails at cases like `A = [1,1,2,2,2,2,2,3,3]`, `x = 3`, `k = 2`. 
+If `A[mid] == A[mid + k]`, we don't know either to move left or right using absolute value (need additional check). Relative values can tell the direction based on the sign of the value. The absolute value comparison method fails at cases like `A = [1,1,2,2,2,2,2,3,3]`, `x = 3`, `k = 2`. 
 * For comparison, `A[mid]` vs. `A[mid + k]`, or `A[mid]` vs. `A[mid + k - 1]`?  
 Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[mid] ~ A[mid + k - 1] vs. A[mid + 1] ~ A[mid + k]) to see which one is better.  
 
@@ -192,7 +192,7 @@ class Solution {
             mid = left + (right - left)/2;
             
             // compare mid and mid+k not mid+k-1 to see which window is better
-            // current windown (mid ~ mid+k-1) or next window (mid+1 ~ mid+k)
+            // current window (mid ~ mid+k-1) or next window (mid+1 ~ mid+k)
             if (x - arr[mid] > arr[mid + k] - x)
                 left = mid + 1;
             // else if (x - arr[mid] < arr[mid + k] - x)
@@ -201,7 +201,7 @@ class Solution {
                 right = mid;  // for tie case: not return, continue to check the left see whether there is a better window
         }
         
-        // postprocesing left == right
+        // postprocessing left == right
         // window left ~ left + k - 1
         for (int i = left; i < left + k; i++)
             result.add(arr[i]);
@@ -216,7 +216,7 @@ class Solution {
 
 #### Complexity analysis of approach 2b
 * **Time complexity**: $\mathcal{O}(\log (n - k))$ for finding indices and $\mathcal{O}(\log (n - k) + k)$ for returning elements.
-Since the sarch space of bineary search of window is $n-k$ elements, therefore the complexity for finding indices is $\mathcal{O}(\log (n - k))$. However to return the elements, it involves k-times copy and therefore time complexity is changed to $\mathcal{O}(\log (n - k) + k)$.
+Since the search space of binary search of window is $n-k$ elements, therefore the complexity for finding indices is $\mathcal{O}(\log (n - k))$. However to return the elements, it involves k-times copy and therefore time complexity is changed to $\mathcal{O}(\log (n - k) + k)$.
 * **Space complexity**: $\mathcal{O}(k)$ for generating a list with k elements from an array.
 
 ### Complexity Analysis Summary
