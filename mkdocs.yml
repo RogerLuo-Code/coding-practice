@@ -69,6 +69,7 @@ nav:
     - LC 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
       - 2 Add two numbers: lc-solutions/lc0001-0099/lc0002-add-two-numbers.md
+      - 4 Median of two sorted arrays: lc-solutions/lc0001-0099/lc0004-median-of-two-sorted-arrays.md
       - 15 3sum: lc-solutions/lc0001-0099/lc0015-3sum.md
       - 18 4sum: lc-solutions/lc0001-0099/lc0018-4sum.md
       - 21 Merge two sorted list: lc-solutions/lc0001-0099/lc0021-merge-two-sorted-lists.md
@@ -119,6 +120,7 @@ nav:
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC600 to 699:
+      - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
       - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658_find_k_closest_elements.md
     - LC 700 to 799:
       - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
@@ -141,11 +143,14 @@ nav:
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
     - LC 1300 to 1399:
       - 1351 Count negative numbers in a sorted matrix: lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix.md
+    - LC 1400 to 1499:
+      - 1498 Number of subsequences that satisfy the given sum condition: lc-solutions/lc1400-1499/lc1498-number-of-subsequences-that-satisfy-the-given-sum-condition.md
     - LC 1500 to 1599:
       - 1539 Kth missing positive number: lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC 2000 to 2099:
+      - 2300 Successful pairs of spells and portions: lc-solutions/lc2000-2099/lc2300-successful-pairs-of-spells-and-portions.md
       - 2095 Delete the middle node of a linked list: lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list.md
   # - LC 1500 to 1999:
   - Tag: tags.md

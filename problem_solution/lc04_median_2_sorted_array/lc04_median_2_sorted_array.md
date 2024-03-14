@@ -25,12 +25,12 @@
   - Test general cases: total number is odd and even
 
 ## Approach
-Based on definiton and properties of median, we can come up with two different approaches.
+Based on definition and properties of median, we can come up with two different approaches.
 
 ### Approach 1
 **Median definition**: the median is the "middle" of a sorted list of numbers. $\text{median}(x) = (x \lfloor (n+1)/2 \rfloor + x \lceil (n+1)/2 \rceil)/2$, where $x$ is an ordered list of $n$ numbers, and $\lfloor \cdot \rfloor$ and $\lceil \cdot \rceil$ denotes the [floor and ceiling functions](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions), respectively.
-* If n is odd, the median is (n + 1)/2 th element. 
-* If n is even, the median is the average of (n + 1)/2 th and (n + 1)/2 + 1 th elements 
+* If n is odd, the median is $(n + 1)/2$ th element. 
+* If n is even, the median is the average of $(n + 1)/2$ th and $(n + 1)/2 + 1$ th elements 
 
 Based on the median definition, we can convert the problem to find (m + n + 1)/2 th smallest elements, where m and n are total number of array 1 and array 2, respectively. The algorithm of finding k-th smallest element is explained [here](../et02_kth_smallest_2_sorted_array/et02_kth_smallest_2_sorted_array.md).
 
@@ -119,7 +119,7 @@ Since B has n elements, left_B length is j and right_B length is m - j. Note whe
 ```
 If we can ensure:
 * `len(left_part) == len(right_part)` for even number of (m+n), or `len(left_part) == len(right_part) + 1` for odd number of (m+n)   
-`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even caes since integer divide results are the same between $\frac{m+n}{2}$ and $\frac{m+n+1}{2}$.     
+`i + j = m - i + n - j` when `m + n` is even; `i + j = m - i + n - j + 1` when `m + n` is odd. if `n >= m`, we can simplify `i = 0 ~ m` and `j = (m + n + 1)/2 - i`. Note `(m + n + 1)/2` works for both odd and even case since integer divide results are the same between $\frac{m+n}{2}$ and $\frac{m+n+1}{2}$.     
 * `max(left_part) <= min(right_part)`
 Just check `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`. Since A and B are sorted, `A[i - 1] <= A[i]` and `B[j - 1] <= B[j]` and therefore no need to compare.   
 
@@ -128,12 +128,12 @@ Then the median can compute from the middle 4 elements (A[i-1], B[j-1], A[i], an
 * `(max(A[i -1], B[j - 1]) + min(A[i], B[j]))/2`, when m + n is even
 
 
-The **algorithm** is simpled as:
+The **algorithm** is simplified as:
 ```
 Searching i in [0, m] to find an object i such that:
     B[j - 1] <= A[i] and A[i - 1] <= B[j], where j = (m + n + 1)/2 - i
 ```
-We can use binary search method to search i (j is changed acoordingly). There are 3 situtions to consider:
+We can use binary search method to search i (j is changed accordingly). There are 3 situations to consider:
 * `B[j - 1] <= A[i]` and `A[i - 1] <= B[j]`  
 The object is found and stop searching.
 *  `B[j - 1] > A[i]`  
@@ -141,7 +141,7 @@ Means A[i] is too small. We need to adjust i to get `B[j - 1] <= A[i]`.
     - Can we increase i?  
     Yes, Because when i is increased (A[i] is increased), j will be decreased (B[j - 1] is decreased). So the search range is changed to [i + 1, right].
     - Can we decrease i?  
-    No! Because wehn i is decreased (A[i] is decreased further), j will be increased (B[j - 1] is increased further). Therefore, `B[j - 1] <= A[i]` will be never satisfied.  
+    No! Because when i is decreased (A[i] is decreased further), j will be increased (B[j - 1] is increased further). Therefore, `B[j - 1] <= A[i]` will be never satisfied.  
 * `A[i - 1] > B[j]`  
 Means A[i - 1] is too big. And we must decrease i to get `A[i - 1] <= B[j]`. So the search range is changed to [left, i - 1].
 
