@@ -106,7 +106,9 @@ nav:
       - 275 H-index ii: lc-solutions/lc0200-0299/lc0275-h-index-ii.md
       - 278 First bad version: lc-solutions/lc0200-0299/lc0278-first-bad-version.md
     - LC 300 to 399:
+      - 300 Longest increasing subsequence: lc-solutions/lc0300-0399/lc0300-longest-increasing-subsequence.md
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
+      - 354 Russian doll envelopes: lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes.md
       - 367 Valid perfect square: lc-solutions/lc0300-0399/lc0367-valid-perfect-square.md
       - 374 Guess number higher or lower: lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower.md
     - LC 400 to 499:
@@ -117,11 +119,12 @@ nav:
       - 485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
       - 487 Max consecutive ones ii: lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii.md
     - LC 500 to 599:
+      - 528 Random pick with weight: lc-solutions/lc0500-0599/lc0528-random-pick-with-weight.md
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC600 to 699:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
-      - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658_find_k_closest_elements.md
+      - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658-find-k-closest-elements.md
     - LC 700 to 799:
       - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
