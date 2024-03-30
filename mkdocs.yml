@@ -126,12 +126,14 @@ nav:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
       - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658-find-k-closest-elements.md
     - LC 700 to 799:
+      - 702 Search in a sorted array of unknown size: lc-solutions/lc0700-0799/lc0702-search-in-a-sorted-array-of-unknown-size.md
       - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
     - LC 800 to 899:
       - 852 Peak index in a mountain array: lc-solutions/lc0800-0899/lc0852-peak-index-in-a-mountain-array.md
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
+      - 875 Koko eating bananas: lc-solutions/lc0800-0899/lc0875-koko-eating-bananas.md
       - 876 Middle of the linked list: lc-solutions/lc0800-0899/lc0876-middle-of-the-linked-list.md
       - 896 Monotonic array: lc-solutions/lc0800-0899/lc0896-monotonic-array.md
     - LC 900 to 999:
@@ -140,6 +142,8 @@ nav:
       - 981 Time Based Key-Value Store: lc-solutions/lc0900-0999/lc0981-time-based-key-value-store.md
     - LC 1000 to 1099:
       - 1004 Max consecutive ones iii: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
+      - 1011 Capacity to ship packages within D days: lc-solutions/lc1000-1099/lc1011-capacity-to-ship-packages-within-d-days.md
+      - 1099 Two sum less than k: lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k.md
     - LC 1100 to 1199:
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
     - LC 1200 to 1299:
@@ -149,6 +153,7 @@ nav:
     - LC 1400 to 1499:
       - 1498 Number of subsequences that satisfy the given sum condition: lc-solutions/lc1400-1499/lc1498-number-of-subsequences-that-satisfy-the-given-sum-condition.md
     - LC 1500 to 1599:
+      - 1533 Find the index of the large integer: lc-solutions/lc1500-1599/lc1533-find-the-index-of-the-large-integer.md
       - 1539 Kth missing positive number: lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
