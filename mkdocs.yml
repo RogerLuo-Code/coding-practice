@@ -112,6 +112,7 @@ nav:
       - 367 Valid perfect square: lc-solutions/lc0300-0399/lc0367-valid-perfect-square.md
       - 374 Guess number higher or lower: lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower.md
     - LC 400 to 499:
+      - 410 Split array largest sum: lc-solutions/lc0400-0499/lc0410-split-array-largest-sum.md
       - 436 Find right interval: lc-solutions/lc0400-0499/lc0436-find-right-interval.md
       - 441 Arranging coins: lc-solutions/lc0400-0499/lc0441-arranging-coins.md
       - 445 Add two numbers ii: lc-solutions/lc0400-0499/lc0445-add-two-numbers-ii.md
@@ -147,7 +148,9 @@ nav:
     - LC 1100 to 1199:
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
     - LC 1200 to 1299:
+      - 1231 Divide chocolate: lc-solutions/lc1200-1299/lc1231-divide-chocolate.md
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
+      - 1283 Find the smallest divisor given a threshold: lc-solutions/lc1200-1299/lc1283-find-the-smallest-divisor-given-a-threshold.md
     - LC 1300 to 1399:
       - 1351 Count negative numbers in a sorted matrix: lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix.md
     - LC 1400 to 1499:
@@ -155,8 +158,12 @@ nav:
     - LC 1500 to 1599:
       - 1533 Find the index of the large integer: lc-solutions/lc1500-1599/lc1533-find-the-index-of-the-large-integer.md
       - 1539 Kth missing positive number: lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number.md
+    - LC 1600 to 1699:
+      - 1631 Path with minimum effort: lc-solutions/lc1600-1699/1631-path-with-minimum-effort.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
+    - LC 1800 to 1899:
+      - 1870 Minimum speed to arrive on time: lc-solutions/lc1800-1899/lc1870-minimum-speed-to-arrive-on-time.md
     - LC 2000 to 2099:
       - 2300 Successful pairs of spells and portions: lc-solutions/lc2000-2099/lc2300-successful-pairs-of-spells-and-portions.md
       - 2095 Delete the middle node of a linked list: lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list.md
