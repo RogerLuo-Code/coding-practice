@@ -67,6 +67,8 @@ nav:
     - Queue: data-structure/queue/queue.md
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
+  - Algorithms:
+    - Breadth-First Search: algorithms/bfs.md
   - LC Solutions:
     - LC 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
