@@ -98,6 +98,7 @@ nav:
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC 200 to 299:
+      - 200 Number of islands: lc-solutions/lc0200-0299/lc0200-number-of-islands.md
       - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
@@ -162,7 +163,7 @@ nav:
       - 1533 Find the index of the large integer: lc-solutions/lc1500-1599/lc1533-find-the-index-of-the-large-integer.md
       - 1539 Kth missing positive number: lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number.md
     - LC 1600 to 1699:
-      - 1631 Path with minimum effort: lc-solutions/lc1600-1699/1631-path-with-minimum-effort.md
+      - 1631 Path with minimum effort: lc-solutions/lc1600-1699/lc1631-path-with-minimum-effort.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC 1800 to 1899:
