@@ -64,7 +64,11 @@ extra_javascript:
 nav:
   - Home: index.md
   - Data Structure:
+    - Queue: data-structure/queue/queue.md
+    - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
+  - Algorithms:
+    - Breadth-First Search: algorithms/bfs.md
   - LC Solutions:
     - LC 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
@@ -96,6 +100,7 @@ nav:
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC 200 to 299:
+      - 200 Number of islands: lc-solutions/lc0200-0299/lc0200-number-of-islands.md
       - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
@@ -105,6 +110,7 @@ nav:
       - 274 H-index: lc-solutions/lc0200-0299/lc0274-h-index.md
       - 275 H-index ii: lc-solutions/lc0200-0299/lc0275-h-index-ii.md
       - 278 First bad version: lc-solutions/lc0200-0299/lc0278-first-bad-version.md
+      - 286 Walls and gates: lc-solutions/lc0200-0299/lc0286-walls-and-gates.md
     - LC 300 to 399:
       - 300 Longest increasing subsequence: lc-solutions/lc0300-0399/lc0300-longest-increasing-subsequence.md
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
