@@ -28,12 +28,16 @@ From intervals, take `(start_i, i)` to formulate a new list. Sort the list based
     class Solution:
         def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
             l = sorted((e[0], i) for i, e in enumerate(intervals))
+            n = len(l)
             res = []
             for e in intervals:
-                r = bisect.bisect_left(l, (e[1],))
-                res.append(l[r][1] if r < len(l) else -1)
+                r = bisect.bisect_left(l, (e[1],))  # (1)
+                res.append(l[r][1] if r < n else -1)
             return res
     ```
+
+    1. Or use key function, `bisect_left(l, e[1], key=lambda value: value[0])`
+
 
 #### Complexity Analysis
 * Time complexity: $O(n \log n)$  
