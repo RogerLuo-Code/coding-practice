@@ -110,6 +110,7 @@ nav:
       - 274 H-index: lc-solutions/lc0200-0299/lc0274-h-index.md
       - 275 H-index ii: lc-solutions/lc0200-0299/lc0275-h-index-ii.md
       - 278 First bad version: lc-solutions/lc0200-0299/lc0278-first-bad-version.md
+      - 279 Perfect square: lc-solutions/lc0200-0299/lc0279-perfect-squares.md
       - 286 Walls and gates: lc-solutions/lc0200-0299/lc0286-walls-and-gates.md
     - LC 300 to 399:
       - 300 Longest increasing subsequence: lc-solutions/lc0300-0399/lc0300-longest-increasing-subsequence.md
@@ -135,8 +136,9 @@ nav:
     - LC 700 to 799:
       - 702 Search in a sorted array of unknown size: lc-solutions/lc0700-0799/lc0702-search-in-a-sorted-array-of-unknown-size.md
       - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
-      - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
+      - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
+      - 752 Open the lock: lc-solutions/lc0700-0799/lc0752-open-the-lock.md
     - LC 800 to 899:
       - 852 Peak index in a mountain array: lc-solutions/lc0800-0899/lc0852-peak-index-in-a-mountain-array.md
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
