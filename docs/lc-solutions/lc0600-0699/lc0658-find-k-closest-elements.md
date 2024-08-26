@@ -29,9 +29,9 @@ An integer `a` is closer to `x` than an integer `b` if:
 2. For **sorted** array, we can use binary search to speed up the search. There are two different ways to achieve that:
 
     - Binary search with two pointers: Use binary search to find two closest elements around the target and move to left or right using two pointers to find k closet elements.
-    - [Binary search of a window @lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) contains the k closest elements
+    - [Binary search of a window @lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window `[i, i+k-1]` (inclusive) contains the k closest elements
 
-### Approach - sorting
+### Approach - Sorting
 Sort the element first by absolute difference values to the target. The result is in the first k elements. Before return, sort the k elements so the result is in ascending order as required. This approach can be used for both sorted and unsorted array. 
 
 * To use `Collections.sort`, the input array is copied to an array list. 
@@ -70,7 +70,7 @@ Collections.sort() uses merge sort and has $n \log n$ comparison for general cas
 * **Space complexity**: $O(n)$  
 The in-place sorting does not consume any extra space. However, converting array to list takes additional space. If the input is the list, it will be $O(1)$ since `subList` returns a view, not a separate copy.
 
-### Approach - binary Search with two pointers
+### Approach - Binary Search with two pointers
 Since the original array is sorted, we can use binary search to speed up the search with the following two steps:   
 
 1. Use binary search to find the index of the target or the index of a smaller element that is closest to target (if target not exists) 
@@ -183,8 +183,8 @@ This method can achieve $O(\log n + \log k)$ time complexity on find indices but
 $O(\log n)$ is for the time of binary search, while $O(k)$ is for moving two pointers to find the range.
 * **Space complexity**: $O(k)$ for generating a list with k elements from an array.
 
-### Approach: binary search of a window
-A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index i such that the window i ~ i+k-1 (inclusive) contains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
+### Approach: Binary search of a window
+A smart solutions from [@lee215](https://leetcode.com/problems/find-k-closest-elements/discuss/106426/JavaC%2B%2BPython-Binary-Search-O(log(N-K)-%2B-K)): using binary search to find index `i` such that the window `[i, i+k-1]` (inclusive) contains the k closest elements. Move the window to left or right by comparing the distance between `x - arr[mid]` and `arr[mid + k] - x`.
 
 * case 1: x is outside of window and on the left (`x - A[mid] < A[mid + k] - x`), move window to left  
 -----x----A[mid]------------A[mid+k]--------
@@ -238,9 +238,9 @@ Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[m
             if (k <= 0 || k > arr.length)
                 return result;
 
-            int left = 0; 
+            int left = 0;
             int right = arr.length - k; // -k here with window consideration
-            int mid; 
+            int mid;
 
             while (left < right) {
                 mid = left + (right - left)/2;
@@ -269,7 +269,7 @@ Use `A[mid]` vs. `A[mid + k]`, since we are trying to comparing two windows (A[m
     ```
 
 #### Complexity Analysis
-* **Time complexity**: $O(\log (n - k))$ for finding indices and $O(\log (n - k) + k)$ for returning elements.
+* **Time complexity**: $O(\log (n - k))$ for finding indices and $O(\log (n - k) + k)$ for returning elements.  
 Since the search space of binary search of window is $n-k$ elements, therefore the complexity for finding indices is $O(\log (n - k))$. However to return the elements, it involves k-times copy and therefore time complexity is changed to $O(\log (n - k) + k)$.
 * **Space complexity**: $O(k)$ for generating a list with k elements from an array.
 
