@@ -60,6 +60,7 @@ The above image is from [editorial solution](https://leetcode.com/problems/perfe
 
     - 4-Square theorem: Every natural no is sum of 4 squares.
     - Python `math.isqrt` run time is $O((\log(n))^(\log(3)/\log(2)))$, as explained in this [article](https://stackoverflow.com/questions/78063269/time-complexity-of-python-3-8s-integer-square-root-math-isqrt-function#:~:text=As%20a%20result%2C%20the%20running,number%20of%20bits%20of%20n%20.).
+
 * Space complexity: $O(\sqrt{n})$  
 	In the worst case, both queue and set will store values of number, $\sqrt{n}$.
 

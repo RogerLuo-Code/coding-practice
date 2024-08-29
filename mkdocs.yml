@@ -76,6 +76,7 @@ nav:
       - 4 Median of two sorted arrays: lc-solutions/lc0001-0099/lc0004-median-of-two-sorted-arrays.md
       - 15 3sum: lc-solutions/lc0001-0099/lc0015-3sum.md
       - 18 4sum: lc-solutions/lc0001-0099/lc0018-4sum.md
+      - 20 Valid parentheses: lc-solutions/lc0001-0099/lc0020-valid-parentheses.md
       - 21 Merge two sorted list: lc-solutions/lc0001-0099/lc0021-merge-two-sorted-lists.md
       - 23 Merge k sorted list: lc-solutions/lc0001-0099/lc0023-merge-k-sorted-lists.md
       - 26 Remove duplicates from sorted array: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
