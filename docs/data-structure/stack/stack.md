@@ -9,3 +9,10 @@ Stack is a last-in-first-out data structure, supporting two main operations:
 
 
 ## Implementation
+Two different data structure can be used to implement the `stack`:
+
+- [resizing array](./resizing_array_stack.py)
+- [linked list](./linked_stack.py)
+
+## References
+- [linked list](../linked-list/linked-list.md)

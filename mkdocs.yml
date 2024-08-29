@@ -68,7 +68,11 @@ nav:
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
   - Algorithms:
+    - Binary Search: algorithms/binary-search.md
     - Breadth-First Search: algorithms/bfs.md
+    - Dynamic Programming: algorithms/dynamic-programming.md
+    - Recursion: algorithms/recursion.md
+    - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
   - LC Solutions:
     - LC 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
@@ -98,6 +102,7 @@ nav:
       - 143 Reorder list: lc-solutions/lc0100-0199/lc0143-reorder-list.md
       - 153 Find minimum in rotated sorted array: lc-solutions/lc0100-0199/lc0153-find-minimum-in-rotated-sorted-array.md
       - 154 Find minimum in rotated sorted array ii: lc-solutions/lc0100-0199/lc0154-find-minimum-in-rotated-sorted-array-ii.md
+      - 155 Min stack: lc-solutions/lc0100-0199/lc0155-min-stack.md
       - 167 Two sum ii - input array is sorted: lc-solutions/lc0100-0199/lc0167-two-sum-ii-input-array-is-sorted.md
       - 189 Rotate array: lc-solutions/lc0100-0199/lc0189-rotate-array.md
     - LC 200 to 299:
@@ -159,6 +164,7 @@ nav:
     - LC 1200 to 1299:
       - 1231 Divide chocolate: lc-solutions/lc1200-1299/lc1231-divide-chocolate.md
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
+      - 1235 Maximum profit in job scheduling: lc-solutions/lc1200-1299/lc1235-maximum-profit-in-job-scheduling.md
       - 1283 Find the smallest divisor given a threshold: lc-solutions/lc1200-1299/lc1283-find-the-smallest-divisor-given-a-threshold.md
     - LC 1300 to 1399:
       - 1351 Count negative numbers in a sorted matrix: lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix.md
