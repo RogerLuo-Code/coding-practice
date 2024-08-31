@@ -4,17 +4,23 @@ tags:
 ---
 
 # LCxxx. Title
+
 ## Problem Description
+
 [LeetCode Problem xxx](https://leetcode.com/problems/walls-and-gates/): Description
 
 ## Clarification
-- 
+
+-
 
 ## Assumption
-- 
+
+-
 
 ## Solution
-### Approach - 
+
+### Approach -
+
 Solution
 
 === "Python"
@@ -22,13 +28,15 @@ Solution
     code
     ```
 
-#### Complexity Analysis
-* Time complexity: $O(1)$  
-	Explanation
-* Space complexity: $O(n)$  
-	Explanation
+#### Complexity Analysis of Approach 1
 
-### Approach -  
+- Time complexity: $O(1)$  
+  Explanation
+- Space complexity: $O(n)$  
+  Explanation
+
+### Approach2 -
+
 Solution
 
 === "python"
@@ -36,18 +44,20 @@ Solution
     code
     ```
 
-#### Complexity Analysis
-* Time complexity: $O(1)$  
-	Explanation
-* Space complexity: $O(n)$  
-	Explanation
+#### Complexity Analysis of Approach 2
+
+- Time complexity: $O(1)$  
+  Explanation
+- Space complexity: $O(n)$  
+  Explanation
 
 ### Comparison of Different Approaches
+
 The table below summarize the time complexity and space complexity of different approaches:
 
-Approach 	 | Time Complexity 	| Space Complexity  
------------- | --------------- 	| ----------------
-Approach -  |  $O(1)$ 	   	   	| $O(n)$ | 
-Approach -  |  $O(1)$      	| $O(n)$  |
+Approach    | Time Complexity   | Space Complexity |
+------------| ---------------   | ---------------- |
+Approach -  |  $O(1)$           | $O(n)$ |
+Approach -  |  $O(1)$           | $O(n)$  |
 
 ## Test
