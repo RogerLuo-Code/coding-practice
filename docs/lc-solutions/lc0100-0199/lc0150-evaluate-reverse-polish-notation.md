@@ -74,6 +74,31 @@ Inflix Notation vs. Reverse Polish Notation
         return stack.pop()
     ```
 
+=== "Python - Lambda"
+    ```python
+    class Solution:
+    OPERATIONS = {
+        "+": lambda a, b: a + b,
+        "-": lambda a, b: a - b,
+        "/": lambda a, b: int(a / b),
+        "*": lambda a, b: a * b,
+    }
+
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = deque()
+
+        for token in tokens:
+            if token in self.OPERATIONS:
+                operand2 = stack.pop()
+                operand1 = stack.pop()
+                operation = self.OPERATIONS[token]
+                stack.append(operation(operand1, operand2))
+            else:
+                stack.append(int(token))
+
+        return stack.pop()
+    ```
+
 #### Complexity Analysis of Approach 1
 
 - Time complexity: $O(n)$  

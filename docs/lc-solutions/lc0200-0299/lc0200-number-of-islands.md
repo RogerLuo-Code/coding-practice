@@ -19,7 +19,7 @@ An **island** is surrounded by water and is formed by connecting adjacent land
 
 ## Solution
 ### Approach - BFS
-The problem is equvalent to finding out number of groups with connected `1`s. When encountering a `1` and not visited before, consider it as a root node and use breadth-first search (BFS) to find all connected `1`s and mark them as visisted (either use `set` or mark them as `0`). Count the number of root nodes that trigger BFS. This number is the number of islands.
+The problem is equivalent to finding out number of groups with connected `1`s. When encountering a `1` and not visited before, consider it as a root node and use breadth-first search (BFS) to find all connected `1`s and mark them as visited (either use `set` or mark them as `0`). Count the number of root nodes that trigger BFS. This number is the number of islands.
 
 === "Python"
     ```python
@@ -59,18 +59,18 @@ The problem is equvalent to finding out number of groups with connected `1`s. Wh
     ```
 
 #### Complexity Analysis
-* Time complexity: $O(mn)$  
-	The worst case is to search all nodes for connected `1`s. The total number of nodes is $m \times n$, where $m$ is number of rows and $n$ is number of columns of the grid.
-* Space complexity: $O(mn)$  
-	In the worst case, the size of queue and visisted hold all nodes, $m \times n$.
+
+- Time complexity: $O(mn)$  
+  The worst case is to search all nodes for connected `1`s. The total number of nodes is $m \times n$, where $m$ is number of rows and $n$ is number of columns of the grid.
+- Space complexity: $O(mn)$  
+  In the worst case, the size of queue and visisted hold all nodes, $m \times n$.
 
 ### Approach - DFS 
+
 This problem can also be solved use depth-first search.
 
 === "python"
     ```python
-    from collections import deque
-
     class Solution:
         DIRECTIONS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
@@ -96,17 +96,19 @@ This problem can also be solved use depth-first search.
     ```
 
 #### Complexity Analysis
-* Time complexity: $O(mn)$  
-	The worst case is to search all nodes for connected `1`s. 
-* Space complexity: $O(mn)$  
-	In the worst case, the recursive function depth is $m \times n$.
+
+- Time complexity: $O(mn)$  
+  The worst case is to search all nodes for connected `1`s. 
+- Space complexity: $O(mn)$  
+  In the worst case, the recursive function depth is $m \times n$ where the grid map is filled with lands.
 
 ### Comparison of Different Approaches
+
 The table below summarize the time complexity and space complexity of different approaches:
 
-Approach 	 | Time Complexity 	| Space Complexity  
------------- | --------------- 	| ----------------
-Approach -  |  $O(mn)$ 	   	   	| $O(mn)$ | 
-Approach -  |  $O(mn)$      	| $O(mn)$  |
+Approach    | Time Complexity  | Space Complexity |
+------------ | --------------- | ---------------- |
+Approach - BFS |  $O(mn)$    | $O(mn)$ |
+Approach - DFS |  $O(mn)$    | $O(mn)$  |
 
 ## Test
