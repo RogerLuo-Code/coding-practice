@@ -114,6 +114,7 @@ nav:
       - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
+      - 225 Implement stack using queues: lc-solutions/lc0200-0299/lc0225-implement-stack-using-queues.md
       - 232 Implement queue using stacks: lc-solutions/lc0200-0299/lc0232-implement-queue-using-stacks.md
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
