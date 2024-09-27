@@ -130,6 +130,7 @@ nav:
       - 354 Russian doll envelopes: lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes.md
       - 367 Valid perfect square: lc-solutions/lc0300-0399/lc0367-valid-perfect-square.md
       - 374 Guess number higher or lower: lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower.md
+      - 394 Decode string: lc-solutions/lc0300-0399/lc0394-decode-string.md
     - LC 400 to 499:
       - 410 Split array largest sum: lc-solutions/lc0400-0499/lc0410-split-array-largest-sum.md
       - 436 Find right interval: lc-solutions/lc0400-0499/lc0436-find-right-interval.md
