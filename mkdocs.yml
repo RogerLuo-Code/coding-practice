@@ -157,6 +157,7 @@ nav:
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 752 Open the lock: lc-solutions/lc0700-0799/lc0752-open-the-lock.md
     - LC 800 to 899:
+      - 841 Keys and rooms: lc-solutions/lc0800-0899/lc0841-keys-and-rooms.md
       - 852 Peak index in a mountain array: lc-solutions/lc0800-0899/lc0852-peak-index-in-a-mountain-array.md
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
       - 875 Koko eating bananas: lc-solutions/lc0800-0899/lc0875-koko-eating-bananas.md
