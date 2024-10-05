@@ -69,8 +69,8 @@ nav:
     - Linked List: data-structure/linked-list/linked-list.md
   - Algorithms:
     - Binary Search: algorithms/binary-search.md
-    - Breadth-First Search: algorithms/bfs.md
-    - Depth-First Search: algorithms/dfs.md
+    - Breadth-First Search: algorithms/breadth-first-search.md
+    - Depth-First Search: algorithms/depth-first-search.md
     - Dynamic Programming: algorithms/dynamic-programming.md
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
@@ -143,6 +143,7 @@ nav:
     - LC 500 to 599:
       - 528 Random pick with weight: lc-solutions/lc0500-0599/lc0528-random-pick-with-weight.md
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
+      - 542 01 matrix: lc-solutions/lc0500-0599/lc0542-01-matrix.md
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC600 to 699:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md

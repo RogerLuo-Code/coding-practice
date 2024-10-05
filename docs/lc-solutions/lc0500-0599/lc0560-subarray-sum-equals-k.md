@@ -7,16 +7,20 @@ tags:
 
 # LC560. Subarray Sum Equals K
 ## Problem Description
+
 [LeetCode Problem 560](https://leetcode.com/problems/subarray-sum-equals-k/): Given an array of integers `nums` and an integer `k`, return _the total number of continuous subarrays whose sum equals to `k`_.
 
 ## Clarification
+
 - Subarray size could be 1 to len(nums)
 - Array element could be negative
 
 ## Assumption
+
 - Sum of subarray won't cause integer overflow
 
 ## Solution
+
 ### Approach - Brute Force
 
 === "Python"
@@ -36,6 +40,7 @@ tags:
     ```
 
 ### Approach - Hashmap
+
 The problem can be solved more efficiently in terms of cumulative sum. For the cumulative sum (running sum or prefix sum), we will have the following properties:
 
 - $\text{runningSum}_x + \text{targetSum} = \text{runningSum}_y$, i.e., $\text{runningSum}_x = \text{runningSum}_y - \text{targetSum}$ for subarray sum equals k
@@ -43,7 +48,9 @@ The problem can be solved more efficiently in terms of cumulative sum. For the c
 - potentially multiple $runningSum_{x_1}, runningSum_{x_2}, \cdots, runningSum_{x_i}$ may satisfy the above equation since sum of subarray could be zero
 
 The solution is to find any $\text{runningSum}_x$ for position y that satisfies the equation $\text{runningSum}_x = \text{runningSum}_y - \text{targetSum}$. We can use the hashmap to store the cumulative sum and associated number of occurrence to quickly find the number of subarrays whose sum satisfy the equation.  
-![](assets/lc0560_target_sum.png)  
+
+![](assets/lc0560-target-sum.png)  
+
 The figure is from the book, "Cranking the coding interview" 
 
 === "Python"
