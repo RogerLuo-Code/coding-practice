@@ -192,6 +192,8 @@ nav:
     - LC 1800 to 1899:
       - 1802 Maximum value at a given index in a bounded array: lc-solutions/lc1800-1899/lc1802-maximum-value-at-a-given-index-in-a-bounded-array.md
       - 1870 Minimum speed to arrive on time: lc-solutions/lc1800-1899/lc1870-minimum-speed-to-arrive-on-time.md
+    - LC 1900 to 1999:
+      - 1971 Find if Path Exists in Graph: lc-solutions/lc1900-1999/lc1971-find-if-path-exists-in-graph.md
     - LC 2000 to 2099:
       - 2300 Successful pairs of spells and portions: lc-solutions/lc2000-2099/lc2300-successful-pairs-of-spells-and-portions.md
       - 2095 Delete the middle node of a linked list: lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list.md
