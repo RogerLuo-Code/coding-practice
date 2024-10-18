@@ -22,11 +22,11 @@ The graph is given as follows: `graph[i]` is a list of all nodes you can visit
 
 ## Solution
 
-### Approach - DFS
+### Approach - DFS with Backtracking
 
 Use DFS to traverse all nodes and save the path while traversing, If find target target, append the path results. Otherwise, backtracking the path by removing nodes.
 
-Since it is a DAG, no need a visited set since it won't get stuck in a loop (no cycles//loops). Actually the visited set will prevent from finding all paths. Some nodes may need to be visited multiple times when it has multiple indegree.
+Since it is a Directed Acyclic Graph (DAG), no need a visited set since it won't get stuck in a loop (no cycles//loops). Actually the visited set will prevent from finding all paths. Some nodes may need to be visited multiple times when it has multiple indegree.
 
 === "Python"
     ```python
@@ -51,27 +51,46 @@ Since it is a DAG, no need a visited set since it won't get stuck in a loop (no 
 
 #### Complexity Analysis of Approach 1
 
-- Time complexity: $O(2^n)$  
+- Time complexity: $O(2^V)$, where $V$ is the number of vertices.  
   In the worst case (complete binary tree), the number of paths explored by the DFS algorithm can be as large as $O(2^n)$.
-- Space complexity: $O(n)$  
+- Space complexity: $O(V)$  
     - For recursion, the number of recursive call can go up to $n$ calls in the worst case
     - For the current path, it could store $n$ nodes in the worst case.
 
-### Approach2 -
+### Approach2 - BFS
 
-Solution
+Another approach is to use BFS to traverse the node and store temporary path for each node.
 
 === "python"
     ```python
-    code
+    class Solution:
+        def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+            target = len(graph) - 1
+            results = []
+            queue = deque([[0]])
+
+            while queue:
+                path = queue.popleft()
+                curr_node = path[-1]
+
+                if curr_node == target:
+                    results.append(path)
+
+                for next_node in graph[curr_node]:
+                    new_path = path.copy()
+                    new_path.append(next_node)
+                    queue.append(new_path)
+
+            return results
     ```
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O(1)$  
-  Explanation
-- Space complexity: $O(n)$  
-  Explanation
+- Time complexity: $O(2^V \times V)$  
+    - For a graph with $V$ vertices, there could be at most $2^{V-1}$ possible paths.
+    - For each path, we need $O(V)$ time to build due to copy of path
+- Space complexity: $O(2^V \times V)$  
+  The queue can contain $O(2^V)$ paths and each path will take $O(V)$ space.
 
 ### Comparison of Different Approaches
 
@@ -79,7 +98,7 @@ The table below summarize the time complexity and space complexity of different 
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
-Approach -  |  $O(1)$           | $O(n)$ |
-Approach -  |  $O(1)$           | $O(n)$  |
+Approach - DFS |  $O(2^V)$           | $O(V)$ |
+Approach - BFS |  $O(2^V \times V)$           | $O(2^V \times V)$  |
 
 ## Test

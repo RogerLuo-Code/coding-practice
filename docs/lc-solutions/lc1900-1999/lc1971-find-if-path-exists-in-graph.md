@@ -70,12 +70,10 @@ Go through edges and construct vortex matrix and then use either BFS or DFS to c
 
      - Use a list to store all edges, which take $O(2 \times E) = O(E)$ space  
      - Use `visited` to track visited nodes, which takes $O(V)$ in the worst case
-     - Use `queue` to traverse nodes, which takes $O(v)$ in the worst case
+     - Use `queue` to traverse nodes, which takes $O(V)$ in the worst case
 
 
 ### Approach 2 - DFS
-
-Solution
 
 === "python"
     ```python
@@ -107,12 +105,12 @@ Solution
 #### Complexity Analysis of Approach 2
 
 - Time complexity: $O(V + E)$ where $V$ and $E$ are the number of vertices and edges.  
-    - For building `vertices` matrix of all `m` edges, it takes $O(m)$.
-    - Each node is only visited once by using DFS with visited, it takes $O(n)$ to traverse all nodes.
+    - For building `vertices` matrix of all `E` edges, it takes $O(E)$.
+    - Each node is only visited once by using DFS with visited, it takes $O(V)$ to traverse all nodes.
 - Space complexity: $O(V + E)$  
-    - Use a list of list to store two nodes per edge for all edges, it takes $O(2 \times E) = $O(E)$.
-    - Use `set` to track the visited nodes, it may add all $n$ nodes in the worst case.
-    - The recursive function uses function call call stack, uses $O(n)$ space in the worst case.
+    - Use a list of list to store two nodes per edge for all edges, it takes $O(2 \times E) = O(E)$.
+    - Use `set` to track the visited nodes, it may add all $V$ nodes and use $O(V)$ space in the worst case.
+    - The recursive function uses function call call stack, uses $O(V)$ space in the worst case.
 
 ### Approach 3 - Union Find
 
