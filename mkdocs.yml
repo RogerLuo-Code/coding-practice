@@ -173,6 +173,7 @@ nav:
       - 1004 Max consecutive ones iii: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
       - 1011 Capacity to ship packages within D days: lc-solutions/lc1000-1099/lc1011-capacity-to-ship-packages-within-d-days.md
       - 1059 All paths from source lead to destination: lc-solutions/lc1000-1099/1059-all-paths-from-source-lead-to-destination.md
+      - 1091 Shortest path in binary matrix: lc-solutions/lc1000-1099/lc1091-shortest-path-in-binary-matrix.md
       - 1099 Two sum less than k: lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k.md
     - LC 1100 to 1199:
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
