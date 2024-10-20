@@ -76,15 +76,17 @@ Refer to detailed explanations in [LC Editorial section](https://leetcode.com/pr
 
 The main idea is when at level $k - 1$, establishes the next pointers for level $k$. Once done with connections , move to level $k$ and do the same thing for $k + 1$. Note that for level `0`, it only has one root node and the next pointer is already established.
 
+When traverse a particular level with nodes connected. Think of nodes on that level formulate a linked list with head on the leftmost node.
+
 When establish connections in the next level, there are two types of `next` pointer connections:
 
 - connection between the two children of a given node.
 
-![](assets/lc116-connect-children-nodes-under-same-node.png){: style="width:450px"}
+![connect children under the same node](assets/lc116-connect-children-nodes-under-same-node.png){: style="width:450px"}
 
 - connection between nodes which have a different parent.
 
-![](assets/lc116-connect-children-between-two-nodes.png){: style="width:450px"}
+![connect children under different nodes](assets/lc116-connect-children-between-two-nodes.png){: style="width:450px"}
 
 
 === "python"
