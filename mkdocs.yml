@@ -12,6 +12,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.indexes
     - search.suggest
     - content.tabs.link
     - content.code.annotate
@@ -75,6 +76,7 @@ nav:
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
   - LC Solutions:
+    - lc-solutions/index.md
     - LC 1 to 99:
       - 1 Two sum: lc-solutions/lc0001-0099/lc0001-two-sum.md
       - 2 Add two numbers: lc-solutions/lc0001-0099/lc0002-add-two-numbers.md
@@ -134,6 +136,7 @@ nav:
       - 394 Decode string: lc-solutions/lc0300-0399/lc0394-decode-string.md
     - LC 400 to 499:
       - 410 Split array largest sum: lc-solutions/lc0400-0499/lc0410-split-array-largest-sum.md
+      - 429 N-ary tree level order traversal: lc-solutions/lc0400-0499/lc0429-n-ary-tree-level-order-traversal.md
       - 436 Find right interval: lc-solutions/lc0400-0499/lc0436-find-right-interval.md
       - 441 Arranging coins: lc-solutions/lc0400-0499/lc0441-arranging-coins.md
       - 445 Add two numbers ii: lc-solutions/lc0400-0499/lc0445-add-two-numbers-ii.md
@@ -146,7 +149,7 @@ nav:
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 542 01 matrix: lc-solutions/lc0500-0599/lc0542-01-matrix.md
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
-    - LC600 to 699:
+    - LC 600 to 699:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
       - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658-find-k-closest-elements.md
     - LC 700 to 799:
