@@ -172,6 +172,7 @@ nav:
       - 904 Fruit into baskets: lc-solutions/lc0900-0999/lc0904-fruit-into-baskets.md
       - 974 Subarray sums divisible by k: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
       - 981 Time Based Key-Value Store: lc-solutions/lc0900-0999/lc0981-time-based-key-value-store.md
+      - 994 Rotting oranges: lc-solutions/lc0900-0999/lc0994-rotting-oranges.md
     - LC 1000 to 1099:
       - 1004 Max consecutive ones iii: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
       - 1011 Capacity to ship packages within D days: lc-solutions/lc1000-1099/lc1011-capacity-to-ship-packages-within-d-days.md
