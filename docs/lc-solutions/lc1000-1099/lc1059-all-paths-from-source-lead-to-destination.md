@@ -30,7 +30,7 @@ Return true if and only if all roads from source lead to destination.
 We can use depth-first search method to traverse the graph and check two conditions:
 
 1. When reaching leaf node (no neighbors), check whether it is the destination.
-2. Check any cycle is detected, using node-coloring variant of DFS as explained in the [Introduction to Algorithms] book (https://en.wikipedia.org/wiki/Introduction_to_Algorithms).
+2. Check any cycle is detected, using node-coloring variant of DFS as explained in the [Introduction to Algorithms book](https://en.wikipedia.org/wiki/Introduction_to_Algorithms).
 
 ???+ note Node-Coloring Variant of DFS
 

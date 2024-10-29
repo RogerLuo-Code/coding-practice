@@ -148,6 +148,7 @@ nav:
       - 528 Random pick with weight: lc-solutions/lc0500-0599/lc0528-random-pick-with-weight.md
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 542 01 matrix: lc-solutions/lc0500-0599/lc0542-01-matrix.md
+      - 547 Number of provinces: lc-solutions/lc0500-0599/lc0547-number-of-provinces.md
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC 600 to 699:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
@@ -162,6 +163,7 @@ nav:
       - 752 Open the lock: lc-solutions/lc0700-0799/lc0752-open-the-lock.md
       - 797 All paths from source to target: lc-solutions/lc0700-0799/lc0797-all-paths-from-source-to-target.md
     - LC 800 to 899:
+      - 802 Find eventual safe states: lc-solutions/lc0800-0899/lc0802-find-eventual-safe-states.md
       - 841 Keys and rooms: lc-solutions/lc0800-0899/lc0841-keys-and-rooms.md
       - 852 Peak index in a mountain array: lc-solutions/lc0800-0899/lc0852-peak-index-in-a-mountain-array.md
       - 862 Shortest subarray with sum at least k: lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k.md
@@ -176,7 +178,7 @@ nav:
     - LC 1000 to 1099:
       - 1004 Max consecutive ones iii: lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii.md
       - 1011 Capacity to ship packages within D days: lc-solutions/lc1000-1099/lc1011-capacity-to-ship-packages-within-d-days.md
-      - 1059 All paths from source lead to destination: lc-solutions/lc1000-1099/1059-all-paths-from-source-lead-to-destination.md
+      - 1059 All paths from source lead to destination: lc-solutions/lc1000-1099/lc1059-all-paths-from-source-lead-to-destination.md
       - 1091 Shortest path in binary matrix: lc-solutions/lc1000-1099/lc1091-shortest-path-in-binary-matrix.md
       - 1099 Two sum less than k: lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k.md
     - LC 1100 to 1199:
