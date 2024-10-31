@@ -53,7 +53,8 @@ Solution
 
 ### Comparison of Different Approaches
 
-The table below summarize the time complexity and space complexity of different approaches:
+The table below summarize the time complexity and space complexity of different
+approaches:
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
