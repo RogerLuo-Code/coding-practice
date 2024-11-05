@@ -182,6 +182,7 @@ nav:
       - 1091 Shortest path in binary matrix: lc-solutions/lc1000-1099/lc1091-shortest-path-in-binary-matrix.md
       - 1099 Two sum less than k: lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k.md
     - LC 1100 to 1199:
+      - 1129 Shortest path with alternating colors: lc-solutions/lc1100-1199/lc1129-shortest-path-with-alternating-colors.md
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
     - LC 1200 to 1299:
       - 1231 Divide chocolate: lc-solutions/lc1200-1299/lc1231-divide-chocolate.md
