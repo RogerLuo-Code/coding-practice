@@ -70,9 +70,11 @@ nav:
     - Linked List: data-structure/linked-list/linked-list.md
   - Algorithms:
     - Binary Search: algorithms/binary-search.md
-    - Breadth-First Search: algorithms/breadth-first-search.md
-    - Depth-First Search: algorithms/depth-first-search.md
     - Dynamic Programming: algorithms/dynamic-programming.md
+    - Graph:
+      - algorithms/graph/index.md
+      - Breadth-First Search: algorithms/graph/breadth-first-search.md
+      - Depth-First Search: algorithms/graph/depth-first-search.md
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
   - LC Solutions:

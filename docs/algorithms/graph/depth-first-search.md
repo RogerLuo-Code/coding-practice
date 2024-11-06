@@ -1,6 +1,7 @@
 # Depth-First Search
 
 ## Introduction
+
 Goal: Systematically search through a graph
 
 ```python
