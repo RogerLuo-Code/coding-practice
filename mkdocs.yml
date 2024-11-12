@@ -68,6 +68,7 @@ nav:
     - Queue: data-structure/queue/queue.md
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
+    - Disjoint Set: data-structure/disjoint-set/disjoint-set.md
   - Algorithms:
     - Binary Search: algorithms/binary-search.md
     - Dynamic Programming: algorithms/dynamic-programming.md
@@ -75,6 +76,7 @@ nav:
       - algorithms/graph/index.md
       - Breadth-First Search: algorithms/graph/breadth-first-search.md
       - Depth-First Search: algorithms/graph/depth-first-search.md
+      - Kruskal Algorithm: algorithms/graph/kruskal-algorithm.md
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
   - LC Solutions:
