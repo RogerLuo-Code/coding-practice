@@ -193,6 +193,7 @@ This implementation optimize the `quick union` with both `union by rank` and `pa
 
 === "Python"
     ```python
+    class UnionFind:
         def __init__(self, size)::
             self.root = [i for i in range(size)]
             self.rank = [1] * size  # (1)
