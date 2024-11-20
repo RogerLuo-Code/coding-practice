@@ -208,9 +208,9 @@ This implementation optimize the `quick union` with both `union by rank` and `pa
             root_x = self.find(x)
             root_y = self.find(y)
             if root_x != root_y:
-                if self.rank[x] > self.rank[y]:
+                if self.rank[root_x] > self.rank[root_y]:
                     self.root[root_y] = root_x
-                elif self.rank[x] < self.rank[y]:
+                elif self.rank[root_x] < self.rank[root_y]:
                     self.root[root_x] = root_y
                 else:
                     self.root[root_y] = root_x
