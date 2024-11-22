@@ -29,7 +29,7 @@ _otherwise_.
 
 ## Solution
 
-There are different solutions based on the definition of a valid tree. In general, there
+There are different solutions based on the definition of a valid [tree](https://en.wikipedia.org/wiki/Tree_(graph_theory)). In general, there
 are two kinds of definitions:
 
 - Basic
