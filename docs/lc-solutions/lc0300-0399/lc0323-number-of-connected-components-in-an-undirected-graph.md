@@ -76,7 +76,7 @@ We can use union find to count the number of connected components in the graph.
 
 ### Approach 2 - DFS/BFS
 
-The problem can also be solved using either BFS or DFS. Start from one node and traverse the sub-graph (connected components) using either BFS or DFS and mark nodes visited. For the next node not visited, traverse and mark visited again. In the meantime, increase count by 1 since it doesn't belong to previous connected components.
+The problem can also be solved using either BFS or DFS. Start from a vertex and traverse the sub-graph (connected components) using either BFS or DFS and mark nodes visited. For the next node not visited, traverse and mark visited again. In the meantime, increase count by 1 since it doesn't belong to previous connected components.
 
 === "Python - DFS"
     ```python

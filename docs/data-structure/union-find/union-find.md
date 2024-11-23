@@ -1,10 +1,10 @@
-# Disjoint Set
+# Union-Find
 
 ## Introduction
 
-The `disjoint set` data structure is also known as the `union-find` data structure.The primary use of disjoint sets is to address the connectivity between the components of a network.
+The `union-find` data structure is also known as the `disjoint set` data structure.The primary use of disjoint sets is to address the connectivity between the components of a network.
 
-The `disjoint set` transforms the problem of check whether vertices are connected to whether vertices have the same root node. There are two important functions:
+The `union-find` transforms the problem of check whether vertices are connected to whether vertices have the same root node. There are two important functions:
 
 - The `find` function finds the root node of a given vertex.
 - The `union` function unions two vertices and makes their root nodes the same.
@@ -23,7 +23,7 @@ class UnionFind:
 
 ```mermaid
 flowchart TD
-    start["Disjoint Set Implementation"]
+    start["Union Find Implementation"]
     quickFind("Quick Find")
     quickUnion("Quick Union")
     unionByRank("Union by Rank")
@@ -199,9 +199,8 @@ This implementation optimize the `quick union` with both `union by rank` and `pa
             self.rank = [1] * size  # (1)
 
         def find(self, x):  # (2)
-            if x == self.root[x]:
-                return x
-            self.root[x] = self.find(self.root[x])
+            if x != self.root[x]:
+                self.root[x] = self.find(self.root[x])
             return self.root[x]
 
         def union(self, x, y):  # (3)
@@ -234,11 +233,14 @@ This implementation optimize the `quick union` with both `union by rank` and `pa
 - Space complexity: $O(n)$  
   The `root` and `rank` arrays store $n$ elements each.
 
-???+ Inverse Ackermann Function
+???+ "Inverse Ackermann Function"
     The Ackermann function, $A(m, n)$, grows so fast that for relatively small values of $m$ and $n$, the function produces enormous numbers. The inverse Ackermann function essentially "reverse" the Ackermann function to answer the question: "How many times do we need to apply the Ackermann function's recusion before reaching a certain value?"
 
     Formally, $\alpha(n)$ is the smallest integer $m$ such that $A(m, m) \geq n$. For any practical value of $n$, $\alpha(n)$ is extremely small. For example, if $n \leq 2^{65536}$, then $\alpha(n) \leq 5$.
 
+
+???+ "Time-Complexity Analysis"
+    Refer to [Cornell CS Union-Find lecture](https://www.cs.cornell.edu/courses/cs6110/2014sp/Handouts/UnionFind.pdf). Here is the [local copy](cornell-cs-union-find-lecture.pdf).
 
 ### Comparison of Different Implementations
 

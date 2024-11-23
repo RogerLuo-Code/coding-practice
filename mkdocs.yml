@@ -68,7 +68,7 @@ nav:
     - Queue: data-structure/queue/queue.md
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
-    - Disjoint Set: data-structure/disjoint-set/disjoint-set.md
+    - Union-Find: data-structure/union-find/union-find.md
   - Algorithms:
     - Binary Search: algorithms/binary-search.md
     - Dynamic Programming: algorithms/dynamic-programming.md
@@ -188,6 +188,7 @@ nav:
       - 1091 Shortest path in binary matrix: lc-solutions/lc1000-1099/lc1091-shortest-path-in-binary-matrix.md
       - 1099 Two sum less than k: lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k.md
     - LC 1100 to 1199:
+      - 1101 The earliest moment when everyone become friends: lc-solutions/lc1100-1199/lc1101-the-earliest-moment-when-everyone-become-friends.md
       - 1129 Shortest path with alternating colors: lc-solutions/lc1100-1199/lc1129-shortest-path-with-alternating-colors.md
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
     - LC 1200 to 1299:
