@@ -95,30 +95,4 @@ First, sort the log by time stamp. Then use union find to union two people based
     - If the log is not allowed to change, the sorted log takes $O(3 m) = O(m)$  
     So the total time complexity is $O(n) + O(m) + O(m) = O(n + m)$
 
-### Approach2 -
-
-Solution
-
-=== "python"
-    ```python
-    code
-    ```
-
-#### Complexity Analysis of Approach 2
-
-- Time complexity: $O(1)$  
-  Explanation
-- Space complexity: $O(n)$  
-  Explanation
-
-### Comparison of Different Approaches
-
-The table below summarize the time complexity and space complexity of different
-approaches:
-
-Approach    | Time Complexity   | Space Complexity |
-------------| ---------------   | ---------------- |
-Approach -  |  $O(1)$           | $O(n)$ |
-Approach -  |  $O(1)$           | $O(n)$  |
-
 ## Test
