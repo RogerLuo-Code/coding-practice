@@ -192,6 +192,7 @@ nav:
       - 1129 Shortest path with alternating colors: lc-solutions/lc1100-1199/lc1129-shortest-path-with-alternating-colors.md
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
     - LC 1200 to 1299:
+      - 1202 Smallest string with swaps: lc-solutions/lc1200-1299/lc1202-smallest-string-with-swaps.md
       - 1231 Divide chocolate: lc-solutions/lc1200-1299/lc1231-divide-chocolate.md
       - 1232 Check if it is a straight line: lc-solutions/lc1200-1299/lc1232-check-if-it-is-a-straight-line.md
       - 1235 Maximum profit in job scheduling: lc-solutions/lc1200-1299/lc1235-maximum-profit-in-job-scheduling.md

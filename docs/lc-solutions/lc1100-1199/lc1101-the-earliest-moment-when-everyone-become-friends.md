@@ -96,3 +96,6 @@ First, sort the log by time stamp. Then use union find to union two people based
     So the total time complexity is $O(n) + O(m) + O(m) = O(n + m)$
 
 ## Test
+
+- `n = 1`, return 0 since a person is connected to himself.
+- log doesn't connect all nodes.
