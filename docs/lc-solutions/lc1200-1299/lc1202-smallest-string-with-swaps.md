@@ -255,3 +255,7 @@ Approach -  |  $O(E + V \log V)$           | $O(V + E)$ |
 Approach 2 - Union-Find  |  $O(O((E + V)\alpha(V) + V \log V)$           | $O(V)$  |
 
 ## Test
+
+- **No Pairs**: If `pairs` is empty, return the string as is.
+- **Isolated Characters**: Characters not in any pairs remain unchanged.
+- **Multiple Components**: Ensure each connected component is handled independently.
