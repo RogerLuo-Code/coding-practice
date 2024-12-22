@@ -1,6 +1,6 @@
 ---
 tags:
-    - Union-Find
+    - Union Find
     - Minimum Spanning Tree
 ---
 
@@ -48,12 +48,12 @@ graph LR
     house2 -- "1" --- house3
 ```
 
-### Approach 1 - Kruskal's Algorithm with Union-Find
+### Approach 1 - Kruskal's Algorithm with Union Find
 
 To solve the minimum spanning tree problem, we can use classical [Krusal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) with union-find structure. The algorithm can be implemented with the following two steps:
 
 1. First, **sort** all the edges based on their costs, including the additional edges added between the virtual vertex (a well) and houses.
-2. Then **iterate** through the sorted edges. If both vertices belong to different groups using Union-Find data structure, add the edge to the minimum spanning tree list and increase the total cost.
+2. Then **iterate** through the sorted edges. If both vertices belong to different groups using Union Find data structure, add the edge to the minimum spanning tree list and increase the total cost.
 
 === "Python"
     ```python
@@ -152,7 +152,7 @@ approaches:
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
-Approach 1 -  |  $O((V + E) \log (V + E))$           | $O(V + E)$ |
+Approach 1 - Kruskal's Algorithm  |  $O((V + E) \log (V + E))$           | $O(V + E)$ |
 Approach -  |  $O(1)$           | $O(n)$  |
 
 ## Test

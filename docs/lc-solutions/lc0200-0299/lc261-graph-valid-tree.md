@@ -2,7 +2,7 @@
 tags:
     - Breadth-First Search
     - Depth-First Search
-    - Union-Find
+    - Union Find
     - Graph
 ---
 

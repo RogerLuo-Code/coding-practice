@@ -8,6 +8,7 @@ theme:
     - navigation.footer
     - navigation.instant
     - navigation.path
+    - navigation.prune
     # - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
@@ -76,7 +77,10 @@ nav:
       - algorithms/graph/index.md
       - Breadth-First Search: algorithms/graph/breadth-first-search.md
       - Depth-First Search: algorithms/graph/depth-first-search.md
-      - Kruskal Algorithm: algorithms/graph/kruskal-algorithm.md
+      - Minimum Spanning Tree:
+        - algorithms/graph/minimum-spanning-tree/index.md
+        - Kruskal Algorithm: algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md
+        - Prim Algorithm: algorithms/graph/minimum-spanning-tree/prim-algorithm.md
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
   - LC Solutions:
@@ -206,6 +210,7 @@ nav:
     - LC 1500 to 1599:
       - 1533 Find the index of the large integer: lc-solutions/lc1500-1599/lc1533-find-the-index-of-the-large-integer.md
       - 1539 Kth missing positive number: lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number.md
+      - 1584 Min cost to connect all points: lc-solutions/lc1500-1599/lc1584-min-cost-to-connect-all-points.md
     - LC 1600 to 1699:
       - 1631 Path with minimum effort: lc-solutions/lc1600-1699/lc1631-path-with-minimum-effort.md
     - LC 1700 to 1799:

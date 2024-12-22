@@ -35,7 +35,7 @@ Solution
 - Space complexity: $O(n)$  
   Explanation
 
-### Approach2 -
+### Approach 2 -
 
 Solution
 

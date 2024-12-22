@@ -1,4 +1,4 @@
-# Union-Find
+# Union Find
 
 ## Introduction
 

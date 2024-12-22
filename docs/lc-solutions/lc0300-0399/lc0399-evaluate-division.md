@@ -2,7 +2,7 @@
 tags:
     - Breadth-First Search
     - Depth-First Search
-    - Union-Find
+    - Union Find
 ---
 
 # LC399. Evaluate Division
@@ -166,7 +166,7 @@ of variables (vertices) and $E$ is the number of divisions (edges)
     - DFS call stack or BFS queue take $O(V)$ space in the worst case  
     So the total space complexity is $O(V + E) + O(V) + O(V) = O(V + E)$.
 
-### Approach 2 - Union-Find
+### Approach 2 - Union Find
 
 The problem can also be solved by customized union-find data structure. We can use union-find data structure to easily determine whether there is a path between two vertices. But we need some **customization** to calculate the cumulative product along the path:
 
@@ -315,6 +315,6 @@ approaches:
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
 Approach 1 - BFS/DFS  |  $O(Q (V + E))$           | $O(V + E)$ |
-Approach 2 - Union-Find |  $O((Q + E) \alpha(V))$           | $O(V)$  |
+Approach 2 - Union Find |  $O((Q + E) \alpha(V))$           | $O(V)$  |
 
 ## Test

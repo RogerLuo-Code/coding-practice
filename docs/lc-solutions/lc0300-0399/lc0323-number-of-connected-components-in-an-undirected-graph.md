@@ -1,6 +1,6 @@
 ---
 tags:
-    - Union-Find
+    - Union Find
 ---
 
 # LC323. Number of Connected Components in an Undirected Graph

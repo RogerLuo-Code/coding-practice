@@ -4,7 +4,9 @@ tags:
 ---
 
 # LC1533. Find the Index of the Large Integer
+
 ## Problem Description
+
 [LeetCode Problem 1533](https://leetcode.com/problems/find-the-index-of-the-large-integer/): We have an integer array `arr`, where all the integers in `arr` are equal except for one integer which is **larger** than the rest of the integers. You will not be given direct access to the array, instead, you will have an **API** `ArrayReader` which have the following functions:
 
 - `int compareSub(int l, int r, int x, int y)`: where `0 <= l, r, x, y < ArrayReader.length()`, `l <= r and` `x <= y`. The function compares the sum of sub-array `arr[l..r]` with the sum of the sub-array `arr[x..y]` and returns:
@@ -18,14 +20,18 @@ You are allowed to call `compareSub()` **20 times** at most. You can assume b
 Return _the index of the array `arr` which has the largest integer_.
 
 ## Clarification
+
 - arr: one integer is larger and the rest are equal
 - API function return 1, 0, or -1
 
 ## Assumption
+
 -The larger number always exist
 
 ## Solution
+
 ### Approach - Binary Search
+
 Put the array into two halves with the same size. if both halves contain the same elements, the sum of the two halves will be the same. If one half contains the larger value, the sum of that half will be larger. So we can use binary search to compare left half and right half:
 
 - If `left half > right half`, skip right half and search the left half
@@ -52,6 +58,7 @@ Put the array into two halves with the same size. if both halves contain the sam
     ```
 
 #### Complexity Analysis
+
 * Time complexity: $O(\log n)$  
 After each iteration, the search space is reduced by half by using binary search. 
 * Space complexity: $O(1)$  

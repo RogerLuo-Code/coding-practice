@@ -2,7 +2,7 @@
 tags:
     - Breadth-First Search
     - Depth-First Search
-    - Union-Find
+    - Union Find
 ---
 
 # LC1202. Smallest String With Swaps
@@ -252,7 +252,7 @@ approaches:
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
 Approach -  |  $O(E + V \log V)$           | $O(V + E)$ |
-Approach 2 - Union-Find  |  $O(O((E + V)\alpha(V) + V \log V)$           | $O(V)$  |
+Approach 2 - Union Find  |  $O(O((E + V)\alpha(V) + V \log V)$           | $O(V)$  |
 
 ## Test
 
