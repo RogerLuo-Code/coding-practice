@@ -32,6 +32,10 @@ swaps.
 
 ## Solution
 
+The problem can be viewed as a graph problem. Each index is a vertex and each given pair
+is an edge between the vertices. An edge implies that we can travel from one vertex to
+another (i.e., swap them in the conext of this problem).
+
 ???+ tip
     Since characters in the `pairs` can be swapped **any number of times**, letters in a
     connected component can be rearranged in any order. For example, for `(a, b)` and
@@ -46,11 +50,14 @@ to re-order letters in the rest of indices.
 
 === "Python - DFS"
     ```python
+    from collections import queue, defaultdict
+
+
     class Solution:
         def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
             n = len(s)
             # Convert edges to adjacent list of vertices
-            adj_list = [[] for _ in range(n)]
+            adj_list = defaultdict(list)
             for i, j in pairs:
                 adj_list[i].append(j)
                 adj_list[j].append(i)  # (1)
@@ -61,28 +68,32 @@ to re-order letters in the rest of indices.
                 if i in visited:
                     continue
 
-                letters = []
                 indices = []
-                self.dfs(s, i, adj_list, visited, letters, indices)
+                self.dfs(i, adj_list, visited, indices)
+                letters = [s[i] for i in indices]
 
                 # (3)
-                letters.sort()
                 indices.sort()
+                letters.sort()
 
-                for i in range(len(letters)):
-                    s_smallest_list[indices[i]] = letters[i]
+                for i, ch in zip(indices, letters):
+                    s_smallest_list[i] = ch
 
-            return ''.join([s_smallest_list[i] for i in range(n)])
+            return ''.join(s_smallest_list)
 
-        def dfs(self, s: str, index: int, adj_list: List[List[int]], visited: Set[str],
-                letters: List[str], indices: List[str]) -> str:
-            letters.append(s[index])
-            indices.append(index)
+        def dfs(
+            self,
+            index: int,
+            adj_list: dict[int, list],
+            visited: set[int],
+            indices: list[int],
+        ) -> None:
             visited.add(index)
+            indices.append(index)
 
             for neighbor in adj_list[index]:
                 if neighbor not in visited:
-                    self.dfs(s, neighbor, adj_list, visited, letters, indices)
+                    self.dfs(neighbor, adj_list, visited, indices)
     ```
 
     1. Undirected edge so add both directions.
@@ -92,11 +103,14 @@ to re-order letters in the rest of indices.
 
 === "Python - BFS"
     ```python
+    from collections import queue, defaultdict
+
+
     class Solution:
         def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
             n = len(s)
             # Convert edges to adjacent list of vertices
-            adj_list = [[] for _ in range(n)]
+            adj_list = defaultdict(list)
             for i, j in pairs:
                 adj_list[i].append(j)
                 adj_list[j].append(i)  # (1)
@@ -107,35 +121,32 @@ to re-order letters in the rest of indices.
                 if i in visited:
                     continue
 
-                letters = []
                 indices = []
-                self.bfs(s, i, adj_list, visited, letters, indices)
+                self.dfs(i, adj_list, visited, indices)
+                letters = [s[i] for i in indices]
 
                 # (3)
                 letters.sort()
                 indices.sort()
 
-                for i in range(len(letters)):
-                    s_smallest_list[indices[i]] = letters[i]
+                for i, ch in zip(indices, letters):
+                    s_smallest_list[i] = ch
 
-            return "".join([s_smallest_list[i] for i in range(n)])
+            return ''.join(s_smallest_list)
 
         def bfs(
             self,
-            s: str,
             index: int,
-            adj_list: List[List[int]],
-            visited: Set[str],
-            letters: List[str],
-            indices: List[str],
-        ) -> str:
+            adj_list: dict[int, list],
+            visited: set[int],
+            indices: list[int],
+        ) -> None:
             visited.add(index)
             queue = deque([index])
 
-            # Traver the adjacent indices
+            # Travel the adjacent indices
             while queue:
                 curr_index = queue.popleft()
-                letters.append(s[curr_index])
                 indices.append(curr_index)
                 for neighbor in adj_list[curr_index]:
                     if neighbor not in visited:
@@ -152,28 +163,32 @@ to re-order letters in the rest of indices.
 
 - Time complexity: $O(E + V \log V)$ where $V$ is the number of vertices (i.e., the
 length of the string) and $E$ is the number of edges (the number of pairs).  
-    - Initializing the adjacent list takes $O(V)$;
     - Building the adjacent list will take $O(E)$ operation. Each operation takes $O(1)$
     time to insert elements into the adjacent list;
     - During the DFS/BFS traversal, each vertex will only be visited once and iterate
-    over the edge list of each vertex. Each edge is also iterated once. So it takes $O(V + E)$;
+    over the edge list of each vertex. Each edge is also iterated once. So it takes
+    $O(V + E)$;
+    - Converting `indices` to `letters` takes $O(V)$;
     - Sorting the list of `letters` and `indices` take $O(V \log V)$;
     - Update the smallest string list takes $O(V)$;
     - Convert list of letters to string takes $O(V)$;  
-    So the total time complexity is $O(V) + O(E) + O(V + E) + O(V \log V) + O(V) + O(V)$,
+    So the total time complexity is $O(V) + O(E) + O(V + E) + O(V) + O(V \log V) + O(V) + O(V)$,
     which is $O(E) + O(V \log V) = O(E + V \log V)$.
 - Space complexity: $O(E + V)$  
-    - Building the adjacent list takes $O(V + E)$ space;
+    - Building the adjacent list takes $O(E)$ space;
     - Tracking the visited vertices takes $O(V)$ in the worst case;
     - For traversal, the run time stack of DFS or the queue of BFS will use $O(V)$ space
     in the worst case;
     - Sorting in Python (timsort) takes $O(V)$ space in the worst case;
     - The smallest string list takes $O(V)$ space  
-    So the total space is $O(V + E) + O(V) + O(V) + O(V) + O(V) = O(V + E)$.
+    So the total space is $O(E) + O(V) + O(V) + O(V) + O(V) = O(V + E)$.
 
 ### Approach 2 - Union Find
 
-Similarly, we can use union-find to find all connected components by union `pairs`. Then, put indices and letters of different parents (connected components) in separate list. For each connected components, sort indices and letters and put them in the smallest string.
+Similarly, we can use union-find to find all connected components by union `pairs`.
+Then, put indices and letters of different parents (connected components) in separate
+list. For each connected components, sort indices and letters and put them in the
+smallest string.
 
 === "python"
     ```python
@@ -230,13 +245,16 @@ Similarly, we can use union-find to find all connected components by union `pair
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O((E + V)\alpha(V) + V \log V)$  
+- Time complexity: $O((E + V) \alpha(V) + V \log V)$  
     - `union-find` takes $O(V)$ time to initialize;
-    - When union pairs, it goes through $E$ pairs and each operation takes $O(\alpha(V))$ time. The time complexity is $O(E \alpha(V))$;
-    - For grouping by connected components, it takes $O(V)$ operations and each operation takes $O(\alpha(V))$ to `find` and $O(1)$ to insert;
+    - When union pairs, it goes through $E$ pairs and each operation takes
+    $O(\alpha(V))$ time. The time complexity is $O(E \alpha(V))$;
+    - For grouping by connected components, it takes $O(V)$ operations and each
+    operation takes $O(\alpha(V))$ to `find` and $O(1)$ to insert;
     - Sorting takes $O(V \log V)$ in the worst case;
     - Insert into result and combine into string takes $O(V)$  
-    So the total time complexity is $O(V) + O(E \alpha(V)) + O(V \alpha(V)) + O(V \log V) + O(V)$, which is $O((E + V) \alpha(V) + V \log V)$.
+    So the total time complexity is $O(V) + O(E \alpha(V)) + O(V \alpha(V)) + O(V \log V) + O(V)$,
+    which is $O((E + V) \alpha(V) + V \log V)$.
 - Space complexity: $O(V)$  
     - `union-find` takes $O(V)$ space to store parent and rank;
     - `groups` takes $O(V)$ store indices and letters;
@@ -252,7 +270,7 @@ approaches:
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
 Approach -  |  $O(E + V \log V)$           | $O(V + E)$ |
-Approach 2 - Union Find  |  $O(O((E + V)\alpha(V) + V \log V)$           | $O(V)$  |
+Approach 2 - Union Find  |  $O((E + V) \alpha(V) + V \log V)$           | $O(V)$  |
 
 ## Test
 
