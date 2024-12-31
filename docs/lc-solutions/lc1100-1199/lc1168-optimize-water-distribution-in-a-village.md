@@ -33,8 +33,6 @@ The challenging part is how to handle multiple wells with costs associated with 
 
 For the input `Input: n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]`, we can create the following graph with the virtual vertex `0` represents the well.
 
-The problem of finding the minimal total cost to supply water to all houses is transformed into find a subset of edges that connect all vertices with minimum total weight, i.e., finding a minimum spanning tree.
-
 ```mermaid
 graph LR
     well((("0")))
@@ -48,9 +46,11 @@ graph LR
     house2 -- "1" --- house3
 ```
 
+The problem of finding the minimal total cost to supply water to all houses is transformed into find a subset of edges that connect all vertices with minimum total weight, i.e., finding a minimum spanning tree.
+
 ### Approach 1 - Kruskal's Algorithm with Union Find
 
-To solve the minimum spanning tree problem, we can use classical [Krusal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm) with union-find structure. The algorithm can be implemented with the following two steps:
+To solve the minimum spanning tree problem, we can use classical [Krusal's algorithm](../../algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md) with union-find structure. The algorithm can be implemented with the following two steps:
 
 1. First, **sort** all the edges based on their costs, including the additional edges added between the virtual vertex (a well) and houses.
 2. Then **iterate** through the sorted edges. If both vertices belong to different groups using Union Find data structure, add the edge to the minimum spanning tree list and increase the total cost.
@@ -131,19 +131,56 @@ To solve the minimum spanning tree problem, we can use classical [Krusal's algor
 
 ### Approach 2 - Prim's Algorithm
 
-Solution
+We can also use Prim's algorithm to find the minimum spanning tree.
 
 === "python"
     ```python
-    code
+    import heapq
+    from collections import defaultdict
+
+    class Solution:
+        def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
+            edges = defaultdict(list)
+            for i in range(1, n + 1):
+                edges[0].append((wells[i - 1], i))
+                edges[i].append((wells[i - 1], 0))
+            for house1, house2, cost in pipes:
+                edges[house1].append((cost, house2))
+                edges[house2].append((cost, house1))
+
+            pq = [(0, 0)]  # (cost, index)
+            nodes_in_mst = set()
+            total_cost = 0
+            while pq:
+                curr_cost, curr_id = heapq.heappop(pq)
+                if curr_id in nodes_in_mst:
+                    continue
+
+                total_cost += curr_cost
+                nodes_in_mst.add(curr_id)
+
+                if len(nodes_in_mst) == n + 1:
+                    break
+
+                for next_cost, next_id in edges[curr_id]:
+                    if next_id not in nodes_in_mst:
+                        heapq.heappush(pq, (next_cost, next_id))
+
+            return total_cost
     ```
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O(1)$  
-  Explanation
-- Space complexity: $O(n)$  
-  Explanation
+- Time complexity: $O((V + E) \log (V + E))$ where $V$ is the number of nodes and $E$ is the number of pipes.  
+    - Adding edges between a well and houses takes $O(V)$ time;
+    - Adding edges from pipes takes $O(E)$ time;
+    - In the worst case, the algorithm goes through all edges, $O(V + E)$,including new edges to the virtual node. Each iteration, pop node from heap or push node to queue takes $O(\log (V + E))$. So the time is $O((V + E) \log (V + E))$.  
+    So the total time complexity is $O(V) + O(E) + O((V + E) \log (V + E)) = O((V + E) \log (V + E))$.
+- Space complexity: $O(V + E)$  
+    - Edges take $O(V + E)$ space for both vertices and edges;
+    - The set takes $O(V)$ space in the worst case;
+    - In the worst case, the heap stores all combined edges, $V + E$.  
+    So the overall space complexity is $O(V + E) + O(V) + O(V + E) = O(V + E)$.
 
 ### Comparison of Different Approaches
 
@@ -153,6 +190,6 @@ approaches:
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
 Approach 1 - Kruskal's Algorithm  |  $O((V + E) \log (V + E))$           | $O(V + E)$ |
-Approach -  |  $O(1)$           | $O(n)$  |
+Approach 2 - Prim's Algorithm  |  $O((V + E) \log (V + E))$           | $O(V + E)$  |
 
 ## Test
