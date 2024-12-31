@@ -28,6 +28,8 @@ Return _the minimum cost to make all points connected._ All points are connect
 
 The problem can be transformed into minimum spanning tree (MST) problem. Then we can use classical Kruskal's or Prim's algorithm to find the MST.
 
+**Tip**: We can use input array indices to represent the nodes.
+
 ### Approach - Kruskal's Algorithm
 
 Follow the Krusal's algorithm to find the minimum spanning tree by sorting edges by the cost. Regarding sorting, we can either use normal sorting or priority queue.
@@ -244,32 +246,69 @@ Follow the Krusal's algorithm to find the minimum spanning tree by sorting edges
 
 #### Complexity Analysis of Approach 1
 
-- Time complexity: $O(E \log E)$ where $E$ represents the number of edges.  
-    - Go through all edges and compute cost takes $O(E)$ time complexity.
-    - Sorting all edges takes $O(E \log E)$ from `timsort` in Python. 
-    - To find minimum spanning tree, adding points and check points connectivity using union-find takes $O(\alpha(E))$ and in the worst case may need to go through all edges. So it takes $O(E \alpha(E))$.  
-    In total, it takes $O(E) + O(E \log E) + O(E \alpha(E)) = O(E \log E)$.
-- Space complexity: $O(E)$  
-    - Store cost for each edge takes $O(E)$ space.
-    - Sorting edges takes $O(E)$ space from `timsort` in Python.
-    - Union find structure takes $O(E)$ space to store points (2 points per edge)
-    In total, it takes $O(E)$ space.
+- Time complexity: $O(n^2 \log n)$ where $n$ represents the number of points.  
+    - Go through all edges, $n (n - 1) / 2 \approx n^2 / 2$,among points to compute cost.
+    - Sorting all edges takes $O(n^2 \log (n^2)) = O(n^2 2 \log(n)) = O(n^2 \log(n))$ from `timsort` in Python. 
+    - To find minimum spanning tree, adding points and check points connectivity using union-find takes $O(\alpha(n))$ and in the worst case may need to go through all $n^2$ edges. So it takes $O(n^2 \alpha(n))$.  
+    In total, it takes $O(n^2) + O(n^2 \log n) + O(n^2 \alpha(n)) = O(n^2 \log (n))$.
+- Space complexity: $O(n^2)$  
+    - Store cost for each edge takes $O(n^2)$ space.
+    - Sorting edges takes $O(n^2)$ space from `timsort` in Python.
+    - Union find structure takes $O(n)$ space to store points (2 points per edge)
+    In total, it takes $O(n^2 + n^2 + n) = O(n^2)$ space.
 
-### Approach 2 -
+### Approach 2 - Prim's Algorithm (Min Heap)
 
-Solution
+We can also use Prim's algorithm to solve the minimum spanning tree problem. We use min-heap data structure to track the lowest-weighted edge, `(weight, next_point)`.
 
-=== "python"
+Note that we don't need to include the `curr_point` like this `(weight, curr_point, next_point)`. We just need to find the lowest weight edge and associated next point. The current point is already evaluated, either in the minimum spanning tree or may form a cycle.
+
+=== "python - min heap"
     ```python
-    code
+    import heapq
+
+
+    class Solution:
+        def minCostConnectPoints(self, points: List[List[int]]) -> int:
+            n_points = len(points)
+            points_in_mst = set()  # track points which are in minimum spanning tree (MST)
+            min_heap = [(0, 0)]  # Min-heap to store minimum weight edge at top
+
+            total_cost = 0
+            n_edges_used = 0
+
+            while n_edges_used < n_points:
+                cost, curr_point = heapq.heappop(min_heap)
+
+                # Discard the point if already in MST (prevent cycle)
+                if curr_point in points_in_mst:
+                    continue
+
+                points_in_mst.add(curr_point)
+                total_cost += cost
+                n_edges_used += 1
+
+                for next_point in range(n_points):
+                    # Add (edge weight, next_point) from the curr_point
+                    if next_point not in points_in_mst:
+                        next_cost = abs(
+                            points[curr_point][0] - points[next_point][0]
+                        ) + abs(points[curr_point][1] - points[next_point][1])
+                        heapq.heappush(min_heap, (next_cost, next_point))
+
+            return total_cost
     ```
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O(1)$  
-  Explanation
-- Space complexity: $O(n)$  
-  Explanation
+Min heap method:
+
+- Time complexity: $O(n^2 \log (n))$  
+  In the worst case, we push/pop $n (n - 1) / 2 \approx n^2 / 2$ edges. Each push/pop operation takes $O(\log (n^2 / 2) = 2 \log(n)$So the overall time complexity is $O(n^2 \log (n))$
+- Space complexity: $O(n^2)$  
+    - In the worst case, the min heap stores all $n^2 / 2$ edges.
+    - The `set` to track points in the minimum spanning tree stores $n$ points.
+    So the overall space complexity is $O(n^2) + O(n) = O(n^2)$.
 
 ### Comparison of Different Approaches
 
@@ -278,7 +317,7 @@ approaches:
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
-Approach -  |  $O(1)$           | $O(n)$ |
-Approach -  |  $O(1)$           | $O(n)$  |
+Approach 1 - Kruskal  |  $O(n^2 \log (n))$           | $O(n^2)$ |
+Approach 2A - Prim - Min Heap  |  $O(n^2 \log (n))$           | $O(n^2)$  |
 
 ## Test

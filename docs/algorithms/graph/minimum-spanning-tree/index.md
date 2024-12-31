@@ -1,6 +1,6 @@
 # Minimum Spanning Tree
 
-A **spanning tree** is a connected subgraph in an **undirected** graph where all vertices are connected with the **minimum number** of edges (without any cycles). An undirected graph can have multiple spanning trees.
+A **spanning tree** is a subgraph that is a **tree** (a connected undirected graph without cycles) which includes all of the vertices in an **undirected** graph and all vertices are connected with the **minimum number** of edges (without any cycles). An undirected graph can have multiple spanning trees.
 
 A **minimum spanning tree** is a spanning tree with the minimum possible total edge weight in a **weighted** undirected graph. A weighted undirected graph can have multiple minimum spanning trees.
 
@@ -13,7 +13,7 @@ Two classic algorithms to construct a minimum spanning tree:
 
 In graph theory, a **cut** is to put a graph into two disjoint subsets. A crossing edge is an edge that connects a vertex in one subset with a vertex in the other subset.
 
-![](https://www.baeldung.com/wp-content/uploads/sites/4/2020/10/after-performing-the-cut-operation.png)
+![cut operation](https://www.baeldung.com/wp-content/uploads/sites/4/2020/10/after-performing-the-cut-operation.png){width="500"}
 
 **Cut property**: for any cut of the graph, the edge with the least weight is also an edge of the minimum spanning tree.
 
