@@ -170,6 +170,7 @@ nav:
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
       - 733 Flood fill: lc-solutions/lc0700-0799/lc0733-flood-fill.md
       - 739 Daily temperatures: lc-solutions/lc0700-0799/lc0739-daily-temperatures.md
+      - 743 network delay time: lc-solutions/lc0700-0799/lc0743-network-delay-time.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 752 Open the lock: lc-solutions/lc0700-0799/lc0752-open-the-lock.md
       - 797 All paths from source to target: lc-solutions/lc0700-0799/lc0797-all-paths-from-source-to-target.md
