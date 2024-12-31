@@ -81,9 +81,9 @@ To solve the minimum spanning tree problem, we can use classical [Krusal's algor
                 else:
                     self.root[root_y] = root_x
                     self.rank[root_x] += 1
-                return True
-            else:
-                return False
+
+        def connected(self, x: int, y: int) -> bool:
+            return self.find(x) == self.find(y)
 
     class Solution:
         def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
@@ -92,17 +92,22 @@ To solve the minimum spanning tree problem, we can use classical [Krusal's algor
             for index, cost in enumerate(wells):  # (2)
                 ordered_edges.append((0, index + 1, cost))
 
-            for house_1, house_2, cost in pipes:  # (3)
-                ordered_edges.append((house_1, house_2, cost))
+            ordered_edges.extend(pipes) # (3)
 
             ordered_edges.sort(key=itemgetter(2))  # (4)
 
             # (5)
             uf = UnionFind(n + 1)  # (6)
             total_cost = 0
+            n_edges_mst = 0
             for house_1, house_2, cost in ordered_edges:
-                if uf.union(house_1, house_2):
+                if not uf.connected(house_1, house_2):
+                    uf.union(house_1, house_2):
                     total_cost += cost
+                    n_edges_mst += 1
+
+                if n_edges_mst >= n:
+                    break
 
             return total_cost
     ```
