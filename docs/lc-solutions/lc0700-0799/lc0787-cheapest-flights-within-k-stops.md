@@ -39,7 +39,7 @@ corresponds to the number of stops.
 - Use a dictionary to track the minimum cost to reach a city within a certain number of
 stops to avoid unnecessary processing.
 
-???+ "Tips on calculating new cost"
+???+ "Tips on Calculating New Cost"
 
     - When calculating `new_cost = cost + price`, the `cost` variable represents the
     cost of reaching the `current_city` during the current BFS step. This ensures that
@@ -60,16 +60,16 @@ stops to avoid unnecessary processing.
             self, n: int, flights: List[List[int]], src: int, dst: int, k: int
         ) -> int:
 
-            # Create adjacent list
+            # (1)
             adj_list = defaultdict(list)
             for from_city, to_city, price in flights:
                 adj_list[from_city].append((to_city, price))
 
-            # Create the minimum cost dictionary to track the minimum cost to reach each city
+            # (2)
             min_cost = defaultdict(lambda: float("inf"))
-            min_cost[(src, 0)] = 0  # cost to reach source is 0
+            min_cost[(src, 0)] = 0  # (3)
 
-            queue = deque([(src, 0, 0)])  # store (city, stops, cost)
+            queue = deque([(src, 0, 0)])  # (4)
 
             while queue:  # BFS traversal
                 curr_city, stops, cost = queue.popleft()
@@ -87,6 +87,11 @@ stops to avoid unnecessary processing.
             else:
                 return -1
     ```
+
+    1. Create adjacent list.
+    2. Create the minimum cost dictionary to track the minimum cost to reach each city.
+    3. Cost to reach source is 0.
+    4. Store (city, stops, cost)
 
 #### Complexity Analysis of Approach 1
 
@@ -217,6 +222,60 @@ number of cities, and $k$ is the number of stops.
     - **Total time complexity:** $O(k V \log (k V) + k E)$, combining both priority
     queue operations and edge relaxations.
 
+### Approach 3 - Dynamic Programming
+
+The problem can also be solved using dynamic programming (DP) approach:
+
+- **State**: Define `dp[i][j]` as the minimum cost to reach city `i` using at most `j` stops.
+- **Transition**: For each flight `(u, v, w)`, update
+`dp[v][i] = min(dp[v][i], dp[u][i - 1] + w)`.
+- **Base case**: `dp[src][0] = 0` and `dp[j][0] =`$\infty$ for $j \neq \text{src}$.
+
+Note that to compute `dp[v][i]`, only `dp[u][i-1]` needed. So we don't need the entire
+DP table and just two rolling arrays: the current and the previous ones. The transition
+becomes `curr[v] = min(curr[v], prev[v] + w)`.
+
+=== "python"
+    ```python
+    class Solution:
+        def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int,
+                k: int) -> int:
+            # (1)
+            prev = [float("inf")] * n
+            curr = [float("inf")] * n
+
+            # Base case
+            prev[src] = 0  # (2)
+
+            # Iterate over at most k+1 stops
+            for _ in range(k + 1):
+                curr = prev[:]  # (3)
+                for u, v, w in flights:
+                    if prev[u] != float("inf"):  # (4)
+                        curr[v] = min(curr[v], prev[u] + w)
+                prev = curr
+
+            return curr[dst] if curr[dst] != float("inf") else - 1
+    ```
+
+    1. Initialize two arrays for DP:
+        - `prev` is minimum cost to reach city with at most `i - 1` stops;
+        - `curr` is minimum cost to reach city with at most `i` stops.
+    2. Cost to reach `src` with 0 stops is 0.
+    3. Start with a copy of previous results, since it will be used for `min` function later.
+    4. Only update if city u is reachable.
+
+
+#### Complexity Analysis of Approach 3
+
+- Time complexity: $O(k E)$  
+    There are two nested for-loops:
+    - the outer loop iterates $k + 1$ stops;
+    - the inner loop iterates $E$ edges.  
+    So the total time complexity is $O(k E)$.
+- Space complexity: $O(V)$  
+    The space used is for two arrays of size $V$ (for `prev` and `curr`).
+
 ### Comparison of Different Approaches
 
 The table below summarize the time complexity and space complexity of different
@@ -224,7 +283,24 @@ approaches:
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
-Approach -  |  $O(k V + k E)$           | $O(k V + E)$ |
+Approach - BFS |  $O(k V + k E)$           | $O(k V + E)$ |
 Approach - Dijkstra  |  $O(k V \log (k V) + k E)$           | $O(k V + E)$  |
+Approach - DP | $O(k E)$ | $O(V)$ |
+
+???+ "Theoretical vs. Practical Time"
+
+    - For **theoretical** worst-case time complexity,
+        - the Dynamic Programming (DP) approach has the best worst-case time complexity;
+        - the BFS-based solution is comparable to DP;
+        - the Dijkstra's algorithm is slightly worse due to the log factor from the
+        priority queue.
+    - For **practical** applications,
+        - Dijkstra and BFS are faster since they only explore reachable cities with
+        valid paths:
+            - They prioritize paths that are likely to lead to the destination or
+            shorter path (in Dijkstra's case).
+            - Unreachable or irrelevant paths are not considered, reducing unnecessary work.
+        - DP, however, computes cost for **every possible path** from the source to all
+        cities for $k + 1$ stops, even if those paths don't contribute to the final result.
 
 ## Test
