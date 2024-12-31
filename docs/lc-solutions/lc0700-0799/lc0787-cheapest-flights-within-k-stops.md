@@ -182,7 +182,7 @@ number of cities, and $k$ is the number of stops.
     - Build adjacent list takes $O(E)$ time;
     - When processing the priority queue,
         - Each node (city) can be added to the priority queue at most $k + 1$ times with
-        at most $(k + 1) V$ queuer operations.
+        at most $(k + 1) V$ queue operations.
         - Each queue operation (push or pop from a heap) takes $O(\log P)$, where $P$ is
         the size of the heap. The size of the heap is bounded by the number of nodes and
         stops, i.e., $P \leq k V$.
@@ -304,3 +304,7 @@ Approach - DP | $O(k E)$ | $O(V)$ |
         cities for $k + 1$ stops, even if those paths don't contribute to the final result.
 
 ## Test
+
+- `k=0`: The source must directly connect to the destination.
+- Disconnected graph: Return `−1` if the destination is unreachable.
+- Multiple flights between two cities: Ensure the algorithm explores the cheapest one.
