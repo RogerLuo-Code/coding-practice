@@ -50,7 +50,7 @@ The problem of finding the minimal total cost to supply water to all houses is t
 
 ### Approach 1 - Kruskal's Algorithm with Union Find
 
-To solve the minimum spanning tree problem, we can use classical [Krusal's algorithm](../../algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md) with union-find structure. The algorithm can be implemented with the following two steps:
+To solve the minimum spanning tree problem, we can use classical [Kruskal's algorithm](../../algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md) with union-find structure. The algorithm can be implemented with the following two steps:
 
 1. First, **sort** all the edges based on their costs, including the additional edges added between the virtual vertex (a well) and houses.
 2. Then **iterate** through the sorted edges. If both vertices belong to different groups using Union Find data structure, add the edge to the minimum spanning tree list and increase the total cost.
