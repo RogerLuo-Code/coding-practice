@@ -202,3 +202,7 @@ Approach - Dijkstra |  $O(m n \log(m n))$           | $O(m n)$  |
 Approach - Binary Search | $O(m n)$ | $O(m n)$ |
 
 ## Test
+
+- Single cell grid (`heights = [[x]]`): Effort = 0.
+- Large grid with identical heights (`heights[i][j] = c`): Effort = 0.
+- Tall grid or wide grid with significant height differences.

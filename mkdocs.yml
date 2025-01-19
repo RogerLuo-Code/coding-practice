@@ -132,6 +132,7 @@ nav:
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
       - 240 Search a 2D matrix ii: lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md
       - 261 Graph valid tree: lc-solutions/lc0200-0299/lc261-graph-valid-tree.md
+      - 269 Alien dictionary: lc-solutions/lc0200-0299/lc0269-alien-dictionary.md
       - 274 H-index: lc-solutions/lc0200-0299/lc0274-h-index.md
       - 275 H-index ii: lc-solutions/lc0200-0299/lc0275-h-index-ii.md
       - 278 First bad version: lc-solutions/lc0200-0299/lc0278-first-bad-version.md
