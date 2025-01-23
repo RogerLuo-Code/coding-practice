@@ -47,11 +47,44 @@ of nodes in the tree. It will results in Time Limit Exceeded exception.
 
 The problem can be efficiently solved using a topological sort-like approach bases on
 the observation: the roots of minimum height trees are at the **centers** of the tree.
-The center divide the treen into substree of approximately equal height, which helps
+The center divide the treen into subtree of approximately equal height, which helps
 minimize the height of the tree.
 
 By iteratively removing leaves, the tree "shrinks" inward toward its centers. The
 process stops when 1 or 2 nodes remain, which are the centers of the tree.
+
+Here are diagrams to show the "shrinks" process:
+
+```mermaid
+graph LR
+    node0((0))
+    node1((1))
+    node2((2))
+    node3((3))
+    node4((4))
+    node5((5))
+
+    node0---node3
+    node1---node4
+    node2---node5
+    subgraph "degree > 1"
+    node0---node1
+    node0---node2
+    end
+```
+
+```mermaid
+graph LR
+    node0((0))
+    node1((1))
+    node2((2))
+
+    node0---node1
+    node0---node2
+    subgraph "degree > 1"
+    node0
+    end
+```
 
 === "Python"
     ```python
