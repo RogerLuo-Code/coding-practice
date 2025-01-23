@@ -8,11 +8,16 @@ tags:
 
 ## Problem Description
 
-[LeetCode Problem 1584](https://leetcode.com/problems/min-cost-to-connect-all-points/description/): You are given an array `points` representing integer coordinates of some points on a 2D-plane, where `points[i] = [xi, yi]`.
+[LeetCode Problem 1584](https://leetcode.com/problems/min-cost-to-connect-all-points/description/):
+You are given an array `points` representing integer coordinates of some points on a
+2D-plane, where `points[i] = [xi, yi]`.
 
-The cost of connecting two points `[xi, yi]` and `[xj, yj]` is the **manhattan distance** between them: `|xi - xj| + |yi - yj|`, where `|val|` denotes the absolute value of `val`.
+The cost of connecting two points `[xi, yi]` and `[xj, yj]` is the
+**manhattan distance** between them: `|xi - xj| + |yi - yj|`, where `|val|` denotes the
+absolute value of `val`.
 
-Return _the minimum cost to make all points connected._ All points are connected if there is **exactly one** simple path between any two points.
+Return _the minimum cost to make all points connected._ All points are connected if
+there is **exactly one** simple path between any two points.
 
 ## Clarification
 
@@ -26,13 +31,15 @@ Return _the minimum cost to make all points connected._ All points are connect
 
 ## Solution
 
-The problem can be transformed into minimum spanning tree (MST) problem. Then we can use classical Kruskal's or Prim's algorithm to find the MST.
+The problem can be transformed into minimum spanning tree (MST) problem. Then we can use
+classical Kruskal's or Prim's algorithm to find the MST.
 
 **Tip**: We can use input array indices to represent the nodes.
 
 ### Approach - Kruskal's Algorithm
 
-Follow the Krusal's algorithm to find the minimum spanning tree by sorting edges by the cost. Regarding sorting, we can either use normal sorting or priority queue.
+Follow the Krusal's algorithm to find the minimum spanning tree by sorting edges by the
+cost. Regarding sorting, we can either use normal sorting or priority queue.
 
 === "Python - sort tuple"
     ```python
@@ -248,8 +255,11 @@ Follow the Krusal's algorithm to find the minimum spanning tree by sorting edges
 
 - Time complexity: $O(n^2 \log n)$ where $n$ represents the number of points.  
     - Go through all edges, $n (n - 1) / 2 \approx n^2 / 2$,among points to compute cost.
-    - Sorting all edges takes $O(n^2 \log (n^2)) = O(n^2 2 \log(n)) = O(n^2 \log(n))$ from `timsort` in Python. 
-    - To find minimum spanning tree, adding points and check points connectivity using union-find takes $O(\alpha(n))$ and in the worst case may need to go through all $n^2$ edges. So it takes $O(n^2 \alpha(n))$.  
+    - Sorting all edges takes $O(n^2 \log (n^2)) = O(n^2 2 \log(n)) = O(n^2 \log(n))$
+    from `timsort` in Python. 
+    - To find minimum spanning tree, adding points and check points connectivity using
+    union-find takes $O(\alpha(n))$ and in the worst case may need to go through all
+    $n^2$ edges. So it takes $O(n^2 \alpha(n))$.  
     In total, it takes $O(n^2) + O(n^2 \log n) + O(n^2 \alpha(n)) = O(n^2 \log (n))$.
 - Space complexity: $O(n^2)$  
     - Store cost for each edge takes $O(n^2)$ space.
@@ -259,9 +269,13 @@ Follow the Krusal's algorithm to find the minimum spanning tree by sorting edges
 
 ### Approach 2 - Prim's Algorithm (Min Heap)
 
-We can also use Prim's algorithm to solve the minimum spanning tree problem. We use min-heap data structure to track the lowest-weighted edge, `(weight, next_point)`.
+We can also use Prim's algorithm to solve the minimum spanning tree problem. We use
+min-heap data structure to track the lowest-weighted edge, `(weight, next_point)`.
 
-Note that we don't need to include the `curr_point` like this `(weight, curr_point, next_point)`. We just need to find the lowest weight edge and associated next point. The current point is already evaluated, either in the minimum spanning tree or may form a cycle.
+Note that we don't need to include the `curr_point` like this
+`(weight, curr_point, next_point)`. We just need to find the lowest weight edge and
+associated next point. The current point is already evaluated, either in the minimum
+spanning tree or may form a cycle.
 
 === "python - min heap"
     ```python
@@ -304,11 +318,71 @@ Note that we don't need to include the `curr_point` like this `(weight, curr_poi
 Min heap method:
 
 - Time complexity: $O(n^2 \log (n))$  
-  In the worst case, we push/pop $n (n - 1) / 2 \approx n^2 / 2$ edges. Each push/pop operation takes $O(\log (n^2 / 2) = 2 \log(n)$So the overall time complexity is $O(n^2 \log (n))$
+  In the worst case, we push/pop $n (n - 1) / 2 \approx n^2 / 2$ edges. Each push/pop
+  operation takes $O(\log (n^2 / 2) = 2 \log(n)$So the overall time complexity is
+  $O(n^2 \log (n))$
 - Space complexity: $O(n^2)$  
     - In the worst case, the min heap stores all $n^2 / 2$ edges.
     - The `set` to track points in the minimum spanning tree stores $n$ points.
     So the overall space complexity is $O(n^2) + O(n) = O(n^2)$.
+
+### Approach 3 - Prim's ALgorithm (Optimized)
+
+Instead of using min-heap, we will optimize the Prim's algorithm by using one `min_dist`
+array. `min_dist[i]` stores the weight of the smallest weighted edge to reach the ith
+node from any node in the current tree.
+
+We will iterate over the `min_dist` array and greedily pick the node that is not in the
+MST and has the smallest edge weight. Then update the value in `min_dist`.
+
+=== "python"
+    ```python
+    class Solution:
+        def minCostConnectPoints(self, points: List[List[int]]) -> int:
+            n_points = len(points)
+            points_in_mst = set()  # track points which are in minimum spanning tree (MST)
+            total_cost = 0
+            min_dist = [math.inf] * n_points
+            min_dist[0] = 0
+
+            while len(points_in_mst) < n_points:
+                curr_min_edge = math.inf
+                curr_point = -1
+
+                # Pick least weight node which is not in MST
+                for node in range(n_points):
+                    if node not in points_in_mst and curr_min_edge > min_dist[node]:
+                        curr_min_edge = min_dist[node]
+                        curr_point = node
+
+                points_in_mst.add(curr_point)
+                total_cost += curr_min_edge
+
+                for next_point in range(n_points):
+                    # Add (edge weight, next_point) from the curr_point
+                    if next_point not in points_in_mst:
+                        next_cost = abs(
+                            points[curr_point][0] - points[next_point][0]
+                        ) + abs(points[curr_point][1] - points[next_point][1])
+                        if min_dist[next_point] > next_cost:
+                            min_dist[next_point] = next_cost
+
+            return total_cost
+    ```
+
+#### Complexity Analysis of Approach 3
+
+- Time complexity: $O(n^2)$  
+    - Initialize `min_dist` takes $O(n)$.
+    - The outer while loop takes $O(n)$ iteration
+        - The inner for-loop to pick the least weight takes $O(n)$.
+        - Another inner for-loop takes $O(n)$.
+        - So the while loop with two inner for-loops take
+        $O(n) \times (O(n) + O(n)) = O(n^2)$ time.
+- Space complexity: $O(n)$
+    - `points_in_mist` takes $O(n)$ space.
+    - `min_dist` takes $O(n)$ space.
+    - So the total space complexity is $O(n + n) = O(n)$.
 
 ### Comparison of Different Approaches
 
@@ -319,5 +393,6 @@ Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
 Approach 1 - Kruskal  |  $O(n^2 \log (n))$           | $O(n^2)$ |
 Approach 2A - Prim - Min Heap  |  $O(n^2 \log (n))$           | $O(n^2)$  |
+Approach 2A - Prim - Optimized  |  $O(n^2)$           | $O(n)$  |
 
 ## Test

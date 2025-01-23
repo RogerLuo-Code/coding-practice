@@ -8,9 +8,16 @@ tags:
 
 ## Problem Description
 
-[LeetCode Problem 1168](https://leetcode.com/problems/optimize-water-distribution-in-a-village/description/): There are `n` houses in a village. We want to supply water for all the houses by building wells and laying pipes.
+[LeetCode Problem 1168](https://leetcode.com/problems/optimize-water-distribution-in-a-village/description/):
+There are `n` houses in a village. We want to supply water for all the houses by
+building wells and laying pipes.
 
-For each house `i`, we can either build a well inside it directly with cost `wells[i - 1]` (note the `-1` due to **0-indexing**), or pipe in water from another well to it. The costs to lay pipes between houses are given by the array `pipes` where each `pipes[j] = [house1j, house2j, costj]` represents the cost to connect `house1j` and `house2j` together using a pipe. Connections are bidirectional, and there could be multiple valid connections between the same two houses with different costs.
+For each house `i`, we can either build a well inside it directly with cost
+`wells[i - 1]` (note the `-1` due to **0-indexing**), or pipe in water from another well
+to it. The costs to lay pipes between houses are given by the array `pipes` where each
+`pipes[j] = [house1j, house2j, costj]` represents the cost to connect `house1j` and
+`house2j` together using a pipe. Connections are bidirectional, and there could be
+multiple valid connections between the same two houses with different costs.
 
 Return _the minimum total cost to supply water to all houses_.
 
@@ -27,11 +34,16 @@ Return _the minimum total cost to supply water to all houses_.
 
 ## Solution
 
-The problem can be viewed as a **weighted undirected graph**. Each house represents a vertex and each pipe with cost represents the edge between two houses with weight.
+The problem can be viewed as a **weighted undirected graph**. Each house represents a
+vertex and each pipe with cost represents the edge between two houses with weight.
 
-The challenging part is how to handle multiple wells with costs associated with houses. The solution is to add **one virtual vertex** to represent the well and add edges between the well and houses. The weight of the edge is the cost of building a well at the corresponding house.
+The challenging part is how to handle multiple wells with costs associated with houses.
+The solution is to add **one virtual vertex** to represent the well and add edges
+between the well and houses. The weight of the edge is the cost of building a well at
+the corresponding house.
 
-For the input `Input: n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]`, we can create the following graph with the virtual vertex `0` represents the well.
+For the input `Input: n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]`, we can create
+the following graph with the virtual vertex `0` represents the well.
 
 ```mermaid
 graph LR
@@ -46,14 +58,21 @@ graph LR
     house2 -- "1" --- house3
 ```
 
-The problem of finding the minimal total cost to supply water to all houses is transformed into find a subset of edges that connect all vertices with minimum total weight, i.e., finding a minimum spanning tree.
+The problem of finding the minimal total cost to supply water to all houses is
+transformed into find a subset of edges that connect all vertices with minimum total
+weight, i.e., finding a minimum spanning tree.
 
 ### Approach 1 - Kruskal's Algorithm with Union Find
 
-To solve the minimum spanning tree problem, we can use classical [Kruskal's algorithm](../../algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md) with union-find structure. The algorithm can be implemented with the following two steps:
+To solve the minimum spanning tree problem, we can use classical
+[Kruskal's algorithm](../../algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md)
+with union-find structure. The algorithm can be implemented with the following two steps:
 
-1. First, **sort** all the edges based on their costs, including the additional edges added between the virtual vertex (a well) and houses.
-2. Then **iterate** through the sorted edges. If both vertices belong to different groups using Union Find data structure, add the edge to the minimum spanning tree list and increase the total cost.
+1. First, **sort** all the edges based on their costs, including the additional edges
+added between the virtual vertex (a well) and houses.
+2. Then **iterate** through the sorted edges. If both vertices belong to different
+groups using Union Find data structure, add the edge to the minimum spanning tree list
+and increase the total cost.
 
 === "Python"
     ```python
@@ -121,17 +140,22 @@ To solve the minimum spanning tree problem, we can use classical [Kruskal's algo
 
 #### Complexity Analysis of Approach 1
 
-- Time complexity: $O((V + E) \log (V + E))$ where $V$ is the number of houses (vertices) and $E$ is the number of pipes (edges)  
+- Time complexity: $O((V + E) \log (V + E))$ where $V$ is the number of houses
+(vertices) and $E$ is the number of pipes (edges)  
     - Adding edges between a well and houses takes $O(V)$ iterations;
     - Adding edges from pipes takes $O(E)$ iterations;
     - Sorting $V + E$ edges takes $O((V + E) \log (V + E))$;
     - Create union find structure takes $O(V)$ time;
-    - Go through all edges take $O(V + E)$ iterations and each iteration takes $O(\alpha(V)$ time. So the overall iteration time is $O((V + E) \alpha(V))$;  
-    So the total time complexity is $O(V) + O(E) + O((V + E) \log (V + E)) + O(V) + O((V + E) \alpha(V))$, which can be simplified as $O((V + E) (\log (V + E) + \alpha(V))) = O((V + E) \log (V + E))$.
+    - Go through all edges take $O(V + E)$ iterations and each iteration takes
+    $O(\alpha(V)$ time. So the overall iteration time is $O((V + E) \alpha(V))$;  
+    So the total time complexity is
+    $O(V) + O(E) + O((V + E) \log (V + E)) + O(V) + O((V + E) \alpha(V))$, which can be
+    simplified as $O((V + E) (\log (V + E) + \alpha(V))) = O((V + E) \log (V + E))$.
 - Space complexity: $O(V + E)$  
     - The order edges list stores $V + E$ edges, taking $O(V + E)$ space;
     - The union-find data structure takes $O(V)$ space to store `root` and `rank`;
-    - The sorting algorithm in Python ([Timsort](https://en.wikipedia.org/wiki/Timsort)) takes $O(V + E)$;  
+    - The sorting algorithm in Python ([Timsort](https://en.wikipedia.org/wiki/Timsort))
+    takes $O(V + E)$;  
     So the overall space complexity is $O(V + E) + O(V) + O(V + E) = O(V + E)$.
 
 ### Approach 2 - Prim's Algorithm
@@ -176,11 +200,15 @@ We can also use Prim's algorithm to find the minimum spanning tree.
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O((V + E) \log (V + E))$ where $V$ is the number of nodes and $E$ is the number of pipes.  
+- Time complexity: $O((V + E) \log (V + E))$ where $V$ is the number of nodes and $E$ is
+the number of pipes.  
     - Adding edges between a well and houses takes $O(V)$ time;
     - Adding edges from pipes takes $O(E)$ time;
-    - In the worst case, the algorithm goes through all edges, $O(V + E)$,including new edges to the virtual node. Each iteration, pop node from heap or push node to queue takes $O(\log (V + E))$. So the time is $O((V + E) \log (V + E))$.  
-    So the total time complexity is $O(V) + O(E) + O((V + E) \log (V + E)) = O((V + E) \log (V + E))$.
+    - In the worst case, the algorithm goes through all edges, $O(V + E)$,including new
+    edges to the virtual node. Each iteration, pop node from heap or push node to queue
+    takes $O(\log (V + E))$. So the time is $O((V + E) \log (V + E))$.  
+    So the total time complexity is $O(V) + O(E) + O((V + E) \log (V + E))$ =
+    $O((V + E) \log (V + E))$.
 - Space complexity: $O(V + E)$  
     - Edges take $O(V + E)$ space for both vertices and edges;
     - The set takes $O(V)$ space in the worst case;
@@ -194,7 +222,7 @@ approaches:
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
-Approach 1 - Kruskal's Algorithm  |  $O((V + E) \log (V + E))$           | $O(V + E)$ |
-Approach 2 - Prim's Algorithm  |  $O((V + E) \log (V + E))$           | $O(V + E)$  |
+Approach 1 - Kruskal's Algorithm  |  $O((V + E) \log (V + E))$  | $O(V + E)$ |
+Approach 2 - Prim's Algorithm  |  $O((V + E) \log (V + E))$     | $O(V + E)$  |
 
 ## Test
