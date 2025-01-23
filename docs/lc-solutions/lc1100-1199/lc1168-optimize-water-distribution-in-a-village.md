@@ -131,8 +131,10 @@ and increase the total cost.
             return total_cost
     ```
 
-    1. Return a flag to indicate whether the joining actually happens within the function. Otherwise, need to add an additional function to check `find(a) == find(b)`.
-    2. Add edges between a well (the virtual vertex with index of 0) and houses. The weight of the edge is the cost of building the well.
+    1. Return a flag to indicate whether the joining actually happens within the
+    function. Otherwise, need to add an additional function to check `find(a) == find(b)`.
+    2. Add edges between a well (the virtual vertex with index of 0) and houses. The
+    weight of the edge is the cost of building the well.
     3. Add the edges from pipes.
     4. Sort all edges by their weights.
     5. Iterate through the ordered edges and find minimum spanning tree.
