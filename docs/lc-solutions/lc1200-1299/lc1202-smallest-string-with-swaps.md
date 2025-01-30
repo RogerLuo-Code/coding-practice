@@ -33,8 +33,8 @@ swaps.
 ## Solution
 
 The problem can be viewed as a graph problem. Each index is a vertex and each given pair
-is an edge between the vertices. An edge implies that we can travel from one vertex to
-another (i.e., swap them in the conext of this problem).
+is a undirected edge between the vertices. An edge implies that we can travel from one
+vertex to another (i.e., swap them in the context of this problem).
 
 ???+ tip
     Since characters in the `pairs` can be swapped **any number of times**, letters in a
@@ -116,14 +116,14 @@ to re-order letters in the rest of indices.
                 adj_list[j].append(i)  # (1)
 
             visited = set()
-            s_smallest_list = ["" for _ in range(n)]
+            s_smallest_list = [""] * n
             for i in range(n):  # (2)
                 if i in visited:
                     continue
 
                 indices = []
                 self.dfs(i, adj_list, visited, indices)
-                letters = [s[i] for i in indices]
+                letters = [s[idx] for idx in indices]
 
                 # (3)
                 letters.sort()

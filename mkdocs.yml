@@ -65,10 +65,16 @@ extra_javascript:
 # Page tree
 nav:
   - Home: index.md
+  - Abstract Data Type:
+    - Priority Queue: abstract-data-type/priority-queue.md
   - Data Structure:
     - Queue: data-structure/queue/queue.md
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
+    - Heap: 
+      - data-structure/heap/index.md
+      - Top K Problem: data-structure/heap/top-k-problem.md
+      - Kth Element: data-structure/heap/kth-element.md
     - Union-Find: data-structure/union-find/union-find.md
   - Algorithms:
     - Binary Search: algorithms/binary-search.md
@@ -126,6 +132,7 @@ nav:
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
       - 210 Course schedule ii: lc-solutions/lc0200-0299/lc0210-course-schedule-ii.md
+      - 215 Kth largest element in an array: lc-solutions/lc0200-0299/lc0215-kth-largest-element-in-an-array.md
       - 225 Implement stack using queues: lc-solutions/lc0200-0299/lc0225-implement-stack-using-queues.md
       - 232 Implement queue using stacks: lc-solutions/lc0200-0299/lc0232-implement-queue-using-stacks.md
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
@@ -143,6 +150,7 @@ nav:
       - 310 Minimum height trees: lc-solutions/lc0300-0399/lc0310-minimum-height-trees.md
       - 323 Number of connected components in an undirected graph: lc-solutions/lc0300-0399/lc0323-number-of-connected-components-in-an-undirected-graph.md
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
+      - 347 Top k frequent elements: lc-solutions/lc0300-0399/lc0347-top-k-frequent-elements.md
       - 354 Russian doll envelopes: lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes.md
       - 367 Valid perfect square: lc-solutions/lc0300-0399/lc0367-valid-perfect-square.md
       - 374 Guess number higher or lower: lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower.md
