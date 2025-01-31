@@ -177,6 +177,7 @@ nav:
       - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658-find-k-closest-elements.md
     - LC 700 to 799:
       - 702 Search in a sorted array of unknown size: lc-solutions/lc0700-0799/lc0702-search-in-a-sorted-array-of-unknown-size.md
+      - 703 Kth largest element in a stream: lc-solutions/lc0700-0799/lc0703-kth-largest-element-in-a-stream.md
       - 704 Binary search: lc-solutions/lc0700-0799/lc0704-binary-search.md
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
       - 733 Flood fill: lc-solutions/lc0700-0799/lc0733-flood-fill.md
