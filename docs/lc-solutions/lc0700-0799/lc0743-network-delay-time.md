@@ -44,45 +44,44 @@ edge cycle.
 
 === "Python"
     ```python
+    import math
     from collections import defaultdict, deque
 
 
     class Solution:
         def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-            INT32_MAX = 2**31 - 1
-
             # Build adj_list with directed edge and weight
             adj_list = defaultdict(list)
             for source, target, time in times:
                 adj_list[source].append((target, time))
 
-            # Initialize shortest time to reach a node as the largest value of int32
-            shortest_time_map = defaultdict(lambda: INT32_MAX)
+            # Find shortest time from k to each node
+            shortest_time_map = self.find_shortest_time(k, adj_list)
 
-            self.find_shortest_time(k, adj_list, shortest_time_map)
-
+            # Return time to reach all nodes
             if len(shortest_time_map) == n:
                 return max(shortest_time_map.values())
             else:
                 return -1
 
         def find_shortest_time(
-            self, source: int, adj_list: dict[int, list], shortest_time_map: dict[int, int]
-        ) -> int:
-            queue = deque([source])
-
-            # Time for source node is 0
-            shortest_time_map[source] = 0
-
+            self, source: int, adj_list: dict[int, list]
+        ) -> dict[int, int]:
+            shortest_time = defaultdict(lambda: math.inf)  # (1)
+            shortest_time[k] = 0  # (2)
+            queue = deque([k])  # (node)
             while queue:
                 curr_node = queue.popleft()
-
+                curr_time = shortest_time[curr_node]
                 for next_node, time in adj_list[curr_node]:
-                    cum_time = shortest_time_map[curr_node] + time
-                    if shortest_time_map[next_node] > cum_time:
-                        shortest_time_map[next_node] = cum_time
+                    next_time = curr_time + time
+                    if next_time < shortest_time_map[next_node]:
+                        shortest_time_map[next_node] = next_time
                         queue.append(next_node)
     ```
+
+    1. Store shortest time from k to each node.
+    2. For starting node k, the shortest time from k to k is 0.
 
 #### Complexity Analysis of Approach 1
 
@@ -107,44 +106,44 @@ This algorithm similar to approach 1 but replacing queue with a priority queue.
 
 === "python"
     ```python
+    import math
     import heapq
     from collections import defaultdict
 
 
     class Solution:
         def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-            INT32_MAX = 2**31 - 1
-
             # Build adj_list with directed edge and weight
             adj_list = defaultdict(list)
             for source, target, time in times:
                 adj_list[source].append((target, time))
 
-            # Initialize shortest time to reach a node as the largest value of int32
-            shortest_time_map = defaultdict(lambda: INT32_MAX)
+            # Find shortest time from k to each node
+            shortest_time_map = self.find_shortest_time(k, adj_list)
 
-            self.find_shortest_time(k, adj_list, shortest_time_map)
-
+            # Return max value of shortest_time of all nodes
             if len(shortest_time_map) == n:
                 return max(shortest_time_map.values())
             else:
                 return -1
 
         def find_shortest_time(
-            self, source: int, adj_list: dict[int, list], shortest_time_map: dict[int, int]
-        ) -> int:
+            self, source: int, adj_list: dict[int, list]
+        ) -> dict[int, int]:
+            shortest_time_map = defaultdict(lambda: math.inf)  # (1)
             pq = [(0, source)]
 
             while pq:
-                cum_time, curr_node = heapq.heappop(pq)
-                if curr_node not in shortest_time_map:  # (1)
-                    shortest_time_map[curr_node] = cum_time
+                curr_time, curr_node = heapq.heappop(pq)
+                if curr_node not in shortest_time_map:  # (2)
+                    shortest_time_map[curr_node] = curr_time
 
                     for next_node, time in adj_list[curr_node]:
-                        heapq.heappush(pq, (cum_time + time, next_node))
+                        heapq.heappush(pq, (curr_time + time, next_node))
     ```
 
-    1. Just check existing and no need to compare whether time is the shortest since the
+    1. Store shortest time from k to each node.
+    2. Just check existing and no need to compare whether time is the shortest since the
     priority queue will return the smallest value. This assumes non-negative weight.
 
 #### Complexity Analysis of Approach 2
