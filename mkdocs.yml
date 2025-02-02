@@ -71,7 +71,7 @@ nav:
     - Queue: data-structure/queue/queue.md
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
-    - Heap: 
+    - Heap:
       - data-structure/heap/index.md
       - Top K Problem: data-structure/heap/top-k-problem.md
       - Kth Element: data-structure/heap/kth-element.md
@@ -87,6 +87,11 @@ nav:
         - algorithms/graph/minimum-spanning-tree/index.md
         - Kruskal Algorithm: algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md
         - Prim Algorithm: algorithms/graph/minimum-spanning-tree/prim-algorithm.md
+      - Shortest Path:
+        - algorithms/graph/shortest-path/index.md
+        - Bellman-Ford Algorithm: algorithms/graph/shortest-path/bellman-ford-algorithm.md
+        - Shortest Path Faster Algorithm: algorithms/graph/shortest-path/shortest-path-faster-algorithm.md
+        - Dijkstra Algorithm: algorithms/graph/shortest-path/dijkstra-algorithm.md
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
   - LC Solutions:
@@ -182,7 +187,7 @@ nav:
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
       - 733 Flood fill: lc-solutions/lc0700-0799/lc0733-flood-fill.md
       - 739 Daily temperatures: lc-solutions/lc0700-0799/lc0739-daily-temperatures.md
-      - 743 network delay time: lc-solutions/lc0700-0799/lc0743-network-delay-time.md
+      - 743 Network delay time: lc-solutions/lc0700-0799/lc0743-network-delay-time.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 752 Open the lock: lc-solutions/lc0700-0799/lc0752-open-the-lock.md
       - 787 Cheapest flights within k stops: lc-solutions/lc0700-0799/lc0787-cheapest-flights-within-k-stops.md
