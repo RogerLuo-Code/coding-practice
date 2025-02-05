@@ -87,13 +87,18 @@ nav:
         - algorithms/graph/minimum-spanning-tree/index.md
         - Kruskal Algorithm: algorithms/graph/minimum-spanning-tree/kruskal-algorithm.md
         - Prim Algorithm: algorithms/graph/minimum-spanning-tree/prim-algorithm.md
+      - Topological Sort:
+        - algorithms/graph/topological-sort/index.md
+        - Kahn's Algorithm: algorithms/graph/topological-sort/kahns-algorithm.md
       - Shortest Path:
         - algorithms/graph/shortest-path/index.md
         - Bellman-Ford Algorithm: algorithms/graph/shortest-path/bellman-ford-algorithm.md
         - Shortest Path Faster Algorithm: algorithms/graph/shortest-path/shortest-path-faster-algorithm.md
         - Dijkstra Algorithm: algorithms/graph/shortest-path/dijkstra-algorithm.md
     - Recursion: algorithms/recursion.md
-    - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
+    - Sorting:
+      - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
+      - Heap Sort: algorithms/sorting/heap-sort.md
   - Tips:
     - Staircase Traversal: tips/staircase-traversal.md
   - LC Solutions:
