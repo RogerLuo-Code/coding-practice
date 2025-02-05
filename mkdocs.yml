@@ -94,6 +94,8 @@ nav:
         - Dijkstra Algorithm: algorithms/graph/shortest-path/dijkstra-algorithm.md
     - Recursion: algorithms/recursion.md
     - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
+  - Tips:
+    - Staircase Traversal: tips/staircase-traversal.md
   - LC Solutions:
     - lc-solutions/index.md
     - LC 1 to 99:
@@ -159,6 +161,7 @@ nav:
       - 354 Russian doll envelopes: lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes.md
       - 367 Valid perfect square: lc-solutions/lc0300-0399/lc0367-valid-perfect-square.md
       - 374 Guess number higher or lower: lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower.md
+      - 378 Kth smallest element in a sorted matrix: lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix.md
       - 394 Decode string: lc-solutions/lc0300-0399/lc0394-decode-string.md
       - 399 Evaluate divisions: lc-solutions/lc0300-0399/lc0399-evaluate-division.md
     - LC 400 to 499:

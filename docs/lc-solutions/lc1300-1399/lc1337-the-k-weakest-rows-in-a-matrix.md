@@ -156,3 +156,8 @@ Approach 1 - Heap  |  $O(m \log n + m \log k)$           | $O(k)$ |
 Approach 2 - Vertical Iteration  |  $O(m n)$           | $O(k)$  |
 
 ## Test
+
+- **All rows have the same number of soldiers** → Return the first `k` rows by index.  
+- **Rows with only 0s** → Weakest rows should be the ones with all 0s.  
+- **Rows with all 1s** → Strongest rows should be last.  
+- **Large matrix** (m,n>1000)(m,n>1000) → Binary search + heap is best.
