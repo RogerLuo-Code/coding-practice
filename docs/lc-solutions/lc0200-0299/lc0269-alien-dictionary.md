@@ -67,9 +67,9 @@ To solve the problem, we need to
 
             # (1)
             adj_list = defaultdict(set)
-            in_degree = {char: 0 for word in words for char in word}
+            in_degree = {char: 0 for word in words for char in word}  #(2)
 
-            # (2)
+            # (3)
             for word1, word2 in zip(words, words[1:]):
                 for char1, char2 in zip(word1, word2):
                     # Find the first difference and create an edge
@@ -79,11 +79,11 @@ To solve the problem, we need to
                             in_degree[char2] += 1
                         break
                 else:
-                    # (3)
+                    # (4)
                     if len(word2) < len(word1):
                         return ""
 
-            # (4)
+            # (5)
             ordered_chars = []
             zero_in_degree_chars = [char for char in in_degree if in_degree[char] == 0]
             zero_in_degree_queue = deque(zero_in_degree_chars)
@@ -99,14 +99,16 @@ To solve the problem, we need to
             if len(ordered_chars) == len(in_degree):
                 return "".join(ordered_chars)
             else:
-                return ""  # (5)
+                return ""  # (6)
     ```
 
     1. Initialize adjacent list and in-degree dictionary.
-    2. Build adjacent list and count in-degrees.
-    3. Check for invalid input (prefix case), where second word isn't a prefix of first word.
-    4. Perform topological sort.
-    5. There is a cycle.
+    2. Initialize all letters with default in-degree `0`. Later, when building adjacent
+    list no need to check all letters to set them to 0.
+    3. Build adjacent list and count in-degrees.
+    4. Check for invalid input (prefix case), where second word isn't a prefix of first word.
+    5. Perform topological sort.
+    6. There is a cycle.
 
 #### Complexity Analysis of Approach 1
 
@@ -116,7 +118,7 @@ $V$ is the number of **unique** letters, and $E$ is the total number of edges.
     $O(C)$, where $C$ is the total number of
     letters in all words.
     - Build adjacent list may go through all letters in the worst case, which takes $O(C)$.
-    - Topological sort initialization iterate over the nodes (unique letters) in
+    - Topological sort initialization iterates over the nodes (unique letters) in
     `in_degree`, which takes $O(V)$, where $V$ is the number of unique letters. Then
     enqueue all nodes with zero in-degree, which takes time less than $O(V)$. So the
     initialization takes $O(V)$.
@@ -127,9 +129,9 @@ $V$ is the number of **unique** letters, and $E$ is the total number of edges.
         traversed to update the in-degrees of its neighbors. The total number of
         outgoing edges processed is $O(E)$, as each edge is processed exactly once.
     - So the total time complexity is $O(C) + O(C) + O(V) + O(V + E) = O(C + V + E)$
-- Space complexity: $O(V + E)$  
+- Space complexity: $O(V + E)$
     - In-degree dictionary tracks the in degree of all $V$ nodes, takes $O(V)$ space.
-    The adjacent list stores all $V$ nodes and all $E$ edges, which takes $O(V + E)$ space.
+    - The adjacent list stores all $V$ nodes and all $E$ edges, which takes $O(V + E)$ space.
     - The queue in the worst case may store all $V$ nodes, which takes $O(V)$ space.
     - The result list holds all $V$ nodes, taking $O(V)$ space.
     - So the total space complexity is $O(V) + O(V + E) + O(E) + O(V) = O(V + E)$.
