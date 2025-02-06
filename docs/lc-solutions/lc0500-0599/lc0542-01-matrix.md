@@ -1,14 +1,15 @@
 ---
 tags:
     - Breadth-First Search
-    - Dynammic Programming
+    - Dynamic Programming
 ---
 
 # LC542. 01 Matrix
 
 ## Problem Description
 
-[LeetCode Problem 542](https://leetcode.com/problems/01-matrix/): Given an `m x n` binary matrix `mat`, return _the distance of the nearest_ `0`_for each cell_.
+[LeetCode Problem 542](https://leetcode.com/problems/01-matrix/): Given an `m x n`
+binary matrix `mat`, return _the distance of the nearest_ `0`_for each cell_.
 
 The distance between two adjacent cells is `1`.
 
@@ -24,16 +25,19 @@ The distance between two adjacent cells is `1`.
 
 ### Approach - BFS
 
-Use BFS to search starting from all `0`s. Note that starting from `1` leads to redundant calculation and visiting.  Check `matrix` value to indicate whether it is visited without using a dedicated set to track.
+Use BFS to search starting from all `0`s. Note that starting from `1` leads to redundant
+calculation and visiting.  Check `matrix` value to indicate whether it is visited
+without using a dedicated set to track.
 
-When updating distance, we can either update it based on the parent node since it is visited or update based on the number of layers of BFS.
+When updating distance, we can either update it based on the parent node since it is
+visited or update based on the number of layers of BFS.
 
 === "Python"
     ```python
     class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         m, n = len(mat), len(mat[0])
-        dist_mat = [[-1 for _ in range(n)] for _ in range(m)]
+        dist_mat = [[-1 for_ in range(n)] for _ in range(m)]
         DIRECTIONS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
         q = deque()
@@ -61,7 +65,7 @@ When updating distance, we can either update it based on the parent node since i
     class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         m, n = len(mat), len(mat[0])
-        dist_mat = [[-1 for _ in range(n)] for _ in range(m)]
+        dist_mat = [[-1 for_ in range(n)] for _ in range(m)]
         DIRECTIONS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
         q = deque()
@@ -95,16 +99,22 @@ When updating distance, we can either update it based on the parent node since i
 
 ### Approach 2 - DP
 
-The problem can be solved using dynamic programming with some tweaks. For a cell with 4 neighbors, we  can't directly use dynamic programming to compute the distance of the current cell based on 4 neighbors since distance of neighboring cells may not be computed yet.
+The problem can be solved using dynamic programming with some tweaks. For a cell with 4
+neighbors, we  can't directly use dynamic programming to compute the distance of the
+current cell based on 4 neighbors since distance of neighboring cells may not be
+computed yet.
 
 Instead, we use dynamic programming with two passes:
 
-1. Start from top left corner, calculate minimum distance based on only two directions: left and top neighbors, which has been visited
-2. Start from bottom right corner, calculate the minimum distance based on the current cell + only two directions: right and bottom, which has been visited
+1. Start from top left corner, calculate minimum distance based on only two directions:
+left and top neighbors, which has been visited
+2. Start from bottom right corner, calculate the minimum distance based on the current
+cell + only two directions: right and bottom, which has been visited
 
 For example, assume only one `0` in the middle and the other is `1`.
 
-- After the 1st pass, the top left half will be filled with `inf` and bottom right half after `0` will have correct distance. 
+- After the 1st pass, the top left half will be filled with `inf` and bottom right half
+after `0` will have correct distance.
 - After the 2nd pass, the top left half will the corrected
 
 Refer to [explanations from @hiepit](https://leetcode.com/problems/01-matrix/solutions/1369741/c-java-python-bfs-dp-solutions-with-picture-clean-concise-o-1-space/)
@@ -140,7 +150,8 @@ Refer to [explanations from @hiepit](https://leetcode.com/problems/01-matrix/sol
 #### Complexity Analysis of Approach 2
 
 - Time complexity: $O(m \times n)$  
-  Iterate over matrix twice with constant work on each iteration. So the time complexity is $O(2 \times m \times n) = O(m \times n)$.
+  Iterate over matrix twice with constant work on each iteration. So the time complexity
+  is $O(2 \times m \times n) = O(m \times n)$.
 - Space complexity: $O(m \times n)$  
   The `dp` matrix contains $m \times n$ elements.
 

@@ -1,12 +1,14 @@
 ---
 tags:
-- Binary Serach
+- Binary Search
 ---
 
 # LC 74. Search a 2D Matrix
 
 ## Problem Description
-[Leetcode Problem 74:](https://leetcode.com/problems/search-a-2d-matrix/) You are given an `m x n` integer matrix `matrix` with the following two properties:
+
+[Leetcode Problem 74:](https://leetcode.com/problems/search-a-2d-matrix/) You are given
+an `m x n` integer matrix `matrix` with the following two properties:
 
 - Each row is sorted in non-decreasing order.
 - The first integer of each row is greater than the last integer of the previous row.
@@ -16,6 +18,7 @@ Given an integer `target`, return `true` _if_ `target` _is in_ `matrix` _
 You must write a solution in `O(log(m * n))` time complexity.
 
 ## Clarification
+
 - sorted or unsorted?
 - how is it sorted? row, column, any other properties
 - how big is the size?
@@ -23,19 +26,27 @@ You must write a solution in `O(log(m * n))` time complexity.
 - return value? boolean, linear index, or indices (row and column)
 
 ## Assumption
-- `m * n` won't cause overflow 
+
+- `m * n` won't cause overflow
 
 ## Solution
+
 Taking advantages of the matrix properties, we can use binary search here. Two approaches:
-1. Use binary search twice: search along the row and then along the column for the target row (if exists)
-2. The matrix $m \times n$ can be considered as a sorted array of length $m \times n$. Then apply binary search on a sorted array instead of a matrix.
+
+1. Use binary search twice: search along the row and then along the column for the
+target row (if exists)
+2. The matrix $m \times n$ can be considered as a sorted array of length $m \times n$.
+Then apply binary search on a sorted array instead of a matrix.
 ![Matrix to Array](https://leetcode.com/problems/search-a-2d-matrix/Figures/74/matrix2.png)
 
 ### **Approach 1**: Binary search twice on the matrix  
+
 Binary search along the row and then along the column for the target row.
 
-* Search along the row is a slightly modified version of classic binary search. It uses the first and last element of middle row for comparison instead of just one element. The row with potential target should meet condition: `target >= matrix[mr][0] && target <= matrix[mr][nCol-1]`
-* Search along the column is a classic binary search.
+- Search along the row is a slightly modified version of classic binary search. It uses
+the first and last element of middle row for comparison instead of just one element. The
+row with potential target should meet condition: `target >= matrix[mr][0] && target <= matrix[mr][nCol-1]`
+- Search along the column is a classic binary search.
 
 === "Java"
     ```java
@@ -93,15 +104,17 @@ Binary search along the row and then along the column for the target row.
     ```
 
 ### **Approach 2**: Binary search on a sorted array (transformed from the matrix)
-Based on the matrix properties, the matrix $m \times n$ can be considered as a sorted array of length $m \times n$. A classic binary search can be applied on this sorted array.
+
+Based on the matrix properties, the matrix $m \times n$ can be considered as a sorted
+array of length $m \times n$. A classic binary search can be applied on this sorted array.
 
 Matrix to array: `matrix[r][c] -> a[r * n + c]`  
 Array to matrix: `a[x] -> matrix[x/m][x%n]`
 
 **Drawbacks**  
 
-* `m*n` may overflow for large m and n
-* `/` and `%` are expensive operations
+- `m*n` may overflow for large m and n
+- `/` and `%` are expensive operations
 
 === "Java"
     ```java
@@ -169,20 +182,23 @@ Array to matrix: `a[x] -> matrix[x/m][x%n]`
     ```
 
 ### Complexity Analysis  
+
 * **Time complexity**: $\mathcal{O}(\log(mn))$ for both approaches.  
 
-  - Approacheh 1: For the worse case, search along the row needs $\log m$ number of iterations  and search along the column needs $\log n$ number of iterations. So the total number is $\log mn  = \log m + \log n$ for the worst case. Therefore the time complexity is $\mathcal{O}(\log(mn))$.
-  - Approach 2: It uses the classic binary searc on $m \times n$ elements. Therefore the time complexity is $\mathcal{O}(\log(mn))$. 
+    - Approacheh 1: For the worse case, search along the row needs $\log m$ number of
+    iterations  and search along the column needs $\log n$ number of iterations. So the
+    total number is $\log mn  = \log m + \log n$ for the worst case. Therefore the time
+    complexity is $\mathcal{O}(\log(mn))$.
+    - Approach 2: It uses the classic binary searc on $m \times n$ elements. Therefore
+    the time complexity is $\mathcal{O}(\log(mn))$.
 
-* **Space complexity**: $\mathcal{O}(1)$.  
-Both approaches use several more variables than classic binary search but they still use $\mathcal{O}(1)$ space 
-
+- **Space complexity**: $\mathcal{O}(1)$.  
+Both approaches use several more variables than classic binary search but they still use
+$\mathcal{O}(1)$ space
 
 |     | Time Complexity | Space Complexity  
 | ----- | ----- | ----- |  
 | Approach 1 | $\mathcal{O}(\log(mn))$ | $\mathcal{O}(1)$ |  
-| Approach 2 | $\mathcal{O}(\log(mn))$ | $\mathcal{O}(1)$ | 
-
+| Approach 2 | $\mathcal{O}(\log(mn))$ | $\mathcal{O}(1)$ |
 
 ## Test
-
