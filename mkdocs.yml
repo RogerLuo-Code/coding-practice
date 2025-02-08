@@ -150,6 +150,7 @@ nav:
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
       - 240 Search a 2D matrix ii: lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md
+      - 253 Meeting rooms ii: lc-solutions/lc0200-0299/lc0253-meeting-rooms-ii.md
       - 261 Graph valid tree: lc-solutions/lc0200-0299/lc0261-graph-valid-tree.md
       - 269 Alien dictionary: lc-solutions/lc0200-0299/lc0269-alien-dictionary.md
       - 274 H-index: lc-solutions/lc0200-0299/lc0274-h-index.md
