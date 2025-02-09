@@ -145,3 +145,7 @@ Approach - Heap |  $O(n \log n)$           | $O(n)$ |
 Approach -  |  $O(n \log n)$           | $O(n)$  |
 
 ## Test
+
+- **Non-overlapping meetings** → Needs only one room.
+- **Meetings that all overlap** → Requires `n` rooms.
+- **Large input size** → Sorting dominates runtime complexity.

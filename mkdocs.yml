@@ -211,6 +211,7 @@ nav:
       - 896 Monotonic array: lc-solutions/lc0800-0899/lc0896-monotonic-array.md
     - LC 900 to 999:
       - 904 Fruit into baskets: lc-solutions/lc0900-0999/lc0904-fruit-into-baskets.md
+      - 973 K closest points to origin: lc-solutions/lc0900-0999/lc0973-k-closest-points-to-origin.md
       - 974 Subarray sums divisible by k: lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k.md
       - 981 Time Based Key-Value Store: lc-solutions/lc0900-0999/lc0981-time-based-key-value-store.md
       - 994 Rotting oranges: lc-solutions/lc0900-0999/lc0994-rotting-oranges.md
