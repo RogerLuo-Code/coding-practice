@@ -44,11 +44,13 @@ the k closest points remained.
 
     class Solution:
         def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-            max_heap = []
+        max_heap = []
 
             for i in range(len(points)):
-                dist_to_origin = math.sqrt(points[i][0]**2 + points[i][1]**2)
-                heapq.heappush(max_heap, (-dist_to_origin, i))  # (1)
+                dist_to_origin = points[i][0] ** 2 + points[i][1] ** 2
+                heapq.heappush(
+                    max_heap, (-dist_to_origin, i)
+                )  # Push negative value to achieve max heap by using min heap
 
                 if len(max_heap) > k:
                     heapq.heappop(max_heap)
