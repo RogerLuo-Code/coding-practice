@@ -227,6 +227,7 @@ nav:
       - 1129 Shortest path with alternating colors: lc-solutions/lc1100-1199/lc1129-shortest-path-with-alternating-colors.md
       - 1136 Parallel courses: lc-solutions/lc1100-1199/lc1136-parallel-courses.md
       - 1146 Snapshot array: lc-solutions/lc1100-1199/lc1146-snapshot-array.md
+      - 1167 Minimum cost to connect sticks: lc-solutions/lc1100-1199/lc1167-minimum-cost-to-connect-sticks.md
       - 1168 Optimize water distribution in a village: lc-solutions/lc1100-1199/lc1168-optimize-water-distribution-in-a-village.md
     - LC 1200 to 1299:
       - 1202 Smallest string with swaps: lc-solutions/lc1200-1299/lc1202-smallest-string-with-swaps.md
@@ -245,6 +246,7 @@ nav:
       - 1584 Min cost to connect all points: lc-solutions/lc1500-1599/lc1584-min-cost-to-connect-all-points.md
     - LC 1600 to 1699:
       - 1631 Path with minimum effort: lc-solutions/lc1600-1699/lc1631-path-with-minimum-effort.md
+      - 1642 Furthest building you can reach: lc-solutions/lc1600-1699/lc1642-furthest-building-you-can-reach.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
     - LC 1800 to 1899:
