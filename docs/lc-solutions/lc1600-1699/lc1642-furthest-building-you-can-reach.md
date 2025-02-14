@@ -114,3 +114,7 @@ Approach - Max Heap |  $O(n \log n)$           | $O(n)$ |
 Approach -  |  $O(1)$           | $O(n)$  |
 
 ## Test
+
+- **All buildings are the same height** → No bricks or ladders needed.
+- **Enough bricks to reach the last building** → Ladders may not be used.
+- **Large jumps appear early** → Ladders should be prioritized.
