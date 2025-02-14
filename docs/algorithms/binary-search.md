@@ -10,6 +10,21 @@ Best-case performance: $O(1)$
 Average performance: $O(\log n)$
 Worst-case space complexity: $O(1)$
 
+## General Steps
+
+Answering the following questions before coding:
+
+- What is the target item, value, and type? An index, between two indices, or something else.
+- What bounds must the target item be within? It's usually easy to use inclusive bounds,
+using `low` to represent the lowest possible position of the target and `high` to be the
+highest possible position.
+- What can we conclude when `isReachable(mid)` returns true ("yes")? Don't accidentally
+exclude the target.
+- What can we conclude when `isReachable(mid)` returns false ("no")? Don't accidentally
+exclude the target.
+- How do we know when we've found the target item?
+- Which calculation for mid should we use?
+
 ## Tips
 
 - How to determine the while loop condition, `l < r`, `l <= r`, or `l < r - 1`?  
@@ -30,6 +45,12 @@ Worst-case space complexity: $O(1)$
   ```
 
   `r = m` can't shrink the size any more.
+
+- How to update `mid`?
+    - If using `hi = mid - 1`, use the higher midpoint, `mid = (lo + hi + 1) / 2`.
+    - If using `lo = mid + 1`, use the lower midpoint, `mid = (lo + hi) / 2`.
+    - If using above both, then use either lower or higher midpoint
+
 
 ## References
 
