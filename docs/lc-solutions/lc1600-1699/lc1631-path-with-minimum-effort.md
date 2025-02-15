@@ -42,10 +42,8 @@ it has less effort.
 
     class Solution:
         def minimumEffortPath(self, heights: List[List[int]]) -> int:
-            n_rows = len(heights)
-            n_cols = len(heights[0])
-
             DIRECTIONS = ((-1, 0), (1, 0), (0, -1), (0, 1))  # (1)
+            n_rows, n_cols = len(heights), len(heights[0])
             min_effort = defaultdict(lambda: float("inf"))  # (2)
             queue = deque([(0, 0, 0)])  # (row, col, effort)
             min_effort[(0, 0)] = 0
@@ -96,10 +94,8 @@ shortest path).
 
     class Solution:
         def minimumEffortPath(self, heights: List[List[int]]) -> int:
-            n_rows = len(heights)
-            n_cols = len(heights[0])
-
             DIRECTIONS = ((-1, 0), (1, 0), (0, -1), (0, 1))  # (1)
+            n_rows, n_cols = len(heights), len(heights[0])
             min_effort = defaultdict(lambda: math.inf)  # (2)
             pq = [(0, 0, 0)]  # (3)
 

@@ -60,14 +60,14 @@ The ordering of courses based on prerequisites is a classic topological sorting 
             ordered_courses = []
 
             # Build adjacent list and compute in-degree
-            course_in_degree = defaultdict(lambda: 0)
+            course_in_degree = [0] * numCourses
             adj_list = defaultdict(list)
             for dependent_course, prerequisite_course in prerequisites:
                 adj_list[prerequisite_course].append(dependent_course)
                 course_in_degree[dependent_course] += 1
 
             # Iterate zero in degree queue
-            zero_in_degree_list = [i for i in range(numCourses) if i not in course_in_degree]
+            zero_in_degree_list = [i for i in range(numCourses) if course_in_degree[i] == 0]
             zero_in_degree_queue = deque(zero_in_degree_list)
             while zero_in_degree_queue:
                 curr_course = zero_in_degree_queue.popleft()
