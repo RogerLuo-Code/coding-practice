@@ -142,6 +142,7 @@ nav:
       - 200 Number of islands: lc-solutions/lc0200-0299/lc0200-number-of-islands.md
       - 203 Remove linked list elements: lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements.md
       - 206 Reverse linked list: lc-solutions/lc0200-0299/lc0206-reverse-linked-list.md
+      - 207 Course schedule: lc-solutions/lc0200-0299/lc0207-course-schedule.md
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
       - 210 Course schedule ii: lc-solutions/lc0200-0299/lc0210-course-schedule-ii.md
       - 215 Kth largest element in an array: lc-solutions/lc0200-0299/lc0215-kth-largest-element-in-an-array.md
