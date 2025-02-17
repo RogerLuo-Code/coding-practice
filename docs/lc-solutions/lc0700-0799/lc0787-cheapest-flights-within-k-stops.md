@@ -67,7 +67,7 @@ stops to avoid unnecessary processing.
 
             # (2)
             min_cost = defaultdict(lambda: float("inf"))
-            min_cost[(src, 0)] = 0  # (3)
+            min_cost[src] = 0  # (3)
 
             queue = deque([(src, 0, 0)])  # (4)
 

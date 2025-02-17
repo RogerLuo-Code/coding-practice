@@ -48,7 +48,9 @@ of nodes in the tree. It will results in Time Limit Exceeded exception.
 The problem can be efficiently solved using a topological sort-like approach bases on
 the observation: the roots of minimum height trees are at the **centers** of the tree.
 The center divide the treen into subtree of approximately equal height, which helps
-minimize the height of the tree.
+minimize the height of the tree. We can also prove it by contradiction. If move away
+from center in any direction, it will cause the heigh increase, which won't be the
+minimum height tree.
 
 By iteratively removing leaves, the tree "shrinks" inward toward its centers. The
 process stops when 1 or 2 nodes remain, which are the centers of the tree.
@@ -98,7 +100,7 @@ graph LR
 
             # Build adjacent list and n_connections
             adj_list = defaultdict(set)
-            n_connections = [0] * n
+            n_connections = [0] * n  # (1)
             for node_a, node_b in edges:
                 if node_b not in adj_list[node_a]:
                     adj_list[node_a].add(node_b)
@@ -108,27 +110,29 @@ graph LR
 
             # Find all leaf nodes
             # Since it is a tree, every node has at least 1 connection.
-            nodes_with_1_connection = [i for i in range(n) if n_connections[i] == 1]
-            queue_with_1_connection = deque(nodes_with_1_connection)
+            leaf_nodes = [i for i in range(n) if n_connections[i] == 1]
+            leaf_nodes_queue = deque(leaf_nodes)
 
             # Trim leaf nodes iteratively
             n_processed_nodes = n
-            while queue_with_1_connection:
+            while leaf_nodes_queue:
                 if n_processed_nodes <= 2:
-                    return list(queue_with_1_connection)
+                    return list(leaf_nodes_queue)
 
-                size = len(queue_with_1_connection)
+                size = len(leaf_nodes_queue)
                 n_processed_nodes -= size
 
                 for i in range(size):
-                    curr_node = queue_with_1_connection.popleft()
+                    curr_node = leaf_nodes_queue.popleft()
                     for next_node in adj_list[curr_node]:
                         n_connections[next_node] -= 1
                         if n_connections[next_node] == 1:
-                            queue_with_1_connection.append(next_node)
+                            leaf_nodes_queue.append(next_node)
 
             return []  # not a tree
     ```
+
+    1. We can use list here since the nodes are labeled from `0` to `n - 1`.
 
 #### Complexity Analysis of Approach 1
 
