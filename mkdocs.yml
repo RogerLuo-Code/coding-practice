@@ -77,6 +77,12 @@ nav:
       - Kth Element: data-structure/heap/kth-element.md
     - Union-Find: data-structure/union-find/union-find.md
   - Algorithms:
+    - Complexity Analysis: algorithms/complexity-analysis.md
+    - Search:
+      - algorithms/search/index.md
+      - Linear Search: algorithms/search/linear-search.md
+      - Binary Search: algorithms/search/binary-search.md
+      - Two Pointers: algorithms/search/two-pointers.md
     - Binary Search: algorithms/binary-search.md
     - Dynamic Programming: algorithms/dynamic-programming.md
     - Graph:
@@ -97,6 +103,7 @@ nav:
         - Dijkstra Algorithm: algorithms/graph/shortest-path/dijkstra-algorithm.md
     - Recursion: algorithms/recursion.md
     - Sorting:
+      - algorithms/sorting/index.md
       - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
       - Heap Sort: algorithms/sorting/heap-sort.md
   - Tips:
