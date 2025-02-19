@@ -83,7 +83,6 @@ nav:
       - Linear Search: algorithms/search/linear-search.md
       - Binary Search: algorithms/search/binary-search.md
       - Two Pointers: algorithms/search/two-pointers.md
-    - Binary Search: algorithms/binary-search.md
     - Dynamic Programming: algorithms/dynamic-programming.md
     - Graph:
       - algorithms/graph/index.md
