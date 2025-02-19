@@ -35,13 +35,14 @@ ladders and bricks optimally._
 
 ## Solution
 
-### Approach - Heap
-
 The best strategy is to use the ladder for the longest climbs and the bricks for the
 shortest climbs.
 
-We can use max heap to track number of bricks used for each step. If running out of
-bricks, replace the longest climb with a ladder.
+### Approach - Max Heap
+
+We can always use bricks first. If running out of
+bricks, replace the longest climb with a ladder. We can use max heap to track number of
+climbs needed for each step and return the max climb if needed.
 
 === "Python"
     ```python
@@ -87,31 +88,65 @@ bricks, replace the longest climb with a ladder.
 - Space complexity: $O(n)$  
     In the worst case, the heap stores $n - 1$ climbs.
 
-### Approach 2 -
+### Approach 2 - Min Heap
 
-Solution
+Similarly, we can always use a ladder first. If ladder is used up, we will use bricks to
+cover the minimum climb in previous steps and reclaim a ladder. Continue until no more
+ladders and bricks not able to cover the next climb. We can use min heap to track the
+number of climbs per step and return the minimum climb if needed.
 
 === "python"
     ```python
-    code
+    import heapq
+
+
+    class Solution:
+        def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
+            min_heap = []
+
+            for i in range(len(heights) - 1):
+                diff = heights[i + 1] - heights[i]
+
+                # Jump down or flat, continue
+                if diff <= 0:
+                    continue
+
+                # Use ladders first
+                heapq.heappush(min_heap, diff)
+                ladders -= 1
+                if ladders >= 0:
+                    continue
+
+                # Use up ladders and try to use bricks for min climb
+                bricks -= heapq.heappop(min_heap)
+                if bricks < 0:
+                    return i
+                else:
+                    ladders += 1
+
+            # Finish all climbs
+            return len(heights) - 1
     ```
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O(1)$  
-  Explanation
+- Time complexity: $O(n \log n)$  
+    - Iterate all $n$ heights and each iteration has at most 2 heap operations. Each
+    heap operation takes $O(\log s)$ time with heap size $s$. In the worst case, the
+    heap size increases from 1 to $n$ after each iteration. The time complexity is
+    $O(\log 1) + O(\log 2) + \cdots + O(\log n) \approx n \log n$.
 - Space complexity: $O(n)$  
-  Explanation
+    In the worst case, the heap stores $n - 1$ climbs.
 
 ### Comparison of Different Approaches
 
 The table below summarize the time complexity and space complexity of different
 approaches:
 
-Approach    | Time Complexity   | Space Complexity |
-------------| ---------------   | ---------------- |
-Approach - Max Heap |  $O(n \log n)$           | $O(n)$ |
-Approach -  |  $O(1)$           | $O(n)$  |
+Approach            | Time Complexity | Space Complexity
+--------------------|-----------------|-----------------
+Approach - Max Heap | $O(n \log n)$   | $O(n)$
+Approach - Min Heap | $O(n \log n)$   | $O(n)$
 
 ## Test
 
