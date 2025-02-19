@@ -33,7 +33,7 @@ Return _the indices of the_ `k` _**weakest** rows in the matrix ordered from
 ### Approach - Heap
 
 The problem can be solved using max queue to store top k weakest rows. The priority are
-determined by two numbers (number of soldiers, row_id). Note that when using `tuple` in
+determined by two numbers `(number of soldiers, row_id)`. Note that when using `tuple` in
 python `heapq`, it will compare the first elements of tuples. If they are equal, it will
 compare the second elements to break the tie. If the comparison is customized, we can
 create a class with `__lt__` method.
@@ -150,10 +150,10 @@ finds the first 0s for each columns. The order of 0s found is the order of k wea
 The table below summarize the time complexity and space complexity of different
 approaches:
 
-Approach    | Time Complexity   | Space Complexity |
-------------| ---------------   | ---------------- |
-Approach 1 - Heap  |  $O(m \log n + m \log k)$           | $O(k)$ |
-Approach 2 - Vertical Iteration  |  $O(m n)$           | $O(k)$  |
+Approach                        | Time Complexity          | Space Complexity
+--------------------------------|--------------------------|-----------------
+Approach 1 - Heap               | $O(m \log n + m \log k)$ | $O(k)$
+Approach 2 - Vertical Iteration | $O(m n)$                 | $O(k)$
 
 ## Test
 
