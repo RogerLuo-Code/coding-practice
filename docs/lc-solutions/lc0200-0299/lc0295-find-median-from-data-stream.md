@@ -63,9 +63,9 @@ average of tops of both heaps.
             self.right_min_heap = []
 
         def addNum(self, num: int) -> None:
-            heapq.heappush(self.left_max_heap, -num)
-            heapq.heappush(self.right_min_heap, -heapq.heappop(self.left_max_heap))  # (1)
-            if len(self.right_min_heap) > len(self.left_max_heap):  # (2)
+            heapq.heappush(self.left_max_heap, -num)  # (1)
+            heapq.heappush(self.right_min_heap, -heapq.heappop(self.left_max_heap))  # (2)
+            if len(self.right_min_heap) > len(self.left_max_heap):  # (3)
                 heapq.heappush(self.left_max_heap, -heapq.heappop(self.right_min_heap))
 
         def findMedian(self) -> float:
@@ -75,9 +75,10 @@ average of tops of both heaps.
                 return -self.left_max_heap[0]
     ```
 
-    1. Balance heap values to make sure smaller numbers in the max heap and larger.
-    numbers in the min heap.
-    2. Maintain size property: `max heap size == min heap size` or
+    1. Always push to the left heap first.
+    2. Balance heap values: smaller numbers in the left max heap and larger
+    numbers in the right min heap.
+    3. Maintain size property: `max heap size == min heap size` or
     `max heap size == min heap size + 1`.
 
 #### Complexity Analysis of Approach 1
