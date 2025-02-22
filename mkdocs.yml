@@ -199,6 +199,7 @@ nav:
       - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC 600 to 699:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
+      - 622 Design circular queue: lc-solutions/lc0600-0699/lc0622-design-circular-queue.md
       - 658 Find k closest elements: lc-solutions/lc0600-0699/lc0658-find-k-closest-elements.md
     - LC 700 to 799:
       - 702 Search in a sorted array of unknown size: lc-solutions/lc0700-0799/lc0702-search-in-a-sorted-array-of-unknown-size.md
