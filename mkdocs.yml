@@ -73,6 +73,7 @@ nav:
     - Queue: data-structure/queue/queue.md
     - Stack: data-structure/stack/stack.md
     - Linked List: data-structure/linked-list/linked-list.md
+    - Binary Tree: data-structure/binary-tree/binary-tree.md
     - Heap:
       - data-structure/heap/index.md
       - Top K Problem: data-structure/heap/top-k-problem.md
@@ -140,6 +141,7 @@ nav:
       - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
       - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
       - 143 Reorder list: lc-solutions/lc0100-0199/lc0143-reorder-list.md
+      - 144 Binary tree preorder traversal: lc-solutions/lc0100-0199/lc0144-binary-tree-preorder-traversal.md
       - 150 Evaluate reverse polish notation: lc-solutions/lc0100-0199/lc0150-evaluate-reverse-polish-notation.md
       - 153 Find minimum in rotated sorted array: lc-solutions/lc0100-0199/lc0153-find-minimum-in-rotated-sorted-array.md
       - 154 Find minimum in rotated sorted array ii: lc-solutions/lc0100-0199/lc0154-find-minimum-in-rotated-sorted-array-ii.md
