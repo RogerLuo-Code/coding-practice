@@ -24,6 +24,15 @@ and a separate list of parent-child relations.
 - There are no cycles (no node can be its own ancestor).
 - Each child can be treated like the root node of its own subtree.
 
+## Traverse the Tree
+
+- Depth First Search (DFS)
+    - preorder: root -> left -> right
+    - in-order: left -> root -> right
+    - post-order: left -> right -> root
+- Breadth First Search (BFS) - Level Order  
+    Scan through the tree level by level based on the height.
+
 ## Common Tree-Based Data Structure
 
 - [Binary Tree](../data-structure/binary-tree/binary-tree.md) (each node has at most two
