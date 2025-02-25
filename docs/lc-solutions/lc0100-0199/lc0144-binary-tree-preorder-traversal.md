@@ -116,29 +116,30 @@ node with the temporary link, it indicates the left sub-tree has visited.
                     output.append(curr_node.val)
                     curr_node = curr_node.right
                 else:
-                    # Find predecessor of the current node.
-                    predecessor = curr_node.left  # (2)
-                    # (3)
+                    # (2)
+                    predecessor = curr_node.left
                     while predecessor.right and predecessor.right is not curr_node:
                         predecessor = predecessor.right
 
-                    if not predecessor.right:
-                        output.append(curr_node.val)
-                        predecessor.right = curr_node  # (4)
+                    # Two conditions out of while loops
+                    if not predecessor.right:  # (3)
+                        output.append(curr_node.val)  # (4)
+                        predecessor.right = curr_node  # (5)
                         curr_node = curr_node.left
-                    else:  # (5)
-                        predecessor.right = None  # (6)
+                    else:  # (6)
+                        predecessor.right = None  # (7)
                         curr_node = curr_node.right
 
             return output
     ```
 
-    1. Left is None then add node value to output and go to right.
-    2. Go to the left first.
-    3. Find the rightmost node in the left sub-tree.
-    4. Establish a temporary link from predecessor to current.
-    5. Comes back to the current node from the predecessor. This indicate the left tree is already visited.
-    6. Remove the temporary link.
+    1. Left is None then add node value to output and go to right since no left sub-tree to visit.
+    2. Find predecessor of the current node, the rightmost node of the left sub-tree.
+    3. Condition 1: `predecessor.right` is `None`. The left sub-tree is not explored.
+    4. This is the root node of a sub-tree. For in-order traversal, add the root node first.
+    5. Establish a temporary link from predecessor to current.
+    6. Condition 2: `predecessor.right` is the `curr_node`, coming back to the current node from the predecessor. This indicate the left sub-tree has been visited.
+    7. Remove the temporary link.
 
 #### Complexity Analysis of Approach 3
 
