@@ -39,7 +39,8 @@ preorder(root.right, values)  # recursively traverse the right subtree
             self.preorder(root, value_list)
             return value_list
 
-        def preorder(self, root: Optional[TreeNode], value_list: List[int]) -> None:
+        def preorder(self, root: Optional[TreeNode],
+                value_list: List[int]) -> None:
             if root is None:
                 return
 
