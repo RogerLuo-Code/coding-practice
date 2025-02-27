@@ -69,26 +69,27 @@ stack to store right nodes that will be visited later.
     ```python
     class Solution:
         def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-            value_list = []
+            values = []
             stack = deque()
 
-            node = root
-            while node or stack:
-                if node is None:
-                    node = stack.pop()
+            curr_node = root
+            while curr_node or stack:
+                if curr_node:
+                    values.append(curr_node.val)
+                    stack.append(curr_node)  # To return the root later.
+                    curr_node = curr_node.left
+                else:
+                    curr_node = stack.pop()
+                    curr_node = curr_node.right
 
-                value_list.append(node.val)
-                if node.right is not None:
-                    stack.append(node.right)
-                node = node.left
-
-            return value_list
+            return values
     ```
 
 #### Complexity Analysis of Approach 2
 
 - Time complexity: $O(n)$  
-    The algorithm access each node exact once and therefore the time complexity is $O(n)$.
+    Each node (total $n$ nodes) is pushed once to and popped once from the stack. So the
+    time complexity is $O(2n) = O(n)$.
 - Space complexity: $O(n)$  
     - The stack needs to store the right nodes which could be $n$ in the worst case.
     - The return list takes $O(n)$ space to save all node values.

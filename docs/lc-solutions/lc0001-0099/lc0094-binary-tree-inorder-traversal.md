@@ -22,7 +22,14 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 
 ### Approach 1 - Recursion
 
-This problem can be solved using the classic recursive method.
+This problem can be solved using the classic recursive method by defining a new helper function
+`preorder`. In the helper function,
+
+```python
+preorder(root.left, values)  # recursively traverse the left subtree
+values.append(root.val)  # visit root/parent node
+preorder(root.right, values)  # recursively traverse the right subtree
+```
 
 === "python"
     ```python
@@ -62,29 +69,30 @@ and pop it up when reaching the end of the left branch.
 
     class Solution:
         def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-            result = []
+            values = []
             stack = deque()
-            curr = root
 
-            while stack or curr:
-                # Keep searching left
-                while curr:
-                    stack.append(curr)
-                    curr = curr.left
+            curr_node = root
+            while curr_node or stack:
+                if curr_node:
+                    stack.append(curr_node)  # (1)
+                    curr_node = curr_node.left
+                else:
+                    curr_node = stack.pop()
+                    values.append(curr_node.val)  # (2)
+                    curr_node = curr_node.right
 
-                curr = stack.pop()  # (1)
-                result.append(curr.val)
-                curr = curr.right
-
-            return result
+            return values
     ```
 
-    1. Out of the while loop, the curr node is None.
+    1. To return the root later.
+    2. Append after all left children.
 
 #### Complexity Analysis of Approach 2
 
 - Time complexity: $O(n)$  
-  The algorithm visits each node exactly once for total $n$ nodes.
+  Each node (total $n$ nodes) is pushed once to and popped once from the stack. So the
+  time complexity is $O(2n) = O(n)$.
 - Space complexity: $O(n)$  
     - In the worst case (for example, every node only has left child), the stack will
     hold all $n$ nodes.
