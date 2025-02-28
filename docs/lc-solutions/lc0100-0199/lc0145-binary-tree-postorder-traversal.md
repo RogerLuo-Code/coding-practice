@@ -151,57 +151,78 @@ entire tree, we can reverse the result list to get the correct postorder sequenc
 
 ### Approach 4 - Morris Traversal
 
-We can use Morris Traversal to visit nodes by using temporary links instead of using
-recursion and stack. It modifies the tree temporarily. The general idea is to
+We can use Morris traversal similar to what used in
+[preorder traversal](lc0144-binary-tree-preorder-traversal.md#approach-3-morris-traversal)
+but with two main changes:
 
-- Before exploring the left tree, find the **rightmost** node in the **left** tree.
-That's also the **last** node to visit in the left tree.
-- Establish a **temporary** link between the rightmost node and the current node. So it can
-come back after exploring the left tree.
-- Then explore the left tree (use similar approach). When it comes back to the current
-node with the temporary link, it indicates the left sub-tree has visited.
+- **Create a dummy root** to ensure the root node is processed.
+    - In postorder traversal, the root is processed last.
+    - In Morris traversal, the node is processed when removing the
+temporary link from its predecessor but the real root has no predecessor.
+- Need to **reverse the path** before appending values.
+    - Morris traversal ensures we visit the left subtree before processing the root and right.
+    - When collecting the right subtree, Morris traversal naturally returns the right
+    subtree in `root -> right` order.
+    - So need to reversing the collected right subtree order to `right -> root`. Since
+    `left` is added early, the proper post traversal order, `left -> right -> root`, is maintained.
 
 === "python"
     ```python
     class Solution:
-        def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-            output = []
-            curr_node = root
+        def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+
+            # (1)
+            dummy = TreeNode(-1)
+            dummy.left = root
+            curr_node = dummy
+            values = []
+
             while curr_node:
-                if not curr_node.left:  # (1)
-                    output.append(curr_node.val)
-                    curr_node = curr_node.right
-                else:
-                    # (2)
+                if curr_node.left:  # (2)
+                    # (3)
                     predecessor = curr_node.left
-                    while predecessor.right and predecessor.right is not curr_node:
+                    while predecessor.right and predecessor.right != curr_node:
                         predecessor = predecessor.right
 
-                    # Two conditions out of while loops
-                    if not predecessor.right:  # (3)
-                        output.append(curr_node.val)  # (4)
+                    if not predecessor.right:  # (4)
                         predecessor.right = curr_node  # (5)
                         curr_node = curr_node.left
                     else:  # (6)
                         predecessor.right = None  # (7)
+                        values.extend(node.val for node in reverse_path(curr_node.left, predecessor))  # (8)
                         curr_node = curr_node.right
+                else:
+                    curr_node = curr_node.right
 
-            return output
+            return values
+
+    def reverse_path(start_node: TreeNode, end_node: TreeNode) -> list[TreeNode]:
+        """Reverse a path from start node to end node."""
+        nodes = []
+        while start_node != end_node:
+            nodes.append(start_node)
+            start_node = start_node.right
+        nodes.append(end_node)
+        nodes.reverse()
+        return nodes
     ```
 
-    1. Left is None then add node value to output and go to right since no left sub-tree to visit.
-    2. Find predecessor of the current node, the rightmost node of the left sub-tree.
-    3. Condition 1: `predecessor.right` is `None`. The left sub-tree is not explored.
-    4. This is the root node of a sub-tree. For in-order traversal, add the root node first.
+    1. Add a dummy node to ensure the root is properly processed.
+    2. Explore the left tree first.
+    3. Find predecessor of the current node, the rightmost node of the left subtree.
+    4. Condition 1: `predecessor.right` is `None`. The left sub-tree is not explored.
     5. Establish a temporary link from predecessor to current.
     6. Condition 2: `predecessor.right` is the `curr_node`, coming back to the current node from the predecessor. This indicate the left sub-tree has been visited.
     7. Remove the temporary link.
+    8. Reverse the node order from `root -> right` to `right -> root`. Then append to values where `left` is already in. So they are in right postorder.
 
 #### Complexity Analysis of Approach 4
 
 - Time complexity: $O(n)$  
-    We visit each node twice, one for establishing link and one for removing. Therefore
-    the time complexity is $O(n)$.
+    - We visit each node twice, one for establishing link and one for removing. So the
+    time complexity of traversal is $O(n)$.
+    - The reversing is done only on subtree, it is $O(h) << O(n)$.
+    - So the total time complexity is $O(n)$.
 - Space complexity: $O(n)$  
     - Visit nodes taking $O(1)$ space.
     - The return list takes $O(n)$ space to save all node values.
