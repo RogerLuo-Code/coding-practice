@@ -102,7 +102,7 @@ and pop it up when reaching the end of the left branch.
 ### Approach 3 - Morris Traversal
 
 We can use Morris traversal which is similar to the solution in
-[preorder traversal](../lc0100-0199/lc0144-binary-tree-preorder-traversal.md#approach-3---morris-traversal).
+[preorder traversal](../lc0100-0199/lc0144-binary-tree-preorder-traversal.md#approach-3-morris-traversal).
 The only difference is in when to visit node after finding predecessor:
 
 - **Preorder** traversal: visit node when `predecessor.right` is `None` (before exploring
