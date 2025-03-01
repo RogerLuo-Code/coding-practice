@@ -142,6 +142,7 @@ nav:
       - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
       - 143 Reorder list: lc-solutions/lc0100-0199/lc0143-reorder-list.md
       - 144 Binary tree preorder traversal: lc-solutions/lc0100-0199/lc0144-binary-tree-preorder-traversal.md
+      - 145 Binary tree postorder traversal: lc-solutions/lc0100-0199/lc0145-binary-tree-postorder-traversal.md
       - 150 Evaluate reverse polish notation: lc-solutions/lc0100-0199/lc0150-evaluate-reverse-polish-notation.md
       - 153 Find minimum in rotated sorted array: lc-solutions/lc0100-0199/lc0153-find-minimum-in-rotated-sorted-array.md
       - 154 Find minimum in rotated sorted array ii: lc-solutions/lc0100-0199/lc0154-find-minimum-in-rotated-sorted-array-ii.md
