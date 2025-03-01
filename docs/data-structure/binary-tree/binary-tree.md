@@ -33,17 +33,18 @@ can be classified into two categories:
 - **Depth-First Search (DFS) Algorithm**: it starts with the root node and first visits
 all nodes of one branch as deep as possible of the chosen node before going to the next
 sibling. There are three popular approaches: in-order, pre-order, and post-order.
-    - Pre-order traversal: visit the root first, then the left subtree, and finally the
+    - **Pre-order traversal**: visit the root first, then the left subtree, and finally the
     right subtree.
-    - In-order traversal: traverse the left subtree first, then visit the root, and finally
+    - **In-order traversal**: traverse the left subtree first, then visit the root, and finally
     traverse the right subtree.
-    - Post-order traversal: traverse the left subtree first, then traverse the right subtree,
+    - **Post-order traversal**: traverse the left subtree first, then traverse the right subtree,
     and finally visit the root.
         - When deleting nodes in a tree, it will be in post-order. Delete a node's left and
         right children before delete the node itself.
         - Post-order is widely used in mathematical expressions.
 - **Breadth-First Search (BFS) Algorithm**: it starts from the root node and visits all
-nodes of current depth before moving to the next depth in the tree.
+nodes of current depth before moving to the next depth in the tree. The traversal is
+also called **level-order traversal**.
 
 Traversing a tree needs to store nodes in some way for later visiting. This is often
 done via a stack (LIFO) or a queue (FIFO) or call stack (implicit during recursion).
