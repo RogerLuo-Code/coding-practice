@@ -7,8 +7,8 @@ tags:
 
 ## Problem Description
 
-[LeetCode Problem 144](https://leetcode.com/problems/binary-tree-preorder-traversal/):
-Given the `root` of a binary tree, return _the preorder traversal of its nodes' values_.
+[LeetCode Problem 144](https://leetcode.com/problems/binary-tree-postorder-traversal/):
+Given the `root` of a binary tree, return _the postorder traversal of its nodes' values_.
 
 ## Clarification
 
