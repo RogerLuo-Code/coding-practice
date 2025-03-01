@@ -26,9 +26,9 @@ This problem can be solved using the classic recursive method by defining a new 
 `preorder`. In the helper function,
 
 ```python
-preorder(root.left, values)  # recursively traverse the left subtree
+inorder(root.left, values)  # recursively traverse the left subtree
 values.append(root.val)  # visit root/parent node
-preorder(root.right, values)  # recursively traverse the right subtree
+inorder(root.right, values)  # recursively traverse the right subtree
 ```
 
 === "python"

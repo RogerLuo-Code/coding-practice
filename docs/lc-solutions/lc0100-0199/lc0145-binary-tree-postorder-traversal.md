@@ -26,8 +26,8 @@ We can recursively traverse the tree in post-order by defining a new helper func
 `postorder`. In the helper function,
 
 ```python
-preorder(root.left, values)  # recursively traverse the left subtree
-preorder(root.right, values)  # recursively traverse the right subtree
+postorder(root.left, values)  # recursively traverse the left subtree
+postorder(root.right, values)  # recursively traverse the right subtree
 values.append(root.val)  # visit root/parent node
 ```
 
@@ -135,7 +135,7 @@ entire tree, we can reverse the result list to get the correct postorder sequenc
 
     1. Explore the left subtree first.
     2. Get the top node from the stack.
-    3. If no right child or the right subtree is visited.
+    3. Append root value when no right child or the right subtree is visited.
     4. Both its left and right children (if any) are already processed. Mark it as visited so we don't visit it again.
     5. Explore the right subtree.
 
