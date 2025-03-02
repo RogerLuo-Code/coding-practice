@@ -60,9 +60,9 @@ case: empty root.
 - Time complexity: $O(n)$  
     Visit $n$ nodes exact once.
 - Space complexity: $O(n)$  
-    - queue size is changing but with the max size reached by storing all nodes in the
-    last level. The last level contains $\log n$ nodes.
+    - queue size is changing but with the max size reached by storing all nodes
+    in the last level. The last level contains $n / 2$ nodes.
     - return output contains $n$ values, takes $O(n)$ space.
-    - So the total time complexity is $O(\log n) + O(n) = O(n)$.
+    - So the total time complexity is $O(n / 2) + O(n) = O(n)$.
 
 ## Test
