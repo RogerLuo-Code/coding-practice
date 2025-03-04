@@ -117,6 +117,7 @@ Approach - Iteration | $O(n)$          | $O(n)$
 
 ## Test
 
-- Test empty root.
-- Test normal case where target sum exists.
-- Test a case where no target sum exists.
+- **Empty tree (`[]`)** → Should return `False`.
+- **Single-node tree (`[1]`) with `targetSum == 1`** → Should return `True`.
+- **Tree with no valid path** → Should return `False`.
+- Test **normal case** where target sum exists → Should return `True`.
