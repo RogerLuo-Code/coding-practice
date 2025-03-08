@@ -76,7 +76,8 @@ To facility recursively check and count, the function will return `(count, is_un
 
 ## Test
 
-- Test empty root. It should return 0.
-- Test root that is also a leaf node. It should return 1.
+- **Empty tree (`[]`)** → Should return `0`.
+- **Single-node tree (`[1]`)** → Should return `1`.
+- **All nodes same (`[5,5,5,5,5]`)** → Should return the total number of nodes.
 - Test normal uni-value tree.
 - Test a tree not a uni-value tree.
