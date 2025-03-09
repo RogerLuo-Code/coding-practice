@@ -2,12 +2,22 @@
 
 ## Introduction
 
-The `union-find` data structure is also known as the `disjoint set` data structure.The primary use of disjoint sets is to address the connectivity between the components of a network.
+The `union-find` data structure is also known as the `disjoint set` data structure. It
+is a data structure that has algorithms built-in.
 
-The `union-find` transforms the problem of check whether vertices are connected to whether vertices have the same root node. There are two important functions:
+The `union-find` transforms the problem of check whether vertices are connected to
+whether vertices have the same root node. There are two important functions:
 
 - The `find` function finds the root node of a given vertex.
 - The `union` function unions two vertices and makes their root nodes the same.
+
+**Where is Union-Find used?**
+
+- Connected components in networks
+- Kruskal's Minimum Spanning Tree (MST)
+- Cycle detection in graphs
+- Percolation problems
+- Friendship networks (social media applications)
 
 ## Implementation
 
@@ -237,7 +247,6 @@ This implementation optimize the `quick union` with both `union by rank` and `pa
     The Ackermann function, $A(m, n)$, grows so fast that for relatively small values of $m$ and $n$, the function produces enormous numbers. The inverse Ackermann function essentially "reverse" the Ackermann function to answer the question: "How many times do we need to apply the Ackermann function's recusion before reaching a certain value?"
 
     Formally, $\alpha(n)$ is the smallest integer $m$ such that $A(m, m) \geq n$. For any practical value of $n$, $\alpha(n)$ is extremely small. For example, if $n \leq 2^{65536}$, then $\alpha(n) \leq 5$.
-
 
 ???+ "Time-Complexity Analysis"
     Refer to [Cornell CS Union-Find lecture](https://www.cs.cornell.edu/courses/cs6110/2014sp/Handouts/UnionFind.pdf). Here is the [local copy](cornell-cs-union-find-lecture.pdf).
