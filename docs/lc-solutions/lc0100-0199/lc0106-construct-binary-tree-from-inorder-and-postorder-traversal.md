@@ -51,7 +51,7 @@ link them from bottom up.
             if len(inorder) == 1 and len(postorder) == 1:
                 return TreeNode(inorder[0])
 
-            # Create root from the last element of postroder list (root value)
+            # Create root from the last element of postorder list (root value)
             root_val = postorder[-1]
             root = TreeNode(root_val)
 
@@ -142,13 +142,13 @@ We can optimize the solution 1 by
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: $O(n)$  
-    - Building dictionary `inoder_index_map` takes $O(n)$.
+- Time complexity: $O(n)$
+    - Building dictionary `inorder_index_map` takes $O(n)$ time.
     - Recursive calls takes $O(n)$ since each node processed onces and take $O(1)$ for
     each recursion.
     - So the total time complexity is $O(n)$.
-- Space complexity: $O(n)$  
-    - Recursive call stacke takes $O(n)$ in the worst case.
+- Space complexity: $O(n)$
+    - Recursive call stack takes $O(n)$ in the worst case.
     - The dictionary `inorder_index_map` takes $O(n)$.
     - So the total space complexity is $O(n)$.
 
@@ -164,6 +164,6 @@ Approach - Optimized Recursion | $O(n)$          | $O(n)$
 
 ## Test
 
-- **Single-node tree (`[1]`)** → Should return `TreeNode(1)`.
-- **Left-skewed tree (`inorder == postorder`)** → Handles correctly.
-- **Right-skewed tree** → Works efficiently.
+- Single-node tree (`[1]`) → Should return `TreeNode(1)`.
+- Left-skewed tree (`inorder == postorder`) → Handles correctly.
+- Right-skewed tree → Works efficiently.
