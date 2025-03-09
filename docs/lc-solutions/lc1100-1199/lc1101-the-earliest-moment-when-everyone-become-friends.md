@@ -91,7 +91,7 @@ is the earliest time everyone become friends.
 
 #### Complexity Analysis of Approach 1
 
-- Time complexity: $O(m \log m + n + m \alpha(n))$ where $n$ is number of people and $m$
+- Time complexity: $O(m \log m + n)$ where $n$ is number of people and $m$
 is the number of logs  
     - First, Sort the logs (Python uses [Timsort](https://en.wikipedia.org/wiki/Timsort))
     takes $O(m \log m$) time.
@@ -101,7 +101,8 @@ is the number of logs
     function with amortized time complexity of $O(\alpha(n))$. So all iterations take
     $O(m \alpha(n))$.  
     So the total time complexity is $O(m \log m) + O(n) + O(m \alpha(n))$ =
-    $O(m \log m + n + m \alpha(n))$.
+    $O(m \log m + n + m \alpha(n)) \approx O(m \log m + n)$. The inverse Ackermann
+    function $\alpha(n)$ grows extremely slowly, almost constant for practical values.
 
 - Space complexity: $O(n + m)$  
     - The space complexity of union-find data structure takes $O(n)$ due to `root` and
@@ -109,8 +110,7 @@ is the number of logs
     - The space complexity of the sorting algorithm depends on the implementation.
     Python uses [Timsort](https://en.wikipedia.org/wiki/Timsort), which takes $O(m)$.
     In Java, the space complexity is $O(\log m)$.
-    - If the log is not allowed to change, the sorted log takes $O(3 m) = O(m)$  
-    So the total time complexity is $O(n) + O(m) + O(m) = O(n + m)$
+    So the total time complexity is $O(n) + O(m) = O(n + m)$
 
 ## Test
 
