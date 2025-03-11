@@ -1,7 +1,7 @@
 ---
 tags:
-    - Breadth-First Search
     - Binary Tree
+    - Breadth-First Search
 ---
 
 # LC116. Populating Next Right Pointers in Each Node
@@ -37,7 +37,7 @@ Initially, all next pointers are set to `NULL`.
 
 ## Solution
 
-### Approach - BFS
+### Approach 1: Level Order Traversal
 
 We can use BFS to traverse nodes level by level by using a queue. For each level, pop
 the node and update its next node with the first node in the queue (using peek) and add
@@ -80,7 +80,7 @@ its left and right nodes to the queue if exists. If no next node available, upda
   the space complexity of the queue depends on the maximum number of nodes in a level,
   i.e., the last level. So the time complexity is $O(n/2) = O(n)$.
 
-### Approach 2 - Use established next pointers in upper level
+### Approach 2: Use established next pointers in upper level
 
 Refer to detailed explanations in [LC Editorial section](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/editorial/).
 
@@ -144,7 +144,7 @@ The table below summarize the time complexity and space complexity of different 
 
 Approach    | Time Complexity   | Space Complexity |
 ------------| ---------------   | ---------------- |
-Approach 1 - BFS  |  $O(n)$           | $O(n)$ |
+Approach 1 - Level Order Traversal  |  $O(n)$           | $O(n)$ |
 Approach 2 - Use Established Next Connections |  $O(n)$           | $O(1)$  |
 
 ## Test
