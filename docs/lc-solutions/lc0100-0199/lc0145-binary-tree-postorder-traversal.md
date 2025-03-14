@@ -246,5 +246,6 @@ Approach - Morris    | $O(n)$          | $O(n)$                     | $O(1)
 ## References
 
 - [Morris Inorder Tree Traversal - Tushar Roy Youtube Channel](https://www.youtube.com/watch?v=wGXB9OWhPTg&list=WL&index=5)
+- [Iterative Postorder Traversal of Binary Tree Using One Stack - Tushar Roy Youtube Channel](https://www.youtube.com/watch?v=xLQKdq0Ffjg)
 - [Tree traversal - wiki](https://en.wikipedia.org/wiki/Tree_traversal)
 - [Binary Tree - My Notes](../../data-structure/binary-tree/binary-tree.md)
