@@ -118,10 +118,7 @@ left), since root/parent needs to be middle (left - middle - right).
             output = []
             curr_node = root
             while curr_node:
-                if not curr_node.left:
-                    output.append(curr_node.val)
-                    curr_node = curr_node.right
-                else:
+                if curr_node.left:
                     # Find predecessor, the rightmost node of the left sub-tree.
                     predecessor = curr_node.left
                     while predecessor.right and predecessor.right != curr_node:
@@ -135,6 +132,9 @@ left), since root/parent needs to be middle (left - middle - right).
                         output.append(curr_node.val)
                         predecessor.right = None
                         curr_node = curr_node.right
+                else:
+                    output.append(curr_node.val)
+                    curr_node = curr_node.right
 
             return output
     ```

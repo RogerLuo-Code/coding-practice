@@ -114,10 +114,7 @@ node with the temporary link, it indicates the left sub-tree has visited.
             output = []
             curr_node = root
             while curr_node:
-                if not curr_node.left:  # (1)
-                    output.append(curr_node.val)
-                    curr_node = curr_node.right
-                else:
+                if curr_node.left:
                     # (2)
                     predecessor = curr_node.left
                     while predecessor.right and predecessor.right is not curr_node:
@@ -131,6 +128,9 @@ node with the temporary link, it indicates the left sub-tree has visited.
                     else:  # (6)
                         predecessor.right = None  # (7)
                         curr_node = curr_node.right
+                else:  # (1)
+                    output.append(curr_node.val)
+                    curr_node = curr_node.right
 
             return output
     ```
@@ -138,7 +138,7 @@ node with the temporary link, it indicates the left sub-tree has visited.
     1. Left is None then add node value to output and go to right since no left sub-tree to visit.
     2. Find predecessor of the current node, the rightmost node of the left sub-tree.
     3. Condition 1: `predecessor.right` is `None`. The left sub-tree is not explored.
-    4. This is the root node of a sub-tree. For in-order traversal, add the root node first.
+    4. This is the root node of a sub-tree. For **preorder** traversal, add the root node first.
     5. Establish a temporary link from predecessor to current.
     6. Condition 2: `predecessor.right` is the `curr_node`, coming back to the current node from the predecessor. This indicate the left sub-tree has been visited.
     7. Remove the temporary link.
