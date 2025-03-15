@@ -167,6 +167,7 @@ nav:
       - 225 Implement stack using queues: lc-solutions/lc0200-0299/lc0225-implement-stack-using-queues.md
       - 232 Implement queue using stacks: lc-solutions/lc0200-0299/lc0232-implement-queue-using-stacks.md
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
+      - 236 Lowest common ancestor of a binary tree: lc-solutions/lc0200-0299/lc0236-lowest-common-ancestor-of-a-binary-tree.md
       - 237 Delete node in a linked list: lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list.md
       - 240 Search a 2D matrix ii: lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md
       - 250 Count univalue subtrees: lc-solutions/lc0200-0299/lc0250-count-univalue-subtrees.md
