@@ -1,10 +1,15 @@
 # Recursion
 
+Recursion is a method of solving problems where the solution depends on solutions to
+smaller instances of the same problem, achieved by a function calling itself within its
+own code.
+
 A recursive algorithm contains the following key components:
 
-1. Base case (i.e., when to stop)
-2. Work toward base case
-3. Recursive call
+1. **Base Case**: when to stop the recursive function.
+2. **Problem Decomposition**: breaks a complex problem into smaller, similar subproblems.
+3. **Recursive Step**: calls itself with a modified input to solve subproblems, moving
+toward the base case.
 
 ## Key points
 
@@ -12,10 +17,8 @@ A recursive algorithm contains the following key components:
 - Essentially, boil down a big problem to smaller ones (size n depends on size n-1, or
 n-2, ..., or n/2)
 - Implementation:
-
     - Base case: smallest problem to solve
     - Recursive rule: how to make the problem smaller
-
 - If recursive function calls are too deep (e.g., n or n^2), there isn't enough physical
 memory to handle the increasingly growing stack, leading to a `StackOverflowError`. The
 [Java docs](https://docs.oracle.com/javase/7/docs/api/java/lang/StackOverflowError.html)
