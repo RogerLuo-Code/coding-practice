@@ -121,6 +121,7 @@ nav:
       - 20 Valid parentheses: lc-solutions/lc0001-0099/lc0020-valid-parentheses.md
       - 21 Merge two sorted list: lc-solutions/lc0001-0099/lc0021-merge-two-sorted-lists.md
       - 23 Merge k sorted list: lc-solutions/lc0001-0099/lc0023-merge-k-sorted-lists.md
+      - 24 Swap nodes in pairs: lc-solutions/lc0001-0099/lc0024-swap-nodes-in-pairs.md
       - 26 Remove duplicates from sorted array: lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array.md
       - 27 Remove element: lc-solutions/lc0001-0099/lc0027-remove-element.md
       - 33 Search in rotated sorted array: lc-solutions/lc0001-0099/lc0033-search-in-rotated-sorted-array.md
@@ -186,6 +187,7 @@ nav:
       - 310 Minimum height trees: lc-solutions/lc0300-0399/lc0310-minimum-height-trees.md
       - 323 Number of connected components in an undirected graph: lc-solutions/lc0300-0399/lc0323-number-of-connected-components-in-an-undirected-graph.md
       - 325 Maximum size subarray sum equals k: lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k.md
+      - 344 Reverse string: lc-solutions/lc0300-0399/lc0344-reverse-string.md
       - 346 Moving average from data stream: lc-solutions/lc0300-0399/lc0346-moving-average-from-data-stream.md
       - 347 Top k frequent elements: lc-solutions/lc0300-0399/lc0347-top-k-frequent-elements.md
       - 354 Russian doll envelopes: lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes.md
