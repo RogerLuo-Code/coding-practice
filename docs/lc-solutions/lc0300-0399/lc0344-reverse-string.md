@@ -46,10 +46,10 @@ Move two pointers from two ends to the center and swap two values during the mov
 
 #### Complexity Analysis of Approach 1
 
-- Time complexity: O(n)$  
+- Time complexity: $O(n)$  
   Every execution two pointers together move 2 steps. So it takes $n/2$ executions. So
   the time complexity is $O(n)$.
-- Space complexity: O(1)$  
+- Space complexity: $O(1)$  
   Only use limited index variables.
 
 ### Approach 2: Recursion
@@ -80,9 +80,9 @@ begin and end indices as arguments.
 
 #### Complexity Analysis of Approach 2
 
-- Time complexity: O(n)$  
+- Time complexity: $O(n)$  
   It performs $n/2$ swaps with recursive function calls.
-- Space complexity: O(n)$  
+- Space complexity: $O(n)$  
   The recursive function call stack depth is up to $n/2$.
 
 ### Comparison of Different Approaches
@@ -92,8 +92,8 @@ approaches:
 
 Approach   | Time Complexity | Space Complexity
 -----------|-----------------|-----------------
-Approach - Iteration | O(n)$          | O(1)$
-Approach - Recursion | O(n)$          | O(n)$
+Approach - Iteration | $O(n)$          | $O(1)$
+Approach - Recursion | $O(n)$          | $O(n)$
 
 ## Test
 
