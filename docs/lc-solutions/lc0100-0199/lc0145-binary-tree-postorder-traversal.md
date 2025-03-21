@@ -166,6 +166,27 @@ temporary link from its predecessor but the real root has no predecessor.
     - So need to reversing the collected right subtree order to `right -> root`. Since
     `left` is added early, the proper post traversal order, `left -> right -> root`, is maintained.
 
+For example, after building links and come back to node 1, `[2, 5, 7]` is on the left
+path and needed to be reversed. Since adding dummy node, the root 1 is included in the
+left path `[1, 3, 8, 9]`.
+
+```mermaid
+graph TD
+    dummy --> 1
+    1 --> 2
+    1 --> 3
+    2 --> 4
+    2 --> 5
+    5 --> 6
+    5 --> 7
+    3 --> 8
+    8 --> 9
+    9 -.-> dummy
+    7 -.-> 1
+    6 -.-> 5
+    4 -.-> 2
+```
+
 === "python"
     ```python
     class Solution:
@@ -181,7 +202,7 @@ temporary link from its predecessor but the real root has no predecessor.
                 if curr_node.left:  # (2)
                     # (3)
                     predecessor = curr_node.left
-                    while predecessor.right and predecessor.right != curr_node:
+                    while predecessor.right and predecessor.right is not curr_node:
                         predecessor = predecessor.right
 
                     if not predecessor.right:  # (4)
@@ -189,22 +210,21 @@ temporary link from its predecessor but the real root has no predecessor.
                         curr_node = curr_node.left
                     else:  # (6)
                         predecessor.right = None  # (7)
-                        values.extend(node.val for node in reverse_path(curr_node.left, predecessor))  # (8)
+                        values.extend(self.reverseRightPathValues(curr_node.left, predecessor))  # (8)
                         curr_node = curr_node.right
                 else:
                     curr_node = curr_node.right
 
             return values
 
-    def reverse_path(start_node: TreeNode, end_node: TreeNode) -> list[TreeNode]:
-        """Reverse a path from start node to end node."""
-        nodes = []
-        while start_node != end_node:
-            nodes.append(start_node)
+    def reverseRightPathValues(self, start_node: TreeNode, end_node: TreeNode) -> list[int]:
+        values = []
+        while start_node is not end_node:
+            values.append(start_node.val)
             start_node = start_node.right
-        nodes.append(end_node)
-        nodes.reverse()
-        return nodes
+        values.append(end_node.val)
+        values.reverse()
+        return values
     ```
 
     1. Add a dummy node to ensure the root is properly processed.
