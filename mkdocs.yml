@@ -144,6 +144,7 @@ nav:
       - 112 Path sum: lc-solutions/lc0100-0199/lc0112-path-sum.md
       - 116 Populating next right pointers in each node: lc-solutions/lc0100-0199/lc0116-populating-next-right-pointers-in-each-node.md
       - 117 Populating next right pointers in each node ii: lc-solutions/lc0100-0199/lc0117-populating-next-right-pointers-in-each-node-ii.md
+      - 118 Pascal's triangle: lc-solutions/lc0100-0199/lc0118-pascals-triangle.md
       - 119 Pascal's triangle ii: lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii.md
       - 133 Clone graph: lc-solutions/lc0100-0199/lc0133-clone-graph.md
       - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
