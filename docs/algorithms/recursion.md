@@ -42,6 +42,18 @@ call stack.
     - Recursion ensures that the execution "goes back" to the previous step in the
     correct order.
 
+## How to Implement a Recursive Function
+
+Before implementing a recursive function, need to figure out:
+
+- **Recurrence relation**: the relationship between the result of a problem and the
+result of its subproblems.
+- **Base  case**: the case where the answer is directly computed or returned without any
+further recursive calls.
+
+For implementation, call the function itself according to the **recurrence relation**
+until we reach the **base case**.
+
 ## Applications
 
 ### Solve Tree Problem Recursively
