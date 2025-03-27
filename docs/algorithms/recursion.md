@@ -54,6 +54,50 @@ further recursive calls.
 For implementation, call the function itself according to the **recurrence relation**
 until we reach the **base case**.
 
+## Potential Issues: Duplicate Calculations
+
+If not using recursion wisely, it might get very long computation time due to duplicate calculations.
+
+For example, for computing Fibonacci number using simple recursion,
+`F(4) = F(3) + F(2) = (F(2) + F(1)) + F(2)`, it computes `F(2)` twice, `F(1)` 3 times,
+and `f(0)` twice.
+
+```mermaid
+graph TD
+    f3_f2_f0(("f(0)"))
+    f3_f2_f1(("f(1)"))
+    f4_f2_f0(("f(0)"))
+    f4_f2_f1(("f(1)"))
+    f3_f1(("f(1)"))
+    f3_f2(("f(2)"))
+    f3(("f(3)"))
+    f4_f2(("f(2)"))
+    f4(("f(4)"))
+    f4 --> f3
+    f4 --> f4_f2
+    f4_f2 --> f4_f2_f1
+    f4_f2 --> f4_f2_f0
+    f3 --> f3_f2
+    f3 --> f3_f1
+    f3_f2 --> f3_f2_f1
+    f3_f2 --> f3_f2_f0
+
+    style f4_f2 fill:#F2D2BD
+    style f3_f2 fill:#F2D2BD
+    style f3_f1 fill:#FFBF00
+    style f3_f2_f1 fill:#FFBF00
+    style f4_f2_f1 fill:#FFBF00
+    style f4_f2_f0 fill:#FFE5B4
+    style f3_f2_f0 fill:#FFE5B4
+```
+
+The common technique to address this problem is [**memoization**](https://en.wikipedia.org/wiki/Binomial_coefficient),
+using additional space to reduce compute time.
+
+> Memorization is an optimization technique primarily to **speed up** computer program
+by **storing** the results of expensive function calls and returning the cached result
+when the same inputs occur again. (Source: wikipedia)
+
 ## Applications
 
 ### Solve Tree Problem Recursively
