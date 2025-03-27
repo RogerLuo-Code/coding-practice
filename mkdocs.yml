@@ -208,6 +208,7 @@ nav:
       - 487 Max consecutive ones ii: lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii.md
       - 494 Target sum: lc-solutions/lc0400-0499/lc0494-target-sum.md
     - LC 500 to 599:
+      - 509 Fibonacci number: lc-solutions/lc0500-0599/lc0509-fibonacci-number.md
       - 528 Random pick with weight: lc-solutions/lc0500-0599/lc0528-random-pick-with-weight.md
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 542 01 matrix: lc-solutions/lc0500-0599/lc0542-01-matrix.md
