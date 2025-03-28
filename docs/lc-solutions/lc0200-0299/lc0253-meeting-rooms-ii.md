@@ -3,7 +3,7 @@ tags:
     - Heap
 ---
 
-# LC253. Meeting Rooms II
+# 253. Meeting Rooms II
 
 ## Problem Description
 
@@ -35,8 +35,8 @@ Given an array of meeting time intervals `intervals` where
 
 - Like normal meetings, allocate rooms for meetings from earlier to later. So we first
 sort intervals by start time.
-- Don't care which room gets freed up based on their end times while allocating a room
-for the current meeting.
+- The first room (don't care which room) gets freed up based on their end times can be
+used for the new meeting.
 - We can use a min-heap to store the end times of the meetings in various rooms. It
 dynamically grows until reaching the minimum number of conference rooms:
     - Check the top element of the heap (end time), indicating the room that would be
@@ -139,10 +139,10 @@ With separation of start and end times and sort them individually, we can track 
 The table below summarize the time complexity and space complexity of different
 approaches:
 
-Approach    | Time Complexity   | Space Complexity |
-------------| ---------------   | ---------------- |
-Approach - Heap |  $O(n \log n)$           | $O(n)$ |
-Approach -  |  $O(n \log n)$           | $O(n)$  |
+Approach        | Time Complexity | Space Complexity
+----------------|-----------------|-----------------
+Approach - Heap | $O(n \log n)$   | $O(n)$
+Approach -      | $O(n \log n)$   | $O(n)$
 
 ## Test
 
