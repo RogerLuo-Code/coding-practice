@@ -54,7 +54,7 @@ further recursive calls.
 For implementation, call the function itself according to the **recurrence relation**
 until we reach the **base case**.
 
-## Potential Issues: Duplicate Calculations
+### Potential Issues: Duplicate Calculations
 
 If not using recursion wisely, it might get very long computation time due to duplicate calculations.
 
@@ -97,6 +97,41 @@ using additional space to reduce compute time.
 > Memorization is an optimization technique primarily to **speed up** computer program
 by **storing** the results of expensive function calls and returning the cached result
 when the same inputs occur again. (Source: wikipedia)
+
+## Complexity Analysis
+
+### Time Complexity
+
+Given a recursion algorithm, its time complexity $O(T)$ is
+
+$$O(T) = n O(s)$$
+
+where $n$ is the number of recursion invocations and $O(s)$ is the time complexity of calculation in each recursion call.
+
+We can use **Execution Tree** to figure out the number of recursion calls. The execution
+tree of a recursive function would form an `n-ary tree`, with `n` as the number of times
+recursion in each function call. For example, the execution of the Fibonacci function
+would form a binary tree.
+
+???- "Execution Tree"
+    Execution tree is a tree that is used to denote the execution flow of a recursive
+    function. Each node in the tree represents an invocation of the recursive function.
+    Therefore, the total number of nodes in the tree corresponds to the number of
+    recursion calls during the execution.
+
+Memoization is often applied to optimize the time complexity of recursion algorithm by
+reducing number of recursion calls, i.e., reducing the number of branches in the
+execution tree.
+
+### Space Complexity
+
+The space complexity of a recursive algorithm consists of two parts:
+
+1. **Recursion related space**: the stack to keep track of recursive function calls.
+2. **Non-recursion related space**: memory space (normally in heap) that is not directly
+related to recursion and is allocated for the global variables.
+
+Note that **memoization** will take non-recursion related space to store intermediate results.
 
 ## Applications
 
