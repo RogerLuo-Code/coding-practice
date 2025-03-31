@@ -3,16 +3,20 @@ tags:
     - Linked List
 ---
 
-# LC21. Merge Two Sorted Lists
-## Problem Description
-[LeetCode Problem 21](https://leetcode.com/problems/merge-two-sorted-lists/): You are given the heads of two sorted linked lists `list1` and `list2`.
+# 21. Merge Two Sorted Lists
 
-Merge the two lists into one **sorted** list. The list should be made by splicing together the nodes of the first two lists.
+## Problem Description
+
+[LeetCode Problem 21](https://leetcode.com/problems/merge-two-sorted-lists/): You are
+given the heads of two sorted linked lists `list1` and `list2`.
+
+Merge the two lists into one **sorted** list. The list should be made by splicing
+together the nodes of the first two lists.
 
 Return _the head of the merged linked list_.
 
 ## Clarification
-- merged linked list new?
+
 - Two lists may have different length. May be empty
 - Two lists are sorted
 - Merge nodes or merge values
@@ -20,8 +24,12 @@ Return _the head of the merged linked list_.
 ## Assumption
 
 ## Solution
-### Approach - Iteration
-Start with a dummy head and then compare list1 and list 2 one node at a time. Add nodes with smaller value to the list. Need to handle situation where either list 1 or list 2 ends first.
+
+### Approach 1: Iteration
+
+Start with a dummy head and then compare list1 and list 2 one node at a time. Add nodes
+with smaller value to the list. Need to handle situation where either list 1 or list 2
+ends first.
 
 === "Python"
     ```python
@@ -95,13 +103,16 @@ Start with a dummy head and then compare list1 and list 2 one node at a time. Ad
     ```
 
 #### Complexity Analysis
-* Time complexity: $O(n + m)$  
-	Go through both lists
-* Space complexity: $O(1)$  
-	Only use several pointers. 
 
-### Approach - Recursion
-This problem can also be solved using recursion. Actually, the recursion method is intuitive.
+- Time complexity: $O(n + m)$  
+  The number of iterations of the while loop equals to the sum of the lengths of the two
+  lists, $n + m$.
+- Space complexity: $O(1)$  
+  Only use several pointers.
+
+### Approach 2: Recursion
+
+This problem can also be solved using recursion.
 
 === "Python"
     ```python
@@ -145,18 +156,21 @@ This problem can also be solved using recursion. Actually, the recursion method 
     }
     ```
 
-#### Complexity Analysis
-* Time complexity: $O(n + m)$  
-	Go through both lists.
-* Space complexity: $O(n + m)$  
-	Auxiliary stack space due to recursive function calls. 
+#### Complexity Analysis of Approach 2
+
+- Time complexity: $O(n + m)$  
+  It will go through both lists (total $n + m$ nodes) one node at a time.
+- Space complexity: $O(n + m)$  
+  Auxiliary stack space due to recursive function calls. The recursive function will be
+  called $n + m$ times.
 
 ### Comparison of Different Approaches
+
 The table below summarize the time complexity and space complexity of different approaches:
 
-Approach 	 | Time Complexity 	| Space Complexity  
------------- | --------------- 	| ----------------
-Approach - iteration |  $O(n + m)$ 	   	   	| $O(1)$  
-Approach - recursion |  $O(n + m)$      		| $O(n + m)$
+Approach             | Time Complexity | Space Complexity
+---------------------|-----------------|-----------------
+Approach - iteration | $O(n + m)$      | $O(1)$
+Approach - recursion | $O(n + m)$      | $O(n + m)$
 
 ## Test
