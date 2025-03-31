@@ -52,7 +52,8 @@ result of its subproblems.
 further recursive calls.
 
 For implementation, call the function itself according to the **recurrence relation**
-until we reach the **base case**.
+until we reach the **base case**. Use **memoization** to eliminate the
+**duplicate calculation** problem, if it exists.
 
 ### Potential Issues: Duplicate Calculations
 
