@@ -230,6 +230,7 @@ nav:
       - 743 Network delay time: lc-solutions/lc0700-0799/lc0743-network-delay-time.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 752 Open the lock: lc-solutions/lc0700-0799/lc0752-open-the-lock.md
+      - 779 k-th Symbol in grammar: lc-solutions/lc0700-0799/lc0779-k-th-symbol-in-grammar.md
       - 787 Cheapest flights within k stops: lc-solutions/lc0700-0799/lc0787-cheapest-flights-within-k-stops.md
       - 797 All paths from source to target: lc-solutions/lc0700-0799/lc0797-all-paths-from-source-to-target.md
     - LC 800 to 899:
