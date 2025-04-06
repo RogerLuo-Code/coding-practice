@@ -1,6 +1,8 @@
 ---
 tags:
     - Dynamic Programming
+    - Binary Search Tree
+    - Math
 ---
 
 # 95. Unique Binary Search Trees II
@@ -74,7 +76,8 @@ Based on the above property, we can recursively construct all possible BSTs by
 
 - Time complexity: $O(\frac{4^n}{\sqrt{n}})$  
     - **Number of trees**: The total number of unique BSTs with `n` nodes is given by the
-    `n`th [Catalan number](https://en.wikipedia.org/wiki/Catalan_number), which is
+    `n`th [Catalan number](https://en.wikipedia.org/wiki/Catalan_number) (Refer to
+    [LC95](lc0095-unique-binary-search-trees-ii.md) for more details), which is
     $C_n = \frac{1}{n+1} \binom{2n}{n} \approx \frac{4^n}{n^{3/2}\sqrt{\pi}}$.
     - **Build each tree**: Each of these BSTs has $n$ nodes and takes $O(n)$ time to construct.
     - So the total time complexity is

@@ -138,6 +138,7 @@ nav:
       - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
       - 94 Binary tree inorder traversal: lc-solutions/lc0001-0099/lc0094-binary-tree-inorder-traversal.md
       - 95 Unique binary search trees ii: lc-solutions/lc0001-0099/lc0095-unique-binary-search-trees-ii.md
+      - 96 Unique binary search trees: lc-solutions/lc0001-0099/lc0096-unique-binary-search-trees.md
     - LC 100 to 199:
       - 101 Symmetric tree: lc-solutions/lc0100-0199/lc0101-symmetric-tree.md
       - 102 Binary tree level order traversal: lc-solutions/lc0100-0199/lc0102-binary-tree-level-order-traversal.md
