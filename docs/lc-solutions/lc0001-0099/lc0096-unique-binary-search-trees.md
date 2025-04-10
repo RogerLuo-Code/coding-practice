@@ -25,7 +25,7 @@ which has exactly `n` nodes of unique values from `1` to `n`.
 
 ### Approach 1: Dynamic Programming
 
-For a given root node `i`, the number of unique BSTs is the (Cartesian) product of the
+For a given root node `i`, the number of unique BSTs is the product of the
 number of unique BSTs that from the left subtree based on subsequence
 $1, 2, \cdots, i - 1$ and the right subtree based on sequence $i + 1, i + 2, \cdots, n$.
 
