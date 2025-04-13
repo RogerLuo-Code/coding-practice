@@ -10,13 +10,25 @@ The divide and conquer technique is the basis of efficient algorithms for many p
 such as sorting (e.g., quicksort, merge sort), multiplying large numbers
 (e.g., Karatsuba algorithm) and computing the discrete Fourier transform (FFT).
 
+## Implementation Steps
+
+1. **Divide**: Split the problem into a set of smaller subproblems of the same type,
+${S_1, S_2, \cdots, S_n}$ where $n \geq 2$.
+2. **Conquer**: Solve each subproblem recursively. If the subproblem size is small enough,
+solve it as a base case.
+3. **Combine**: Merge the solutions of the subproblems to form the solution to the
+original problem.
+
+The essential part of the divide and conquer is to figure out the
+**recurrence relationship**, which subsequently defines the function of **divide** and **combine**.
+
 ## Comparison with Other Methods
 
 ### Other Recursion Methods
 
 The difference between divide and conquer and other recursion methods is that in divide and
-conquer, the problem is divided into two or more subproblems of the same type, while in
-other recursion methods, the problem is divided into one or more subproblems of different types.
+conquer, the problem is divided into **two or more** subproblems of the same type,
+while in other recursion methods, the problem is divided into one subproblem.
 
 ### Dynamic Programming
 
