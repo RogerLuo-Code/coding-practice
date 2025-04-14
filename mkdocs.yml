@@ -108,6 +108,8 @@ nav:
     - Sorting:
       - algorithms/sorting/index.md
       - Sorted Array Tips: algorithms/sorting/sorted-array-tips.md
+      - Merge Sort: algorithms/sorting/merge-sort.md
+      - Quick Sort: algorithms/sorting/quick-sort.md
       - Heap Sort: algorithms/sorting/heap-sort.md
   - LC Solutions:
     - lc-solutions/index.md
