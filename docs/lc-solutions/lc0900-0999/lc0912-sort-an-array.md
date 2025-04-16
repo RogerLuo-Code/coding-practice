@@ -132,6 +132,57 @@ We can also sort the array using bottom-up merge sort.
 - Space complexity: $O(n)$  
   An auxiliary array of size $n$ is used to store the merged result.
 
+### Approach 3: Quick Sort
+
+The problem can also be solved using the quick sort algorithm. Yet, the solution fails
+at the test case where a very large number of same elements are present, leading to
+Time Limit Exceeded (TLE).
+
+=== "python"
+    ```python
+    class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        self._sort(nums, 0, len(nums) - 1)
+        return nums
+
+    def _sort(self, nums: list[int], low: int, high: int) -> None:
+        if low >= high:
+            return
+        # Randomize the first element
+        i_random = low + random.randint(0, len(nums)) % (high - low + 1)
+        nums[i_random], nums[low] = nums[low], nums[i_random]
+        pivot = self._partition(nums, low, high)
+        self._sort(nums, low, pivot - 1)
+        self._sort(nums, pivot + 1, high)
+
+    def _partition(self, nums: list[int], low: int, high: int) -> int:
+        if low >= high:
+            return -1
+        pivot = low  # Select the first element as a partition element
+        l, r = pivot + 1, high
+
+        while (l <= r):
+            if nums[l] < nums[pivot]:
+                l += 1
+            elif nums[r] >= nums[pivot]:
+                r -= 1
+            else:
+                nums[l], nums[r] = nums[r], nums[l]
+
+        nums[pivot], nums[r] = nums[r], nums[pivot]
+
+        return r
+    ```
+
+#### Complexity Analysis of Approach 3
+
+- Time complexity: $O(n \log n)$  
+    - The average time complexity is $O(n \log n)$.
+    - The worst-case time complexity is $O(n^2)$, which can occur when the smallest or
+    largest element is always chosen as the pivot.
+- Space complexity: $O(n \log n)$  
+  The space complexity is $O(\log n)$ due to the recursive stack space.
+
 ### Comparison of Different Approaches
 
 The table below summarize the time complexity and space complexity of different
