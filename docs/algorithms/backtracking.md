@@ -50,7 +50,6 @@ The algorithm can be summarized in the following steps:
    exhausted.
 6. **Return**: If a solution is found, return it; otherwise, return failure.
 
-
 ## Standard Backtracking Problems
 
 - All permutations
