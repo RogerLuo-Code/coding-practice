@@ -215,6 +215,7 @@ nav:
       - 448 Find all numbers disappeared in an array: lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array.md
       - 485 Max consecutive ones: lc-solutions/lc0400-0499/lc0485-max-consecutive-ones.md
       - 487 Max consecutive ones ii: lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii.md
+      - 489 Robot room cleaner: lc-solutions/lc0400-0499/lc0489-robot-room-cleaner.md
       - 494 Target sum: lc-solutions/lc0400-0499/lc0494-target-sum.md
     - LC 500 to 599:
       - 509 Fibonacci number: lc-solutions/lc0500-0599/lc0509-fibonacci-number.md
