@@ -50,6 +50,40 @@ The algorithm can be summarized in the following steps:
    exhausted.
 6. **Return**: If a solution is found, return it; otherwise, return failure.
 
+## Code Template
+
+The following code template summarizes some common patterns for the backtracking algorithm:
+
+```python
+def backtrack(candidate):
+   # Base case
+   if is_solution(candidate):
+      output(candidate)
+      return
+
+   # iterate all possible candidates
+   for candidate in candidates:
+      if is_valid(candidate):
+         place(candidate)  # Try the partial candidate solution.
+         backtrack(candidate)  # Given the candidate, recursively explore further.
+         remove(candidate)  # Remove the candidate (backtrack)
+```
+
+Here are a few notes on the code template:
+
+- The numeration of candidates is done in two levels:
+    - The first level is the **recursion**. At each occurrence of the function, the function
+    is one step further to the final solution.
+    - The second level is the **iteration within a recursion**. It iterates through all
+    possible candidates for the **current level** of recursion.
+- The backtracking happens at the second level of the iteration within the recursion.
+It is after the recursive call to the function. This is because we need to explore all
+possible candidates for the current level of recursion before backtracking.
+- Prune the search space by checking if the candidate is valid (`is_valid(candidate)`)
+before placing it.
+- There are two symmetric functions, `place(candidate)` and `remove(candidate)`,
+which are used to add and remove the candidate from the current solution.
+
 ## Standard Backtracking Problems
 
 - All permutations
