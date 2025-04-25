@@ -137,6 +137,7 @@ nav:
       - 70 Climbing stairs: lc-solutions/lc0001-0099/lc0070-climbing-stairs.md
       - 74 Search a 2D matrix: lc-solutions/lc0001-0099/lc0074-search-a-2d-matrix.md
       - 75 Sort colors: lc-solutions/lc0001-0099/lc0075-sort-colors.md
+      - 77 Combinations: lc-solutions/lc0001-0099/lc0077-combinations.md
       - 80 Remove duplicates from sorted array ii: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
       - 81 Search in rotated sorted array ii: lc-solutions/lc0001-0099/lc0081-search-in-rotated-sorted-array-ii.md
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
