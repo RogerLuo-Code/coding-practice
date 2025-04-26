@@ -42,11 +42,8 @@ Note that
 ### Top K Largest Elements Using Approach 2
 
 1. Construct a **Min** Heap with size $K$.
-2. Add elements to the Min Heap one by one until there are $K$ elements.
-3. Compare the new element with the min element of the heap:
-    - If new element <= min, proceed to the next element.
-    - If new element > min, pop the min element from the heap and add the new element.
-    The new element (larger) has a higher chance to be the top K largest elements.
+2. Add elements one by one to the Min Heap.
+3. If heap size > $K$, pop the min element from the heap.
 4. Repeat step 2 and 3 until all elements have been processed.
 
 Note that
@@ -57,11 +54,8 @@ Note that
 ### Top K Smallest Elements Using Approach 2
 
 1. Construct a **Max** Heap with size $K$.
-2. Add elements to the Max Heap one by one until there are $K$ elements (or heapify the
-first K elements).
-3. Compare the new element with the max element of the heap:
-    - If new element >= max, proceed to the next element.
-    - If new element < max, pop the max element from the heap and add the new element.
+2. Add elements one by one to the Max Heap.
+3. If heap size > $K$, pop the max element from the heap.
 4. Repeat step 2 and 3 until all elements have been processed.
 
 Note that

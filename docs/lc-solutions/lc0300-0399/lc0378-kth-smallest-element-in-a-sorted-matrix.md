@@ -71,7 +71,7 @@ Since each row and column of the matrix is sorted, we can use binary search on t
 **number range** to find the kth smallest number.
 
 - At the beginning, the number range is between the smallest number at the top left
-corner of the matrix and the largest number at the bottom lower corner.
+corner of the matrix and the largest number at the bottom right corner.
 - Then find the middle number. The middle number is not necessarily an element in the matrix.
 - To decide whether to move left or right, we need to count numbers smaller than or
 equal to middle in the matrix.
@@ -127,7 +127,7 @@ largest number less than or equal to the middle. Use these values to set the new
             return count_smaller, smaller, larger
     ```
 
-    1. Use [stair case traversal](../../tips/staircase-traversal.md).
+    1. Use [stair case traversal](../../algorithms/search/staircase-traversal.md).
     2. Start from the first column last row (important to choose this!).
     3. Track the smallest number that is larger than the mid.
     4. Track the biggest number less than or equal to the mid.

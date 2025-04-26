@@ -69,7 +69,7 @@ search row and column to find the target.
 
 ### Approach 2 - Staircase Traversal
 
-Based on the sorted properties, we can use [staircase traversal](../algorithms/search/staircase-traversal.md)
+Based on the sorted properties, we can use [staircase traversal](../../algorithms/search/staircase-traversal.md)
 to search the target.
 
 Starting from bottom-left corner (top-right corner also works):

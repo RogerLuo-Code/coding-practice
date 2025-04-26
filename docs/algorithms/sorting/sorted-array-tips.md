@@ -11,7 +11,7 @@ are some super useful things to consider:
 For row-wise and column-wise sorted matrix:
 
 - [Binary Search](../search/binary-search.md)
-- [Staircase Traversal](../../tips/staircase-traversal.md)
+- [Staircase Traversal](../../algorithms/search/staircase-traversal.md)
 
 Make sure to write down a couple examples and try experimenting with these approaches.
 Even understanding that these approaches may aid in finding an answer with a sorted

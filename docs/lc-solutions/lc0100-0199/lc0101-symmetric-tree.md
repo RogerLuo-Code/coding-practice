@@ -93,8 +93,8 @@ are not equal, the tree is not symmetric.
 
 ### Approach 2 - Recursion
 
-A tree is symmetric if the left subtree is a mirror reflection of the right subtree. Two
-trees are a mirror reflection of each other if:
+A binary tree is symmetric if the left subtree is a mirror reflection of the right subtree.
+Two trees are a mirror reflection of each other if:
 
 1. Their two roots have the same value.
 2. The right subtree of each tree is a mirror reflection of the left subtree of the
