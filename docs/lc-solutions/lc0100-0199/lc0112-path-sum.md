@@ -53,7 +53,7 @@ We can use the same `hasPathSum` function to do recursive function calls by subt
 
 ### Approach 2 - Iteration
 
-The problem can also be solved using Breadth-First Serach (BFS) by using a queue store
+The problem can also be solved using Breadth-First Search (BFS) by using a queue store
 `(node, sum)` pairs.
 
 === "python"
@@ -63,21 +63,13 @@ The problem can also be solved using Breadth-First Serach (BFS) by using a queue
 
     class Solution:
         def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
-            if root is None:  # include empty root, empty left node, or empty right node
-                return False
+            return self._bfs(root, targetSum)
 
-            targetSum -= root.val
-            if root.left is None and root.right is None:  # check leaf node
-                return targetSum == 0
-
-            return self.hasPathSum(root.left, targetSum) or self.hasPathSum(
-                root.right, targetSum
-            )
-
-        def bfs(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        def _bfs(self, node: Optional[TreeNode], target_sum: int) -> bool:
             queue = deque()
-            if root:
-                queue.append((root, 0))  # (node, sum)
+
+            if node:
+                queue.append((node, node.val))  # (node, sum)
 
             while queue:
                 curr_node, curr_sum = queue.popleft()
@@ -91,6 +83,7 @@ The problem can also be solved using Breadth-First Serach (BFS) by using a queue
 
                 if curr_node.left:
                     queue.append((curr_node.left, curr_sum + curr_node.left.val))
+
                 if curr_node.right:
                     queue.append((curr_node.right, curr_sum + curr_node.right.val))
 
