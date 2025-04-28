@@ -147,6 +147,7 @@ nav:
       - 96 Unique binary search trees: lc-solutions/lc0001-0099/lc0096-unique-binary-search-trees.md
       - 98 Validate binary search tree: lc-solutions/lc0001-0099/lc0098-validate-binary-search-tree.md
     - LC 100 to 199:
+      - 100 Same tree: lc-solutions/lc0100-0199/lc0100-same-tree.md
       - 101 Symmetric tree: lc-solutions/lc0100-0199/lc0101-symmetric-tree.md
       - 102 Binary tree level order traversal: lc-solutions/lc0100-0199/lc0102-binary-tree-level-order-traversal.md
       - 104 Maximum depth of binary tree: lc-solutions/lc0100-0199/lc0104-maximum-depth-of-binary-tree.md
