@@ -6,7 +6,7 @@ Staircase traversal is a powerful technique for searching and counting efficient
 **row-wise** and **column-wise** sorted matrix. It runs in $O(n)$ time, making it more efficient
 than brute-force $O(n^2)$. It is often paired with binary search to further optimize
 problems (e.g.,
-[kth smallest element in a sorted matrix](../lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix.md)).
+[kth smallest element in a sorted matrix](../../lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix.md)).
 
 ## Why is it Called "Staircase" Traversal?
 
@@ -37,5 +37,5 @@ Total count = **5 elements** ≤ 10.
 
 ### Similar Problems
 
-- [Search a 2D matrix II](../lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md)
-- [Find kth smallest element in a sorted matrix](../lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix.md)
+- [Search a 2D matrix II](../../lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii.md)
+- [Find kth smallest element in a sorted matrix](../../lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix.md)
