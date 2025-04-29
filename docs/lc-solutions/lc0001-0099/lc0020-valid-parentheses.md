@@ -4,7 +4,9 @@ tags:
 ---
 
 # LC20. Valid Parentheses
+
 ## Problem Description
+
 [LeetCode Problem 20](https://leetcode.com/problems/valid-parentheses/): Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
 
 An input string is valid if:
@@ -14,6 +16,7 @@ An input string is valid if:
 3. Every close bracket has a corresponding open bracket of the same type.
 
 ## Clarification
+
 - string only contains brackets
 - string can starts with multiple open brackets, for example, '([{()}])', but need to close in the correct order
 - Every close bracket has a open bracket
@@ -22,7 +25,9 @@ An input string is valid if:
 ## Assumption
 
 ## Solution
+
 ### Approach - Stack
+
 Use stack to store open brackets. When encounter close brackets, pop up open bracket and check whether they are valid parentheses. The stack should be empty at the end.
 
 === "Python"
@@ -53,9 +58,10 @@ Use stack to store open brackets. When encounter close brackets, pop up open bra
     ```
 
 #### Complexity Analysis
+
 * Time complexity: $O(n)$  
-	Traverse the given string one character at a time for total $n$ characters and push and pop operation on a stack take $O(1)$ time.
-* Space complexity: $O(n)$  
-	In the worst case, push all $n$ brackets.
+ Traverse the given string one character at a time for total $n$ characters and push and pop operation on a stack take $O(1)$ time.
+- Space complexity: $O(n)$  
+ In the worst case, push all $n$ brackets.
 
 ## Test
