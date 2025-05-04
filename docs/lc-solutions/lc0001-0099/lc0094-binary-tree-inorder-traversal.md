@@ -23,7 +23,7 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 ### Approach 1 - Recursion
 
 This problem can be solved using the classic recursive method by defining a new helper function
-`preorder`. In the helper function,
+`inorder`. In the helper function,
 
 ```python
 inorder(root.left, values)  # recursively traverse the left subtree
@@ -39,13 +39,13 @@ inorder(root.right, values)  # recursively traverse the right subtree
             self.inorder(root, result)
             return result
 
-        def inorder(self, root: Optional[TreeNode], result: List[int]):
-            if not root:
+        def inorder(self, node: Optional[TreeNode], result: List[int]):
+            if node is None:
                 return
 
-            self.inorder(root.left, result)
-            result.append(root.val)
-            self.inorder(root.right, result)
+            self.inorder(node.left, result)
+            result.append(node.val)
+            self.inorder(node.right, result)
     ```
 
 #### Complexity Analysis of Approach 1
@@ -53,10 +53,9 @@ inorder(root.right, values)  # recursively traverse the right subtree
 - Time complexity: $O(n)$  
   The algorithm visits each node exactly once for total $n$ nodes.
 - Space complexity: $O(n)$  
-    - In the worst case (for example, every node only has left child), the recursion
-    will call $n$ times and recursion stack depth is $n$.
-    - In the best case (a balanced binary tree), the recursion stack depth will be
-    proportional to the height of the tree, which is $\log n$
+  The recursion stack takes $O(n)$ space in the worst case (for example, every node
+  only has left child). In the best case (a balanced binary tree),
+  the recursion stack takes $O(\log n)$ space.
 
 ### Approach 2 - Iteration with Stack
 
