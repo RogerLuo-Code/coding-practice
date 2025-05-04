@@ -212,6 +212,7 @@ nav:
       - 399 Evaluate divisions: lc-solutions/lc0300-0399/lc0399-evaluate-division.md
     - LC 400 to 499:
       - 410 Split array largest sum: lc-solutions/lc0400-0499/lc0410-split-array-largest-sum.md
+      - 426 Convert binary search tree to sorted doubly linked list: lc-solutions/lc0400-0499/lc0426-convert-binary-search-tree-to-sorted-doubly-linked-list.md
       - 429 N-ary tree level order traversal: lc-solutions/lc0400-0499/lc0429-n-ary-tree-level-order-traversal.md
       - 436 Find right interval: lc-solutions/lc0400-0499/lc0436-find-right-interval.md
       - 441 Arranging coins: lc-solutions/lc0400-0499/lc0441-arranging-coins.md
