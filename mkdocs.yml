@@ -141,6 +141,7 @@ nav:
       - 77 Combinations: lc-solutions/lc0001-0099/lc0077-combinations.md
       - 80 Remove duplicates from sorted array ii: lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii.md
       - 81 Search in rotated sorted array ii: lc-solutions/lc0001-0099/lc0081-search-in-rotated-sorted-array-ii.md
+      - 84 Largest rectangle in histogram: lc-solutions/lc0001-0099/lc0084-largest-rectangle-in-histogram.md
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
       - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
       - 94 Binary tree inorder traversal: lc-solutions/lc0001-0099/lc0094-binary-tree-inorder-traversal.md
