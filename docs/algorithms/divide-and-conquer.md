@@ -26,14 +26,24 @@ The essential part of the divide and conquer is to figure out the
 
 ### Other Recursion Methods
 
-The difference between divide and conquer and other recursion methods is that in divide and
-conquer, the problem is divided into **two or more** subproblems of the same type,
-while in other recursion methods, the problem is divided into one subproblem.
+For divide and conquer, the problem is divided into **two or more** subproblems of the
+same type, while in other recursion methods, the problem is divided into **one** subproblem.
 
 ### Dynamic Programming
 
-The difference between divide and conquer and dynamic programming is that in divide and
-conquer, the subproblems are independent, while in dynamic programming, the subproblems
-are dependent and share subsubproblems. In other words, in dynamic programming, the
-solution to a subproblem is reused multiple times, while in divide and conquer, each
-subproblem is solved independently.
+For divide and conquer, the subproblems are **independent**, while in
+dynamic programming, the subproblems are **dependent** and share subsubproblems.
+In other words, in dynamic programming, the solution to a subproblem is reused multiple
+times, while in divide and conquer, each subproblem is solved independently.
+
+### Backtracking
+
+- Often the case, the divide-and-conquer problem has a **single** solution, while
+backtracking problem has **unknown** number of solutions.
+
+- Each step of the divide-and-conquer problem is **indispensable** to build the final
+solution, while many steps of the backtracking problem are serving as **attempts** to
+search for the potential solution.
+
+- The divide-and-conquer problem has a **clear** and **predefined** path, while the
+backtracking problem does not know the **exact path** in advance.
