@@ -182,6 +182,7 @@ nav:
       - 209 Minimum size subarray sum: lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum.md
       - 210 Course schedule ii: lc-solutions/lc0200-0299/lc0210-course-schedule-ii.md
       - 215 Kth largest element in an array: lc-solutions/lc0200-0299/lc0215-kth-largest-element-in-an-array.md
+      - 218 The skyline problem: lc-solutions/lc0200-0299/lc0218-the-skyline-problem.md
       - 225 Implement stack using queues: lc-solutions/lc0200-0299/lc0225-implement-stack-using-queues.md
       - 232 Implement queue using stacks: lc-solutions/lc0200-0299/lc0232-implement-queue-using-stacks.md
       - 234 Palindrome linked list: lc-solutions/lc0200-0299/lc0234-palindrome-linked-list.md
