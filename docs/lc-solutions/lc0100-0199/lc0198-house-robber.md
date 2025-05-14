@@ -41,18 +41,25 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 ## Solution
 
-We need to figure out the relation of maximum amount of money between houses.
-For house `i`, a robber has 2 options:
+To solve the problem, we need to figure out:
 
-1. Rob the house. It means it can't rob the house before (i.e., house `i - 1`).
-He gets all cumulative money from house `i - 2` and the money from house `i`.
-2. Do not rob the house. He gets all cumulative money from house `i - 1`.
+1. Define **state** of the problem using a function or array. We can use `rob(i)` to
+represent the maximum amount of money at house `i`.
+2. Find **recurrence relation** to transit between states. For house `i`, a robber has
+2 options:
+    1. Rob the house. It means it can't rob the house before (i.e., house `i - 1`).
+    He gets all cumulative money from house `i - 2` and the money from house `i`.
+    2. Do not rob the house. He gets all cumulative money from house `i - 1`.
+    So we can represent the above mentioned relation in the following equation:
 
-So we can represent the above mentioned relation in the following equation:
+    $$
+    \text{rob}(i) = \max(\text{rob}(i - 2) + \text{nums}[i], \text{rob}(i - 1))
+    $$
 
-$$
-\text{rob}(i) = \max(\text{rob}(i - 2) + \text{nums}[i], \text{rob}(i - 1))
-$$
+3. Determine **base cases** to stop recurrence relation:
+    - $\text{rob}(0) = \text{nums}[0]$
+    - $\text{rob}(1) = \max(\text{nums}[0], \text{nums}[1])$
+
 
 ### Approach 1: Recursive + Memoization
 
