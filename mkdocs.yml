@@ -246,6 +246,7 @@ nav:
       - 713 Subarray product less than k: lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k.md
       - 733 Flood fill: lc-solutions/lc0700-0799/lc0733-flood-fill.md
       - 739 Daily temperatures: lc-solutions/lc0700-0799/lc0739-daily-temperatures.md
+      - 740 Delete and earn: lc-solutions/lc0700-0799/lc0740-delete-and-earn.md
       - 743 Network delay time: lc-solutions/lc0700-0799/lc0743-network-delay-time.md
       - 744 Find smallest letter greater than target: lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target.md
       - 746 Min cost climbing stairs: lc-solutions/lc0700-0799/lc0746-min-cost-climbing-stairs.md
