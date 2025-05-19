@@ -53,7 +53,7 @@ idx_tail = (idx_head + count - 1) % size
 ```
 
 The insert index of the new item is the one after the tail pointer, we can use the
-equation `idx_tail = (idx_head + count) % size`. Note that
+equation `idx_insert = (idx_head + count) % size`. Note that
 we increase from `count - 1` to `count`.
 
 ```mermaid
@@ -129,7 +129,7 @@ block-beta
                 return -1
 
             # (2)
-            idx_tail = (self.idx_head + self.count - 1)
+            idx_tail = (self.idx_head + self.count - 1) % self.size
             return self.array[idx_tail]
 
         def isEmpty(self) -> bool:
