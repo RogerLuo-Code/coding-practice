@@ -304,6 +304,7 @@ nav:
       - 1642 Furthest building you can reach: lc-solutions/lc1600-1699/lc1642-furthest-building-you-can-reach.md
     - LC 1700 to 1799:
       - 1721 Swapping nodes in a linked list: lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list.md
+      - 1770 Maximum score from performing multiplication operations: lc-solutions/lc1700-1799/lc1770-maximum-score-from-performing-multiplication-operations.md
     - LC 1800 to 1899:
       - 1802 Maximum value at a given index in a bounded array: lc-solutions/lc1800-1899/lc1802-maximum-value-at-a-given-index-in-a-bounded-array.md
       - 1870 Minimum speed to arrive on time: lc-solutions/lc1800-1899/lc1870-minimum-speed-to-arrive-on-time.md
