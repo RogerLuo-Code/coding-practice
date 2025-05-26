@@ -32,7 +32,7 @@ Return _the **maximum** score after performing_ `m` _operations._
 
 ## Solution
 
-### Approach 1: Dynamic Programming
+### Approach 1: Dynamic Programming (Top-Down with Memoization)
 
 The problem can be solved using dynamic programming.
 
@@ -91,6 +91,77 @@ the right pointer can be calculated as `len(nums) - 1 - (op - left)`.
     - The memoization dictionary stores up to $O(m^2)$ results.
     - The recursion call stack can go up to $O(m)$ deep, calling all operations.
     - So the total space complexity is $O(m^2) + O(m) = O(m^2)$.
+
+### Approach 2: Dynamic Programming (Bottom-Up)
+
+The problem can also be solved using dynamic programming in a bottom-up manner. We can use a 2D array `dp` where `dp[op][left]` represents the maximum score after performing
+`op` operations with the left pointer at `left`. The right pointer can be inferred as
+`right = len(nums) - 1 - (op - left)`.
+We can fill the `dp` array in reverse order, starting from the last operation and
+working our way to the first operation.
+
+=== "python"
+    ```python
+    class Solution:
+        def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+            n_ops = len(multipliers)
+            n_num = len(nums)
+
+            dp = [[0] * (n_ops + 1) for _ in range(n_ops + 1)]
+
+            for op in range(n_ops - 1, -1, -1):
+                for left in range(op, -1, -1):
+                    right = n_num - 1 - (op - left)
+                    dp[op][left] = max(
+                        multipliers[op] * nums[left] + dp[op + 1][left + 1],
+                        multipliers[op] * nums[right] + dp[op + 1][left],
+                    )
+
+            return dp[0][0]
+    ```
+
+With **space optimization**, we can reduce the space complexity by changing the 2D DP
+array to 2 1D DP array to only 1 1D DP array.
+
+```mermaid
+flowchart LR
+    A(2D DP Array) --> B[Two 1D DP Arrays] --> C[Single 1D DP Array]
+```
+
+The space complexity can be reduced to $O(m)$ by using a single array `dp` of size
+`n_ops + 1` to store the maximum scores for each operation. The `dp` array is updated in
+reverse order to ensure that the values from the previous operation are used correctly
+in the current operation.
+
+=== "python"
+    ```python
+    class Solution:
+        def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+            n_ops = len(multipliers)
+            n_num = len(nums)
+
+            dp = [0] * (n_ops + 1)
+
+            for op in range(n_ops - 1, -1, -1):
+                for left in range(0, op + 1, 1):
+                    right = n_num - 1 - (op - left)
+                    dp[left] = max(
+                        multipliers[op] * nums[left] + dp[left + 1],
+                        multipliers[op] * nums[right] + dp[left],
+                    )
+
+            return dp[0]
+    ```
+
+#### Complexity Analysis of Approach 2
+
+- Time complexity: $O(m^2)$  
+    - The outer loop iterates `m` times (for each operation).
+    - The inner loop iterates up to `m` times (for each possible left index).
+    - Each iteration takes $O(1)$ time to compute the maximum score.
+    - So the total time complexity is $O(m^2)$.
+- Space complexity: $O(m)$  
+  The optimized `dp` array is of size `m + 1`, so the space complexity is $O(m)$.
 
 ### Approach 3: Tree Traversal
 
@@ -161,7 +232,12 @@ approaches:
 
 Approach   | Time Complexity | Space Complexity
 -----------|-----------------|-----------------
-Approach 1 - Dynamic Programming | $O(m^2)$          | $O(m^2)$
+Approach 1 - Dynamic Programming (Top-Down) | $O(m^2)$          | $O(m^2)$
+Approach 2 - Dynamic Programming (Bottom-Up) | $O(m^2)$          | $O(m)$
 Approach 3 - Tree Traversal | $O(2^m)$          | $O(2^m)$
 
 ## Test
+
+- Test normal cases
+- Test edge cases like empty `nums` or `multipliers`
+- Test cases where `n` is equal to `m`
