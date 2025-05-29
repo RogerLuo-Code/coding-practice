@@ -35,7 +35,6 @@ for every given state.
 equation that relates different states with each other.
 - **Base cases**, so that our recurrence relation doesn't go on infinitely.
 
-
 There are two ways to implement dynamic programming:
 
 - Bottom-up, also known as tabulation.

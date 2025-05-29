@@ -94,7 +94,8 @@ the right pointer can be calculated as `len(nums) - 1 - (op - left)`.
 
 ### Approach 2: Dynamic Programming (Bottom-Up)
 
-The problem can also be solved using dynamic programming in a bottom-up manner. We can use a 2D array `dp` where `dp[op][left]` represents the maximum score after performing
+The problem can also be solved using dynamic programming in a bottom-up manner. We can
+use a 2D array `dp` where `dp[op][left]` represents the maximum score after performing
 `op` operations with the left pointer at `left`. The right pointer can be inferred as
 `right = len(nums) - 1 - (op - left)`.
 We can fill the `dp` array in reverse order, starting from the last operation and
