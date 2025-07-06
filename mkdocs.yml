@@ -293,6 +293,7 @@ nav:
       - 1235 Maximum profit in job scheduling: lc-solutions/lc1200-1299/lc1235-maximum-profit-in-job-scheduling.md
       - 1283 Find the smallest divisor given a threshold: lc-solutions/lc1200-1299/lc1283-find-the-smallest-divisor-given-a-threshold.md
     - LC 1300 to 1399:
+      - 1335 Minimum difficulty of a job schedule: lc-solutions/lc1300-1399/lc1335-minimum-difficulty-of-a-job-schedule.md
       - 1337 The k weakest rows in a matrix: lc-solutions/lc1300-1399/lc1337-the-k-weakest-rows-in-a-matrix.md
       - 1351 Count negative numbers in a sorted matrix: lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix.md
     - LC 1400 to 1499:
