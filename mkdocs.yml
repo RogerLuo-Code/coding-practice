@@ -162,6 +162,7 @@ nav:
       - 117 Populating next right pointers in each node ii: lc-solutions/lc0100-0199/lc0117-populating-next-right-pointers-in-each-node-ii.md
       - 118 Pascal's triangle: lc-solutions/lc0100-0199/lc0118-pascals-triangle.md
       - 119 Pascal's triangle ii: lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii.md
+      - 139 Word break: lc-solutions/lc0100-0199/lc0139-word-break.md
       - 133 Clone graph: lc-solutions/lc0100-0199/lc0133-clone-graph.md
       - 141 Linked list cycle: lc-solutions/lc0100-0199/lc0141-linked-list-cycle.md
       - 142 Linked list cycle ii: lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii.md
