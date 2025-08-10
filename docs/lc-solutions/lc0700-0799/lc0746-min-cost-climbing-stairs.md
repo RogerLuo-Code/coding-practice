@@ -52,10 +52,6 @@ We can use iterative method to implement dynamic programming solution.
     ```python
     class Solution:
         def minCostClimbingStairs(self, cost: List[int]) -> int:
-            n = len(cost)
-            if n < 2:
-                return 0
-
             min_prev1 = 0
             min_prev2 = 0
 
@@ -86,17 +82,17 @@ in a memo dictionary.
     class Solution:
         def minCostClimbingStairs(self, cost: List[int]) -> int:
             self.memo = {}
-            return self.min_cost(cost, len(cost))
+            return self._min_cost(cost, len(cost))
 
-        def min_cost(self, cost: List[int], idx: int) -> int:
+        def _min_cost(self, cost: List[int], idx: int) -> int:
             if idx < 2:
                 return 0
 
             if idx in self.memo:
                 return self.memo[idx]
 
-            min_prev1 = self.min_cost(cost, idx - 1)
-            min_prev2 = self.min_cost(cost, idx - 2)
+            min_prev1 = self._min_cost(cost, idx - 1)
+            min_prev2 = self._min_cost(cost, idx - 2)
             min_curr = min(min_prev1 + cost[idx - 1], min_prev2 + cost[idx - 2])
             self.memo[idx] = min_curr
 

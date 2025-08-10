@@ -138,6 +138,8 @@ The problem can also be solved using the quick sort algorithm. Yet, the solution
 at the test case where a very large number of same elements are present, leading to
 Time Limit Exceeded (TLE).
 
+May be use quick sort with 3 way partitioning to avoid TLE?
+
 === "python"
     ```python
     class Solution:

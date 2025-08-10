@@ -82,7 +82,7 @@ to store parent relationships.
             stack = [root]  # stack for traversal
             parent = {root: None}  # node -> parent
 
-            # Use DFS to build parent dictionary until both nodes are found
+            # Use DFS to build parent dictionary until both nodes' parents are found
             while p not in parent or q not in parent:
                 node = stack.pop()
                 if node.left:
@@ -94,16 +94,18 @@ to store parent relationships.
 
             # Ancestors of node p (remove duplicates)
             ancestors = set()
-            while p:
-                ancestors.add(p)
-                p = parent[p]  # Move up to the parent
+            curr = p
+            while curr:
+                ancestors.add(curr)
+                curr = parent[curr]  # Move up to the parent
 
             # Find the first ancestor of q that appears in the p's ancestors,
             # which is the lowest common ancestor.
-            while q not in ancestors:
-                q = parent[q]
+            curr = q
+            while curr not in ancestors:
+                curr = parent[curr]
 
-            return q
+            return curr
     ```
 
 #### Complexity Analysis of Approach 2
