@@ -1,0 +1,3582 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Tag - Coding Practice</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tags" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Coding Practice" class="md-header__button md-logo" aria-label="Coding Practice" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Coding Practice
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tag
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../abstract-data-type/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Abstract Data Type
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../data-structure/queue/queue/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Data Structure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../algorithms/complexity-analysis/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Algorithms
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lc-solutions/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  LC Solutions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tag
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Coding Practice" class="md-nav__button md-logo" aria-label="Coding Practice" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Coding Practice
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../abstract-data-type/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Abstract Data Type
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../data-structure/queue/queue/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Data Structure
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../algorithms/complexity-analysis/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../lc-solutions/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    LC Solutions
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tag
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tag
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tag:abstract-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract Data Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtracking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:binary-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:binary-search-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:binary-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:bit-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bit Manipulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:breadth-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breadth-First Search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:count" class="md-nav__link">
+    <span class="md-ellipsis">
+      Count
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:depth-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depth-First Search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:dequeue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dequeue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:divide-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Divide and Conquer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:doubly-linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doubly-Linked List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Programming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:hash-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:line-sweep" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Sweep
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linked List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:math" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:minimum-spanning-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Spanning Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:monotonic-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monotonic Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:prefix-sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix Sum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Queue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:quickselect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quickselect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:recursion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shortest Path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:sliding-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sliding Window
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:slowfast-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slow/Fast Pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sorting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:string" class="md-nav__link">
+    <span class="md-ellipsis">
+      String
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:topological-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topological Sort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:two-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:union-find" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union Find
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:test" class="md-nav__link">
+    <span class="md-ellipsis">
+      test
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tag:abstract-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract Data Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtracking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:binary-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:binary-search-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:binary-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:bit-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bit Manipulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:breadth-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breadth-First Search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:count" class="md-nav__link">
+    <span class="md-ellipsis">
+      Count
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:depth-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depth-First Search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:dequeue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dequeue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:divide-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Divide and Conquer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:doubly-linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doubly-Linked List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Programming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:hash-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:line-sweep" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Sweep
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:linked-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linked List
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:math" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:minimum-spanning-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Spanning Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:monotonic-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monotonic Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:prefix-sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix Sum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Queue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:quickselect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quickselect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:recursion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shortest Path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:sliding-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sliding Window
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:slowfast-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slow/Fast Pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sorting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:string" class="md-nav__link">
+    <span class="md-ellipsis">
+      String
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:topological-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Topological Sort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:two-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:union-find" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union Find
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag:test" class="md-nav__link">
+    <span class="md-ellipsis">
+      test
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h1>
+<p>Here is a list of tags used in this site:</p>
+
+
+  <h2 id="tag:abstract-data-type">
+
+
+<span class="md-tag">Abstract Data Type</span><a class="headerlink" href="#tag:abstract-data-type" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../abstract-data-type/priority-queue/">
+          Priority Queue
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:array">
+
+
+<span class="md-tag">Array</span><a class="headerlink" href="#tag:array" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0001-two-sum/">
+          1 Two sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii/">
+          1004 Max consecutive ones iii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii/">
+          119 Pascal's triangle ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0015-3sum/">
+          15 3sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0018-4sum/">
+          18 4sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0189-rotate-array/">
+          189 Rotate array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum/">
+          209 Minimum size subarray sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array/">
+          26 Remove duplicates from sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0027-remove-element/">
+          27 Remove element
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k/">
+          325 Maximum size subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array/">
+          448 Find all numbers disappeared in an array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0485-max-consecutive-ones/">
+          485 Max consecutive ones
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii/">
+          487 Max consecutive ones ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k/">
+          560 Subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k/">
+          713 Subarray product less than k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0075-sort-colors/">
+          75 Sort colors
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii/">
+          80 Remove duplicates from sorted array ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k/">
+          862 Shortest subarray with sum at least k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0088-merge-sorted-array/">
+          88 Merge sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0896-monotonic-array/">
+          896 Monotonic array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0904-fruit-into-baskets/">
+          904 Fruit into baskets
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k/">
+          974 Subarray sums divisible by k
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:backtracking">
+
+
+<span class="md-tag">Backtracking</span><a class="headerlink" href="#tag:backtracking" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0017-letter-combinations-of-a-phone-number/">
+          17 Letter combinations of a phone number
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0022-generate-parentheses/">
+          22 Generate parentheses
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0037-sudoku-solver/">
+          37 Sudoku solver
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0046-permutations/">
+          46 Permutations
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0489-robot-room-cleaner/">
+          489 Robot room cleaner
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0051-n-queens/">
+          51 N-Queens
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0052-n-queens-ii/">
+          52 N-Queens ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0077-combinations/">
+          77 Combinations
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:binary-search">
+
+
+<span class="md-tag">Binary Search</span><a class="headerlink" href="#tag:binary-search" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1011-capacity-to-ship-packages-within-d-days/">
+          1011 Capacity to ship packages within D days
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k/">
+          1099 Two sum less than k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1146-snapshot-array/">
+          1146 Snapshot array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1231-divide-chocolate/">
+          1231 Divide chocolate
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1235-maximum-profit-in-job-scheduling/">
+          1235 Maximum profit in job scheduling
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1283-find-the-smallest-divisor-given-a-threshold/">
+          1283 Find the smallest divisor given a threshold
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix/">
+          1351 Count negative numbers in a sorted matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0153-find-minimum-in-rotated-sorted-array/">
+          153 Find minimum in rotated sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1500-1599/lc1533-find-the-index-of-the-large-integer/">
+          1533 Find the index of the large integer
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1500-1599/lc1539-kth-missing-positive-number/">
+          1539 Kth missing positive number
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0154-find-minimum-in-rotated-sorted-array-ii/">
+          154 Find minimum in rotated sorted array ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1600-1699/lc1631-path-with-minimum-effort/">
+          1631 Path with minimum effort
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1800-1899/lc1802-maximum-value-at-a-given-index-in-a-bounded-array/">
+          1802 Maximum value at a given index in a bounded array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1800-1899/lc1870-minimum-speed-to-arrive-on-time/">
+          1870 Minimum speed to arrive on time
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc2000-2099/lc2300-successful-pairs-of-spells-and-portions/">
+          2300 Successful pairs of spells and portions
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii/">
+          240 Search a 2D matrix ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0275-h-index-ii/">
+          275 H-index ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0278-first-bad-version/">
+          278 First bad version
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0300-longest-increasing-subsequence/">
+          300 Longest increasing subsequence
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0033-search-in-rotated-sorted-array/">
+          33 Search in rotated sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0034-find-first-and-last-position-of-element-in-sorted-array/">
+          34 Find first and last position of element in sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0035-search-insert-position/">
+          35 Search insert position
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes/">
+          354 Russian doll envelopes
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0367-valid-perfect-square/">
+          367 Valid perfect square
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0374-guess-number-higher-or-lower/">
+          374 Guess number higher or lower
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix/">
+          378 Kth smallest element in a sorted matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0004-median-of-two-sorted-arrays/">
+          4 Median of two sorted arrays
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0410-split-array-largest-sum/">
+          410 Split array largest sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0436-find-right-interval/">
+          436 Find right interval
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0441-arranging-coins/">
+          441 Arranging coins
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0528-random-pick-with-weight/">
+          528 Random pick with weight
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array/">
+          540 Single element in a sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0600-0699/lc0658-find-k-closest-elements/">
+          658 Find k closest elements
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0069-sqrt-x/">
+          69 Sqrt(x)
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0702-search-in-a-sorted-array-of-unknown-size/">
+          702 Search in a sorted array of unknown size
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0704-binary-search/">
+          704 Binary search
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0074-search-a-2d-matrix/">
+          74 Search a 2D matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0744-find-smallest-letter-greater-than-target/">
+          744 Find smallest letter greater than target
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0081-search-in-rotated-sorted-array-ii/">
+          81 Search in rotated sorted array ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0852-peak-index-in-a-mountain-array/">
+          852 Peak index in a mountain array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0875-koko-eating-bananas/">
+          875 Koko eating bananas
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0981-time-based-key-value-store/">
+          981 Time Based Key-Value Store
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:binary-search-tree">
+
+
+<span class="md-tag">Binary Search Tree</span><a class="headerlink" href="#tag:binary-search-tree" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0426-convert-binary-search-tree-to-sorted-doubly-linked-list/">
+          426 Convert binary search tree to sorted doubly linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0700-search-in-a-binary-search-tree/">
+          700 Search in a binary search tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0095-unique-binary-search-trees-ii/">
+          95 Unique binary search trees ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0096-unique-binary-search-trees/">
+          96 Unique binary search trees
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0098-validate-binary-search-tree/">
+          98 Validate binary search tree
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:binary-tree">
+
+
+<span class="md-tag">Binary Tree</span><a class="headerlink" href="#tag:binary-tree" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0100-same-tree/">
+          100 Same tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0101-symmetric-tree/">
+          101 Symmetric tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0102-binary-tree-level-order-traversal/">
+          102 Binary tree level order traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0104-maximum-depth-of-binary-tree/">
+          104 Maximum depth of binary tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0105-construct-binary-tree-from-preorder-and-inorder-traversal/">
+          105 Construct binary tree from preorder and inorder traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0106-construct-binary-tree-from-inorder-and-postorder-traversal/">
+          106 Construct binary tree from inorder and postorder traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0112-path-sum/">
+          112 Path sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0116-populating-next-right-pointers-in-each-node/">
+          116 Populating next right pointers in each node
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0117-populating-next-right-pointers-in-each-node-ii/">
+          117 Populating next right pointers in each node ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0144-binary-tree-preorder-traversal/">
+          144 Binary tree preorder traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0145-binary-tree-postorder-traversal/">
+          145 Binary tree postorder traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0236-lowest-common-ancestor-of-a-binary-tree/">
+          236 Lowest common ancestor of a binary tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0250-count-univalue-subtrees/">
+          250 Count univalue subtrees
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0297-serialize-and-deserialize-binary-tree/">
+          297 Serialize and deserialize binary tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0779-k-th-symbol-in-grammar/">
+          779 k-th Symbol in grammar
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0094-binary-tree-inorder-traversal/">
+          94 Binary tree inorder traversal
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:bit-manipulation">
+
+
+<span class="md-tag">Bit Manipulation</span><a class="headerlink" href="#tag:bit-manipulation" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0779-k-th-symbol-in-grammar/">
+          779 k-th Symbol in grammar
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:breadth-first-search">
+
+
+<span class="md-tag">Breadth-First Search</span><a class="headerlink" href="#tag:breadth-first-search" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1091-shortest-path-in-binary-matrix/">
+          1091 Shortest path in binary matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1129-shortest-path-with-alternating-colors/">
+          1129 Shortest path with alternating colors
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0116-populating-next-right-pointers-in-each-node/">
+          116 Populating next right pointers in each node
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0117-populating-next-right-pointers-in-each-node-ii/">
+          117 Populating next right pointers in each node ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1202-smallest-string-with-swaps/">
+          1202 Smallest string with swaps
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0133-clone-graph/">
+          133 Clone graph
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0139-word-break/">
+          139 Word break
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1600-1699/lc1631-path-with-minimum-effort/">
+          1631 Path with minimum effort
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1900-1999/lc1971-find-if-path-exists-in-graph/">
+          1971 Find if Path Exists in Graph
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0200-number-of-islands/">
+          200 Number of islands
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0261-graph-valid-tree/">
+          261 Graph valid tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0279-perfect-squares/">
+          279 Perfect square
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0286-walls-and-gates/">
+          286 Walls and gates
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0399-evaluate-division/">
+          399 Evaluate divisions
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0429-n-ary-tree-level-order-traversal/">
+          429 N-ary tree level order traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0494-target-sum/">
+          494 Target sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0542-01-matrix/">
+          542 01 matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0547-number-of-provinces/">
+          547 Number of provinces
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0733-flood-fill/">
+          733 Flood fill
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0752-open-the-lock/">
+          752 Open the lock
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0841-keys-and-rooms/">
+          841 Keys and rooms
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0994-rotting-oranges/">
+          994 Rotting oranges
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc-template/">
+          LCxxx. Title
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:count">
+
+
+<span class="md-tag">Count</span><a class="headerlink" href="#tag:count" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0600-0699/lc0611-valid-triangle-number/">
+          611 Valid triangle number
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:data-structure">
+
+
+<span class="md-tag">Data Structure</span><a class="headerlink" href="#tag:data-structure" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../data-structure/heap/">
+          Heap
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:depth-first-search">
+
+
+<span class="md-tag">Depth-First Search</span><a class="headerlink" href="#tag:depth-first-search" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1059-all-paths-from-source-lead-to-destination/">
+          1059 All paths from source lead to destination
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1202-smallest-string-with-swaps/">
+          1202 Smallest string with swaps
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0133-clone-graph/">
+          133 Clone graph
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1900-1999/lc1971-find-if-path-exists-in-graph/">
+          1971 Find if Path Exists in Graph
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0200-number-of-islands/">
+          200 Number of islands
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0261-graph-valid-tree/">
+          261 Graph valid tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0399-evaluate-division/">
+          399 Evaluate divisions
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0547-number-of-provinces/">
+          547 Number of provinces
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0733-flood-fill/">
+          733 Flood fill
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0797-all-paths-from-source-to-target/">
+          797 All paths from source to target
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0802-find-eventual-safe-states/">
+          802 Find eventual safe states
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:dequeue">
+
+
+<span class="md-tag">Dequeue</span><a class="headerlink" href="#tag:dequeue" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k/">
+          862 Shortest subarray with sum at least k
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:divide-and-conquer">
+
+
+<span class="md-tag">Divide and Conquer</span><a class="headerlink" href="#tag:divide-and-conquer" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0105-construct-binary-tree-from-preorder-and-inorder-traversal/">
+          105 Construct binary tree from preorder and inorder traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0106-construct-binary-tree-from-inorder-and-postorder-traversal/">
+          106 Construct binary tree from inorder and postorder traversal
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0218-the-skyline-problem/">
+          218 The skyline problem
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii/">
+          240 Search a 2D matrix ii
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:doubly-linked-list">
+
+
+<span class="md-tag">Doubly-Linked List</span><a class="headerlink" href="#tag:doubly-linked-list" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0426-convert-binary-search-tree-to-sorted-doubly-linked-list/">
+          426 Convert binary search tree to sorted doubly linked list
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:dynamic-programming">
+
+
+<span class="md-tag">Dynamic Programming</span><a class="headerlink" href="#tag:dynamic-programming" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1137-n-th-tribonacci-number/">
+          1137 N-th Tribonacci number
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0118-pascals-triangle/">
+          118 Pascal's triangle
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii/">
+          119 Pascal's triangle ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1235-maximum-profit-in-job-scheduling/">
+          1235 Maximum profit in job scheduling
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1300-1399/lc1335-minimum-difficulty-of-a-job-schedule/">
+          1335 Minimum difficulty of a job schedule
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0139-word-break/">
+          139 Word break
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1700-1799/lc1770-maximum-score-from-performing-multiplication-operations/">
+          1770 Maximum score from performing multiplication operations
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0198-house-robber/">
+          198 House robber
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0221-maximal-square/">
+          221 Maximal square
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0276-paint-fence/">
+          276 Paint fence
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0300-longest-increasing-subsequence/">
+          300 Longest increasing subsequence
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0509-fibonacci-number/">
+          509 Fibonacci number
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0518-coin-change-ii/">
+          518 Coin change ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0542-01-matrix/">
+          542 01 matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0070-climbing-stairs/">
+          70 Climbing stairs
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0740-delete-and-earn/">
+          740 Delete and earn
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0746-min-cost-climbing-stairs/">
+          746 Min cost climbing stairs
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0091-decode-ways/">
+          91 Decode ways
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0095-unique-binary-search-trees-ii/">
+          95 Unique binary search trees ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0096-unique-binary-search-trees/">
+          96 Unique binary search trees
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:graph">
+
+
+<span class="md-tag">Graph</span><a class="headerlink" href="#tag:graph" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0261-graph-valid-tree/">
+          261 Graph valid tree
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:hash-table">
+
+
+<span class="md-tag">Hash Table</span><a class="headerlink" href="#tag:hash-table" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0001-two-sum/">
+          1 Two sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k/">
+          325 Maximum size subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0448-find-all-numbers-disappeared-in-an-array/">
+          448 Find all numbers disappeared in an array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k/">
+          560 Subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0904-fruit-into-baskets/">
+          904 Fruit into baskets
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k/">
+          974 Subarray sums divisible by k
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:heap">
+
+
+<span class="md-tag">Heap</span><a class="headerlink" href="#tag:heap" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1046-last-stone-weight/">
+          1046 Last stone weight
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1167-minimum-cost-to-connect-sticks/">
+          1167 Minimum cost to connect sticks
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1300-1399/lc1337-the-k-weakest-rows-in-a-matrix/">
+          1337 The k weakest rows in a matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1600-1699/lc1642-furthest-building-you-can-reach/">
+          1642 Furthest building you can reach
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0215-kth-largest-element-in-an-array/">
+          215 Kth largest element in an array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0218-the-skyline-problem/">
+          218 The skyline problem
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0253-meeting-rooms-ii/">
+          253 Meeting rooms ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0295-find-median-from-data-stream/">
+          295 Find median from data stream
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0347-top-k-frequent-elements/">
+          347 Top k frequent elements
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0378-kth-smallest-element-in-a-sorted-matrix/">
+          378 Kth smallest element in a sorted matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0703-kth-largest-element-in-a-stream/">
+          703 Kth largest element in a stream
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0973-k-closest-points-to-origin/">
+          973 K closest points to origin
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:line-sweep">
+
+
+<span class="md-tag">Line Sweep</span><a class="headerlink" href="#tag:line-sweep" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0218-the-skyline-problem/">
+          218 The skyline problem
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:linked-list">
+
+
+<span class="md-tag">Linked List</span><a class="headerlink" href="#tag:linked-list" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0141-linked-list-cycle/">
+          141 Linked list cycle
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii/">
+          142 Linked list cycle ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0143-reorder-list/">
+          143 Reorder list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1700-1799/lc1721-swapping-nodes-in-a-linked-list/">
+          1721 Swapping nodes in a linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0002-add-two-numbers/">
+          2 Add two numbers
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0203-remove-linked-list-elements/">
+          203 Remove linked list elements
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0206-reverse-linked-list/">
+          206 Reverse linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list/">
+          2095 Delete the middle node of a linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0021-merge-two-sorted-lists/">
+          21 Merge two sorted list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0023-merge-k-sorted-lists/">
+          23 Merge k sorted list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0234-palindrome-linked-list/">
+          234 Palindrome linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0237-delete-node-in-a-linked-list/">
+          237 Delete node in a linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0024-swap-nodes-in-pairs/">
+          24 Swap nodes in pairs
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0445-add-two-numbers-ii/">
+          445 Add two numbers ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0876-middle-of-the-linked-list/">
+          876 Middle of the linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii/">
+          92 Reverse linked list ii
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:math">
+
+
+<span class="md-tag">Math</span><a class="headerlink" href="#tag:math" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0119-pascals-triangle-ii/">
+          119 Pascal's triangle ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0050-powx-n/">
+          50 Pow(x, n)
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0509-fibonacci-number/">
+          509 Fibonacci number
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0095-unique-binary-search-trees-ii/">
+          95 Unique binary search trees ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0096-unique-binary-search-trees/">
+          96 Unique binary search trees
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:matrix">
+
+
+<span class="md-tag">Matrix</span><a class="headerlink" href="#tag:matrix" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1300-1399/lc1351-count-negative-numbers-in-a-sorted-matrix/">
+          1351 Count negative numbers in a sorted matrix
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0240-search-a-2d-matrix-ii/">
+          240 Search a 2D matrix ii
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:minimum-spanning-tree">
+
+
+<span class="md-tag">Minimum Spanning Tree</span><a class="headerlink" href="#tag:minimum-spanning-tree" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1168-optimize-water-distribution-in-a-village/">
+          1168 Optimize water distribution in a village
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1500-1599/lc1584-min-cost-to-connect-all-points/">
+          1584 Min cost to connect all points
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:monotonic-stack">
+
+
+<span class="md-tag">Monotonic Stack</span><a class="headerlink" href="#tag:monotonic-stack" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0084-largest-rectangle-in-histogram/">
+          84 Largest rectangle in histogram
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:prefix-sum">
+
+
+<span class="md-tag">Prefix Sum</span><a class="headerlink" href="#tag:prefix-sum" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum/">
+          209 Minimum size subarray sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k/">
+          325 Maximum size subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0528-random-pick-with-weight/">
+          528 Random pick with weight
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k/">
+          560 Subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0862-shortest-subarray-with-sum-at-least-k/">
+          862 Shortest subarray with sum at least k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0974-subarray-sums-divisible-by-k/">
+          974 Subarray sums divisible by k
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:queue">
+
+
+<span class="md-tag">Queue</span><a class="headerlink" href="#tag:queue" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0225-implement-stack-using-queues/">
+          225 Implement stack using queues
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0346-moving-average-from-data-stream/">
+          346 Moving average from data stream
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0600-0699/lc0622-design-circular-queue/">
+          622 Design circular queue
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:quickselect">
+
+
+<span class="md-tag">Quickselect</span><a class="headerlink" href="#tag:quickselect" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0215-kth-largest-element-in-an-array/">
+          215 Kth largest element in an array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0347-top-k-frequent-elements/">
+          347 Top k frequent elements
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0973-k-closest-points-to-origin/">
+          973 K closest points to origin
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:recursion">
+
+
+<span class="md-tag">Recursion</span><a class="headerlink" href="#tag:recursion" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0050-powx-n/">
+          50 Pow(x, n)
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0779-k-th-symbol-in-grammar/">
+          779 k-th Symbol in grammar
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:shortest-path">
+
+
+<span class="md-tag">Shortest Path</span><a class="headerlink" href="#tag:shortest-path" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1600-1699/lc1631-path-with-minimum-effort/">
+          1631 Path with minimum effort
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0743-network-delay-time/">
+          743 Network delay time
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0787-cheapest-flights-within-k-stops/">
+          787 Cheapest flights within k stops
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:sliding-window">
+
+
+<span class="md-tag">Sliding Window</span><a class="headerlink" href="#tag:sliding-window" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1004-max-consecutive-ones-iii/">
+          1004 Max consecutive ones iii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0485-max-consecutive-ones/">
+          485 Max consecutive ones
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii/">
+          487 Max consecutive ones ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k/">
+          713 Subarray product less than k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii/">
+          80 Remove duplicates from sorted array ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0904-fruit-into-baskets/">
+          904 Fruit into baskets
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:slowfast-pointers">
+
+
+<span class="md-tag">Slow/Fast Pointers</span><a class="headerlink" href="#tag:slowfast-pointers" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0141-linked-list-cycle/">
+          141 Linked list cycle
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0142-linked-list-cycle-ii/">
+          142 Linked list cycle ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list/">
+          2095 Delete the middle node of a linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0800-0899/lc0876-middle-of-the-linked-list/">
+          876 Middle of the linked list
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:sorting">
+
+
+<span class="md-tag">Sorting</span><a class="headerlink" href="#tag:sorting" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k/">
+          1099 Two sum less than k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1400-1499/lc1498-number-of-subsequences-that-satisfy-the-given-sum-condition/">
+          1498 Number of subsequences that satisfy the given sum condition
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc2000-2099/lc2300-successful-pairs-of-spells-and-portions/">
+          2300 Successful pairs of spells and portions
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0274-h-index/">
+          274 H-index
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0354-russian-doll-envelopes/">
+          354 Russian doll envelopes
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0600-0699/lc0611-valid-triangle-number/">
+          611 Valid triangle number
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0075-sort-colors/">
+          75 Sort colors
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0900-0999/lc0912-sort-an-array/">
+          912 Sort an array
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:stack">
+
+
+<span class="md-tag">Stack</span><a class="headerlink" href="#tag:stack" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0150-evaluate-reverse-polish-notation/">
+          150 Evaluate reverse polish notation
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0100-0199/lc0155-min-stack/">
+          155 Min stack
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0020-valid-parentheses/">
+          20 Valid parentheses
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0206-reverse-linked-list/">
+          206 Reverse linked list
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0232-implement-queue-using-stacks/">
+          232 Implement queue using stacks
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0394-decode-string/">
+          394 Decode string
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0739-daily-temperatures/">
+          739 Daily temperatures
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii/">
+          92 Reverse linked list ii
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:string">
+
+
+<span class="md-tag">String</span><a class="headerlink" href="#tag:string" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0344-reverse-string/">
+          344 Reverse string
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:topological-sort">
+
+
+<span class="md-tag">Topological Sort</span><a class="headerlink" href="#tag:topological-sort" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1136-parallel-courses/">
+          1136 Parallel courses
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0207-course-schedule/">
+          207 Course schedule
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0210-course-schedule-ii/">
+          210 Course schedule ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0269-alien-dictionary/">
+          269 Alien dictionary
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0310-minimum-height-trees/">
+          310 Minimum height trees
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:two-pointers">
+
+
+<span class="md-tag">Two Pointers</span><a class="headerlink" href="#tag:two-pointers" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1000-1099/lc1099-two-sum-less-than-k/">
+          1099 Two sum less than k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1400-1499/lc1498-number-of-subsequences-that-satisfy-the-given-sum-condition/">
+          1498 Number of subsequences that satisfy the given sum condition
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0015-3sum/">
+          15 3sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0018-4sum/">
+          18 4sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0209-minimum-size-subarray-sum/">
+          209 Minimum size subarray sum
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0026-remove-duplicates-from-sorted-array/">
+          26 Remove duplicates from sorted array
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0027-remove-element/">
+          27 Remove element
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0325-maximum-size-subarray-sum-equals-k/">
+          325 Maximum size subarray sum equals k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0344-reverse-string/">
+          344 Reverse string
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0485-max-consecutive-ones/">
+          485 Max consecutive ones
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0400-0499/lc0487-max-consecutive-ones-ii/">
+          487 Max consecutive ones ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0700-0799/lc0713-subarray-product-less-than-k/">
+          713 Subarray product less than k
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0075-sort-colors/">
+          75 Sort colors
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0080-remove-duplicates-from-sorted-array-ii/">
+          80 Remove duplicates from sorted array ii
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0001-0099/lc0088-merge-sorted-array/">
+          88 Merge sorted array
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:union-find">
+
+
+<span class="md-tag">Union Find</span><a class="headerlink" href="#tag:union-find" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1101-the-earliest-moment-when-everyone-become-friends/">
+          1101 The earliest moment when everyone become friends
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1100-1199/lc1168-optimize-water-distribution-in-a-village/">
+          1168 Optimize water distribution in a village
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1200-1299/lc1202-smallest-string-with-swaps/">
+          1202 Smallest string with swaps
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1500-1599/lc1584-min-cost-to-connect-all-points/">
+          1584 Min cost to connect all points
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc1900-1999/lc1971-find-if-path-exists-in-graph/">
+          1971 Find if Path Exists in Graph
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0200-0299/lc0261-graph-valid-tree/">
+          261 Graph valid tree
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0323-number-of-connected-components-in-an-undirected-graph/">
+          323 Number of connected components in an undirected graph
+        </a>
+      </li>
+    
+      <li>
+        <a href="../lc-solutions/lc0300-0399/lc0399-evaluate-division/">
+          399 Evaluate divisions
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+  <h2 id="tag:test">
+
+
+<span class="md-tag">test</span><a class="headerlink" href="#tag:test" title="Permanent link">&para;</a></h2>
+  <ul>
+    
+      <li>
+        <a href="..">
+          Home
+        </a>
+      </li>
+    
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lc-solutions/lc2000-2099/lc2095-delete-the-middle-node-of-a-linked-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2095 Delete the middle node of a linked list">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2095 Delete the middle node of a linked list
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.instant", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "search.suggest", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
