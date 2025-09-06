@@ -145,6 +145,7 @@ nav:
       - 81 Search in rotated sorted array ii: lc-solutions/lc0001-0099/lc0081-search-in-rotated-sorted-array-ii.md
       - 84 Largest rectangle in histogram: lc-solutions/lc0001-0099/lc0084-largest-rectangle-in-histogram.md
       - 88 Merge sorted array: lc-solutions/lc0001-0099/lc0088-merge-sorted-array.md
+      - 91 Decode ways: lc-solutions/lc0001-0099/lc0091-decode-ways.md
       - 92 Reverse linked list ii: lc-solutions/lc0001-0099/lc0092-reverse-linked-list-ii.md
       - 94 Binary tree inorder traversal: lc-solutions/lc0001-0099/lc0094-binary-tree-inorder-traversal.md
       - 95 Unique binary search trees ii: lc-solutions/lc0001-0099/lc0095-unique-binary-search-trees-ii.md
@@ -232,11 +233,12 @@ nav:
       - 494 Target sum: lc-solutions/lc0400-0499/lc0494-target-sum.md
     - LC 500 to 599:
       - 509 Fibonacci number: lc-solutions/lc0500-0599/lc0509-fibonacci-number.md
+      - 518 Coin change ii: lc-solutions/lc0500-0599/lc0518-coin-change-ii.md
       - 528 Random pick with weight: lc-solutions/lc0500-0599/lc0528-random-pick-with-weight.md
       - 540 Single element in a sorted array: lc-solutions/lc0500-0599/lc0540-single-element-in-a-sorted-array.md
       - 542 01 matrix: lc-solutions/lc0500-0599/lc0542-01-matrix.md
       - 547 Number of provinces: lc-solutions/lc0500-0599/lc0547-number-of-provinces.md
-      - 560 Subarray sum equals K: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
+      - 560 Subarray sum equals k: lc-solutions/lc0500-0599/lc0560-subarray-sum-equals-k.md
     - LC 600 to 699:
       - 611 Valid triangle number: lc-solutions/lc0600-0699/lc0611-valid-triangle-number.md
       - 622 Design circular queue: lc-solutions/lc0600-0699/lc0622-design-circular-queue.md
